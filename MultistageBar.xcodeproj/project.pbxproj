@@ -15,8 +15,8 @@
 		170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170566212452B09000A7AF4B /* LaunchScreen.storyboard */; };
 		1705662E2452B09000A7AF4B /* MultistageBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705662D2452B09000A7AF4B /* MultistageBarTests.swift */; };
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
-		172121182455265C00F7695D /* DDLSegmentTableContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* DDLSegmentTableContent.swift */; };
-		17412EDB245687F4003C239D /* DDLListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLListTableViewController.swift */; };
+		172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* DDLFirstTableContentVC.swift */; };
+		17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
@@ -63,8 +63,8 @@
 		170566342452B09000A7AF4B /* MultistageBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultistageBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566382452B09000A7AF4B /* MultistageBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistageBarUITests.swift; sourceTree = "<group>"; };
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		172121172455265C00F7695D /* DDLSegmentTableContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentTableContent.swift; sourceTree = "<group>"; };
-		17412EDA245687F4003C239D /* DDLListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLListTableViewController.swift; sourceTree = "<group>"; };
+		172121172455265C00F7695D /* DDLFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLFirstTableContentVC.swift; sourceTree = "<group>"; };
+		17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSecondTableContentVC.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
@@ -127,14 +127,15 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				1794035A24C6D814000D2776 /* SegmentTest */,
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
 				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
 				1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */,
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
-				172121172455265C00F7695D /* DDLSegmentTableContent.swift */,
-				17412EDA245687F4003C239D /* DDLListTableViewController.swift */,
+				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
+				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
 				1762E46C247FA5A3009B9612 /* Segment */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
@@ -216,6 +217,13 @@
 				1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */,
 			);
 			path = item;
+			sourceTree = "<group>";
+		};
+		1794035A24C6D814000D2776 /* SegmentTest */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SegmentTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -351,7 +359,7 @@
 			files = (
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
-				172121182455265C00F7695D /* DDLSegmentTableContent.swift in Sources */,
+				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
@@ -365,7 +373,7 @@
 				1762E482247FA5A3009B9612 /* DDLSegmentHeaderProtocol.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,
-				17412EDB245687F4003C239D /* DDLListTableViewController.swift in Sources */,
+				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

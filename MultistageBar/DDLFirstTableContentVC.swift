@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DDLSegmentTableContentVC: UIViewController{
+class DDLFirstTableContentVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -16,10 +16,10 @@ class DDLSegmentTableContentVC: UIViewController{
         super.viewDidLayoutSubviews()
         _ = segment
         segment.datasource = datasource
-        print("DDLSegmentTableContentVC init \(self)")
+        print("DDLFirstTableContentVC init \(self)")
     }
     deinit {
-        print("DDLSegmentTableContentVC deinit \(self)")
+        print("DDLFirstTableContentVC deinit \(self)")
     }
     
     lazy var style: DDLSegmentItemProtocol = {
@@ -61,20 +61,20 @@ class DDLSegmentTableContentVC: UIViewController{
     }()
 }
 
-extension DDLSegmentTableContentVC: DDLSegmentContentItemProtocol{
+extension DDLFirstTableContentVC: DDLSegmentContentItemProtocol{
     func ddl_view() -> UIView {
         return self.view
     }
 }
 
-extension DDLSegmentTableContentVC: DDLSegmentContentDatasource {
+extension DDLFirstTableContentVC: DDLSegmentContentDatasource {
     func ddl_segmentContentNumber() -> Int {
         return datasource.count
     }
     
     func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
         if 0 == index {
-            return DDLListTableViewController.init()
+            return DDLSecondTableContentVC.init()
         }else{
             let vc = DDLView.init()
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)

@@ -90,7 +90,7 @@ extension DDLMultistageViewController: DDLSegmentContentDatasource {
     }
     
     func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
-        let vc = DDLSegmentTableContentVC.init()
+        let vc = DDLFirstTableContentVC.init()
         if 0 == index {
             vc.titles = ["非常大的货车", "自行车", "手机", "afldsjasdjf", "fasdfsadfsadfsadfa", "fsadfasdfasd", "fasdfsadfsadfsadfa", "fsadfasdfasd"]
         }else if 1 == index {

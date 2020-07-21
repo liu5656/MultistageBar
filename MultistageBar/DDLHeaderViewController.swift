@@ -92,7 +92,7 @@ extension DDLHeaderViewController: DDLSegmentContentDatasource {
     func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
         //        无菜单
         if 0 == index {
-            return DDLListTableViewController.init()
+            return DDLSecondTableContentVC.init()
         }else{
             let vc = DDLView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 900))
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)

@@ -1,5 +1,5 @@
 //
-//  DDLListTableViewController.swift
+//  DDLSecondTableContentVC.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DDLListTableViewController: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class DDLListTableViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     deinit {
-        print("DDLListTableViewController deinit")
+        print("DDLSecondTableContentVC deinit")
     }
     
     var datasource: [String] = ["aaaa"]
@@ -56,7 +56,7 @@ class DDLListTableViewController: UIViewController, UITableViewDelegate, UITable
 
 }
 
-extension DDLListTableViewController: DDLSegmentContentItemProtocol {
+extension DDLSecondTableContentVC: DDLSegmentContentItemProtocol {
     func ddl_view() -> UIView {
         return self.tableView
     }
