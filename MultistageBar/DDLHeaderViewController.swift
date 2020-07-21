@@ -1,15 +1,14 @@
 //
-//  ViewController.swift
+//  DDLHeaderViewController.swift
 //  MultistageBar
 //
-//  Created by x on 2020/4/24.
+//  Created by x on 2020/7/21.
 //  Copyright © 2020 x. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class DDLHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -41,7 +40,7 @@ class ViewController: UIViewController {
         datasource = [data1, data2, data3]
         segment.datasource = datasource
     }
-   
+    
     lazy var style: DDLSegmentItemProtocol = {
         let temp = DDLSegmentItemTitle.init()
         temp.normalColor = UIColor.blue
@@ -76,7 +75,7 @@ class ViewController: UIViewController {
         temp.itemHeight = 30                                                                // segment 单项高度 = itemHeight + sectionInset.left + sectionInset.right
         print("+++++ set lineSpacing \(5)")
         temp.lineSpacing = 5
-//        temp.header = header                                                                // 只有一级菜单时,可以使用header,多级菜单不能设置header
+        temp.header = header                                                                // 只有一级菜单时,可以使用header,多级菜单不能设置header
         temp.datasource = datasource                                                        // menu数据源
         temp.indicator = indicator                                                          // 选中的指示器
         temp.contentDatasource = self                                                       // content数据代理
@@ -85,35 +84,19 @@ class ViewController: UIViewController {
     }()
 }
 
-extension ViewController: DDLSegmentContentDatasource {
+extension DDLHeaderViewController: DDLSegmentContentDatasource {
     func ddl_segmentContentNumber() -> Int {
         return datasource.count
     }
     
     func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
-        
-//        还有菜单
-        let vc = DDLSegmentTableContentVC.init()
+        //        无菜单
         if 0 == index {
-            vc.titles = ["非常大的货车", "自行车", "手机", "afldsjasdjf", "fasdfsadfsadfsadfa", "fsadfasdfasd", "fasdfsadfsadfsadfa", "fsadfasdfasd"]
-        }else if 1 == index {
-            vc.titles = ["手机", "笔记本电脑", "airPods"]
-        }else if 2 == index {
-            let vc = DDLView.init()
+            return DDLListTableViewController.init()
+        }else{
+            let vc = DDLView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 900))
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
             return vc
         }
-        vc.view.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
-        return vc
-
-////        无菜单
-//        if 0 == index {
-//            return DDLListTableViewController.init()
-//        }else{
-//            let vc = DDLView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 900))
-//            vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
-//            return vc
-//        }
     }
 }
-

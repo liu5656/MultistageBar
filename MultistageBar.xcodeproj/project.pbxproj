@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566162452B08D00A7AF4B /* AppDelegate.swift */; };
 		170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566182452B08D00A7AF4B /* SceneDelegate.swift */; };
-		1705661B2452B08D00A7AF4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705661A2452B08D00A7AF4B /* ViewController.swift */; };
+		1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */; };
 		1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1705661C2452B08D00A7AF4B /* Main.storyboard */; };
 		170566202452B09000A7AF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1705661F2452B09000A7AF4B /* Assets.xcassets */; };
 		170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170566212452B09000A7AF4B /* LaunchScreen.storyboard */; };
@@ -27,6 +27,8 @@
 		1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */; };
 		1762E482247FA5A3009B9612 /* DDLSegmentHeaderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E479247FA5A3009B9612 /* DDLSegmentHeaderProtocol.swift */; };
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
+		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
+		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +52,7 @@
 		170566132452B08D00A7AF4B /* MultistageBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultistageBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566162452B08D00A7AF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		170566182452B08D00A7AF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1705661A2452B08D00A7AF4B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLMultistageViewController.swift; sourceTree = "<group>"; };
 		1705661D2452B08D00A7AF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1705661F2452B09000A7AF4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		170566222452B09000A7AF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,6 +75,8 @@
 		1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelProtocol.swift; sourceTree = "<group>"; };
 		1762E479247FA5A3009B9612 /* DDLSegmentHeaderProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentHeaderProtocol.swift; sourceTree = "<group>"; };
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
+		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
+		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,7 +130,9 @@
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
-				1705661A2452B08D00A7AF4B /* ViewController.swift */,
+				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
+				1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */,
+				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
 				172121172455265C00F7695D /* DDLSegmentTableContent.swift */,
 				17412EDA245687F4003C239D /* DDLListTableViewController.swift */,
 				1762E46C247FA5A3009B9612 /* Segment */,
@@ -346,13 +352,15 @@
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
 				172121182455265C00F7695D /* DDLSegmentTableContent.swift in Sources */,
-				1705661B2452B08D00A7AF4B /* ViewController.swift in Sources */,
+				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
+				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
 				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
+				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */,
 				1762E482247FA5A3009B9612 /* DDLSegmentHeaderProtocol.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
@@ -531,7 +539,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMUUHTNT4P;
+				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -550,7 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GMUUHTNT4P;
+				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
