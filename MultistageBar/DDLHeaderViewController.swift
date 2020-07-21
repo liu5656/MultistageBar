@@ -13,7 +13,6 @@ class DDLHeaderViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         _ = segment
-        
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
             DispatchQueue.main.async {
                 self.ddl_loadData()

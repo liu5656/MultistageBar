@@ -36,7 +36,7 @@ class DDLSegmentMenuView: UIView {
     }
     
     //MARK: - utils
-    func ddl_maxWidth() -> CGFloat {
+    private func ddl_maxWidth() -> CGFloat {
         var width: CGFloat = 0
         datasource.enumerated().forEach { (model) in
             width += model.element.ddl_size().width
@@ -47,7 +47,7 @@ class DDLSegmentMenuView: UIView {
         return min(maxWidth, width)
     }
     
-    func ddl_page(at index: Int) -> DDLSegmentContentItemProtocol {
+    private func ddl_page(at index: Int) -> DDLSegmentContentItemProtocol {
         if let temp = contentItems[index] {
             return temp
         }else{
@@ -55,7 +55,7 @@ class DDLSegmentMenuView: UIView {
         }
     }
     //判重后再决定是否添加
-    func ddl_willShow(at index: Int, item: DDLSegmentContentItemProtocol) {
+    private func ddl_willShow(at index: Int, item: DDLSegmentContentItemProtocol) {
         guard contentItems[index] == nil else {return}
         contentItems[index] = item
         let content = item.ddl_view()
@@ -82,7 +82,7 @@ class DDLSegmentMenuView: UIView {
             page.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .new, context: nil)
         }
     }
-    func ddl_willShowAgain(at index: Int, item: DDLSegmentContentItemProtocol) {
+    private func ddl_willShowAgain(at index: Int, item: DDLSegmentContentItemProtocol) {
         guard header != nil else {return}
         let content = item.ddl_view()
         guard let temp = (content as? UIScrollView) ?? (content.superview as? UIScrollView),
@@ -216,7 +216,7 @@ class DDLSegmentMenuView: UIView {
         guard from != to, scale != 0 else {return}
         menuCV.ddl_slider(from: Int(from), to: Int(to), scale: scale)
     }
-    func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
+    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
         guard header != nil else {return}
         let delta = originalTopOffset + offset.y
         if delta > 0 {
@@ -268,7 +268,6 @@ extension DDLSegmentMenuView: UICollectionViewDelegateFlowLayout {
         let size = datasource[indexPath.row].ddl_size()
         return CGSize.init(width: size.width, height: itemHeight)
     }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return sectionInset
     }
