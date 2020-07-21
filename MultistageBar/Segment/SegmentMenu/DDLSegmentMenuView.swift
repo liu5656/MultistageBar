@@ -13,7 +13,7 @@ protocol DDLSegmentMenuViewDelegate: class {
 }
 
 class DDLSegmentMenuView: UIView {
-    
+    //MARK: - public
     func ddl_show(in content: UIView, contentFrame: CGRect) {
         if header != nil {
             horizontalScroll.frame = content.bounds
@@ -30,12 +30,22 @@ class DDLSegmentMenuView: UIView {
             content.addSubview(horizontalScroll)
         }
     }
-    
     func ddl_slider(from: Int, to: Int, scale: CGFloat) {
         menuCV.ddl_slider(from: from, to: to, scale: scale)
     }
     
     //MARK: - utils
+    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
+        guard header != nil else {return}
+        let delta = originalTopOffset + offset.y
+        if delta > 0 {
+            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - min(delta, topOffset)), size: originalHeaderFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
+        }else{
+            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - max(delta, 0)), size: originalHeaderFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
+        }
+    }
     private func ddl_maxWidth() -> CGFloat {
         var width: CGFloat = 0
         datasource.enumerated().forEach { (model) in
@@ -46,7 +56,6 @@ class DDLSegmentMenuView: UIView {
         }
         return min(maxWidth, width)
     }
-    
     private func ddl_page(at index: Int) -> DDLSegmentContentItemProtocol {
         if let temp = contentItems[index] {
             return temp
@@ -101,15 +110,12 @@ class DDLSegmentMenuView: UIView {
     // menu
     weak var delegate: DDLSegmentMenuViewDelegate?
     var sectionInset: UIEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
-    ///当内容不能铺满容器时的布局方式
-    var isStretch: Bool = false
     var maxWidth: CGFloat = UIScreen.main.bounds.width
     var lineSpacing: CGFloat = 0
     var itemHeight: CGFloat = 40
     var contentRadius: CGFloat = 0
     var contentColor: UIColor?
     var selectedIndex: Int = 0
-    
     var indicator: DDLSegmentIndicatorProtocol? {
         didSet{
             menuCV.indicator = indicator
@@ -155,8 +161,8 @@ class DDLSegmentMenuView: UIView {
         }
     }
     
-    private let contentOffsetKeyPath = "contentOffset"
     // content
+    private let contentOffsetKeyPath = "contentOffset"
     private var lastContentOffset: CGPoint = .zero
     private var contentItems: [Int: DDLSegmentContentItemProtocol] = [:]
     private lazy var horizontalScroll: UIScrollView = {
@@ -189,17 +195,7 @@ class DDLSegmentMenuView: UIView {
         addSubview(col)
         return col
     }()
-    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
-        guard header != nil else {return}
-        let delta = originalTopOffset + offset.y
-        if delta > 0 {
-            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - min(delta, topOffset)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
-        }else{
-            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - max(delta, 0)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
-        }
-    }
+    
     //MARK: - kvo
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath == contentOffsetKeyPath, let currentOffset = change?[NSKeyValueChangeKey.newKey] as? CGPoint, let scroll = object as? UIScrollView else {return}
