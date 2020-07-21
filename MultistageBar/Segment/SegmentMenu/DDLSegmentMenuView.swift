@@ -92,8 +92,13 @@ class DDLSegmentMenuView: UIView {
     }
         
     //MARK: - lazy
+    // step 2: 如果设置底部容器代理,就监听contentOffset为滑动做准备
+    weak var contentDatasource : DDLSegmentContentDatasource? {
+        didSet{
+            horizontalScroll.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .new, context: nil)
+        }
+    }
     // menu
-    private let contentOffsetKeyPath = "contentOffset"
     weak var delegate: DDLSegmentMenuViewDelegate?
     var sectionInset: UIEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
     ///当内容不能铺满容器时的布局方式
@@ -110,6 +115,8 @@ class DDLSegmentMenuView: UIView {
             menuCV.indicator = indicator
         }
     }
+    
+    
     deinit {
         if header != nil {
             horizontalScroll.subviews.forEach { (view) in
@@ -133,20 +140,6 @@ class DDLSegmentMenuView: UIView {
         }
     }
     var topOffset: CGFloat = 100
-    
-    
-    
-    // content
-    var lastContentOffset: CGPoint = .zero
-    var contentItems: [Int: DDLSegmentContentItemProtocol] = [:]
-    // step 2: 如果设置底部容器代理,就监听contentOffset为滑动做准备
-    weak var contentDatasource : DDLSegmentContentDatasource? {
-        didSet{
-            horizontalScroll.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .new, context: nil)
-        }
-    }
-
-    
     var datasource: [DDLSegmentModelProtocol] = [] {
         didSet{
             let width = min(bounds.width, sectionInset.left + ddl_maxWidth() + sectionInset.right)
@@ -161,6 +154,11 @@ class DDLSegmentMenuView: UIView {
             ddl_willShow(at: 0, item: ddl_page(at: 0))
         }
     }
+    
+    private let contentOffsetKeyPath = "contentOffset"
+    // content
+    private var lastContentOffset: CGPoint = .zero
+    private var contentItems: [Int: DDLSegmentContentItemProtocol] = [:]
     private lazy var horizontalScroll: UIScrollView = {
         let scr = UIScrollView.init()
         scr.contentInsetAdjustmentBehavior = .never
@@ -191,6 +189,17 @@ class DDLSegmentMenuView: UIView {
         addSubview(col)
         return col
     }()
+    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
+        guard header != nil else {return}
+        let delta = originalTopOffset + offset.y
+        if delta > 0 {
+            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - min(delta, topOffset)), size: originalHeaderFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
+        }else{
+            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - max(delta, 0)), size: originalHeaderFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
+        }
+    }
     //MARK: - kvo
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath == contentOffsetKeyPath, let currentOffset = change?[NSKeyValueChangeKey.newKey] as? CGPoint, let scroll = object as? UIScrollView else {return}
@@ -215,17 +224,6 @@ class DDLSegmentMenuView: UIView {
         // 滚动条变化
         guard from != to, scale != 0 else {return}
         menuCV.ddl_slider(from: Int(from), to: Int(to), scale: scale)
-    }
-    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
-        guard header != nil else {return}
-        let delta = originalTopOffset + offset.y
-        if delta > 0 {
-            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - min(delta, topOffset)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
-        }else{
-            header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - max(delta, 0)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
-        }
     }
 }
 
