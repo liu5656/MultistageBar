@@ -11,6 +11,7 @@ import UIKit
 class DDLHeaderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.edgesForExtendedLayout = UIRectEdge.right
         view.backgroundColor = UIColor.white
         _ = segment
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
@@ -50,9 +51,9 @@ class DDLHeaderViewController: UIViewController {
         temp.paddingHeight = 4
         return temp
     }()
-    lazy var header: DDLSegmentHeader = {
-        let temp = DDLSegmentHeader.init()
-        temp.frame = CGRect.init(x: 0, y: 0, width: 414, height: 100)                       // 真实width值和height值
+    lazy var header: UIView = {
+        let temp = UIView.init()
+        temp.frame = CGRect.init(x: 0, y: 0, width: 414, height: 200)                       // 真实width值和height值
         temp.backgroundColor = UIColor.green
         view.addSubview(temp)
         return temp
@@ -67,10 +68,13 @@ class DDLHeaderViewController: UIViewController {
     
     var datasource: [DDLSegmentModelProtocol] = []
     lazy var segment: DDLSegmentMenuView = {
-        let temp = DDLSegmentMenuView.init(frame: CGRect.init(x: 0, y: 100, width: 414, height: 50))
+        let temp = DDLSegmentMenuView.init(frame: CGRect.init(x: (UIScreen.main.bounds.width - 300) * 0.5, y: header.frame.maxY, width: 300, height: 50))
+        temp.layer.cornerRadius = 10
+        temp.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        temp.backgroundColor = .blue
         temp.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)         // segment 边距
-        temp.contentRadius = 15                                                             // segment 圆角
         temp.contentColor = UIColor.green                                                   // segment背景
+        temp.corners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         temp.itemHeight = 30                                                                // segment 单项高度 = itemHeight + sectionInset.left + sectionInset.right
         print("+++++ set lineSpacing \(5)")
         temp.lineSpacing = 5
@@ -93,7 +97,7 @@ extension DDLHeaderViewController: DDLSegmentContentDatasource {
         if 0 == index {
             return DDLSecondTableContentVC.init()
         }else{
-            let vc = DDLView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 900))
+            let vc = DDLView.init(frame: CGRect.init(x: 0, y: 0, width: segment.frame.width, height: 900))
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
             return vc
         }

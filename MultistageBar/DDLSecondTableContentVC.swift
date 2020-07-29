@@ -12,7 +12,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
             DispatchQueue.main.async {
                 self.datasource = ["bbbb"]
                 self.tableView.reloadData()
@@ -23,11 +23,11 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         print("DDLSecondTableContentVC deinit")
     }
     
-    var datasource: [String] = ["aaaa"]
+    var datasource: [String] = []
 
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 60
+        return datasource.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

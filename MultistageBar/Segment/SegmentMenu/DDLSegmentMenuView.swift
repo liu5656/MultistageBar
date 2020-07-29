@@ -16,12 +16,13 @@ class DDLSegmentMenuView: UIView {
     //MARK: - public
     func ddl_show(in content: UIView, contentFrame: CGRect) {
         if header != nil {
-            horizontalScroll.frame = content.bounds
+            horizontalScroll.frame = CGRect.init(x: self.frame.origin.x, y: 0, width: self.frame.width, height: content.frame.height)
             content.addSubview(horizontalScroll)
             
             content.addSubview(header!)
             
             originalHeaderFrame = header!.frame
+            topOffset = header!.frame.maxY
             originalBarFrame = self.frame
         }
         content.addSubview(self)
@@ -40,10 +41,10 @@ class DDLSegmentMenuView: UIView {
         let delta = originalTopOffset + offset.y
         if delta > 0 {
             header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - min(delta, topOffset)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: originalBarFrame.origin.x, y: originalBarFrame.origin.y - min(delta, topOffset)), size: originalBarFrame.size)
         }else{
             header?.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalHeaderFrame.origin.y - max(delta, 0)), size: originalHeaderFrame.size)
-            self.frame = CGRect.init(origin: CGPoint.init(x: 0, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
+            self.frame = CGRect.init(origin: CGPoint.init(x: originalBarFrame.origin.x, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
         }
     }
     private func ddl_maxWidth() -> CGFloat {
@@ -74,6 +75,7 @@ class DDLSegmentMenuView: UIView {
         }else{
             let page: UIScrollView
             if (content as? UIScrollView) != nil {
+                content.frame = CGRect.init(origin: CGPoint.init(x: CGFloat(index) * horizontalScroll.frame.width, y: 0), size: horizontalScroll.frame.size)
                 page = content as! UIScrollView
             }else{
                 page = UIScrollView.init()
@@ -114,6 +116,7 @@ class DDLSegmentMenuView: UIView {
     var lineSpacing: CGFloat = 0
     var itemHeight: CGFloat = 40
     var contentRadius: CGFloat = 0
+    var corners: CACornerMask = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     var contentColor: UIColor?
     var selectedIndex: Int = 0
     var indicator: DDLSegmentIndicatorProtocol? {
@@ -137,7 +140,7 @@ class DDLSegmentMenuView: UIView {
     }
     
     // header 只有一级菜单才有header,多级菜单要出问题
-    var header: DDLSegmentHeader?
+    var header: UIView?
     private var originalHeaderFrame: CGRect = .zero
     private var originalBarFrame: CGRect = .zero
     private var originalTopOffset: CGFloat {
@@ -184,7 +187,7 @@ class DDLSegmentMenuView: UIView {
         col.showsHorizontalScrollIndicator = false
         if contentRadius > 0, contentColor != nil{
             col.layer.cornerRadius = contentRadius
-            col.layer.masksToBounds = true
+            col.layer.maskedCorners = corners
             col.backgroundColor = contentColor
         }else{
             col.backgroundColor = .clear
@@ -248,6 +251,8 @@ extension DDLSegmentMenuView: UICollectionViewDelegate {
             
             if contentItems[indexPath.row] == nil {
                 ddl_willShow(at: indexPath.row, item: ddl_page(at: indexPath.row))
+            }else{
+                ddl_willShowAgain(at: indexPath.row, item: ddl_page(at: indexPath.row))
             }
         }else{
             menuCV.ddl_slider(from: menuCV.lastIndex, to: indexPath.row, scale: 1)
