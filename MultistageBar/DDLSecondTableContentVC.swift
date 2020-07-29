@@ -23,11 +23,12 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         print("DDLSecondTableContentVC deinit")
     }
     
-    var datasource: [String] = []
+    var datasource: [String] = ["dsdf"]
 
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datasource.count
+//        return datasource.count
+        return 60
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
