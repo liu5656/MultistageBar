@@ -16,6 +16,10 @@
 		1705662E2452B09000A7AF4B /* MultistageBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705662D2452B09000A7AF4B /* MultistageBarTests.swift */; };
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
 		172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* DDLFirstTableContentVC.swift */; };
+		173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */; };
+		173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */; };
+		173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */; };
+		173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A424FE42DE0073FB22 /* RefreshComponent.swift */; };
 		17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
@@ -63,6 +67,10 @@
 		170566382452B09000A7AF4B /* MultistageBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistageBarUITests.swift; sourceTree = "<group>"; };
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* DDLFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLFirstTableContentVC.swift; sourceTree = "<group>"; };
+		173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
+		173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
+		173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
+		173871A424FE42DE0073FB22 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSecondTableContentVC.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
@@ -127,6 +135,7 @@
 			children = (
 				1794035A24C6D814000D2776 /* SegmentTest */,
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
+				173871A024FE42DE0073FB22 /* Refresh */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
 				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
@@ -159,6 +168,17 @@
 				1705663A2452B09000A7AF4B /* Info.plist */,
 			);
 			path = MultistageBarUITests;
+			sourceTree = "<group>";
+		};
+		173871A024FE42DE0073FB22 /* Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */,
+				173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */,
+				173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */,
+				173871A424FE42DE0073FB22 /* RefreshComponent.swift */,
+			);
+			path = Refresh;
 			sourceTree = "<group>";
 		};
 		1762E46C247FA5A3009B9612 /* Segment */ = {
@@ -358,12 +378,16 @@
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
+				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
+				173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
+				173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */,
 				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
+				173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */,

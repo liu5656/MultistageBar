@@ -12,12 +12,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            DispatchQueue.main.async {
-                self.datasource = ["bbbb"]
-                self.tableView.reloadData()
-            }
-        }
+        print("viewDidLoad")
     }
     deinit {
         print("DDLSecondTableContentVC deinit")
@@ -52,6 +47,26 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         table.delegate = self
         table.dataSource = self
         view.addSubview(table)
+        
+        table.refreshHeader {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 3) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.datasource = ["header"]
+                    self?.tableView.reloadData()
+                    self?.tableView.endHeaderRefreshing()
+                }
+            }
+        }
+        table.refreshFooter {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+                DispatchQueue.main.async {
+                    self?.datasource = ["footer"]
+                    self?.tableView.reloadData()
+                    self?.tableView.endFooterRefreshing(hasMoreData: true)
+                }
+            }
+        }
+        
         return table
     }()
 
