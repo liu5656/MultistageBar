@@ -29,18 +29,26 @@ enum RefreshType {
 
 extension UIScrollView {
     func refreshHeader(refreshView header: RefreshComponent = RefreshNormalHeader(), handler: @escaping () -> Void) {
+        self.contentInsetAdjustmentBehavior = .never
+        header.tag = 1
         header.frame = CGRect.init(x: 0, y: -header.triggerH, width: UIScreen.main.bounds.width, height: header.triggerH)
-        header.isSlidesUp = true
+        header.headerRefresh = true
         header.handler = handler
         refreshHeader = header
         self.addSubview(header)
     }
     func refreshFooter(refreshView footer: RefreshComponent = RefreshNormalFooter(), handler: @escaping () -> Void) {
+        footer.tag = 2
         footer.frame = CGRect.init(x: 0, y: UIScreen.main.bounds.height, width: UIScreen.main.bounds.width, height: footer.triggerH)
-        footer.isSlidesUp = false
+        footer.headerRefresh = false
         footer.handler = handler
         refreshFooter = footer
         self.addSubview(footer)
+    }
+    func beginHeaderRefreshing() {
+        guard let distant = refreshHeader?.triggerH else {return}
+        MBLog("\(self.contentInset.top)")
+        self.setContentOffset(CGPoint.init(x: 0, y: -(distant + 1)), animated: true)
     }
     func endHeaderRefreshing() {
         excuteInMainThread {

@@ -20,13 +20,29 @@ class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         _ = table
+        table.beginHeaderRefreshing()
     }
     lazy var table: UITableView = {
-        let tab = UITableView.init(frame: UIScreen.main.bounds)
+        let tab = UITableView.init(frame: CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64))
         tab.delegate = self
         tab.dataSource = self
         view.addSubview(tab)
+        tab.refreshHeader {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+                DispatchQueue.main.async {
+                    tab.endHeaderRefreshing()
+                }
+            }
+        }
+        tab.refreshFooter {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+                DispatchQueue.main.async {
+                    tab.endFooterRefreshing(hasMoreData: true)
+                }
+            }
+        }
         return tab
     }()
     

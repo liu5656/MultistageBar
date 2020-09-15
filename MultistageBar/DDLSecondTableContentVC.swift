@@ -13,6 +13,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad")
+        tableView.beginHeaderRefreshing()
     }
     deinit {
         print("DDLSecondTableContentVC deinit")
@@ -49,7 +50,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         view.addSubview(table)
         
         table.refreshHeader {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 3) { [weak self] in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
                 DispatchQueue.main.async {
                     self?.datasource = ["header"]
                     self?.tableView.reloadData()

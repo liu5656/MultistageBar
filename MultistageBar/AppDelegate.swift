@@ -35,3 +35,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+func MBLog<T>(_ message: T, file: String = #file, function: String = #function, line: Int = #line) {
+    let fileName = (file as NSString).lastPathComponent
+    print("\(Int(Date.init().timeIntervalSince1970)) \(fileName):\(line) \(function) | \(message)")
+}
+
