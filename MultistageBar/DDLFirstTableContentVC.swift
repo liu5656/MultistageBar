@@ -73,7 +73,7 @@ extension DDLFirstTableContentVC: DDLSegmentContentDatasource {
     }
     
     func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
-        if 0 == index {
+        if 2 >= index {
             return DDLSecondTableContentVC.init()
         }else{
             let vc = DDLView.init()

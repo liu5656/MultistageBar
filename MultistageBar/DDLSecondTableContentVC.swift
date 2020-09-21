@@ -24,7 +24,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
     // MARK: - Table view data source
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 //        return datasource.count
-        return 60
+        return 20
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -50,7 +50,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         view.addSubview(table)
         
         table.refreshHeader {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
                 DispatchQueue.main.async {
                     self?.datasource = ["header"]
                     self?.tableView.reloadData()
@@ -59,7 +59,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
             }
         }
         table.refreshFooter {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
                 DispatchQueue.main.async {
                     self?.datasource = ["footer"]
                     self?.tableView.reloadData()
