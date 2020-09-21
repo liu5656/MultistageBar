@@ -40,7 +40,15 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         print("did selected \(indexPath.row)")
     }
     
-    
+    func mb_refresh() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+            DispatchQueue.main.async {
+                self?.datasource = ["header"]
+                self?.tableView.reloadData()
+                self?.tableView.endHeaderRefreshing()
+            }
+        }
+    }
     
     lazy var tableView: UITableView = {
         let table = UITableView.init(frame: view.bounds, style: .plain)
@@ -48,17 +56,11 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
         table.delegate = self
         table.dataSource = self
         view.addSubview(table)
-        
-        table.refreshHeader {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
-                DispatchQueue.main.async {
-                    self?.datasource = ["header"]
-                    self?.tableView.reloadData()
-                    self?.tableView.endHeaderRefreshing()
-                }
-            }
+
+        table.refreshHeader { [weak self] in
+            self?.mb_refresh()
         }
-        table.refreshFooter {
+        table.refreshFooter { [weak self] in
             DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
                 DispatchQueue.main.async {
                     self?.datasource = ["footer"]
