@@ -21,7 +21,10 @@
 		173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */; };
 		173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A424FE42DE0073FB22 /* RefreshComponent.swift */; };
 		17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */; };
+		174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174371FB2519A40500C0E9A7 /* CodableEx.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
+		174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89D8251C833A00087E72 /* SignInAppleViewController.swift */; };
+		174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E0251C83C600087E72 /* JSONViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
 		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
@@ -72,7 +75,10 @@
 		173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		173871A424FE42DE0073FB22 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSecondTableContentVC.swift; sourceTree = "<group>"; };
+		174371FB2519A40500C0E9A7 /* CodableEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEx.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		174B89D8251C833A00087E72 /* SignInAppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleViewController.swift; sourceTree = "<group>"; };
+		174B89E0251C83C600087E72 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
 		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
@@ -133,6 +139,8 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				174B89D4251C82D800087E72 /* SignInApple */,
+				174371FA2519A3C200C0E9A7 /* JSONMap */,
 				1794035A24C6D814000D2776 /* SegmentTest */,
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				173871A024FE42DE0073FB22 /* Refresh */,
@@ -179,6 +187,23 @@
 				173871A424FE42DE0073FB22 /* RefreshComponent.swift */,
 			);
 			path = Refresh;
+			sourceTree = "<group>";
+		};
+		174371FA2519A3C200C0E9A7 /* JSONMap */ = {
+			isa = PBXGroup;
+			children = (
+				174371FB2519A40500C0E9A7 /* CodableEx.swift */,
+				174B89E0251C83C600087E72 /* JSONViewController.swift */,
+			);
+			path = JSONMap;
+			sourceTree = "<group>";
+		};
+		174B89D4251C82D800087E72 /* SignInApple */ = {
+			isa = PBXGroup;
+			children = (
+				174B89D8251C833A00087E72 /* SignInAppleViewController.swift */,
+			);
+			path = SignInApple;
 			sourceTree = "<group>";
 		};
 		1762E46C247FA5A3009B9612 /* Segment */ = {
@@ -392,8 +417,11 @@
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
+				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,
 				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
+				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
+				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

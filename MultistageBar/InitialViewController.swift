@@ -14,12 +14,30 @@ enum SegmentStyle: String, CaseIterable {
     case onlyTitle = "DDLOnlyTitleViewController"
     case header = "DDLHeaderViewController"
     case multistage = "DDLMultistageViewController"
+    case signInApple = "SignInAppleViewController"
+    case jsonMap = "JSONViewController"
 }
+
+
+
+
+//首先定义一个结构体Person用来表示数据Model
+struct Person: Codable {
+    var name: String?
+    var age: Int?
+    var sex: String?
+}
+ 
+
+
+
 
 class InitialViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
         
         _ = table
         table.beginHeaderRefreshing()
