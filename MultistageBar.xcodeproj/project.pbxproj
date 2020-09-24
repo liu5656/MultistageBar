@@ -25,6 +25,8 @@
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
 		174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89D8251C833A00087E72 /* SignInAppleViewController.swift */; };
 		174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E0251C83C600087E72 /* JSONViewController.swift */; };
+		174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E5251C84ED00087E72 /* ProgressView.swift */; };
+		174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89ED251C91C800087E72 /* ProgressViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
 		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
@@ -79,6 +81,8 @@
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		174B89D8251C833A00087E72 /* SignInAppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleViewController.swift; sourceTree = "<group>"; };
 		174B89E0251C83C600087E72 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
+		174B89E5251C84ED00087E72 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
+		174B89ED251C91C800087E72 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
 		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
@@ -141,7 +145,7 @@
 			children = (
 				174B89D4251C82D800087E72 /* SignInApple */,
 				174371FA2519A3C200C0E9A7 /* JSONMap */,
-				1794035A24C6D814000D2776 /* SegmentTest */,
+				1794035A24C6D814000D2776 /* ProgressView */,
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				173871A024FE42DE0073FB22 /* Refresh */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
@@ -261,11 +265,13 @@
 			path = item;
 			sourceTree = "<group>";
 		};
-		1794035A24C6D814000D2776 /* SegmentTest */ = {
+		1794035A24C6D814000D2776 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
+				174B89E5251C84ED00087E72 /* ProgressView.swift */,
+				174B89ED251C91C800087E72 /* ProgressViewController.swift */,
 			);
-			path = SegmentTest;
+			path = ProgressView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,11 +405,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
 				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
+				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,

@@ -16,6 +16,7 @@ enum SegmentStyle: String, CaseIterable {
     case multistage = "DDLMultistageViewController"
     case signInApple = "SignInAppleViewController"
     case jsonMap = "JSONViewController"
+    case progress = "ProgressViewController"
 }
 
 
@@ -54,7 +55,7 @@ class InitialViewController: UIViewController {
         tab.tableFooterView = UIView.init()
         view.addSubview(tab)
         tab.refreshHeader {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
+            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
                 DispatchQueue.main.async {
                     tab.endHeaderRefreshing()
                 }
