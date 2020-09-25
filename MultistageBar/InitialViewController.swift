@@ -17,6 +17,7 @@ enum SegmentStyle: String, CaseIterable {
     case signInApple = "SignInAppleViewController"
     case jsonMap = "JSONViewController"
     case progress = "ProgressViewController"
+    case alum = "AlbumTestViewController"
 }
 
 
@@ -93,6 +94,7 @@ extension InitialViewController: UITableViewDelegate {
         guard let namespace = Bundle.main.infoDictionary?["CFBundleExecutable"] as? String,
             let type = NSClassFromString(namespace + "." + SegmentStyle.allValues[indexPath.row].rawValue) as? UIViewController.Type else {return}
         let vc = type.init()
-        self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(vc, animated: true)
+        
     }
 }

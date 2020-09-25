@@ -47,7 +47,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+}
 
-
+func keyWindow() -> UIWindow? {
+    var window: UIWindow?
+    if #available(iOS 13.0, *) {
+        for scene in UIApplication.shared.connectedScenes {
+            if let temp = scene as? UIWindowScene, temp.activationState == UIScene.ActivationState.foregroundActive{
+                window = temp.windows.first
+                break
+            }
+        }
+    }else{
+        window = UIApplication.shared.keyWindow
+    }
+    return window
 }
 

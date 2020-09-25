@@ -24,27 +24,17 @@ class ProgressView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     func ss_setup(progress: CGFloat, backColor: UIColor, strokeColor: UIColor) {
-        backgroundLayer = CAShapeLayer()
-        backgroundLayer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         backgroundLayer.path = path.cgPath
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.strokeColor = backColor.cgColor
-        backgroundLayer.fillColor = nil
-        backgroundLayer.lineCap = .round
-        self.layer.addSublayer(backgroundLayer)
         
-        progressLayer = CAShapeLayer()
-        progressLayer.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         progressLayer.path = path.cgPath
         progressLayer.lineWidth = lineWidth
         progressLayer.strokeColor = strokeColor.cgColor
-        progressLayer.fillColor = nil
         progressLayer.strokeEnd = progress
-        progressLayer.lineCap = .round
-        self.layer.addSublayer(progressLayer)
     }
     
-    func ss_update(progress: CGFloat, animated: Bool = false, count: Float = 000, duration: CFTimeInterval = 1, autoreverse: Bool = false) {
+    func ss_update(progress: CGFloat, animated: Bool = false, count: Float = 1, duration: CFTimeInterval = 1, autoreverse: Bool = false) {
         if animated {
             let animation = CABasicAnimation.init(keyPath: "strokeEnd")
             animation.repeatCount = count
@@ -62,7 +52,24 @@ class ProgressView: UIView {
         
     }
     private var path: UIBezierPath!
-    private var backgroundLayer: CAShapeLayer!
-    private var progressLayer: CAShapeLayer!
     var lineWidth: CGFloat = 2
+    
+    lazy var backgroundLayer: CAShapeLayer = {
+        let temp = CAShapeLayer.init()
+        temp.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        temp.lineWidth = lineWidth
+        temp.fillColor = nil
+        temp.lineCap = .round
+        self.layer.addSublayer(temp)
+        return temp
+    }()
+    lazy var progressLayer: CAShapeLayer = {
+        let temp = CAShapeLayer.init()
+        temp.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        temp.lineWidth = lineWidth
+        temp.fillColor = nil
+        temp.lineCap = .round
+        self.layer.addSublayer(temp)
+        return temp
+    }()
 }
