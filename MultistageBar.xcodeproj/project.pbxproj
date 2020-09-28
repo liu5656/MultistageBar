@@ -45,8 +45,10 @@
 		1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */; };
 		1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */; };
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
+		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
+		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,8 +115,10 @@
 		1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCellProtocol.swift; sourceTree = "<group>"; };
 		1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelProtocol.swift; sourceTree = "<group>"; };
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
+		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
+		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,6 +217,7 @@
 				172A2EBC251DD33A0072D325 /* TakePhoto */,
 				172A2EB8251DC4910072D325 /* Album */,
 				172A2EBA251DC4BB0072D325 /* AlbumTestViewController.swift */,
+				178FB02E2521774500A17272 /* AuthorizationTools.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -243,6 +248,7 @@
 				172A2EAA251D98980072D325 /* AlbumImageCell.swift */,
 				172A2EAB251D98980072D325 /* AlbumImageCell.xib */,
 				172A2EAC251D98980072D325 /* Model */,
+				17A7307E25202A4A001D8170 /* CropViewController.swift */,
 			);
 			path = Album;
 			sourceTree = "<group>";
@@ -494,6 +500,7 @@
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
+				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
@@ -508,6 +515,7 @@
 				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
 				173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
+				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */,

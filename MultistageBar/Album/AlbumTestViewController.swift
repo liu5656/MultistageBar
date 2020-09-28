@@ -11,9 +11,23 @@ import UIKit
 class AlbumTestViewController: UIViewController {
 
     @objc func albumAction() {
+        
+        let status = AuthorizationTools.albumAuthorize()
+        if status == .notDetermined {
+            AuthorizationTools.requestAlbumAuthorize()
+            return
+        }else if status == .denied {
+            MBLog("用户拒绝授权")
+            return
+        }
+        
         let vc = AlbumViewController.init()
+        vc.allowCrop = true
         vc.finishCallback = { asset in
             
+        }
+        vc.cropResult = { [unowned self] img in
+            self.previewIV.image = img
         }
         let nav = UINavigationController.init(rootViewController: vc)
         nav.navigationBar.isTranslucent = false

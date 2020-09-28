@@ -15,12 +15,12 @@ class AlbumViewController: UIViewController {
             assetManager.requestImageData(for: asset, options: nil) { (imageData, str, orientation, info) in
                 DispatchQueue.main.async {
                     if let tempData = imageData, let originalImage = UIImage.init(data: tempData) {
-                        #warning("1.0 todo 图片裁剪")
-//                        let vc = MACropViewController.init()
-//                        vc.delegate = self
-//                        vc.image = originalImage.fixOrientation()
-//                        vc.cropSize = CGSize.init(width: self.view.bounds.width - 60, height: self.view.bounds.width - 60)
-//                        self.navigationController?.pushViewController(vc, animated: true)
+                        let vc = CropViewController.init(img: originalImage.fixOrientation())
+                        vc.completion = { [unowned self] img in
+                            self.cropResult?(img)
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        self.navigationController?.pushViewController(vc, animated: true)
                     }else{
                         self.dismiss(animated: true, completion: nil)
                     }
@@ -43,15 +43,17 @@ class AlbumViewController: UIViewController {
         certainB.isEnabled = false
         _ = backB
         view.addSubview(gridCV)
-//        gridCV.snp.makeConstraints { (make) in
-//            make.left.top.right.equalToSuperview()
-//            make.bottom.equalTo(appConfig.safeBottom)
-//        }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    
     var allowCrop: Bool = false
     var maxNumber: Int = 9
     var finishCallback: (([AssetModel]) -> Void)?
-    var cropResult: ((UIImage) -> Void)?
+    var cropResult: ((UIImage?) -> Void)?
     var selectedAssets: [AssetModel] = []
     let assetManager = PHCachingImageManager.default()
     let photoCellIdentify = "photoCellIdentify"
