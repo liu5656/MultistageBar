@@ -44,6 +44,8 @@
 		1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */; };
 		1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */; };
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
+		176A150225231049002EB14F /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A150125231049002EB14F /* SwipeTableView.swift */; };
+		176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1503252310E6002EB14F /* SwipeTestViewController.swift */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
@@ -112,6 +114,8 @@
 		1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCellProtocol.swift; sourceTree = "<group>"; };
 		1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelProtocol.swift; sourceTree = "<group>"; };
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
+		176A150125231049002EB14F /* SwipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
+		176A1503252310E6002EB14F /* SwipeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTestViewController.swift; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
@@ -166,13 +170,15 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				176A15002523100F002EB14F /* Swipe */,
 				172A2EC1251DF5130072D325 /* Util */,
 				172A2EA4251D98980072D325 /* Album */,
 				174B89D4251C82D800087E72 /* SignInApple */,
 				174371FA2519A3C200C0E9A7 /* JSONMap */,
 				1794035A24C6D814000D2776 /* ProgressView */,
-				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				173871A024FE42DE0073FB22 /* Refresh */,
+				1762E46C247FA5A3009B9612 /* Segment */,
+				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
 				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
@@ -180,7 +186,6 @@
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
-				1762E46C247FA5A3009B9612 /* Segment */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
 				170566212452B09000A7AF4B /* LaunchScreen.storyboard */,
@@ -348,6 +353,15 @@
 			path = item;
 			sourceTree = "<group>";
 		};
+		176A15002523100F002EB14F /* Swipe */ = {
+			isa = PBXGroup;
+			children = (
+				176A150125231049002EB14F /* SwipeTableView.swift */,
+				176A1503252310E6002EB14F /* SwipeTestViewController.swift */,
+			);
+			path = Swipe;
+			sourceTree = "<group>";
+		};
 		1794035A24C6D814000D2776 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -489,6 +503,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
@@ -507,6 +522,7 @@
 				173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
 				173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */,
+				176A150225231049002EB14F /* SwipeTableView.swift in Sources */,
 				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
 				173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
@@ -699,7 +715,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -719,7 +735,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
