@@ -6,8 +6,9 @@
 //  Copyright © 2020 x. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
+// encode
 public extension Encodable {
     func jsonString() -> String? {
         guard let data = try? JSONEncoder().encode(self) else {
@@ -23,6 +24,7 @@ public extension Encodable {
     }
 }
 
+// decode
 extension Decodable {
     static func deserialize(from json: Any?, path: String? = nil) -> Self? {
         guard let model = json,
@@ -44,6 +46,7 @@ extension Decodable {
     }
 }
 
+// 数组
 extension Array where Element: Codable {
     static func  deserialize(from jsonStr: String?) -> [Element]? {
         guard let str = jsonStr, let data = str.data(using: .utf8), let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) else {return nil}
@@ -56,6 +59,30 @@ extension Array where Element: Codable {
     }
 }
 
+// 枚举
+protocol JsonEnum: RawRepresentable, Codable where RawValue: Codable {}
+
+enum EnumError: Error {
+    case invalidValue
+}
+
+extension JsonEnum {
+    init(from decoder: Decoder) throws {
+        let container = try decoder.singleValueContainer()
+        let decoded = try container.decode(RawValue.self)
+        if let temp = Self.init(rawValue: decoded){
+            self = temp
+        }else{
+            throw EnumError.invalidValue
+        }
+    }
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.singleValueContainer()
+        try container.encode(self.rawValue)
+    }
+}
+
+// util
 fileprivate func extract(from data: Data?, path: String?) -> Data? {
     guard let jsonData = data,
         let paths = path?.components(separatedBy: "."),
