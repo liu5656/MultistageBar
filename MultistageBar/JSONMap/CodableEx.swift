@@ -8,6 +8,14 @@
 
 import UIKit
 
+/*
+    reference
+ https://www.jianshu.com/p/febdd25ae525
+ https://zhuanlan.zhihu.com/p/83816429
+ https://blog.natanrolnik.me/codable-enums-associated-values
+ https://www.jianshu.com/p/bdd9c012df15
+ */
+
 // encode
 public extension Encodable {
     func jsonString() -> String? {

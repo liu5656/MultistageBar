@@ -41,7 +41,6 @@ class InitialViewController: UIViewController {
         (ProgressViewController.classForCoder(), "进度条"),
         (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
         (SwipeTestViewController.classForCoder(), "swipe")
-        
     ]
     
     lazy var table: UITableView = {
