@@ -18,7 +18,6 @@
 		172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* DDLFirstTableContentVC.swift */; };
 		172A2EAE251D98980072D325 /* AssetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA7251D98980072D325 /* AssetTools.swift */; };
 		172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA8251D98980072D325 /* AlbumViewController.swift */; };
-		172A2EB0251D98980072D325 /* MACropViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA9251D98980072D325 /* MACropViewController.m */; };
 		172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAA251D98980072D325 /* AlbumImageCell.swift */; };
 		172A2EB2251D98980072D325 /* AlbumImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172A2EAB251D98980072D325 /* AlbumImageCell.xib */; };
 		172A2EB3251D98980072D325 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAD251D98980072D325 /* AssetModel.swift */; };
@@ -84,10 +83,8 @@
 		170566382452B09000A7AF4B /* MultistageBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistageBarUITests.swift; sourceTree = "<group>"; };
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* DDLFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLFirstTableContentVC.swift; sourceTree = "<group>"; };
-		172A2EA5251D98980072D325 /* MACropViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MACropViewController.h; sourceTree = "<group>"; };
 		172A2EA7251D98980072D325 /* AssetTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTools.swift; sourceTree = "<group>"; };
 		172A2EA8251D98980072D325 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
-		172A2EA9251D98980072D325 /* MACropViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MACropViewController.m; sourceTree = "<group>"; };
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
 		172A2EAB251D98980072D325 /* AlbumImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumImageCell.xib; sourceTree = "<group>"; };
 		172A2EAD251D98980072D325 /* AssetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
@@ -241,10 +238,8 @@
 		172A2EB8251DC4910072D325 /* Album */ = {
 			isa = PBXGroup;
 			children = (
-				172A2EA5251D98980072D325 /* MACropViewController.h */,
 				172A2EA6251D98980072D325 /* AlbumTools */,
 				172A2EA8251D98980072D325 /* AlbumViewController.swift */,
-				172A2EA9251D98980072D325 /* MACropViewController.m */,
 				172A2EAA251D98980072D325 /* AlbumImageCell.swift */,
 				172A2EAB251D98980072D325 /* AlbumImageCell.xib */,
 				172A2EAC251D98980072D325 /* Model */,
@@ -526,7 +521,6 @@
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
-				172A2EB0251D98980072D325 /* MACropViewController.m in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,
