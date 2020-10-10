@@ -40,7 +40,8 @@ class InitialViewController: UIViewController {
         (JSONViewController.classForCoder(), "json<->模型"),
         (ProgressViewController.classForCoder(), "进度条"),
         (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
-        (SwipeTestViewController.classForCoder(), "swipe")
+        (SwipeTestViewController.classForCoder(), "swipe"),
+        (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪")
     ]
     
     lazy var table: UITableView = {
