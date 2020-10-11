@@ -28,7 +28,9 @@ class ProgressViewController: UIViewController {
         path.move(to: CGPoint.init(x: 0, y: 4))
         path.addLine(to: CGPoint.init(x: 300, y: 4))
         let temp = ProgressView.init(frame: CGRect.init(x: 10, y: 100, width: 310, height: 8), path: path, lineWidth: 8)
-        temp.ss_setup(progress: 0, backColor: UIColor.red, strokeColor: UIColor.blue)
+        temp.backColor = UIColor.red
+        temp.strokeColor = UIColor.blue
+        temp.ss_setup(progress: 0)
         view.addSubview(temp)
         return temp
     }()
@@ -37,7 +39,9 @@ class ProgressViewController: UIViewController {
         let path = UIBezierPath.init(arcCenter: CGPoint.init(x: 50, y: 50), radius: 50, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
         
         let temp = ProgressView.init(frame: CGRect.init(x: 60, y: 160, width: 100, height: 100), path: path)
-        temp.ss_setup(progress: 0, backColor: UIColor.red, strokeColor: UIColor.blue)
+        temp.backColor = UIColor.red
+        temp.strokeColor = UIColor.blue
+        temp.ss_setup(progress: 0)
         view.addSubview(temp)
         return temp
     }()

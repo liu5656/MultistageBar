@@ -8,19 +8,6 @@
 
 import UIKit
 
-//
-//enum VCStyle: String, CaseIterable {
-//    static let allValues = VCStyle.allCases
-//    case onlyTitle = "DDLOnlyTitleViewController"
-//    case header = "DDLHeaderViewController"
-//    case multistage = "DDLMultistageViewController"
-//    case signInApple = "SignInAppleViewController"
-//    case jsonMap = "JSONViewController"
-//    case progress = "ProgressViewController"
-//    case alum = "AlbumTestViewController"
-//    case swipe = "SwipeTestViewController"
-//}
-
 
 class InitialViewController: UIViewController {
     

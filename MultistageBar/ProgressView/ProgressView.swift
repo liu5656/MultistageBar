@@ -23,7 +23,7 @@ class ProgressView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func ss_setup(progress: CGFloat, backColor: UIColor, strokeColor: UIColor) {
+    func ss_setup(progress: CGFloat) {
         backgroundLayer.path = path.cgPath
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.strokeColor = backColor.cgColor
@@ -49,10 +49,11 @@ class ProgressView: UIView {
         if count == 1 {
             self.progressLayer.strokeEnd = progress
         }
-        
     }
     private var path: UIBezierPath!
     var lineWidth: CGFloat = 2
+    var backColor: UIColor = UIColor.lightGray
+    var strokeColor: UIColor = UIColor.gray
     
     lazy var backgroundLayer: CAShapeLayer = {
         let temp = CAShapeLayer.init()
