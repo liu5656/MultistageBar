@@ -68,7 +68,9 @@ class ProgressViewController: UIViewController {
         temp.backColor = UIColor.red
         temp.strokeColor = UIColor.blue
         
+        #warning("1.0 待优化")
         temp.ss_setup(progress: 0)
+        
         view.addSubview(temp)
         return temp
     }()
