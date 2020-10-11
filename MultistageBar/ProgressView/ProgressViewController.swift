@@ -15,6 +15,10 @@ class ProgressViewController: UIViewController {
         view.backgroundColor = UIColor.white
         _ = lineProgress
         _ = circleProgress
+        spanV.spanCallback = { [unowned self] minv, maxv in
+            minL.text = "\(Int(minv))"
+            maxL.text = "\(Int(maxv))"
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,7 +30,7 @@ class ProgressViewController: UIViewController {
     lazy var lineProgress: ProgressView = {
         let path = UIBezierPath.init()
         path.move(to: CGPoint.init(x: 0, y: 4))
-        path.addLine(to: CGPoint.init(x: 300, y: 4))
+        path.addLine(to: CGPoint.init(x: 310, y: 4))
         let temp = ProgressView.init(frame: CGRect.init(x: 10, y: 100, width: 310, height: 8), path: path, lineWidth: 8)
         temp.backColor = UIColor.red
         temp.strokeColor = UIColor.blue
@@ -44,6 +48,44 @@ class ProgressViewController: UIViewController {
         temp.ss_setup(progress: 0)
         view.addSubview(temp)
         return temp
+    }()
+    
+    lazy var spanV: SpanProgress = {
+        let path = UIBezierPath.init()
+        path.move(to: CGPoint.init(x: 0, y: 4))
+        path.addLine(to: CGPoint.init(x: 250, y: 4))
+        let temp = SpanProgress.init(frame: CGRect.init(x: 60, y: 300, width: 250, height: 8), path: path, lineWidth: 8)
+        
+        temp.maxVlue = 220
+        temp.minValue = 140
+        
+        temp.ceilValue = 200
+        temp.floorValue = 160
+        
+        temp.startCircleBackColor = UIColor.black
+        temp.endCircleBackColor = UIColor.gray
+        
+        temp.backColor = UIColor.red
+        temp.strokeColor = UIColor.blue
+        
+        temp.ss_setup(progress: 0)
+        view.addSubview(temp)
+        return temp
+    }()
+    lazy var minL: UILabel = {
+        let lab = UILabel.init(frame: CGRect.init(x: spanV.frame.minX - 70, y: spanV.frame.midY - 8, width: 60, height: 16))
+        lab.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        lab.textColor = UIColor.black
+        lab.textAlignment = .right
+        view.addSubview(lab)
+        return lab
+    }()
+    lazy var maxL: UILabel = {
+        let lab = UILabel.init(frame: CGRect.init(x: spanV.frame.maxX + 10, y: spanV.frame.midY - 8, width: 60, height: 16))
+        lab.font = UIFont.systemFont(ofSize: 16, weight: .regular)
+        lab.textColor = UIColor.black
+        view.addSubview(lab)
+        return lab
     }()
 
 }

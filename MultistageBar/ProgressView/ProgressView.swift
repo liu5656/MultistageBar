@@ -74,3 +74,70 @@ class ProgressView: UIView {
         return temp
     }()
 }
+
+class SpanProgress: ProgressView {
+    
+    override func ss_setup(progress: CGFloat) {
+        super.ss_setup(progress: progress)
+        _ = startCircle
+        _ = endCircle
+        progressLayer.strokeStart = (floorValue - minValue) / (maxVlue - minValue)
+        progressLayer.strokeEnd = (ceilValue - minValue) / (maxVlue - minValue)
+    }
+    
+    var isSpan: Bool = false
+    var spanCallback: ((CGFloat, CGFloat) -> Void)?
+    var maxVlue: CGFloat = 1    // 最大值
+    var minValue: CGFloat = 0   // 最小值
+    
+    var ceilValue: CGFloat = 0  // 上限值
+    var floorValue: CGFloat = 0 // 下限值
+    
+    var startCircleBackColor: UIColor = UIColor.gray
+    var endCircleBackColor: UIColor = UIColor.black
+    
+    private lazy var startCircle: UIView = {
+        let temp = UIView.init(frame: CGRect.init(x: bounds.width * (floorValue - minValue) / (maxVlue - minValue) - 10, y: (bounds.height - 20) * 0.5, width: 20, height: 20))
+        temp.layer.cornerRadius = 10
+        temp.backgroundColor = startCircleBackColor
+        addSubview(temp)
+        
+        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(slider(pan:)))
+        temp.addGestureRecognizer(pan)
+        return temp
+    }()
+    private lazy var endCircle: UIView = {
+        let temp = UIView.init(frame: CGRect.init(x: bounds.width * (ceilValue - minValue) / (maxVlue - minValue) - 10, y: (bounds.height - 20) * 0.5, width: 20, height: 20))
+        temp.layer.cornerRadius = 10
+        temp.backgroundColor = endCircleBackColor
+        addSubview(temp)
+        
+        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(slider(pan:)))
+        temp.addGestureRecognizer(pan)
+        return temp
+    }()
+    @objc func slider(pan: UIPanGestureRecognizer) {
+        guard let view = pan.view else {return}
+        
+        let centerX: CGFloat
+        if view == startCircle {
+            centerX = min(max(pan.location(in: self).x, 0), endCircle.frame.minX - 20)
+        }else{
+            centerX = min(max(pan.location(in: self).x, startCircle.frame.maxX + 20), bounds.width)
+        }
+        
+        view.center = CGPoint.init(x: centerX, y: view.center.y)
+        
+        let ratio = centerX / bounds.width
+        let value = ratio * (maxVlue - minValue)
+        
+        if view == endCircle {
+            progressLayer.strokeEnd = ratio
+            ceilValue = value + minValue
+        }else{
+            progressLayer.strokeStart = ratio
+            floorValue = value + minValue
+        }
+        spanCallback?(floorValue, ceilValue)
+    }
+}
