@@ -28,7 +28,8 @@ class InitialViewController: UIViewController {
         (ProgressViewController.classForCoder(), "进度条"),
         (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
         (SwipeTestViewController.classForCoder(), "swipe"),
-        (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪")
+        (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪"),
+        (MBLocationViewController.classForCoder(), "获取定位信息")
     ]
     
     lazy var table: UITableView = {

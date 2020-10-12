@@ -8,6 +8,7 @@
 
 import Foundation
 import Photos
+import MapKit
 
 
 enum AuthorizationType: Int {

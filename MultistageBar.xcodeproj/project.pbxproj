@@ -36,6 +36,8 @@
 		174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E0251C83C600087E72 /* JSONViewController.swift */; };
 		174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E5251C84ED00087E72 /* ProgressView.swift */; };
 		174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89ED251C91C800087E72 /* ProgressViewController.swift */; };
+		175CC482253449F3006465AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC481253449F3006465AC /* LocationManager.swift */; };
+		175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48625344C17006465AC /* MBLocationViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
 		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
@@ -108,6 +110,8 @@
 		174B89E0251C83C600087E72 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		174B89E5251C84ED00087E72 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		174B89ED251C91C800087E72 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		175CC481253449F3006465AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		175CC48625344C17006465AC /* MBLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLocationViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
 		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
@@ -174,6 +178,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				175CC475253449AB006465AC /* Map */,
 				17F1D2612530343700721941 /* RoundedRectangle */,
 				176A15002523100F002EB14F /* Swipe */,
 				172A2EC1251DF5130072D325 /* Util */,
@@ -301,6 +306,15 @@
 				174B89D8251C833A00087E72 /* SignInAppleViewController.swift */,
 			);
 			path = SignInApple;
+			sourceTree = "<group>";
+		};
+		175CC475253449AB006465AC /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				175CC481253449F3006465AC /* LocationManager.swift */,
+				175CC48625344C17006465AC /* MBLocationViewController.swift */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		1762E46C247FA5A3009B9612 /* Segment */ = {
@@ -529,9 +543,11 @@
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */,
+				175CC482253449F3006465AC /* LocationManager.swift in Sources */,
 				172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
+				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */,
