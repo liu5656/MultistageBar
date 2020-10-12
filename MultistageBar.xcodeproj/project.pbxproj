@@ -38,6 +38,9 @@
 		174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89ED251C91C800087E72 /* ProgressViewController.swift */; };
 		175CC482253449F3006465AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC481253449F3006465AC /* LocationManager.swift */; };
 		175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48625344C17006465AC /* MBLocationViewController.swift */; };
+		175CC48D25345828006465AC /* RetryStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48C25345828006465AC /* RetryStrategy.swift */; };
+		175CC49525345889006465AC /* MBRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC49425345889006465AC /* MBRetryViewController.swift */; };
+		175CC49A25345A27006465AC /* MBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC49925345A27006465AC /* MBViewController.swift */; };
 		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
 		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
@@ -112,6 +115,9 @@
 		174B89ED251C91C800087E72 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
 		175CC481253449F3006465AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		175CC48625344C17006465AC /* MBLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLocationViewController.swift; sourceTree = "<group>"; };
+		175CC48C25345828006465AC /* RetryStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryStrategy.swift; sourceTree = "<group>"; };
+		175CC49425345889006465AC /* MBRetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetryViewController.swift; sourceTree = "<group>"; };
+		175CC49925345A27006465AC /* MBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewController.swift; sourceTree = "<group>"; };
 		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
 		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
@@ -178,6 +184,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				175CC48B25345810006465AC /* RetryStrategy */,
 				175CC475253449AB006465AC /* Map */,
 				17F1D2612530343700721941 /* RoundedRectangle */,
 				176A15002523100F002EB14F /* Swipe */,
@@ -196,6 +203,7 @@
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
+				175CC49925345A27006465AC /* MBViewController.swift */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
 				170566212452B09000A7AF4B /* LaunchScreen.storyboard */,
@@ -315,6 +323,15 @@
 				175CC48625344C17006465AC /* MBLocationViewController.swift */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		175CC48B25345810006465AC /* RetryStrategy */ = {
+			isa = PBXGroup;
+			children = (
+				175CC48C25345828006465AC /* RetryStrategy.swift */,
+				175CC49425345889006465AC /* MBRetryViewController.swift */,
+			);
+			path = RetryStrategy;
 			sourceTree = "<group>";
 		};
 		1762E46C247FA5A3009B9612 /* Segment */ = {
@@ -537,6 +554,8 @@
 				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
+				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
+				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
@@ -572,6 +591,7 @@
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,
+				175CC48D25345828006465AC /* RetryStrategy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
