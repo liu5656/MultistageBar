@@ -30,7 +30,8 @@ class InitialViewController: UIViewController {
         (SwipeTestViewController.classForCoder(), "swipe"),
         (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪"),
         (MBLocationViewController.classForCoder(), "获取定位信息"),
-        (MBRetryViewController.classForCoder(), "失败重试策略")
+        (MBRetryViewController.classForCoder(), "失败重试策略"),
+        (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸")
     ]
     
     lazy var table: UITableView = {
