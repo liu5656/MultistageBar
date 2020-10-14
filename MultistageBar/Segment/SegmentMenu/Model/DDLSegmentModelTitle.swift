@@ -10,6 +10,25 @@ import UIKit
 
 class DDLSegmentModelTitle: DDLSegmentModelProtocol {
     var name: String = ""
+    var badge: Int = 0 {
+        didSet{
+            var temp: CGRect = .zero
+            let maxWidth: CGFloat = 30
+            let minWidth: CGFloat = 16
+            let height: CGFloat = 16
+            if badge == 1 {
+                temp = CGRect.init(x: ddl_size().width - 8, y: 0, width: 8, height: 8)
+            }else if badge > 1, badge <= 99 {
+                let calculateWidth = "\(badge)".calculateText(size: CGSize.init(width: maxWidth, height: height), attr: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: .regular)]).width
+                let badgeWidth = min(max(minWidth, calculateWidth), maxWidth)
+                temp = CGRect.init(x: ddl_size().width - badgeWidth, y: 0, width: badgeWidth, height: height)
+            }else if badge > 99 {
+                temp = CGRect.init(x: ddl_size().width - maxWidth, y: 0, width: maxWidth, height: height)
+            }
+            badgeFrame = temp
+        }
+    }
+    var badgeFrame: CGRect = .zero
     
     init(style: DDLSegmentModelStyleProtocol) {
         self.style = style

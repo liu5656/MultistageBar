@@ -15,14 +15,33 @@ class MBCornerMarkViewController: MBViewController {
         view.backgroundColor = UIColor.white
         let data1 = DDLSegmentModelTitle.init(style: style)
         data1.name = "交通工具"
+        data1.badge = 1
         
         let data2 = DDLSegmentModelTitle.init(style: style)
         data2.name = "数码"
+        data2.badge = 8
         
         let data3 = DDLSegmentModelTitle.init(style: style)
         data3.name = "食物"
+        data3.badge = 99
         datasource = [data1, data2, data3]
+        
+        
         segment.datasource = datasource
+        
+        
+        DispatchQueue.global().asyncAfter(deadline: .now() + 4) {
+            self.segment.datasource.forEach { (model) in
+                if let temp = model as? DDLSegmentModelTitle {
+                    temp.badge += 2
+                }
+            }
+            DispatchQueue.main.async {
+                self.segment.ddl_reloadDataTitle()
+            }
+        }
+        
+        
     }
     
     var datasource: [DDLSegmentModelProtocol] = []

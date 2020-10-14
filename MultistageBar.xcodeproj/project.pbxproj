@@ -66,6 +66,7 @@
 		17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */; };
 		17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */; };
 		17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */; };
+		17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0D32536CC5D0002168D /* StringEx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +153,7 @@
 		17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitleStyle.swift; sourceTree = "<group>"; };
 		17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitle.swift; sourceTree = "<group>"; };
 		17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentTitleCell.swift; sourceTree = "<group>"; };
+		17FEC0D32536CC5D0002168D /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				172A2EC3251DF52D0072D325 /* Screen.swift */,
+				17FEC0D32536CC5D0002168D /* StringEx.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -636,6 +639,7 @@
 				1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */,
 				175CC482253449F3006465AC /* LocationManager.swift in Sources */,
 				172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */,
+				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,

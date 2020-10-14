@@ -38,9 +38,10 @@ class DDLFirstTableContentVC: UIViewController{
     
     lazy var datasource: [DDLSegmentModelProtocol] = {
         var temp: [DDLSegmentModelTitle] = []
-        titles.forEach { (title) in
+        titles.enumerated().forEach { (title) in
             let data1 = DDLSegmentModelTitle.init(style: style)
-            data1.name = title
+            data1.name = title.element
+            data1.badge = title.offset * 6
             temp.append(data1)
         }
         return temp

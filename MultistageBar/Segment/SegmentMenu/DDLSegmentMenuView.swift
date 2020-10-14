@@ -34,6 +34,9 @@ class DDLSegmentMenuView: UIView {
     func ddl_slider(from: Int, to: Int, scale: CGFloat) {
         menuCV.ddl_slider(from: from, to: to, scale: scale)
     }
+    func ddl_reloadDataTitle() {
+        menuCV.reloadData()
+    }
     
     //MARK: - utils
     private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {

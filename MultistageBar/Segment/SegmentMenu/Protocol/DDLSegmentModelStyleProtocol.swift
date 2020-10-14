@@ -9,8 +9,6 @@
 import UIKit
 
 protocol DDLSegmentModelStyleProtocol: AnyObject {
-//    var paddingWidth: CGFloat {get set}
-//    var paddingHeight: CGFloat {get set}
     var identify: String{set get}
     var cellClass: AnyClass {get set}
 }
