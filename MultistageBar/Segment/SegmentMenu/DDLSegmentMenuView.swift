@@ -117,7 +117,7 @@ class DDLSegmentMenuView: UIView {
     var itemHeight: CGFloat = 40
     var contentRadius: CGFloat = 0
     var corners: CACornerMask = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
-    var contentColor: UIColor?
+    var contentColor: UIColor = UIColor.clear
     var selectedIndex: Int = 0
     var indicator: DDLSegmentIndicatorProtocol? {
         didSet{
@@ -153,9 +153,10 @@ class DDLSegmentMenuView: UIView {
         didSet{
             let width = min(bounds.width, sectionInset.left + ddl_maxWidth() + sectionInset.right)
             menuCV.frame = CGRect.init(x: (bounds.size.width - width) * 0.5, y: (bounds.size.height - itemHeight) * 0.5, width: width, height: itemHeight)
-            menuCV.paddingWidth = datasource.first?.style?.paddingWidth ?? 0
-            if let style = datasource.first?.style {
-                menuCV.register(style.cellClass, forCellWithReuseIdentifier: style.identify)
+            #warning("1.0 todo 忘记逻辑了")
+//            menuCV.paddingWidth = datasource.first?.style?.paddingWidth ?? 0
+            datasource.forEach { (model) in
+                menuCV.register(model.style.cellClass, forCellWithReuseIdentifier: model.style.identify)
             }
             menuCV.reloadData()
             // 更新contentsize
@@ -187,12 +188,10 @@ class DDLSegmentMenuView: UIView {
         let col = DDLSegmentCollectionView.init(frame: .zero, collectionViewLayout: layout)
         col.showsVerticalScrollIndicator = false
         col.showsHorizontalScrollIndicator = false
-        if contentRadius > 0, contentColor != nil{
+        col.backgroundColor = contentColor
+        if contentRadius > 0 {
             col.layer.cornerRadius = contentRadius
             col.layer.maskedCorners = corners
-            col.backgroundColor = contentColor
-        }else{
-            col.backgroundColor = .clear
         }
         col.scrollsToTop = false
         col.dataSource = self
@@ -235,12 +234,11 @@ extension DDLSegmentMenuView: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = datasource[indexPath.row]
-        guard let style = data.style,
-              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: style.identify, for: indexPath) as? DDLSegmentCellProtocol else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: data.style.identify, for: indexPath) as? DDLSegmentCellProtocol else {
             return UICollectionViewCell()
         }
         cell.ddl_update(model: data)
-        cell.ddl_update(style: style)
+        cell.ddl_update(style: data.style)
         return cell as! UICollectionViewCell
     }
 }

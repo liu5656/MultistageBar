@@ -16,8 +16,6 @@ class DDLSegmentModelTitleStyle: DDLSegmentModelStyleProtocol {
     var selectedFont: UIFont = UIFont.systemFont(ofSize: 16, weight: .bold)
     
     // DDLSegmentModelStyleProtocol
-    var paddingWidth: CGFloat = 0
-    var paddingHeight: CGFloat = 0
     var identify: String = "cell"
     var cellClass: AnyClass = DDLSegmentTitleCell.self
 }

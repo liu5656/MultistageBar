@@ -9,6 +9,6 @@
 import UIKit
 
 protocol DDLSegmentModelProtocol: AnyObject {
-    var style: DDLSegmentModelStyleProtocol? {set get}
+    var style: DDLSegmentModelStyleProtocol {set get}
     func ddl_size() -> CGSize
 }

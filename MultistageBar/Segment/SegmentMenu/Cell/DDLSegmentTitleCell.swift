@@ -12,11 +12,12 @@ class DDLSegmentTitleCell: UICollectionViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        if let temp = model.style {
-            let size = titleL.sizeThatFits(bounds.size)
-            titleL.frame.size = CGSize.init(width: size.width + temp.paddingWidth * 2, height: size.height + temp.paddingHeight * 2)
+//        if let temp = model.style {
+//            let size = titleL.sizeThatFits(bounds.size)
+//            titleL.frame.size = CGSize.init(width: size.width + temp.paddingWidth * 2, height: size.height + temp.paddingHeight * 2)
+            titleL.frame.size = model.ddl_size()
             titleL.center = contentView.center
-        }
+//        }
     }
     
     var model: DDLSegmentModelProtocol!

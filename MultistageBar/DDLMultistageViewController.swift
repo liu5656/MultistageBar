@@ -27,16 +27,14 @@ class DDLMultistageViewController: UIViewController {
     
     func ddl_loadData() {
         
-        let data1 = DDLSegmentModelTitle.init()
+        let data1 = DDLSegmentModelTitle.init(style: style)
         data1.style = style
         data1.name = "交通工具"
         
-        let data2 = DDLSegmentModelTitle.init()
-        data2.style = style2
+        let data2 = DDLSegmentModelTitle.init(style: style2)
         data2.name = "数码"
         
-        let data3 = DDLSegmentModelTitle.init()
-        data3.style = style2
+        let data3 = DDLSegmentModelTitle.init(style: style2)
         data3.name = "食物"
         datasource = [data1, data2, data3]
         segment.datasource = datasource
@@ -48,8 +46,8 @@ class DDLMultistageViewController: UIViewController {
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.red
         temp.selectedFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-        temp.paddingWidth = 15
-        temp.paddingHeight = 4
+//        temp.paddingWidth = 15
+//        temp.paddingHeight = 4
         return temp
     }()
     lazy var style2: DDLSegmentModelStyleProtocol = {
@@ -58,8 +56,8 @@ class DDLMultistageViewController: UIViewController {
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.black
         temp.selectedFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-        temp.paddingWidth = 15
-        temp.paddingHeight = 4
+//        temp.paddingWidth = 15
+//        temp.paddingHeight = 4
         return temp
     }()
     lazy var indicator: DDLSegmentIndicatorProtocol = {
@@ -73,6 +71,7 @@ class DDLMultistageViewController: UIViewController {
     var datasource: [DDLSegmentModelProtocol] = []
     lazy var segment: DDLSegmentMenuView = {
         let temp = DDLSegmentMenuView.init(frame: CGRect.init(x: 0, y: 100, width: 414, height: 50))
+        temp.backgroundColor = UIColor.red
         temp.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)         // segment 边距
         temp.contentRadius = 15                                                             // segment 圆角
         temp.contentColor = UIColor.systemGray                                                   // segment背景

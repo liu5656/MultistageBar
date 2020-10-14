@@ -39,8 +39,7 @@ class DDLFirstTableContentVC: UIViewController{
     lazy var datasource: [DDLSegmentModelProtocol] = {
         var temp: [DDLSegmentModelTitle] = []
         titles.forEach { (title) in
-            let data1 = DDLSegmentModelTitle.init()
-            data1.style = style
+            let data1 = DDLSegmentModelTitle.init(style: style)
             data1.name = title
             temp.append(data1)
         }

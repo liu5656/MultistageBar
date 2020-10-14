@@ -26,16 +26,13 @@ class DDLHeaderViewController: UIViewController {
     
     func ddl_loadData() {
         
-        let data1 = DDLSegmentModelTitle.init()
-        data1.style = style
+        let data1 = DDLSegmentModelTitle.init(style: style)
         data1.name = "交通工具"
         
-        let data2 = DDLSegmentModelTitle.init()
-        data2.style = style
+        let data2 = DDLSegmentModelTitle.init(style: style)
         data2.name = "数码"
         
-        let data3 = DDLSegmentModelTitle.init()
-        data3.style = style
+        let data3 = DDLSegmentModelTitle.init(style: style)
         data3.name = "食物"
         datasource = [data1, data2, data3]
         segment.datasource = datasource
@@ -47,8 +44,8 @@ class DDLHeaderViewController: UIViewController {
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.red
         temp.selectedFont = UIFont.systemFont(ofSize: 16, weight: .bold)
-        temp.paddingWidth = 15
-        temp.paddingHeight = 4
+//        temp.paddingWidth = 15
+//        temp.paddingHeight = 4
         return temp
     }()
     lazy var header: UIView = {
