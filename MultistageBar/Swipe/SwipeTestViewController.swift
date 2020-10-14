@@ -12,12 +12,32 @@ class SwipeTestViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
+//        commonSwipe() // 不带header的swipe
+        headerSwipe()   // 带header的swipe
+    }
+    
+    func headerSwipe() {
+        let swipeTV = SwipeTableView.init(frame: Screen.bounds)
+        swipeTV.barTopInset = 60
+        view.addSubview(swipeTV)
+        
         swipeTV.delegate = self
         swipeTV.datasource = self
+        
         swipeTV.headerView = headerView
         swipeTV.headerBar = headerBar
     }
+    
+    func commonSwipe() {
+        let swipeTV = SwipeTableView.init(frame: Screen.bounds)
+        swipeTV.barTopInset = 60
+        view.addSubview(swipeTV)
+        
+        swipeTV.delegate = self
+        swipeTV.datasource = self
+    }
+    
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
@@ -40,9 +60,20 @@ class SwipeTestViewController: UIViewController {
             
             let col = UICollectionView.init(frame: swipe.bounds, collectionViewLayout: layout)
             col.contentInset = UIEdgeInsets.init(top: 13, left: 12, bottom: 12, right: 12)
+            col.isPagingEnabled = true
             col.delegate = swipe
             col.dataSource = swipe
             col.register(UICollectionViewCell.classForCoder(), forCellWithReuseIdentifier: cellIdentify)
+            
+            col.refreshHeader {
+                DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+                    DispatchQueue.main.async {
+                        col.endHeaderRefreshing()
+                    }
+                }
+            }
+            
+            
             return col
         }
     }
@@ -57,12 +88,6 @@ class SwipeTestViewController: UIViewController {
         let bar = UIView.init(frame: CGRect.init(x: 0, y: headerView.frame.maxY, width: Screen.width, height: 80))
         bar.backgroundColor = UIColor.blue;
         return bar
-    }()
-    lazy var swipeTV: SwipeTableView = {
-        let v = SwipeTableView.init(frame: Screen.bounds)
-        v.barTopInset = 60
-        view.addSubview(v)
-        return v
     }()
 }
 

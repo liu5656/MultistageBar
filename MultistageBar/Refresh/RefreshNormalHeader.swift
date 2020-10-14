@@ -17,9 +17,7 @@ class RefreshNormalHeader: RefreshComponent {
         indicator.center = .init(x: titleL.frame.origin.x - 16.0, y: titleL.center.y)
         arrowIV.center = CGPoint.init(x: indicator.center.x, y: titleL.center.y)
     }
-    deinit {
-        MBLog("")
-    }
+    
     override func refreshStateDidChanged(to state: RefreshState) {
         super.refreshStateDidChanged(to: state)
         switch state {

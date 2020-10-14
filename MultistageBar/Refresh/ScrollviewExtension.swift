@@ -36,7 +36,6 @@ extension UIScrollView {
         header.handler = handler
         refreshHeader = header
         self.addSubview(header)
-        header.scrollView = self
     }
     func refreshFooter(refreshView footer: RefreshComponent = RefreshNormalFooter(), handler: @escaping () -> Void) {
         footer.tag = 2
@@ -45,13 +44,11 @@ extension UIScrollView {
         footer.handler = handler
         refreshFooter = footer
         self.addSubview(footer)
-        footer.scrollView = self
     }
     func beginHeaderRefreshing() {
         guard let distant = refreshHeader?.triggerH else {return}
-        let offsetY = contentOffset.y - (distant + 1)
-        refreshHeader?.state = .releaseToRefresh
-        self.setContentOffset(CGPoint.init(x: 0, y: offsetY), animated: true)
+        MBLog("\(self.contentInset.top)")
+        self.setContentOffset(CGPoint.init(x: 0, y: -(distant + 1)), animated: true)
     }
     func endHeaderRefreshing() {
         excuteInMainThread {
@@ -76,7 +73,7 @@ extension UIScrollView {
         _ = refreshFooter?.subviews.map({$0.removeFromSuperview()})
         refreshFooter?.removeFromSuperview()
     }
-    var refreshHeader: RefreshComponent? {
+    private var refreshHeader: RefreshComponent? {
         get {
             return (objc_getAssociatedObject(self, &refreshHeaderKey) as? RefreshComponent)
         }
@@ -85,7 +82,7 @@ extension UIScrollView {
         }
     }
     
-    var refreshFooter: RefreshComponent? {
+    private var refreshFooter: RefreshComponent? {
         get {
             return (objc_getAssociatedObject(self, &refreshFooterKey) as? RefreshComponent)
         }

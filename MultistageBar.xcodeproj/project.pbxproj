@@ -53,6 +53,7 @@
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
 		176A150225231049002EB14F /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A150125231049002EB14F /* SwipeTableView.swift */; };
 		176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1503252310E6002EB14F /* SwipeTestViewController.swift */; };
+		178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
@@ -140,6 +141,7 @@
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
 		176A150125231049002EB14F /* SwipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		176A1503252310E6002EB14F /* SwipeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTestViewController.swift; sourceTree = "<group>"; };
+		178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRefreshTestViewController.swift; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
@@ -225,6 +227,7 @@
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
+				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
@@ -660,6 +663,7 @@
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
+				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,

@@ -32,7 +32,8 @@ class InitialViewController: UIViewController {
         (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪"),
         (MBLocationViewController.classForCoder(), "获取定位信息"),
         (MBRetryViewController.classForCoder(), "失败重试策略"),
-        (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸")
+        (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
+        (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试")
     ]
     
     lazy var table: UITableView = {
