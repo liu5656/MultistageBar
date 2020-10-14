@@ -47,7 +47,7 @@
 		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
 		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
 		1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */; };
-		1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E476247FA5A3009B9612 /* DDLSegmentItemProtocol.swift */; };
+		1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */; };
 		1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */; };
 		1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */; };
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
@@ -58,7 +58,14 @@
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
+		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
+		17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */; };
+		17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */; };
+		17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */; };
+		17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */; };
+		17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */; };
+		17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,7 +133,7 @@
 		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
 		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
 		1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCollectionView.swift; sourceTree = "<group>"; };
-		1762E476247FA5A3009B9612 /* DDLSegmentItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentItemProtocol.swift; sourceTree = "<group>"; };
+		1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelStyleProtocol.swift; sourceTree = "<group>"; };
 		1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCellProtocol.swift; sourceTree = "<group>"; };
 		1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelProtocol.swift; sourceTree = "<group>"; };
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
@@ -137,7 +144,14 @@
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
+		17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentBaseIndicator.swift; sourceTree = "<group>"; };
+		17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentLineIndicator.swift; sourceTree = "<group>"; };
+		17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentBackgroundIndicator.swift; sourceTree = "<group>"; };
+		17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitleStyle.swift; sourceTree = "<group>"; };
+		17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitle.swift; sourceTree = "<group>"; };
+		17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentTitleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +217,7 @@
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
+				17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */,
 				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
 				1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */,
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
@@ -385,22 +400,26 @@
 		1762E472247FA5A3009B9612 /* SegmentMenu */ = {
 			isa = PBXGroup;
 			children = (
+				1762E475247FA5A3009B9612 /* Protocol */,
+				17FEC0B62536A03D0002168D /* Model */,
+				17FEC0AA25369FC90002168D /* ModelStyle */,
+				17FEC09225369F1C0002168D /* Cell */,
+				17FEC09125369F0F0002168D /* Indicator */,
 				1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */,
 				1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */,
-				1762E475247FA5A3009B9612 /* item */,
 			);
 			path = SegmentMenu;
 			sourceTree = "<group>";
 		};
-		1762E475247FA5A3009B9612 /* item */ = {
+		1762E475247FA5A3009B9612 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				1762E476247FA5A3009B9612 /* DDLSegmentItemProtocol.swift */,
-				1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */,
 				1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */,
+				1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */,
 				1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */,
+				1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */,
 			);
-			path = item;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 		176A15002523100F002EB14F /* Swipe */ = {
@@ -428,6 +447,40 @@
 				179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */,
 			);
 			path = RoundedRectangle;
+			sourceTree = "<group>";
+		};
+		17FEC09125369F0F0002168D /* Indicator */ = {
+			isa = PBXGroup;
+			children = (
+				17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */,
+				17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */,
+				17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */,
+			);
+			path = Indicator;
+			sourceTree = "<group>";
+		};
+		17FEC09225369F1C0002168D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		17FEC0AA25369FC90002168D /* ModelStyle */ = {
+			isa = PBXGroup;
+			children = (
+				17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */,
+			);
+			path = ModelStyle;
+			sourceTree = "<group>";
+		};
+		17FEC0B62536A03D0002168D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,11 +622,14 @@
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
+				17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */,
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
+				17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
 				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
+				17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
 				179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */,
@@ -583,6 +639,7 @@
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
+				17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */,
@@ -593,17 +650,20 @@
 				173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
+				17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
-				1762E47F247FA5A3009B9612 /* DDLSegmentItemProtocol.swift in Sources */,
+				1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
+				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
+				17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,

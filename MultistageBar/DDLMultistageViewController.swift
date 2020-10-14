@@ -42,8 +42,8 @@ class DDLMultistageViewController: UIViewController {
         segment.datasource = datasource
     }
    
-    lazy var style: DDLSegmentItemProtocol = {
-        let temp = DDLSegmentItemTitle.init()
+    lazy var style: DDLSegmentModelStyleProtocol = {
+        let temp = DDLSegmentModelTitleStyle.init()
         temp.normalColor = UIColor.blue
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.red
@@ -52,8 +52,8 @@ class DDLMultistageViewController: UIViewController {
         temp.paddingHeight = 4
         return temp
     }()
-    lazy var style2: DDLSegmentItemProtocol = {
-        let temp = DDLSegmentItemTitle.init()
+    lazy var style2: DDLSegmentModelStyleProtocol = {
+        let temp = DDLSegmentModelTitleStyle.init()
         temp.normalColor = UIColor.gray
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.black

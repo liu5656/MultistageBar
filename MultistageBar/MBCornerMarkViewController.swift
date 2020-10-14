@@ -1,15 +1,15 @@
 //
-//  DDLOnlyTitleViewController.swift
+//  MBCornerMarkViewController.swift
 //  MultistageBar
 //
-//  Created by x on 2020/7/21.
+//  Created by x on 2020/10/14.
 //  Copyright © 2020 x. All rights reserved.
 //
 
 import UIKit
 
-class DDLOnlyTitleViewController: UIViewController {
-    
+class MBCornerMarkViewController: MBViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white

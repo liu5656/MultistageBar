@@ -21,6 +21,7 @@ class InitialViewController: UIViewController {
     }
     let datas: [(AnyClass, String)] = [
         (DDLOnlyTitleViewController.classForCoder(), "只有一级菜单"),
+        (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
         (DDLHeaderViewController.classForCoder(), "带顶部的一级菜单"),
         (DDLMultistageViewController.classForCoder(), "多级菜单"),
         (SignInAppleViewController.classForCoder(), "苹果登录"),

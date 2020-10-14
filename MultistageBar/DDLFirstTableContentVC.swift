@@ -22,8 +22,8 @@ class DDLFirstTableContentVC: UIViewController{
         print("DDLFirstTableContentVC deinit \(self)")
     }
     
-    lazy var style: DDLSegmentItemProtocol = {
-        let temp = DDLSegmentItemTitle.init()
+    lazy var style: DDLSegmentModelStyleProtocol = {
+        let temp = DDLSegmentModelTitleStyle.init()
         return temp
     }()
     var titles: [String] = []

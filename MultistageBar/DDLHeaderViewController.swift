@@ -41,8 +41,8 @@ class DDLHeaderViewController: UIViewController {
         segment.datasource = datasource
     }
     
-    lazy var style: DDLSegmentItemProtocol = {
-        let temp = DDLSegmentItemTitle.init()
+    lazy var style: DDLSegmentModelStyleProtocol = {
+        let temp = DDLSegmentModelTitleStyle.init()
         temp.normalColor = UIColor.blue
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.red

@@ -1,18 +1,12 @@
 //
-//  DDLSegmentCellProtocol.swift
+//  DDLSegmentTitleCell.swift
 //  MultistageBar
 //
-//  Created by x on 2020/4/24.
+//  Created by x on 2020/10/14.
 //  Copyright © 2020 x. All rights reserved.
 //
 
 import UIKit
-
-protocol DDLSegmentCellProtocol: AnyObject {
-    func ddl_update(model: DDLSegmentModelProtocol)
-    func ddl_update(style: DDLSegmentItemProtocol)
-    func ddl_willFocus(_ focus: Bool, scale: CGFloat)
-}
 
 class DDLSegmentTitleCell: UICollectionViewCell {
     
@@ -20,7 +14,7 @@ class DDLSegmentTitleCell: UICollectionViewCell {
         super.layoutSubviews()
         if let temp = model.style {
             let size = titleL.sizeThatFits(bounds.size)
-            titleL.frame.size = CGSize.init(width: size.width + temp.ddl_widthPadding() * 2, height: size.height + temp.ddl_heightPadding() * 2)
+            titleL.frame.size = CGSize.init(width: size.width + temp.paddingWidth * 2, height: size.height + temp.paddingHeight * 2)
             titleL.center = contentView.center
         }
     }
@@ -37,7 +31,7 @@ class DDLSegmentTitleCell: UICollectionViewCell {
 extension DDLSegmentTitleCell: DDLSegmentCellProtocol {
     
     func ddl_willFocus(_ focus: Bool, scale: CGFloat) {
-        guard let style = model?.style as? DDLSegmentItemTitle else {return}
+        guard let style = model?.style as? DDLSegmentModelTitleStyle else {return}
         let delta = (style.selectedFont.pointSize - style.normalFont.pointSize) * scale
         let temp: CGFloat
         if focus {
@@ -51,15 +45,16 @@ extension DDLSegmentTitleCell: DDLSegmentCellProtocol {
         setNeedsLayout()
     }
     
-    func ddl_update(style: DDLSegmentItemProtocol) {
-        guard let style = style as? DDLSegmentItemTitle else {return}
+    func ddl_update(style: DDLSegmentModelStyleProtocol) {
+        guard let style = style as? DDLSegmentModelTitleStyle else {return}
         titleL.font = style.normalFont
         titleL.textColor = style.normalColor
     }
     
     func ddl_update(model: DDLSegmentModelProtocol) {
         self.model = model
-        guard let model = model as? DDLSegmentModelTitleProtocol else {return}
+        guard let model = model as? DDLSegmentModelTitle else {return}
         titleL.text = model.name
     }
 }
+

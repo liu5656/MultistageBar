@@ -153,8 +153,10 @@ class DDLSegmentMenuView: UIView {
         didSet{
             let width = min(bounds.width, sectionInset.left + ddl_maxWidth() + sectionInset.right)
             menuCV.frame = CGRect.init(x: (bounds.size.width - width) * 0.5, y: (bounds.size.height - itemHeight) * 0.5, width: width, height: itemHeight)
-            menuCV.paddingWidth = datasource.first?.style?.ddl_widthPadding() ?? 0
-            datasource.first?.style?.ddl_registerCell(in: menuCV)
+            menuCV.paddingWidth = datasource.first?.style?.paddingWidth ?? 0
+            if let style = datasource.first?.style {
+                menuCV.register(style.cellClass, forCellWithReuseIdentifier: style.identify)
+            }
             menuCV.reloadData()
             // 更新contentsize
             guard let number = contentDatasource?.ddl_segmentContentNumber() else {return}
@@ -233,8 +235,10 @@ extension DDLSegmentMenuView: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = datasource[indexPath.row]
-        guard let style = data.style else {return UICollectionViewCell()}
-        let cell = style.ddl_cell(in: collectionView, for: indexPath)
+        guard let style = data.style,
+              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: style.identify, for: indexPath) as? DDLSegmentCellProtocol else {
+            return UICollectionViewCell()
+        }
         cell.ddl_update(model: data)
         cell.ddl_update(style: style)
         return cell as! UICollectionViewCell
