@@ -27,10 +27,6 @@
 		172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBD251DD4870072D325 /* CaptureViewController.swift */; };
 		172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBF251DDD490072D325 /* CaptureImageEx.swift */; };
 		172A2EC4251DF52D0072D325 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EC3251DF52D0072D325 /* Screen.swift */; };
-		173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */; };
-		173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */; };
-		173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */; };
-		173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173871A424FE42DE0073FB22 /* RefreshComponent.swift */; };
 		17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */; };
 		174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174371FB2519A40500C0E9A7 /* CodableEx.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
@@ -58,6 +54,10 @@
 		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
+		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
+		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
+		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
+		179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
@@ -115,10 +115,6 @@
 		172A2EBD251DD4870072D325 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		172A2EBF251DDD490072D325 /* CaptureImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageEx.swift; sourceTree = "<group>"; };
 		172A2EC3251DF52D0072D325 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
-		173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
-		173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
-		173871A424FE42DE0073FB22 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSecondTableContentVC.swift; sourceTree = "<group>"; };
 		174371FB2519A40500C0E9A7 /* CodableEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEx.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -146,6 +142,10 @@
 		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
+		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
+		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
+		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
+		179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
@@ -326,10 +326,10 @@
 		173871A024FE42DE0073FB22 /* Refresh */ = {
 			isa = PBXGroup;
 			children = (
-				173871A124FE42DE0073FB22 /* RefreshNormalHeader.swift */,
-				173871A224FE42DE0073FB22 /* ScrollviewExtension.swift */,
-				173871A324FE42DE0073FB22 /* RefreshNormalFooter.swift */,
-				173871A424FE42DE0073FB22 /* RefreshComponent.swift */,
+				179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */,
+				179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */,
+				179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */,
+				179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */,
 			);
 			path = Refresh;
 			sourceTree = "<group>";
@@ -621,6 +621,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */,
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
@@ -632,9 +633,9 @@
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
+				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
-				173871A724FE42DE0073FB22 /* RefreshNormalFooter.swift in Sources */,
 				17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
@@ -649,12 +650,9 @@
 				17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
-				173871A524FE42DE0073FB22 /* RefreshNormalHeader.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
-				173871A824FE42DE0073FB22 /* RefreshComponent.swift in Sources */,
 				176A150225231049002EB14F /* SwipeTableView.swift in Sources */,
 				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
-				173871A624FE42DE0073FB22 /* ScrollviewExtension.swift in Sources */,
 				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */,
@@ -662,6 +660,7 @@
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
 				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */,
+				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
@@ -670,6 +669,7 @@
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
 				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
+				179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
 				17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
