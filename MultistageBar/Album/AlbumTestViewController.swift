@@ -22,6 +22,7 @@ class AlbumTestViewController: UIViewController {
         }
         
         let vc = AlbumViewController.init()
+        vc.maxNumber = 2
         vc.allowCrop = true
         vc.finishCallback = { asset in
             
