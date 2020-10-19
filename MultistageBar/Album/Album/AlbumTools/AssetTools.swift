@@ -10,12 +10,12 @@ import UIKit
 import Photos
 
 class AssetTools {
-    static func getImageData(asset: AssetModel?, isCompressed: Bool = false, callback: @escaping (Data?) -> Void) {
+    static func getImageData(asset: AssetModel?, quality: CGFloat = 0, callback: @escaping (Data?) -> Void) {
         if let temp = asset?.localIdentifier, let asset = PHAsset.fetchAssets(withLocalIdentifiers: [temp], options: nil).firstObject {
             PHCachingImageManager.default().requestImageData(for: asset, options: nil, resultHandler: { (data, dataUTI, orientation, info) in
                 guard let temp = data else {callback(nil); return}
-                if isCompressed {
-                    callback(UIImage.init(data: temp)?.jpegData(compressionQuality: 0.5))
+                if quality > 0 {
+                    callback(UIImage.init(data: temp)?.jpegData(compressionQuality: quality))
                 }else{
                     callback(data)
                 }
