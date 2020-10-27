@@ -33,7 +33,8 @@ class InitialViewController: UIViewController {
         (MBLocationViewController.classForCoder(), "获取定位信息"),
         (MBRetryViewController.classForCoder(), "失败重试策略"),
         (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
-        (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试")
+        (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
+        (MBHashTestViewController.classForCoder(), "sha1/sha256/sha512")
     ]
     
     lazy var table: UITableView = {

@@ -26,6 +26,8 @@ class MBRefreshTestViewController: MBViewController {
         
         let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: Screen.height - Screen.fakeNavBarHeight), collectionViewLayout: layout)
 //        col.contentInset = UIEdgeInsets.init(top: 13, left: 12, bottom: 12, right: 12)
+        col.contentInsetAdjustmentBehavior = .never
+        col.alwaysBounceVertical = false
         col.backgroundColor = UIColor.white
         col.isPagingEnabled = true
         col.dataSource = self

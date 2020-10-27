@@ -60,6 +60,8 @@
 		179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
+		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
+		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
 		17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */; };
 		17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */; };
@@ -148,6 +150,8 @@
 		179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
+		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
+		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
 		17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentBaseIndicator.swift; sourceTree = "<group>"; };
 		17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentLineIndicator.swift; sourceTree = "<group>"; };
@@ -206,6 +210,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17C35F0D2547C6BA00CB6EC4 /* Hash */,
 				1714BDB425357A8400105924 /* RetrieveImageSize */,
 				175CC48B25345810006465AC /* RetryStrategy */,
 				175CC475253449AB006465AC /* Map */,
@@ -228,6 +233,7 @@
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
+				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
@@ -446,6 +452,14 @@
 			path = ProgressView;
 			sourceTree = "<group>";
 		};
+		17C35F0D2547C6BA00CB6EC4 /* Hash */ = {
+			isa = PBXGroup;
+			children = (
+				17C35F22254803D400CB6EC4 /* Hash.swift */,
+			);
+			path = Hash;
+			sourceTree = "<group>";
+		};
 		17F1D2612530343700721941 /* RoundedRectangle */ = {
 			isa = PBXGroup;
 			children = (
@@ -643,6 +657,7 @@
 				1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */,
 				175CC482253449F3006465AC /* LocationManager.swift in Sources */,
 				172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */,
+				17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */,
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
@@ -662,6 +677,7 @@
 				1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */,
 				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
+				17C35F23254803D400CB6EC4 /* Hash.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,

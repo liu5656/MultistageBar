@@ -13,6 +13,7 @@ class MBViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        self.edgesForExtendedLayout = UIRectEdge.init(rawValue: 0)
     }
     deinit {
         MBLog("")
