@@ -239,7 +239,6 @@
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
-				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
@@ -465,6 +464,7 @@
 				179F4D47254906020051E69D /* AES.swift */,
 				179F4D4C2549075F0051E69D /* DES.swift */,
 				17C199CF254BF2DE006BE61A /* RSA.swift */,
+				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 			);
 			path = Hash;
 			sourceTree = "<group>";
