@@ -11,7 +11,6 @@ import CommonCrypto
 
 class Hash {
     typealias shaFunc = (_ data: UnsafeRawPointer?, _ len: CC_LONG, _ md: UnsafeMutablePointer<UInt8>?) -> UnsafeMutablePointer<UInt8>?
-//    typealias hmacShaFunc = (_ algorithm: CCHmacAlgorithm, _ key: UnsafeRawPointer?, _ keyLength: Int, _ data: UnsafeRawPointer?, _ dataLength: Int, _ macOut: UnsafeMutableRawPointer?)
     enum Style {
         case sha1
         case sha256
