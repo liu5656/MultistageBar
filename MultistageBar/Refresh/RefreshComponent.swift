@@ -55,7 +55,6 @@ class RefreshComponent: UIView{
     
     func refreshStateDidChanged(to state: RefreshState) {
         guard let scroll = scrollView else {return}
-        MBLog(state)
         if state == .refreshing {
             var insets = scroll.contentInset
             if headerRefresh == true {
@@ -116,31 +115,24 @@ extension RefreshComponent {
     }
    
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        guard self.ignoreObserving == false else {return}
         guard let offsetY = self.scrollView?.contentOffset.y else {return}
-//        guard self.ignoreObserving == false else {return}
         if keyPath == contentInsetKeyPath, let newV = change?[NSKeyValueChangeKey.newKey] as? UIEdgeInsets {
             originalInsets = newV
-            MBLog("\(headerRefresh ? "1" : "2") --- contenInset --- \(offsetY)")
         }else if keyPath == contentSizeKeyPath, let newV = change?[NSKeyValueChangeKey.newKey] as? CGSize, newV != originalContentSize{
             originalContentSize = newV
             contentSizeChanged(to: newV)
-            MBLog("\(headerRefresh ? "1" : "2") --- contentSize --- \(offsetY)")
         }else if keyPath == contentOffsetKeyPath {
-            MBLog("\(headerRefresh ? "1" : "2") --- contentOffset --- \(offsetY)")
-            if state == .refreshing {
-                scrollView?.contentInset = UIEdgeInsets.init(top: 50, left: 0, bottom: 0, right: 0)
-                return
-            }
             if headerRefresh, offsetY < 0 {
                 let distant = abs(originalInsets.top + offsetY)
-//                MBLog("1 -- \(offsetY) - \(distant)")
+                MBLog("1 -- \(offsetY) - \(distant)")
                 handleDistant(distant)
             }else if headerRefresh == false, state != .noMore, offsetY > 0 {
                 guard let sizeH = self.scrollView?.contentSize.height, let frameH = self.scrollView?.frame.height else {return}
                 let realH = sizeH + originalInsets.bottom
                 guard realH > frameH else {return}
                 let distant = frameH + offsetY - realH
-//                MBLog("2 -- \(offsetY) - \(distant)")
+                MBLog("2 -- \(offsetY) - \(distant)")
                 handleDistant(distant)
             }
         }
