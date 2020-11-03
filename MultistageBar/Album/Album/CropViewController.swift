@@ -33,7 +33,7 @@ class CropViewController: UIViewController {
         if cropRatio > originalRatio {
             imgSize = CGSize.init(width: cropSize.width, height: cropSize.width / originalRatio)
         }else{
-            imgSize = CGSize.init(width: cropSize.width * originalRatio, height: cropSize.height)
+            imgSize = CGSize.init(width: cropSize.height * originalRatio, height: cropSize.height)
         }
         imgIV.frame = CGRect.init(origin: .zero, size: imgSize)
         coordinationV.frame = imgIV.frame
