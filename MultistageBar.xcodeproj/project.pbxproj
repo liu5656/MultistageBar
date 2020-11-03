@@ -49,6 +49,8 @@
 		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
 		176A150225231049002EB14F /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A150125231049002EB14F /* SwipeTableView.swift */; };
 		176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1503252310E6002EB14F /* SwipeTestViewController.swift */; };
+		1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C061255103C9001E14C7 /* MBCoordination.swift */; };
+		1778C06725510509001E14C7 /* MBDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C06625510509001E14C7 /* MBDistance.swift */; };
 		178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
@@ -63,6 +65,7 @@
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
 		17C199D0254BF2DE006BE61A /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199CF254BF2DE006BE61A /* RSA.swift */; };
+		17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199DA254C18DC006BE61A /* MBTableView.swift */; };
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
@@ -142,6 +145,8 @@
 		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
 		176A150125231049002EB14F /* SwipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		176A1503252310E6002EB14F /* SwipeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTestViewController.swift; sourceTree = "<group>"; };
+		1778C061255103C9001E14C7 /* MBCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCoordination.swift; sourceTree = "<group>"; };
+		1778C06625510509001E14C7 /* MBDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistance.swift; sourceTree = "<group>"; };
 		178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRefreshTestViewController.swift; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
@@ -156,6 +161,7 @@
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
 		17C199CF254BF2DE006BE61A /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
+		17C199DA254C18DC006BE61A /* MBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableView.swift; sourceTree = "<group>"; };
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				1778C0602551039B001E14C7 /* DistanceByCoordinate */,
 				17C35F0D2547C6BA00CB6EC4 /* Hash */,
 				1714BDB425357A8400105924 /* RetrieveImageSize */,
 				175CC48B25345810006465AC /* RetryStrategy */,
@@ -240,6 +247,7 @@
 				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
+				17C199DA254C18DC006BE61A /* MBTableView.swift */,
 				1705661C2452B08D00A7AF4B /* Main.storyboard */,
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
 				170566212452B09000A7AF4B /* LaunchScreen.storyboard */,
@@ -448,6 +456,15 @@
 			path = Swipe;
 			sourceTree = "<group>";
 		};
+		1778C0602551039B001E14C7 /* DistanceByCoordinate */ = {
+			isa = PBXGroup;
+			children = (
+				1778C061255103C9001E14C7 /* MBCoordination.swift */,
+				1778C06625510509001E14C7 /* MBDistance.swift */,
+			);
+			path = DistanceByCoordinate;
+			sourceTree = "<group>";
+		};
 		1794035A24C6D814000D2776 /* ProgressView */ = {
 			isa = PBXGroup;
 			children = (
@@ -652,6 +669,7 @@
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
+				1778C06725510509001E14C7 /* MBDistance.swift in Sources */,
 				17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */,
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
@@ -675,6 +693,7 @@
 				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
 				17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */,
+				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
@@ -696,6 +715,7 @@
 				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
+				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,
 				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
 				179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,

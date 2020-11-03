@@ -10,7 +10,28 @@ import UIKit
 
 
 class InitialViewController: UIViewController {
-    
+    func insertDatasOnTop() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+            let temp = [
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert"),
+                (DDLOnlyTitleViewController.classForCoder(), "insert")
+            ]
+            self?.datas.insert(contentsOf: temp, at: 0)
+            var indexs: [IndexPath] = []
+            temp.enumerated().forEach { (model) in
+                indexs.append(IndexPath.init(row: model.offset, section: 0))
+            }
+            DispatchQueue.main.async {
+                self?.table.insertRows(at: indexs, with: .none)
+                self?.table.endHeaderRefreshing()
+            }
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = table
@@ -19,8 +40,8 @@ class InitialViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    let datas: [(AnyClass, String)] = [
-        (DDLOnlyTitleViewController.classForCoder(), "只有一级菜单"),
+    var datas: [(AnyClass, String)] = [
+        (DDLOnlyTitleViewController.classForCoder(), "只有一级菜单/经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
         (DDLHeaderViewController.classForCoder(), "带顶部的一级菜单"),
         (DDLMultistageViewController.classForCoder(), "多级菜单"),
@@ -34,7 +55,7 @@ class InitialViewController: UIViewController {
         (MBRetryViewController.classForCoder(), "失败重试策略"),
         (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
         (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
-        (MBHashTestViewController.classForCoder(), "sha1/sha256/sha512")
+        (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA")
     ]
     
     lazy var table: UITableView = {
@@ -45,19 +66,15 @@ class InitialViewController: UIViewController {
         tab.tableFooterView = UIView.init()
         view.addSubview(tab)
         tab.refreshHeader {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
-                DispatchQueue.main.async {
-                    tab.endHeaderRefreshing()
-                }
-            }
+            self.insertDatasOnTop()
         }
-        tab.refreshFooter {
-            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
-                DispatchQueue.main.async {
-                    tab.endFooterRefreshing(hasMoreData: true)
-                }
-            }
-        }
+//        tab.refreshFooter {
+//            DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+//                DispatchQueue.main.async {
+//                    tab.endFooterRefreshing(hasMoreData: true)
+//                }
+//            }
+//        }
         return tab
     }()
     
