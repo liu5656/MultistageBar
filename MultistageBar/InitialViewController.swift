@@ -22,12 +22,14 @@ class InitialViewController: UIViewController {
                 (DDLOnlyTitleViewController.classForCoder(), "insert")
             ]
             self?.datas.insert(contentsOf: temp, at: 0)
+            let tempHeight = temp.count * 44
             var indexs: [IndexPath] = []
             temp.enumerated().forEach { (model) in
                 indexs.append(IndexPath.init(row: model.offset, section: 0))
             }
             DispatchQueue.main.async {
-                self?.table.insertRows(at: indexs, with: .none)
+                self?.table.reloadData()
+                self?.table.contentOffset = CGPoint.init(x: 0, y: tempHeight - 20)
                 self?.table.endHeaderRefreshing()
             }
         }
