@@ -35,11 +35,15 @@ class MBRefreshTestViewController: MBViewController {
         
         col.refreshHeader {
             DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
-                DispatchQueue.main.async {
                     col.endHeaderRefreshing()
-                }
             }
         }
+        col.refreshFooter {
+            DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
+                    col.endFooterRefreshing(hasMoreData: true)
+            }
+        }
+        col.beginHeaderRefreshing()
         view.addSubview(col)
         return col
     }()

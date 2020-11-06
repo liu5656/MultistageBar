@@ -16,21 +16,18 @@ enum RefreshState {
     case noMore
 }
 
-protocol RefreshPortocol {
-    var triggerH: CGFloat {set get}
-    var view: UIView{get}
-    func refreshStateDidChanged(to state: RefreshState)
-}
-
 class RefreshComponent: UIView{
-    weak var scrollView: UIScrollView? {
-        didSet{
-            guard let temp = scrollView else {return}
-            scrollView = temp
-            originalInsets = temp.contentInset
-            addObserver()
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        MBLog(String.init(format: "%p", self))
+        addObserver()
+        if refreshImmediately {
+            refreshImmediately = false
+            state = .refreshing
         }
     }
+    weak var scrollView: UIScrollView?
+    var refreshImmediately = false
     var headerRefresh: Bool = false
     var isObserveing: Bool = false
     var handler:(() -> Void)?
@@ -41,9 +38,7 @@ class RefreshComponent: UIView{
     var state: RefreshState = .idle {
         didSet{
             if state != oldValue {
-//                DispatchQueue.main.async {
-                    self.refreshStateDidChanged(to: self.state)
-//                }
+                self.refreshStateDidChanged(to: self.state)
             }else{
             }
         }
@@ -52,21 +47,38 @@ class RefreshComponent: UIView{
     private let contentOffsetKeyPath = "contentOffset"
     private let contentSizeKeyPath = "contentSize"
     private let contentInsetKeyPath = "contentInset"
-    
     func refreshStateDidChanged(to state: RefreshState) {
         guard let scroll = scrollView else {return}
         if state == .refreshing {
+            // 此时设置inset的时候不能监听footer的contentinset
+            self.scrollView?.refreshFooter?.ignoreObserving = true
+            self.scrollView?.refreshHeader?.ignoreObserving = true
             var insets = scroll.contentInset
             if headerRefresh == true {
                 insets.top = triggerH + scroll.contentInset.top
             }else{
                 insets.bottom = triggerH + scroll.contentInset.bottom
             }
-            UIView.animate(withDuration: 0.2) {
-                self.scrollView?.contentInset = insets
+            if headerRefresh {
+                // 方法二  不能自动下拉,动画返回,手动下拉有动画
+                self.scrollView?.setContentOffset(CGPoint.init(x: 0, y: -insets.top), animated: true)
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                    if state != .idle {
+                        self.scrollView?.contentInset = insets
+                    }
+                }
+            }else{
+                // 原始方法
+                UIView.animate(withDuration: 0.2) {
+                    self.scrollView?.contentInset = insets
+                }
             }
+            // 方法一 自动下拉,动画返回,手动下拉无动画
+//            self.scrollView?.contentInset = insets
+//            self.scrollView?.setContentOffset(CGPoint.init(x: 0, y: -insets.top), animated: true)
             handler?()
         }else if state == .idle {
+            // 原始
             UIView.animate(withDuration: 0.3, animations: {
                 self.scrollView?.contentInset = self.originalInsets
             }) { (_) in
@@ -85,16 +97,20 @@ class RefreshComponent: UIView{
 
 extension RefreshComponent {
     fileprivate func addObserver() {
-        if isObserveing == false, scrollView != nil {
+        if isObserveing == false, let temp = scrollView {
             isObserveing = true
-            scrollView?.addObserver(self, forKeyPath: contentOffsetKeyPath, options: [.initial, .new], context: nil)
-            scrollView?.addObserver(self, forKeyPath: contentSizeKeyPath, options: [.initial, .new], context: nil)
-            scrollView?.addObserver(self, forKeyPath: contentInsetKeyPath, options: [.initial, .new], context: nil)
+            temp.addObserver(self, forKeyPath: contentOffsetKeyPath, options: [.initial, .new], context: nil)
+            temp.addObserver(self, forKeyPath: contentSizeKeyPath, options: [.initial, .new], context: nil)
+            temp.addObserver(self, forKeyPath: contentInsetKeyPath, options: [.initial, .new], context: nil)
+            originalInsets = temp.contentInset
         }
     }
     fileprivate func removeObserver() {
-        scrollView?.removeObserver(self, forKeyPath: contentOffsetKeyPath)
-        scrollView?.removeObserver(self, forKeyPath: contentSizeKeyPath)
+        if let temp = scrollView {
+            temp.removeObserver(self, forKeyPath: contentOffsetKeyPath)
+            temp.removeObserver(self, forKeyPath: contentSizeKeyPath)
+            temp.removeObserver(self, forKeyPath: contentInsetKeyPath)
+        }
     }
     func handleDistant(_ distant: CGFloat) {
         if distant == 0 {
@@ -103,8 +119,9 @@ extension RefreshComponent {
             if state != .releaseToRefresh, state != .refreshing {
                 state = .releaseToRefresh
             }else if scrollView?.isDragging == false, state != .refreshing {
-                self.scrollView?.refreshFooter?.ignoreObserving = true  // 此时设置inset的时候不能监听footer的contentinset
-                self.scrollView?.refreshHeader?.ignoreObserving = true
+//                // 此时设置inset的时候不能监听footer的contentinset
+//                self.scrollView?.refreshFooter?.ignoreObserving = true
+//                self.scrollView?.refreshHeader?.ignoreObserving = true
                 state = .refreshing
             }
         }else if distant < triggerH {
@@ -138,4 +155,3 @@ extension RefreshComponent {
         }
     }
 }
-

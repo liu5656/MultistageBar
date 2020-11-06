@@ -48,10 +48,9 @@ extension UIScrollView {
         footer.scrollView = self
     }
     func beginHeaderRefreshing() {
-        guard let distant = refreshHeader?.triggerH else {return}
-        let offsetY = contentOffset.y - (distant + 1)
-        refreshHeader?.state = .releaseToRefresh
-        self.setContentOffset(CGPoint.init(x: 0, y: offsetY), animated: true)
+        refreshHeader?.refreshImmediately = true
+        MBLog("flat to refresh immediately")
+        refreshHeader?.setNeedsLayout()
     }
     func endHeaderRefreshing() {
         excuteInMainThread {

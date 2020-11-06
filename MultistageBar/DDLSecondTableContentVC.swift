@@ -69,6 +69,7 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
                 }
             }
         }
+        table.beginHeaderRefreshing()
         
         return table
     }()

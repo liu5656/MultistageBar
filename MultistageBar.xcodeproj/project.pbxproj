@@ -53,7 +53,7 @@
 		1778C06725510509001E14C7 /* MBDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C06625510509001E14C7 /* MBDistance.swift */; };
 		178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
-		1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */; };
+		1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */; };
 		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
@@ -149,7 +149,7 @@
 		1778C06625510509001E14C7 /* MBDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistance.swift; sourceTree = "<group>"; };
 		178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRefreshTestViewController.swift; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
-		1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLOnlyTitleViewController.swift; sourceTree = "<group>"; };
+		1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistanceViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
@@ -240,7 +240,7 @@
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
 				17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */,
-				1794035624C6D2C8000D2776 /* DDLOnlyTitleViewController.swift */,
+				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
 				1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */,
 				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
 				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
@@ -681,7 +681,7 @@
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
 				17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
-				1794035724C6D2C8000D2776 /* DDLOnlyTitleViewController.swift in Sources */,
+				1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */,
 				179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */,
 				1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */,
 				175CC482253449F3006465AC /* LocationManager.swift in Sources */,

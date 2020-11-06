@@ -11,15 +11,15 @@ import UIKit
 
 class InitialViewController: UIViewController {
     func insertDatasOnTop() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [weak self] in
             let temp = [
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert"),
-                (DDLOnlyTitleViewController.classForCoder(), "insert")
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert"),
+                (MBDistanceViewController.classForCoder(), "insert")
             ]
             self?.datas.insert(contentsOf: temp, at: 0)
             let tempHeight = temp.count * 44
@@ -43,7 +43,7 @@ class InitialViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
-        (DDLOnlyTitleViewController.classForCoder(), "只有一级菜单/经纬度距离计算"),
+        (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
         (DDLHeaderViewController.classForCoder(), "带顶部的一级菜单"),
         (DDLMultistageViewController.classForCoder(), "多级菜单"),
