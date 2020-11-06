@@ -1,5 +1,5 @@
 //
-//  DDLSegmentBackgroundIndicator.swift
+//  MBSegmentBackgroundIndicator.swift
 //  MultistageBar
 //
 //  Created by x on 2020/10/14.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DDLSegmentBackgroundIndicator: DDLSegmentBaseIndicator {
+class MBSegmentBackgroundIndicator: MBSegmentBaseIndicator {
 //    override init(frame: CGRect) {
 //        super.init(frame: frame)
 //        layer.cornerRadius = frame.height * 0.5

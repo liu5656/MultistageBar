@@ -45,8 +45,8 @@ class InitialViewController: UIViewController {
     var datas: [(AnyClass, String)] = [
         (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
-        (DDLHeaderViewController.classForCoder(), "带顶部的一级菜单"),
-        (DDLMultistageViewController.classForCoder(), "多级菜单"),
+        (MBHeaderViewController.classForCoder(), "带顶部的一级菜单"),
+        (MBMultistageViewController.classForCoder(), "多级菜单"),
         (SignInAppleViewController.classForCoder(), "苹果登录"),
         (JSONViewController.classForCoder(), "json<->模型"),
         (ProgressViewController.classForCoder(), "进度条"),

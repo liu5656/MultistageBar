@@ -1,5 +1,5 @@
 //
-//  DDLMultistageViewController.swift
+//  MBMultistageViewController.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DDLMultistageViewController: UIViewController {
+class MBMultistageViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +17,7 @@ class DDLMultistageViewController: UIViewController {
         
         DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 1) {
             DispatchQueue.main.async {
-                self.ddl_loadData()
+                self.mb_loadData()
             }
         }
     }
@@ -25,23 +25,23 @@ class DDLMultistageViewController: UIViewController {
         print("ViewController deinit")
     }
     
-    func ddl_loadData() {
+    func mb_loadData() {
         
-        let data1 = DDLSegmentModelTitle.init(style: style)
+        let data1 = MBSegmentModelTitle.init(style: style)
         data1.style = style
         data1.name = "交通工具"
         
-        let data2 = DDLSegmentModelTitle.init(style: style2)
+        let data2 = MBSegmentModelTitle.init(style: style2)
         data2.name = "数码"
         
-        let data3 = DDLSegmentModelTitle.init(style: style2)
+        let data3 = MBSegmentModelTitle.init(style: style2)
         data3.name = "食物"
         datasource = [data1, data2, data3]
         segment.datasource = datasource
     }
    
-    lazy var style: DDLSegmentModelStyleProtocol = {
-        let temp = DDLSegmentModelTitleStyle.init()
+    lazy var style: MBSegmentModelStyleProtocol = {
+        let temp = MBSegmentModelTitleStyle.init()
         temp.normalColor = UIColor.blue
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.red
@@ -50,8 +50,8 @@ class DDLMultistageViewController: UIViewController {
 //        temp.paddingHeight = 4
         return temp
     }()
-    lazy var style2: DDLSegmentModelStyleProtocol = {
-        let temp = DDLSegmentModelTitleStyle.init()
+    lazy var style2: MBSegmentModelStyleProtocol = {
+        let temp = MBSegmentModelTitleStyle.init()
         temp.normalColor = UIColor.gray
         temp.normalFont = UIFont.systemFont(ofSize: 14, weight: .regular)
         temp.selectedColor = UIColor.black
@@ -60,17 +60,17 @@ class DDLMultistageViewController: UIViewController {
 //        temp.paddingHeight = 4
         return temp
     }()
-    lazy var indicator: DDLSegmentIndicatorProtocol = {
-        let temp = DDLSegmentBackgroundIndicator.init()
+    lazy var indicator: MBSegmentIndicatorProtocol = {
+        let temp = MBSegmentBackgroundIndicator.init()
         temp.frame = CGRect.init(x: 0, y: 0, width: 60, height: 30)                         // 真实y值和height值
         temp.layer.cornerRadius = 15
         temp.backgroundColor = UIColor.lightGray
         return temp
     }()
     
-    var datasource: [DDLSegmentModelProtocol] = []
-    lazy var segment: DDLSegmentMenuView = {
-        let temp = DDLSegmentMenuView.init(frame: CGRect.init(x: 0, y: 100, width: 414, height: 50))
+    var datasource: [MBSegmentModelProtocol] = []
+    lazy var segment: MBSegmentMenuView = {
+        let temp = MBSegmentMenuView.init(frame: CGRect.init(x: 0, y: 100, width: 414, height: 50))
         temp.backgroundColor = UIColor.red
         temp.sectionInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0)         // segment 边距
         temp.contentRadius = 15                                                             // segment 圆角
@@ -81,24 +81,24 @@ class DDLMultistageViewController: UIViewController {
         temp.datasource = datasource                                                        // menu数据源
         temp.indicator = indicator                                                          // 选中的指示器
         temp.contentDatasource = self                                                       // content数据代理
-        temp.ddl_show(in: self.view, contentFrame: CGRect.init(x: 0, y: temp.frame.maxY, width: temp.frame.width, height: UIScreen.main.bounds.height - temp.frame.maxY))   // 添加到父视图
+        temp.mb_show(in: self.view, contentFrame: CGRect.init(x: 0, y: temp.frame.maxY, width: temp.frame.width, height: UIScreen.main.bounds.height - temp.frame.maxY))   // 添加到父视图
         return temp
     }()
 }
 
-extension DDLMultistageViewController: DDLSegmentContentDatasource {
-    func ddl_segmentContentNumber() -> Int {
+extension MBMultistageViewController: MBSegmentContentDatasource {
+    func mb_segmentContentNumber() -> Int {
         return datasource.count
     }
     
-    func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
-        let vc = DDLFirstTableContentVC.init()
+    func mb_segmentContent(cellForItemAt index: Int) -> MBSegmentContentItemProtocol {
+        let vc = MBFirstTableContentVC.init()
         if 0 == index {
             vc.titles = ["非常大的货车", "自行车", "手机", "afldsjasdjf", "fasdfsadfsadfsadfa", "fsadfasdfasd", "fasdfsadfsadfsadfa", "fsadfasdfasd"]
         }else if 1 == index {
             vc.titles = ["手机", "笔记本电脑", "airPods"]
         }else if 2 == index {
-            let vc = DDLView.init()
+            let vc = MBView.init()
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
             return vc
         }

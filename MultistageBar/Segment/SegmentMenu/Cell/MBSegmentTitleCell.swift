@@ -1,5 +1,5 @@
 //
-//  DDLSegmentTitleCell.swift
+//  MBSegmentTitleCell.swift
 //  MultistageBar
 //
 //  Created by x on 2020/10/14.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class DDLSegmentTitleCell: UICollectionViewCell, DDLSegmentCellProtocol {
+class MBSegmentTitleCell: UICollectionViewCell, MBSegmentCellProtocol {
     
-    func ddl_willFocus(_ focus: Bool, scale: CGFloat) {
-        guard let style = model?.style as? DDLSegmentModelTitleStyle else {return}
+    func mb_willFocus(_ focus: Bool, scale: CGFloat) {
+        guard let style = model?.style as? MBSegmentModelTitleStyle else {return}
         let delta = (style.selectedFont.pointSize - style.normalFont.pointSize) * scale
         let temp: CGFloat
         if focus {
@@ -25,15 +25,15 @@ class DDLSegmentTitleCell: UICollectionViewCell, DDLSegmentCellProtocol {
         setNeedsLayout()
     }
     
-    func ddl_update(style: DDLSegmentModelStyleProtocol) {
-        guard let style = style as? DDLSegmentModelTitleStyle else {return}
+    func mb_update(style: MBSegmentModelStyleProtocol) {
+        guard let style = style as? MBSegmentModelTitleStyle else {return}
         titleL.font = style.normalFont
         titleL.textColor = style.normalColor
     }
     
-    func ddl_update(model: DDLSegmentModelProtocol) {
+    func mb_update(model: MBSegmentModelProtocol) {
         self.model = model
-        guard let model = model as? DDLSegmentModelTitle else {return}
+        guard let model = model as? MBSegmentModelTitle else {return}
         titleL.text = model.name
         cornerMarkL.frame = model.badgeFrame
         
@@ -52,7 +52,7 @@ class DDLSegmentTitleCell: UICollectionViewCell, DDLSegmentCellProtocol {
 //        if let temp = model.style {
 //            let size = titleL.sizeThatFits(bounds.size)
 //            titleL.frame.size = CGSize.init(width: size.width + temp.paddingWidth * 2, height: size.height + temp.paddingHeight * 2)
-        if let size = model?.ddl_size() {
+        if let size = model?.mb_size() {
             titleL.frame.size = size
         }else{
             titleL.sizeToFit()
@@ -61,7 +61,7 @@ class DDLSegmentTitleCell: UICollectionViewCell, DDLSegmentCellProtocol {
 //        }
     }
     
-    var model: DDLSegmentModelProtocol?
+    var model: MBSegmentModelProtocol?
     lazy var titleL: UILabel = {
         let lab = UILabel.init()
         lab.textAlignment = .center

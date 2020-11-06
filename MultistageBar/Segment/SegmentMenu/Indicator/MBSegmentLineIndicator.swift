@@ -1,5 +1,5 @@
 //
-//  DDLSegmentLineIndicator.swift
+//  MBSegmentLineIndicator.swift
 //  MultistageBar
 //
 //  Created by x on 2020/10/14.
@@ -8,5 +8,5 @@
 
 import Foundation
 
-class DDLSegmentLineIndicator: DDLSegmentBaseIndicator {
+class MBSegmentLineIndicator: MBSegmentBaseIndicator {
 }

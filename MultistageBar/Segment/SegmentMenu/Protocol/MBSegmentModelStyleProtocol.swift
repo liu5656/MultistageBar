@@ -1,5 +1,5 @@
 //
-//  DDLSegmentBaseItem.swift
+//  MBSegmentBaseItem.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/24.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol DDLSegmentModelStyleProtocol: AnyObject {
+protocol MBSegmentModelStyleProtocol: AnyObject {
     var identify: String{set get}
     var cellClass: AnyClass {get set}
 }

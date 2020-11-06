@@ -1,5 +1,5 @@
 //
-//  DDLSegmentMenuView.swift
+//  MBSegmentMenuView.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/24.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol DDLSegmentMenuViewDelegate: class {
-    func ddl_didSelected(index: Int)
+protocol MBSegmentMenuViewDelegate: class {
+    func mb_didSelected(index: Int)
 }
 
-class DDLSegmentMenuView: UIView {
+class MBSegmentMenuView: UIView {
     //MARK: - public
-    func ddl_show(in content: UIView, contentFrame: CGRect) {
+    func mb_show(in content: UIView, contentFrame: CGRect) {
         if header != nil {
             horizontalScroll.frame = CGRect.init(x: self.frame.origin.x, y: 0, width: self.frame.width, height: content.frame.height)
             content.addSubview(horizontalScroll)
@@ -31,15 +31,15 @@ class DDLSegmentMenuView: UIView {
             content.addSubview(horizontalScroll)
         }
     }
-    func ddl_slider(from: Int, to: Int, scale: CGFloat) {
-        menuCV.ddl_slider(from: from, to: to, scale: scale)
+    func mb_slider(from: Int, to: Int, scale: CGFloat) {
+        menuCV.mb_slider(from: from, to: to, scale: scale)
     }
-    func ddl_reloadDataTitle() {
+    func mb_reloadDataTitle() {
         menuCV.reloadData()
     }
     
     //MARK: - utils
-    private func ddl_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
+    private func mb_handleUpDown(offset: CGPoint, scrollView: UIScrollView) {
         guard header != nil else {return}
         let delta = originalTopOffset + offset.y
         if delta > 0 {
@@ -50,28 +50,28 @@ class DDLSegmentMenuView: UIView {
             self.frame = CGRect.init(origin: CGPoint.init(x: originalBarFrame.origin.x, y: originalBarFrame.origin.y - max(delta, 0)), size: originalBarFrame.size)
         }
     }
-    private func ddl_maxWidth() -> CGFloat {
+    private func mb_maxWidth() -> CGFloat {
         var width: CGFloat = 0
         datasource.enumerated().forEach { (model) in
-            width += model.element.ddl_size().width
+            width += model.element.mb_size().width
             if model.offset != datasource.count - 1 {
                 width += lineSpacing
             }
         }
         return min(maxWidth, width)
     }
-    private func ddl_page(at index: Int) -> DDLSegmentContentItemProtocol {
+    private func mb_page(at index: Int) -> MBSegmentContentItemProtocol {
         if let temp = contentItems[index] {
             return temp
         }else{
-            return contentDatasource!.ddl_segmentContent(cellForItemAt: index)
+            return contentDatasource!.mb_segmentContent(cellForItemAt: index)
         }
     }
     //判重后再决定是否添加
-    private func ddl_willShow(at index: Int, item: DDLSegmentContentItemProtocol) {
+    private func mb_willShow(at index: Int, item: MBSegmentContentItemProtocol) {
         guard contentItems[index] == nil else {return}
         contentItems[index] = item
-        let content = item.ddl_view()
+        let content = item.mb_view()
         if header == nil {
             content.frame = CGRect.init(origin: CGPoint.init(x: CGFloat(index) * horizontalScroll.frame.width, y: 0), size: CGSize.init(width: horizontalScroll.frame.width, height: horizontalScroll.frame.height))
             horizontalScroll.addSubview(content)
@@ -96,9 +96,9 @@ class DDLSegmentMenuView: UIView {
             page.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .new, context: nil)
         }
     }
-    private func ddl_willShowAgain(at index: Int, item: DDLSegmentContentItemProtocol) {
+    private func mb_willShowAgain(at index: Int, item: MBSegmentContentItemProtocol) {
         guard header != nil else {return}
-        let content = item.ddl_view()
+        let content = item.mb_view()
         guard let temp = (content as? UIScrollView) ?? (content.superview as? UIScrollView),
             temp.contentOffset.y != -frame.maxY else {return}
         temp.setContentOffset(CGPoint.init(x: 0, y: -frame.maxY), animated: false)
@@ -107,13 +107,13 @@ class DDLSegmentMenuView: UIView {
         
     //MARK: - lazy
     // step 2: 如果设置底部容器代理,就监听contentOffset为滑动做准备
-    weak var contentDatasource : DDLSegmentContentDatasource? {
+    weak var contentDatasource : MBSegmentContentDatasource? {
         didSet{
             horizontalScroll.addObserver(self, forKeyPath: contentOffsetKeyPath, options: .new, context: nil)
         }
     }
     // menu
-    weak var delegate: DDLSegmentMenuViewDelegate?
+    weak var delegate: MBSegmentMenuViewDelegate?
     var sectionInset: UIEdgeInsets = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
     var maxWidth: CGFloat = UIScreen.main.bounds.width
     var lineSpacing: CGFloat = 0
@@ -122,7 +122,7 @@ class DDLSegmentMenuView: UIView {
     var corners: CACornerMask = [.layerMinXMaxYCorner, .layerMinXMinYCorner, .layerMaxXMinYCorner, .layerMaxXMaxYCorner]
     var contentColor: UIColor = UIColor.clear
     var selectedIndex: Int = 0
-    var indicator: DDLSegmentIndicatorProtocol? {
+    var indicator: MBSegmentIndicatorProtocol? {
         didSet{
             menuCV.indicator = indicator
         }
@@ -152,9 +152,9 @@ class DDLSegmentMenuView: UIView {
         }
     }
     var topOffset: CGFloat = 100
-    var datasource: [DDLSegmentModelProtocol] = [] {
+    var datasource: [MBSegmentModelProtocol] = [] {
         didSet{
-            let width = min(bounds.width, sectionInset.left + ddl_maxWidth() + sectionInset.right)
+            let width = min(bounds.width, sectionInset.left + mb_maxWidth() + sectionInset.right)
             menuCV.frame = CGRect.init(x: (bounds.size.width - width) * 0.5, y: (bounds.size.height - itemHeight) * 0.5, width: width, height: itemHeight)
             #warning("1.0 todo 忘记逻辑了")
 //            menuCV.paddingWidth = datasource.first?.style?.paddingWidth ?? 0
@@ -163,17 +163,17 @@ class DDLSegmentMenuView: UIView {
             }
             menuCV.reloadData()
             // 更新contentsize
-            guard let number = contentDatasource?.ddl_segmentContentNumber() else {return}
+            guard let number = contentDatasource?.mb_segmentContentNumber() else {return}
             horizontalScroll.contentSize = CGSize.init(width: horizontalScroll.frame.width * CGFloat(number), height: horizontalScroll.frame.height)
             guard contentItems.count == 0, datasource.count > 0 else {return}
-            ddl_willShow(at: 0, item: ddl_page(at: 0))
+            mb_willShow(at: 0, item: mb_page(at: 0))
         }
     }
     
     // content
     private let contentOffsetKeyPath = "contentOffset"
     private var lastContentOffset: CGPoint = .zero
-    private var contentItems: [Int: DDLSegmentContentItemProtocol] = [:]
+    private var contentItems: [Int: MBSegmentContentItemProtocol] = [:]
     private lazy var horizontalScroll: UIScrollView = {
         let scr = UIScrollView.init()
         scr.contentInsetAdjustmentBehavior = .never
@@ -184,11 +184,11 @@ class DDLSegmentMenuView: UIView {
         scr.scrollsToTop = false
         return scr
     }()
-    private lazy var menuCV: DDLSegmentCollectionView = {
+    private lazy var menuCV: MBSegmentCollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         
-        let col = DDLSegmentCollectionView.init(frame: .zero, collectionViewLayout: layout)
+        let col = MBSegmentCollectionView.init(frame: .zero, collectionViewLayout: layout)
         col.showsVerticalScrollIndicator = false
         col.showsHorizontalScrollIndicator = false
         col.backgroundColor = contentColor
@@ -207,7 +207,7 @@ class DDLSegmentMenuView: UIView {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         guard keyPath == contentOffsetKeyPath, let currentOffset = change?[NSKeyValueChangeKey.newKey] as? CGPoint, let scroll = object as? UIScrollView else {return}
         guard scroll == horizontalScroll else {
-            ddl_handleUpDown(offset: currentOffset, scrollView: scroll)
+            mb_handleUpDown(offset: currentOffset, scrollView: scroll)
             return
         }
         defer {
@@ -220,56 +220,56 @@ class DDLSegmentMenuView: UIView {
         let to = leftToRight ? from + 1 : from - 1
         let scale = (currentOffset.x - from * horizontalScroll.frame.width) / ((to - from) * horizontalScroll.frame.width)
         if scale > 0.1, contentItems[Int(to)] == nil { // 超过scroll宽度0.1就要准备数据
-            ddl_willShow(at: Int(to), item: ddl_page(at: Int(to)))
+            mb_willShow(at: Int(to), item: mb_page(at: Int(to)))
         }else if scale > 0.1, header != nil {
-            ddl_willShowAgain(at: Int(to), item: ddl_page(at: Int(to)))
+            mb_willShowAgain(at: Int(to), item: mb_page(at: Int(to)))
         }
         // 滚动条变化
         guard from != to, scale != 0 else {return}
-        menuCV.ddl_slider(from: Int(from), to: Int(to), scale: scale)
+        menuCV.mb_slider(from: Int(from), to: Int(to), scale: scale)
     }
 }
 
 //MARK: - UICollectionViewDataSource
-extension DDLSegmentMenuView: UICollectionViewDataSource {
+extension MBSegmentMenuView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return datasource.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let data = datasource[indexPath.row]
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: data.style.identify, for: indexPath) as? DDLSegmentCellProtocol else {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: data.style.identify, for: indexPath) as? MBSegmentCellProtocol else {
             return UICollectionViewCell()
         }
-        cell.ddl_update(model: data)
-        cell.ddl_update(style: data.style)
+        cell.mb_update(model: data)
+        cell.mb_update(style: data.style)
         return cell as! UICollectionViewCell
     }
 }
 
 //MARK: - UICollectionViewDelegate
-extension DDLSegmentMenuView: UICollectionViewDelegate {
+extension MBSegmentMenuView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if contentDatasource != nil {
             
             horizontalScroll.setContentOffset(CGPoint.init(x: CGFloat(indexPath.row) * horizontalScroll.frame.width, y: 0), animated: false)
-            menuCV.ddl_sliderClick(index: indexPath)
+            menuCV.mb_sliderClick(index: indexPath)
             
             if contentItems[indexPath.row] == nil {
-                ddl_willShow(at: indexPath.row, item: ddl_page(at: indexPath.row))
+                mb_willShow(at: indexPath.row, item: mb_page(at: indexPath.row))
             }else{
-                ddl_willShowAgain(at: indexPath.row, item: ddl_page(at: indexPath.row))
+                mb_willShowAgain(at: indexPath.row, item: mb_page(at: indexPath.row))
             }
         }else{
-            menuCV.ddl_slider(from: menuCV.lastIndex, to: indexPath.row, scale: 1)
+            menuCV.mb_slider(from: menuCV.lastIndex, to: indexPath.row, scale: 1)
         }
-        delegate?.ddl_didSelected(index: indexPath.row)
+        delegate?.mb_didSelected(index: indexPath.row)
     }
 }
 
 //MARK: - UICollectionViewDelegateFlowLayout
-extension DDLSegmentMenuView: UICollectionViewDelegateFlowLayout {
+extension MBSegmentMenuView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let size = datasource[indexPath.row].ddl_size()
+        let size = datasource[indexPath.row].mb_size()
         return CGSize.init(width: size.width, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {

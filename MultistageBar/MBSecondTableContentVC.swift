@@ -1,5 +1,5 @@
 //
-//  DDLSecondTableContentVC.swift
+//  MBSecondTableContentVC.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class MBSecondTableContentVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,8 +76,8 @@ class DDLSecondTableContentVC: UIViewController, UITableViewDelegate, UITableVie
 
 }
 
-extension DDLSecondTableContentVC: DDLSegmentContentItemProtocol {
-    func ddl_view() -> UIView {
+extension MBSecondTableContentVC: MBSegmentContentItemProtocol {
+    func mb_view() -> UIView {
         return self.tableView
     }
 }

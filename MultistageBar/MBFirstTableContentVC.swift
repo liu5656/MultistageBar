@@ -1,5 +1,5 @@
 //
-//  DDLSegmentTableContent.swift
+//  MBSegmentTableContent.swift
 //  MultistageBar
 //
 //  Created by x on 2020/4/26.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DDLFirstTableContentVC: UIViewController{
+class MBFirstTableContentVC: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -22,24 +22,24 @@ class DDLFirstTableContentVC: UIViewController{
         print("DDLFirstTableContentVC deinit \(self)")
     }
     
-    lazy var style: DDLSegmentModelStyleProtocol = {
-        let temp = DDLSegmentModelTitleStyle.init()
+    lazy var style: MBSegmentModelStyleProtocol = {
+        let temp = MBSegmentModelTitleStyle.init()
         return temp
     }()
     var titles: [String] = []
     
-    lazy var indicator: DDLSegmentLineIndicator = {
-        let temp = DDLSegmentLineIndicator.init()
+    lazy var indicator: MBSegmentLineIndicator = {
+        let temp = MBSegmentLineIndicator.init()
         temp.frame = CGRect.init(x: 0, y: 35, width: 100, height: 4)
         temp.layer.cornerRadius = 2
         temp.backgroundColor = UIColor.red
         return temp
     }()
     
-    lazy var datasource: [DDLSegmentModelProtocol] = {
-        var temp: [DDLSegmentModelTitle] = []
+    lazy var datasource: [MBSegmentModelProtocol] = {
+        var temp: [MBSegmentModelTitle] = []
         titles.enumerated().forEach { (title) in
-            let data1 = DDLSegmentModelTitle.init(style: style)
+            let data1 = MBSegmentModelTitle.init(style: style)
             data1.name = title.element
             data1.badge = title.offset * 6
             temp.append(data1)
@@ -47,8 +47,8 @@ class DDLFirstTableContentVC: UIViewController{
         return temp
     }()
     
-    lazy var segment: DDLSegmentMenuView = {
-        let temp = DDLSegmentMenuView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 50))
+    lazy var segment: MBSegmentMenuView = {
+        let temp = MBSegmentMenuView.init(frame: CGRect.init(x: 0, y: 0, width: 414, height: 50))
         temp.backgroundColor = UIColor.init(white: 0.3, alpha: 0.3)
 //        temp.datasource = datasource
         temp.lineSpacing = 10
@@ -56,27 +56,27 @@ class DDLFirstTableContentVC: UIViewController{
         print("+++++ set lineSpacing \(10)")
         temp.contentDatasource = self
         temp.indicator = indicator
-        temp.ddl_show(in: self.view, contentFrame: CGRect.init(x: 0, y: temp.frame.maxY, width: temp.frame.width, height: UIScreen.main.bounds.height - 150 - 50))
+        temp.mb_show(in: self.view, contentFrame: CGRect.init(x: 0, y: temp.frame.maxY, width: temp.frame.width, height: UIScreen.main.bounds.height - 150 - 50))
         return temp
     }()
 }
 
-extension DDLFirstTableContentVC: DDLSegmentContentItemProtocol{
-    func ddl_view() -> UIView {
+extension MBFirstTableContentVC: MBSegmentContentItemProtocol{
+    func mb_view() -> UIView {
         return self.view
     }
 }
 
-extension DDLFirstTableContentVC: DDLSegmentContentDatasource {
-    func ddl_segmentContentNumber() -> Int {
+extension MBFirstTableContentVC: MBSegmentContentDatasource {
+    func mb_segmentContentNumber() -> Int {
         return datasource.count
     }
     
-    func ddl_segmentContent(cellForItemAt index: Int) -> DDLSegmentContentItemProtocol {
+    func mb_segmentContent(cellForItemAt index: Int) -> MBSegmentContentItemProtocol {
         if 2 >= index {
-            return DDLSecondTableContentVC.init()
+            return MBSecondTableContentVC.init()
         }else{
-            let vc = DDLView.init()
+            let vc = MBView.init()
             vc.backgroundColor = UIColor.init(red: CGFloat(arc4random() % 255) / 255.0, green: CGFloat(arc4random() % 255) / 255.0, blue: CGFloat(arc4random() % 255) / 255.0, alpha: 1)
             return vc
         }
@@ -84,8 +84,8 @@ extension DDLFirstTableContentVC: DDLSegmentContentDatasource {
 }
 
 
-class DDLView: UIView, DDLSegmentContentItemProtocol {
-    func ddl_view() -> UIView {
+class MBView: UIView, MBSegmentContentItemProtocol {
+    func mb_view() -> UIView {
         return self
     }
 }

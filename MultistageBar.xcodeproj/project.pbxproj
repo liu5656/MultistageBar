@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566162452B08D00A7AF4B /* AppDelegate.swift */; };
 		170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566182452B08D00A7AF4B /* SceneDelegate.swift */; };
-		1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */; };
+		1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */; };
 		1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1705661C2452B08D00A7AF4B /* Main.storyboard */; };
 		170566202452B09000A7AF4B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1705661F2452B09000A7AF4B /* Assets.xcassets */; };
 		170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170566212452B09000A7AF4B /* LaunchScreen.storyboard */; };
@@ -17,7 +17,7 @@
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
-		172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* DDLFirstTableContentVC.swift */; };
+		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
 		172A2EAE251D98980072D325 /* AssetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA7251D98980072D325 /* AssetTools.swift */; };
 		172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA8251D98980072D325 /* AlbumViewController.swift */; };
 		172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAA251D98980072D325 /* AlbumImageCell.swift */; };
@@ -27,7 +27,7 @@
 		172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBD251DD4870072D325 /* CaptureViewController.swift */; };
 		172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBF251DDD490072D325 /* CaptureImageEx.swift */; };
 		172A2EC4251DF52D0072D325 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EC3251DF52D0072D325 /* Screen.swift */; };
-		17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */; };
+		17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */; };
 		174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174371FB2519A40500C0E9A7 /* CodableEx.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
 		174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89D8251C833A00087E72 /* SignInAppleViewController.swift */; };
@@ -39,14 +39,14 @@
 		175CC48D25345828006465AC /* RetryStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48C25345828006465AC /* RetryStrategy.swift */; };
 		175CC49525345889006465AC /* MBRetryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC49425345889006465AC /* MBRetryViewController.swift */; };
 		175CC49A25345A27006465AC /* MBViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC49925345A27006465AC /* MBViewController.swift */; };
-		1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */; };
-		1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */; };
-		1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */; };
-		1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */; };
-		1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */; };
-		1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */; };
-		1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */; };
-		1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */; };
+		1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E46F247FA5A3009B9612 /* MBSegmentContentDatasource.swift */; };
+		1762E47C247FA5A3009B9612 /* MBSegmentColotUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E471247FA5A3009B9612 /* MBSegmentColotUtils.swift */; };
+		1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E473247FA5A3009B9612 /* MBSegmentMenuView.swift */; };
+		1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E474247FA5A3009B9612 /* MBSegmentCollectionView.swift */; };
+		1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E476247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift */; };
+		1762E480247FA5A3009B9612 /* MBSegmentCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E477247FA5A3009B9612 /* MBSegmentCellProtocol.swift */; };
+		1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E478247FA5A3009B9612 /* MBSegmentModelProtocol.swift */; };
+		1762E483247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1762E47A247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift */; };
 		176A150225231049002EB14F /* SwipeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A150125231049002EB14F /* SwipeTableView.swift */; };
 		176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1503252310E6002EB14F /* SwipeTestViewController.swift */; };
 		1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C061255103C9001E14C7 /* MBCoordination.swift */; };
@@ -54,7 +54,7 @@
 		178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */; };
-		1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */; };
+		1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
@@ -69,12 +69,12 @@
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
-		17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */; };
-		17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */; };
-		17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */; };
-		17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */; };
-		17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */; };
-		17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */; };
+		17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */; };
+		17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */; };
+		17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0A525369F980002168D /* MBSegmentBackgroundIndicator.swift */; };
+		17FEC0AF2536A00A0002168D /* MBSegmentModelTitleStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0AE2536A00A0002168D /* MBSegmentModelTitleStyle.swift */; };
+		17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0B72536A04A0002168D /* MBSegmentModelTitle.swift */; };
+		17FEC0C12536A0860002168D /* MBSegmentTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0C02536A0860002168D /* MBSegmentTitleCell.swift */; };
 		17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0D32536CC5D0002168D /* StringEx.swift */; };
 /* End PBXBuildFile section */
 
@@ -99,7 +99,7 @@
 		170566132452B08D00A7AF4B /* MultistageBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultistageBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566162452B08D00A7AF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		170566182452B08D00A7AF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLMultistageViewController.swift; sourceTree = "<group>"; };
+		1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMultistageViewController.swift; sourceTree = "<group>"; };
 		1705661D2452B08D00A7AF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1705661F2452B09000A7AF4B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		170566222452B09000A7AF4B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -112,7 +112,7 @@
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1714BDB525357AB100105924 /* ImageRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieve.swift; sourceTree = "<group>"; };
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
-		172121172455265C00F7695D /* DDLFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLFirstTableContentVC.swift; sourceTree = "<group>"; };
+		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
 		172A2EA7251D98980072D325 /* AssetTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTools.swift; sourceTree = "<group>"; };
 		172A2EA8251D98980072D325 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
@@ -123,7 +123,7 @@
 		172A2EBD251DD4870072D325 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		172A2EBF251DDD490072D325 /* CaptureImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageEx.swift; sourceTree = "<group>"; };
 		172A2EC3251DF52D0072D325 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
-		17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSecondTableContentVC.swift; sourceTree = "<group>"; };
+		17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSecondTableContentVC.swift; sourceTree = "<group>"; };
 		174371FB2519A40500C0E9A7 /* CodableEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEx.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		174B89D8251C833A00087E72 /* SignInAppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleViewController.swift; sourceTree = "<group>"; };
@@ -135,14 +135,14 @@
 		175CC48C25345828006465AC /* RetryStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryStrategy.swift; sourceTree = "<group>"; };
 		175CC49425345889006465AC /* MBRetryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetryViewController.swift; sourceTree = "<group>"; };
 		175CC49925345A27006465AC /* MBViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBViewController.swift; sourceTree = "<group>"; };
-		1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentContentDatasource.swift; sourceTree = "<group>"; };
-		1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentColotUtils.swift; sourceTree = "<group>"; };
-		1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentMenuView.swift; sourceTree = "<group>"; };
-		1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCollectionView.swift; sourceTree = "<group>"; };
-		1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelStyleProtocol.swift; sourceTree = "<group>"; };
-		1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentCellProtocol.swift; sourceTree = "<group>"; };
-		1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelProtocol.swift; sourceTree = "<group>"; };
-		1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DDLSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
+		1762E46F247FA5A3009B9612 /* MBSegmentContentDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentContentDatasource.swift; sourceTree = "<group>"; };
+		1762E471247FA5A3009B9612 /* MBSegmentColotUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentColotUtils.swift; sourceTree = "<group>"; };
+		1762E473247FA5A3009B9612 /* MBSegmentMenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentMenuView.swift; sourceTree = "<group>"; };
+		1762E474247FA5A3009B9612 /* MBSegmentCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentCollectionView.swift; sourceTree = "<group>"; };
+		1762E476247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentModelStyleProtocol.swift; sourceTree = "<group>"; };
+		1762E477247FA5A3009B9612 /* MBSegmentCellProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentCellProtocol.swift; sourceTree = "<group>"; };
+		1762E478247FA5A3009B9612 /* MBSegmentModelProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentModelProtocol.swift; sourceTree = "<group>"; };
+		1762E47A247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MBSegmentIndicatorProtocol.swift; sourceTree = "<group>"; };
 		176A150125231049002EB14F /* SwipeTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipeTableView.swift; sourceTree = "<group>"; };
 		176A1503252310E6002EB14F /* SwipeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTestViewController.swift; sourceTree = "<group>"; };
 		1778C061255103C9001E14C7 /* MBCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCoordination.swift; sourceTree = "<group>"; };
@@ -150,7 +150,7 @@
 		178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRefreshTestViewController.swift; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistanceViewController.swift; sourceTree = "<group>"; };
-		1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLHeaderViewController.swift; sourceTree = "<group>"; };
+		1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
@@ -165,12 +165,12 @@
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
-		17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentBaseIndicator.swift; sourceTree = "<group>"; };
-		17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentLineIndicator.swift; sourceTree = "<group>"; };
-		17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentBackgroundIndicator.swift; sourceTree = "<group>"; };
-		17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitleStyle.swift; sourceTree = "<group>"; };
-		17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentModelTitle.swift; sourceTree = "<group>"; };
-		17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDLSegmentTitleCell.swift; sourceTree = "<group>"; };
+		17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentBaseIndicator.swift; sourceTree = "<group>"; };
+		17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentLineIndicator.swift; sourceTree = "<group>"; };
+		17FEC0A525369F980002168D /* MBSegmentBackgroundIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentBackgroundIndicator.swift; sourceTree = "<group>"; };
+		17FEC0AE2536A00A0002168D /* MBSegmentModelTitleStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentModelTitleStyle.swift; sourceTree = "<group>"; };
+		17FEC0B72536A04A0002168D /* MBSegmentModelTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentModelTitle.swift; sourceTree = "<group>"; };
+		17FEC0C02536A0860002168D /* MBSegmentTitleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentTitleCell.swift; sourceTree = "<group>"; };
 		17FEC0D32536CC5D0002168D /* StringEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringEx.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -241,10 +241,10 @@
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
 				17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */,
 				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
-				1794035824C6D2F3000D2776 /* DDLHeaderViewController.swift */,
-				1705661A2452B08D00A7AF4B /* DDLMultistageViewController.swift */,
-				172121172455265C00F7695D /* DDLFirstTableContentVC.swift */,
-				17412EDA245687F4003C239D /* DDLSecondTableContentVC.swift */,
+				1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */,
+				1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */,
+				172121172455265C00F7695D /* MBFirstTableContentVC.swift */,
+				17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				17C199DA254C18DC006BE61A /* MBTableView.swift */,
@@ -409,7 +409,7 @@
 		1762E46E247FA5A3009B9612 /* item */ = {
 			isa = PBXGroup;
 			children = (
-				1762E46F247FA5A3009B9612 /* DDLSegmentContentDatasource.swift */,
+				1762E46F247FA5A3009B9612 /* MBSegmentContentDatasource.swift */,
 			);
 			path = item;
 			sourceTree = "<group>";
@@ -417,7 +417,7 @@
 		1762E470247FA5A3009B9612 /* YPJSegmentUtils */ = {
 			isa = PBXGroup;
 			children = (
-				1762E471247FA5A3009B9612 /* DDLSegmentColotUtils.swift */,
+				1762E471247FA5A3009B9612 /* MBSegmentColotUtils.swift */,
 			);
 			path = YPJSegmentUtils;
 			sourceTree = "<group>";
@@ -430,8 +430,8 @@
 				17FEC0AA25369FC90002168D /* ModelStyle */,
 				17FEC09225369F1C0002168D /* Cell */,
 				17FEC09125369F0F0002168D /* Indicator */,
-				1762E473247FA5A3009B9612 /* DDLSegmentMenuView.swift */,
-				1762E474247FA5A3009B9612 /* DDLSegmentCollectionView.swift */,
+				1762E473247FA5A3009B9612 /* MBSegmentMenuView.swift */,
+				1762E474247FA5A3009B9612 /* MBSegmentCollectionView.swift */,
 			);
 			path = SegmentMenu;
 			sourceTree = "<group>";
@@ -439,10 +439,10 @@
 		1762E475247FA5A3009B9612 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				1762E478247FA5A3009B9612 /* DDLSegmentModelProtocol.swift */,
-				1762E476247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift */,
-				1762E47A247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift */,
-				1762E477247FA5A3009B9612 /* DDLSegmentCellProtocol.swift */,
+				1762E478247FA5A3009B9612 /* MBSegmentModelProtocol.swift */,
+				1762E476247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift */,
+				1762E47A247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift */,
+				1762E477247FA5A3009B9612 /* MBSegmentCellProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -498,9 +498,9 @@
 		17FEC09125369F0F0002168D /* Indicator */ = {
 			isa = PBXGroup;
 			children = (
-				17FEC09425369F5F0002168D /* DDLSegmentBaseIndicator.swift */,
-				17FEC09D25369F850002168D /* DDLSegmentLineIndicator.swift */,
-				17FEC0A525369F980002168D /* DDLSegmentBackgroundIndicator.swift */,
+				17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */,
+				17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */,
+				17FEC0A525369F980002168D /* MBSegmentBackgroundIndicator.swift */,
 			);
 			path = Indicator;
 			sourceTree = "<group>";
@@ -508,7 +508,7 @@
 		17FEC09225369F1C0002168D /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				17FEC0C02536A0860002168D /* DDLSegmentTitleCell.swift */,
+				17FEC0C02536A0860002168D /* MBSegmentTitleCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -516,7 +516,7 @@
 		17FEC0AA25369FC90002168D /* ModelStyle */ = {
 			isa = PBXGroup;
 			children = (
-				17FEC0AE2536A00A0002168D /* DDLSegmentModelTitleStyle.swift */,
+				17FEC0AE2536A00A0002168D /* MBSegmentModelTitleStyle.swift */,
 			);
 			path = ModelStyle;
 			sourceTree = "<group>";
@@ -524,7 +524,7 @@
 		17FEC0B62536A03D0002168D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				17FEC0B72536A04A0002168D /* DDLSegmentModelTitle.swift */,
+				17FEC0B72536A04A0002168D /* MBSegmentModelTitle.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -665,21 +665,21 @@
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
-				1762E481247FA5A3009B9612 /* DDLSegmentModelProtocol.swift in Sources */,
+				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
-				172121182455265C00F7695D /* DDLFirstTableContentVC.swift in Sources */,
+				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
 				1778C06725510509001E14C7 /* MBDistance.swift in Sources */,
-				17FEC09525369F5F0002168D /* DDLSegmentBaseIndicator.swift in Sources */,
+				17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */,
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
-				1705661B2452B08D00A7AF4B /* DDLMultistageViewController.swift in Sources */,
+				1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
-				17FEC0B82536A04A0002168D /* DDLSegmentModelTitle.swift in Sources */,
+				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
-				17FEC0AF2536A00A0002168D /* DDLSegmentModelTitleStyle.swift in Sources */,
+				17FEC0AF2536A00A0002168D /* MBSegmentModelTitleStyle.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */,
 				179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */,
@@ -689,37 +689,37 @@
 				172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */,
 				17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */,
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
-				1762E47B247FA5A3009B9612 /* DDLSegmentContentDatasource.swift in Sources */,
-				1762E47D247FA5A3009B9612 /* DDLSegmentMenuView.swift in Sources */,
+				1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */,
+				1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
-				17FEC0A625369F980002168D /* DDLSegmentBackgroundIndicator.swift in Sources */,
+				17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */,
 				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
-				1762E47C247FA5A3009B9612 /* DDLSegmentColotUtils.swift in Sources */,
+				1762E47C247FA5A3009B9612 /* MBSegmentColotUtils.swift in Sources */,
 				176A150225231049002EB14F /* SwipeTableView.swift in Sources */,
-				1762E480247FA5A3009B9612 /* DDLSegmentCellProtocol.swift in Sources */,
-				1762E483247FA5A3009B9612 /* DDLSegmentIndicatorProtocol.swift in Sources */,
+				1762E480247FA5A3009B9612 /* MBSegmentCellProtocol.swift in Sources */,
+				1762E483247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift in Sources */,
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
-				17FEC09E25369F850002168D /* DDLSegmentLineIndicator.swift in Sources */,
+				17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
-				1794035924C6D2F3000D2776 /* DDLHeaderViewController.swift in Sources */,
-				1762E47F247FA5A3009B9612 /* DDLSegmentModelStyleProtocol.swift in Sources */,
+				1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */,
+				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
 				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
 				17C35F23254803D400CB6EC4 /* Hash.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
-				1762E47E247FA5A3009B9612 /* DDLSegmentCollectionView.swift in Sources */,
+				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
-				17412EDB245687F4003C239D /* DDLSecondTableContentVC.swift in Sources */,
+				17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */,
 				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,
 				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
 				179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
-				17FEC0C12536A0860002168D /* DDLSegmentTitleCell.swift in Sources */,
+				17FEC0C12536A0860002168D /* MBSegmentTitleCell.swift in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,
