@@ -179,12 +179,10 @@ class MBEncoder {
             var sps = Data.init()
             sps.append(naluStart, count: 4)
             sps.append(spsPointer, count: spsSize)
-//            file?.write(sps)
             
             var pps = Data.init()
             pps.append(naluStart, count: 4)
             pps.append(ppsPointer, count: ppsSize)
-//            file?.write(pps)
             delegate?.encoded(sps: sps, pps: pps)
         }
     }
