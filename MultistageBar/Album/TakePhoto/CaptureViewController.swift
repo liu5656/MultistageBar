@@ -57,7 +57,6 @@ class CaptureViewController: UIViewController {
             return
         }
         
-
         session.addInput(input)
         imageInput = input
     }

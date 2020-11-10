@@ -37,12 +37,13 @@ class InitialViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = table
-        table.beginHeaderRefreshing()
+//        table.beginHeaderRefreshing()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
+        (MBCodecTestViewController.classForCoder(), "视频编解码"),
         (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
         (MBHeaderViewController.classForCoder(), "带顶部的一级菜单"),

@@ -62,12 +62,15 @@
 		179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */; };
 		179F4D48254906020051E69D /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D47254906020051E69D /* AES.swift */; };
 		179F4D4D2549075F0051E69D /* DES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D4C2549075F0051E69D /* DES.swift */; };
+		17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A248E52558F1290069B5F8 /* MBEncoder.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
 		17C199D0254BF2DE006BE61A /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199CF254BF2DE006BE61A /* RSA.swift */; };
 		17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199DA254C18DC006BE61A /* MBTableView.swift */; };
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
+		17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */; };
+		17DB56902558E0A6004537DE /* MBCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB568F2558E0A6004537DE /* MBCapture.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
 		17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */; };
 		17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */; };
@@ -158,12 +161,15 @@
 		179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
 		179F4D47254906020051E69D /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		179F4D4C2549075F0051E69D /* DES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DES.swift; sourceTree = "<group>"; };
+		17A248E52558F1290069B5F8 /* MBEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEncoder.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
 		17C199CF254BF2DE006BE61A /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		17C199DA254C18DC006BE61A /* MBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableView.swift; sourceTree = "<group>"; };
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
+		17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCodecTestViewController.swift; sourceTree = "<group>"; };
+		17DB568F2558E0A6004537DE /* MBCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCapture.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
 		17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentBaseIndicator.swift; sourceTree = "<group>"; };
 		17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentLineIndicator.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17DB56822558DE0B004537DE /* VideoCodec */,
 				1778C0602551039B001E14C7 /* DistanceByCoordinate */,
 				17C35F0D2547C6BA00CB6EC4 /* Hash */,
 				1714BDB425357A8400105924 /* RetrieveImageSize */,
@@ -486,6 +493,40 @@
 			path = Hash;
 			sourceTree = "<group>";
 		};
+		17DB56822558DE0B004537DE /* VideoCodec */ = {
+			isa = PBXGroup;
+			children = (
+				17DB568D2558E07C004537DE /* Capture */,
+				17DB568C2558E060004537DE /* Stream */,
+				17DB568B2558E05C004537DE /* Codec */,
+				17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */,
+			);
+			path = VideoCodec;
+			sourceTree = "<group>";
+		};
+		17DB568B2558E05C004537DE /* Codec */ = {
+			isa = PBXGroup;
+			children = (
+				17A248E52558F1290069B5F8 /* MBEncoder.swift */,
+			);
+			path = Codec;
+			sourceTree = "<group>";
+		};
+		17DB568C2558E060004537DE /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Stream;
+			sourceTree = "<group>";
+		};
+		17DB568D2558E07C004537DE /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				17DB568F2558E0A6004537DE /* MBCapture.swift */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
 		17F1D2612530343700721941 /* RoundedRectangle */ = {
 			isa = PBXGroup;
 			children = (
@@ -667,11 +708,14 @@
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
+				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
+				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
 				1778C06725510509001E14C7 /* MBDistance.swift in Sources */,
 				17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */,
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
+				17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
