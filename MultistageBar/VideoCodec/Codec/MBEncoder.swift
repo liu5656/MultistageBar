@@ -21,7 +21,7 @@ import CoreFoundation
  */
 protocol MBEncoderDelegate: NSObjectProtocol {
     func encoded(nalu: Data)
-    func encoded(sps: Data, pps: Data)
+//    func encoded(sps: Data, pps: Data)
 }
 
 class MBEncoder {
@@ -183,7 +183,8 @@ class MBEncoder {
             var pps = Data.init()
             pps.append(naluStart, count: 4)
             pps.append(ppsPointer, count: ppsSize)
-            delegate?.encoded(sps: sps, pps: pps)
+            delegate?.encoded(nalu: sps)
+            delegate?.encoded(nalu: pps)
         }
     }
     
@@ -219,8 +220,8 @@ class MBEncoder {
     }
     
     var frameID:Int64 = 0
-    var width: Int32 = 414 // in pixel
-    var height: Int32 = 672
+    var width: Int32 = 480 // in pixel
+    var height: Int32 = 640
     weak var delegate: MBEncoderDelegate?
     private var session: VTCompressionSession?
     private lazy var encodeQueue: DispatchQueue = {

@@ -14,21 +14,27 @@ class MBCodecTestViewController: MBViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let preview = capture.addPreviewLayer()
-        preview.frame = view.bounds
+        preview.frame = CGRect.init(x: 4, y: 80, width: 200, height: 300)
         view.layer.addSublayer(preview)
         capture.runing()
+        _ = player
     }
-        
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         capture.stop()
         encoder.stop()
+        decoder.stop()
     }
     
     lazy var encoder: MBEncoder = {
         let temp = MBEncoder.init()
         temp.prepareCompress()
+        temp.delegate = self
+        return temp
+    }()
+    lazy var decoder: MBDecoder = {
+        let temp = MBDecoder.init()
         temp.delegate = self
         return temp
     }()
@@ -47,7 +53,11 @@ class MBCodecTestViewController: MBViewController {
         FileManager.default.createFile(atPath: path, contents: nil, attributes: nil)
         return try? FileHandle.init(forWritingTo: url)
     }()
-
+    lazy var player: AAPLEAGLLayer = {
+        let temp = AAPLEAGLLayer.init(frame: CGRect.init(x: 210, y: 80, width: 200, height: 300))!
+        view.layer.addSublayer(temp)
+        return temp
+    }()
 }
 
 extension MBCodecTestViewController: MBCaptureDelegate {
@@ -57,12 +67,16 @@ extension MBCodecTestViewController: MBCaptureDelegate {
 }
 
 extension MBCodecTestViewController: MBEncoderDelegate {
-    func encoded(nalu: Data) {
+    func encoded(nalu: Data) {  // 编码回调,返回普通nalu/sps/pps
+        // 方法一, 保存h264文件
         file?.write(nalu)
+        // 方法二, 实时解码
+        decoder.decode(nalu: nalu)
     }
-    func encoded(sps: Data, pps: Data) {
-        var temp = sps
-        temp.append(pps)
-        file?.write(temp)
+}
+
+extension MBCodecTestViewController: MBDecoderDelegate {
+    func decoded(sampleBuffer: CVImageBuffer) {
+        self.player.pixelBuffer = sampleBuffer
     }
 }

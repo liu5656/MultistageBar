@@ -28,6 +28,7 @@
 		172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBF251DDD490072D325 /* CaptureImageEx.swift */; };
 		172A2EC4251DF52D0072D325 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EC3251DF52D0072D325 /* Screen.swift */; };
 		173B7EBF255AC6A200BCB451 /* MBDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B7EBE255AC6A200BCB451 /* MBDecoder.swift */; };
+		173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */; };
 		17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */; };
 		174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174371FB2519A40500C0E9A7 /* CodableEx.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
@@ -122,12 +123,14 @@
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
 		172A2EAB251D98980072D325 /* AlbumImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumImageCell.xib; sourceTree = "<group>"; };
 		172A2EAD251D98980072D325 /* AssetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
-		172A2EB7251D9A800072D325 /* MultistageBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultistageBar-Bridging-Header.h"; sourceTree = "<group>"; };
 		172A2EBA251DC4BB0072D325 /* AlbumTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTestViewController.swift; sourceTree = "<group>"; };
 		172A2EBD251DD4870072D325 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		172A2EBF251DDD490072D325 /* CaptureImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageEx.swift; sourceTree = "<group>"; };
 		172A2EC3251DF52D0072D325 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		173B7EBE255AC6A200BCB451 /* MBDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDecoder.swift; sourceTree = "<group>"; };
+		173B7ECC255AEC0700BCB451 /* MultistageBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultistageBar-Bridging-Header.h"; sourceTree = "<group>"; };
+		173B7ECD255AEC0800BCB451 /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
+		173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
 		17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSecondTableContentVC.swift; sourceTree = "<group>"; };
 		174371FB2519A40500C0E9A7 /* CodableEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEx.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
@@ -261,7 +264,6 @@
 				1705661F2452B09000A7AF4B /* Assets.xcassets */,
 				170566212452B09000A7AF4B /* LaunchScreen.storyboard */,
 				170566242452B09000A7AF4B /* Info.plist */,
-				172A2EB7251D9A800072D325 /* MultistageBar-Bridging-Header.h */,
 			);
 			path = MultistageBar;
 			sourceTree = "<group>";
@@ -502,6 +504,9 @@
 				17DB568C2558E060004537DE /* Stream */,
 				17DB568B2558E05C004537DE /* Codec */,
 				17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */,
+				173B7ECD255AEC0800BCB451 /* AAPLEAGLLayer.h */,
+				173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */,
+				173B7ECC255AEC0700BCB451 /* MultistageBar-Bridging-Header.h */,
 			);
 			path = VideoCodec;
 			sourceTree = "<group>";
@@ -641,6 +646,7 @@
 				TargetAttributes = {
 					170566122452B08D00A7AF4B = {
 						CreatedOnToolsVersion = 11.2.1;
+						LastSwiftMigration = 1210;
 					};
 					170566282452B09000A7AF4B = {
 						CreatedOnToolsVersion = 11.2.1;
@@ -751,6 +757,7 @@
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
+				173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */,
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
 				1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
@@ -944,6 +951,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
@@ -954,7 +962,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -964,6 +973,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				INFOPLIST_FILE = MultistageBar/Info.plist;
@@ -974,7 +984,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
