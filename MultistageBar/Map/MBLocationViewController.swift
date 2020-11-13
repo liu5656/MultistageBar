@@ -18,14 +18,25 @@ class MBLocationViewController: UIViewController {
             MBLog("longitude:\(location?.coordinate.longitude) latitude:\(location?.coordinate.latitude) altitude:\(location?.altitude) province: \(province) city: \(city)")
         }
         _ = mapV
+        
+        MBCitySelector.mb_show { (pro, cit, cou) in
+            MBLog("\(pro) \(cit) \(cou)")
+        }
     }
     
     lazy var mapV: MKMapView = {
-        let map = MKMapView.init(frame: view.bounds)
+        let map = MKMapView.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: 300))
         map.setUserTrackingMode(.follow, animated: true)
         view.addSubview(map)
         return map
     }()
+    
+//    lazy var citySelector: MBCitySelector = {
+//        let temp = MBCitySelector.init()
+//        temp.frame = CGRect.init(x: 0, y: 300, width: Screen.width, height: 300)
+//        view.addSubview(temp)
+//        return temp
+//    }()
     
     
 }
