@@ -72,8 +72,6 @@
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3604C255E799E00035B08 /* MBCitySelector.swift */; };
-		17D36054255E79E900035B08 /* MBProvince.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D36053255E79E900035B08 /* MBProvince.swift */; };
-		17D3605C255E7A0E00035B08 /* MBCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3605B255E7A0E00035B08 /* MBCity.swift */; };
 		17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */; };
 		17DB56902558E0A6004537DE /* MBCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB568F2558E0A6004537DE /* MBCapture.swift */; };
 		17DDD164255D124D00B0FBB1 /* MBPushStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD163255D124D00B0FBB1 /* MBPushStream.swift */; };
@@ -189,8 +187,6 @@
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17D3604C255E799E00035B08 /* MBCitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCitySelector.swift; sourceTree = "<group>"; };
-		17D36053255E79E900035B08 /* MBProvince.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBProvince.swift; sourceTree = "<group>"; };
-		17D3605B255E7A0E00035B08 /* MBCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCity.swift; sourceTree = "<group>"; };
 		17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCodecTestViewController.swift; sourceTree = "<group>"; };
 		17DB568F2558E0A6004537DE /* MBCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCapture.swift; sourceTree = "<group>"; };
 		17DDD163255D124D00B0FBB1 /* MBPushStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPushStream.swift; sourceTree = "<group>"; };
@@ -506,8 +502,7 @@
 		175CC475253449AB006465AC /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				17D36052255E79AC00035B08 /* View */,
-				17D36051255E79A900035B08 /* Model */,
+				17D3604C255E799E00035B08 /* MBCitySelector.swift */,
 				175CC481253449F3006465AC /* LocationManager.swift */,
 				175CC48625344C17006465AC /* MBLocationViewController.swift */,
 			);
@@ -619,23 +614,6 @@
 				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 			);
 			path = Hash;
-			sourceTree = "<group>";
-		};
-		17D36051255E79A900035B08 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				17D36053255E79E900035B08 /* MBProvince.swift */,
-				17D3605B255E7A0E00035B08 /* MBCity.swift */,
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		17D36052255E79AC00035B08 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				17D3604C255E799E00035B08 /* MBCitySelector.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		17DB56822558DE0B004537DE /* VideoCodec */ = {
@@ -1044,7 +1022,6 @@
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
-				17D36054255E79E900035B08 /* MBProvince.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
 				17FEC0AF2536A00A0002168D /* MBSegmentModelTitleStyle.swift in Sources */,
@@ -1083,7 +1060,6 @@
 				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
 				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
-				17D3605C255E7A0E00035B08 /* MBCity.swift in Sources */,
 				17DDD17A255D174C00B0FBB1 /* RTMPChunk.swift in Sources */,
 				17C35F23254803D400CB6EC4 /* Hash.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,

@@ -8,6 +8,16 @@
 
 import UIKit
 
+struct MBProvince {
+    var name: String = ""
+    var cities: [MBCity] = []
+}
+
+class MBCity {
+    var name: String = ""
+    var counties: [String] = []
+}
+
 class MBCitySelector: UIView {
     
     static func mb_show(callback: @escaping (String, String, String) -> Void) {
