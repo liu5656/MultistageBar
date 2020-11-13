@@ -44,6 +44,15 @@ class MBCodecTestViewController: MBViewController {
         temp.prepareCapture()
         return temp
     }()
+    lazy var pusher: MBPushStream = {
+        let temp = MBPushStream.init(url: "")
+        return temp
+    }()
+    lazy var puller: MBPullStream = {
+        let temp = MBPullStream.init(url: "")
+        return temp
+    }()
+    
     lazy var file: FileHandle? = {
         let path = NSHomeDirectory() + "/Documents/demo.h264"
         let url = URL.init(fileURLWithPath: path)
@@ -69,9 +78,10 @@ extension MBCodecTestViewController: MBCaptureDelegate {
 extension MBCodecTestViewController: MBEncoderDelegate {
     func encoded(nalu: Data) {  // 编码回调,返回普通nalu/sps/pps
         // 方法一, 保存h264文件
-        file?.write(nalu)
+//        file?.write(nalu)
         // 方法二, 实时解码
-        decoder.decode(nalu: nalu)
+//        decoder.decode(nalu: nalu)
+        pusher.mb_send(nalu: nalu)
     }
 }
 

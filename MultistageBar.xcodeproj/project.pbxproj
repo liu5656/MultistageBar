@@ -73,7 +73,19 @@
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */; };
 		17DB56902558E0A6004537DE /* MBCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB568F2558E0A6004537DE /* MBCapture.swift */; };
+		17DDD164255D124D00B0FBB1 /* MBPushStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD163255D124D00B0FBB1 /* MBPushStream.swift */; };
+		17DDD169255D127D00B0FBB1 /* MBPullStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD168255D127C00B0FBB1 /* MBPullStream.swift */; };
+		17DDD178255D174C00B0FBB1 /* RTMPProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD172255D174C00B0FBB1 /* RTMPProtocol.swift */; };
+		17DDD179255D174C00B0FBB1 /* String++.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD173255D174C00B0FBB1 /* String++.swift */; };
+		17DDD17A255D174C00B0FBB1 /* RTMPChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD174255D174C00B0FBB1 /* RTMPChunk.swift */; };
+		17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD175255D174C00B0FBB1 /* AMFDataTypes.swift */; };
+		17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD176255D174C00B0FBB1 /* AMF3DataTypes.swift */; };
+		17DDD17D255D174C00B0FBB1 /* Rtmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD177255D174C00B0FBB1 /* Rtmp.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
+		17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691CF255E60C1000CCE89 /* libcrypto.a */; };
+		17F691D3255E60C1000CCE89 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D0255E60C1000CCE89 /* librtmp.a */; };
+		17F691D4255E60C1000CCE89 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D1255E60C1000CCE89 /* libssl.a */; };
+		17F691D8255E60E4000CCE89 /* libz.1.2.8.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 17DDD2CD255D3E1600B0FBB1 /* libz.1.2.8.tbd */; };
 		17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */; };
 		17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */; };
 		17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FEC0A525369F980002168D /* MBSegmentBackgroundIndicator.swift */; };
@@ -175,7 +187,106 @@
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCodecTestViewController.swift; sourceTree = "<group>"; };
 		17DB568F2558E0A6004537DE /* MBCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCapture.swift; sourceTree = "<group>"; };
+		17DDD163255D124D00B0FBB1 /* MBPushStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPushStream.swift; sourceTree = "<group>"; };
+		17DDD168255D127C00B0FBB1 /* MBPullStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPullStream.swift; sourceTree = "<group>"; };
+		17DDD16F255D174C00B0FBB1 /* umbrella.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = umbrella.h; sourceTree = "<group>"; };
+		17DDD170255D174C00B0FBB1 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		17DDD172255D174C00B0FBB1 /* RTMPProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTMPProtocol.swift; sourceTree = "<group>"; };
+		17DDD173255D174C00B0FBB1 /* String++.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String++.swift"; sourceTree = "<group>"; };
+		17DDD174255D174C00B0FBB1 /* RTMPChunk.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RTMPChunk.swift; sourceTree = "<group>"; };
+		17DDD175255D174C00B0FBB1 /* AMFDataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMFDataTypes.swift; sourceTree = "<group>"; };
+		17DDD176255D174C00B0FBB1 /* AMF3DataTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMF3DataTypes.swift; sourceTree = "<group>"; };
+		17DDD177255D174C00B0FBB1 /* Rtmp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rtmp.swift; sourceTree = "<group>"; };
+		17DDD2AD255D3B8C00B0FBB1 /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		17DDD2AE255D3B9700B0FBB1 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		17DDD2AF255D3BAE00B0FBB1 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
+		17DDD2BB255D3BC300B0FBB1 /* libz.1.1.3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.1.3.tbd; path = usr/lib/libz.1.1.3.tbd; sourceTree = SDKROOT; };
+		17DDD2C0255D3C0000B0FBB1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		17DDD2C2255D3C0B00B0FBB1 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		17DDD2CD255D3E1600B0FBB1 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
+		17F6917E255E60C0000CCE89 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
+		17F6917F255E60C0000CCE89 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
+		17F69180255E60C0000CCE89 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
+		17F69181255E60C0000CCE89 /* rtmp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rtmp.h; sourceTree = "<group>"; };
+		17F69183255E60C0000CCE89 /* pem2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem2.h; sourceTree = "<group>"; };
+		17F69184255E60C0000CCE89 /* pem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pem.h; sourceTree = "<group>"; };
+		17F69185255E60C0000CCE89 /* ssl3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl3.h; sourceTree = "<group>"; };
+		17F69186255E60C0000CCE89 /* ossl_typ.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ossl_typ.h; sourceTree = "<group>"; };
+		17F69187255E60C0000CCE89 /* dtls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dtls1.h; sourceTree = "<group>"; };
+		17F69188255E60C0000CCE89 /* err.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = err.h; sourceTree = "<group>"; };
+		17F69189255E60C0000CCE89 /* bn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bn.h; sourceTree = "<group>"; };
+		17F6918A255E60C0000CCE89 /* blowfish.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = blowfish.h; sourceTree = "<group>"; };
+		17F6918B255E60C0000CCE89 /* cms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cms.h; sourceTree = "<group>"; };
+		17F6918C255E60C0000CCE89 /* engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = engine.h; sourceTree = "<group>"; };
+		17F6918D255E60C0000CCE89 /* conf_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf_api.h; sourceTree = "<group>"; };
+		17F6918E255E60C0000CCE89 /* x509.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509.h; sourceTree = "<group>"; };
+		17F6918F255E60C0000CCE89 /* asn1_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1_mac.h; sourceTree = "<group>"; };
+		17F69190255E60C0000CCE89 /* ui.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui.h; sourceTree = "<group>"; };
+		17F69191255E60C0000CCE89 /* kssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = kssl.h; sourceTree = "<group>"; };
+		17F69192255E60C0000CCE89 /* sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sha.h; sourceTree = "<group>"; };
+		17F69193255E60C0000CCE89 /* symhacks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = symhacks.h; sourceTree = "<group>"; };
+		17F69194255E60C0000CCE89 /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
+		17F69195255E60C0000CCE89 /* opensslconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslconf.h; sourceTree = "<group>"; };
+		17F69196255E60C0000CCE89 /* bio.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bio.h; sourceTree = "<group>"; };
+		17F69197255E60C0000CCE89 /* rc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc2.h; sourceTree = "<group>"; };
+		17F69198255E60C0000CCE89 /* dh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dh.h; sourceTree = "<group>"; };
+		17F69199255E60C0000CCE89 /* ui_compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ui_compat.h; sourceTree = "<group>"; };
+		17F6919A255E60C0000CCE89 /* x509v3.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509v3.h; sourceTree = "<group>"; };
+		17F6919B255E60C0000CCE89 /* ssl23.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl23.h; sourceTree = "<group>"; };
+		17F6919C255E60C0000CCE89 /* conf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = conf.h; sourceTree = "<group>"; };
+		17F6919D255E60C0000CCE89 /* md5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md5.h; sourceTree = "<group>"; };
+		17F6919E255E60C0000CCE89 /* x509_vfy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = x509_vfy.h; sourceTree = "<group>"; };
+		17F6919F255E60C0000CCE89 /* txt_db.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = txt_db.h; sourceTree = "<group>"; };
+		17F691A0255E60C0000CCE89 /* safestack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = safestack.h; sourceTree = "<group>"; };
+		17F691A1255E60C0000CCE89 /* ecdsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdsa.h; sourceTree = "<group>"; };
+		17F691A2255E60C0000CCE89 /* objects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = objects.h; sourceTree = "<group>"; };
+		17F691A3255E60C0000CCE89 /* pkcs12.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs12.h; sourceTree = "<group>"; };
+		17F691A4255E60C0000CCE89 /* crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = crypto.h; sourceTree = "<group>"; };
+		17F691A5255E60C0000CCE89 /* opensslv.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = opensslv.h; sourceTree = "<group>"; };
+		17F691A6255E60C0000CCE89 /* pkcs7.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pkcs7.h; sourceTree = "<group>"; };
+		17F691A7255E60C0000CCE89 /* obj_mac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = obj_mac.h; sourceTree = "<group>"; };
+		17F691A8255E60C0000CCE89 /* buffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = buffer.h; sourceTree = "<group>"; };
+		17F691A9255E60C0000CCE89 /* ssl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl.h; sourceTree = "<group>"; };
+		17F691AA255E60C0000CCE89 /* srp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srp.h; sourceTree = "<group>"; };
+		17F691AB255E60C0000CCE89 /* camellia.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = camellia.h; sourceTree = "<group>"; };
+		17F691AC255E60C0000CCE89 /* evp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = evp.h; sourceTree = "<group>"; };
+		17F691AD255E60C0000CCE89 /* e_os2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = e_os2.h; sourceTree = "<group>"; };
+		17F691AE255E60C0000CCE89 /* md4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = md4.h; sourceTree = "<group>"; };
+		17F691AF255E60C0000CCE89 /* hmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = hmac.h; sourceTree = "<group>"; };
+		17F691B0255E60C0000CCE89 /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
+		17F691B1255E60C0000CCE89 /* comp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = comp.h; sourceTree = "<group>"; };
+		17F691B2255E60C0000CCE89 /* cast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cast.h; sourceTree = "<group>"; };
+		17F691B3255E60C0000CCE89 /* rc4.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rc4.h; sourceTree = "<group>"; };
+		17F691B4255E60C0000CCE89 /* stack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stack.h; sourceTree = "<group>"; };
+		17F691B5255E60C0000CCE89 /* des.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des.h; sourceTree = "<group>"; };
+		17F691B6255E60C0000CCE89 /* ocsp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ocsp.h; sourceTree = "<group>"; };
+		17F691B7255E60C0000CCE89 /* ec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ec.h; sourceTree = "<group>"; };
+		17F691B8255E60C0000CCE89 /* ecdh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ecdh.h; sourceTree = "<group>"; };
+		17F691B9255E60C0000CCE89 /* rand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rand.h; sourceTree = "<group>"; };
+		17F691BA255E60C0000CCE89 /* ts.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ts.h; sourceTree = "<group>"; };
+		17F691BB255E60C0000CCE89 /* pqueue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pqueue.h; sourceTree = "<group>"; };
+		17F691BC255E60C0000CCE89 /* dso.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dso.h; sourceTree = "<group>"; };
+		17F691BD255E60C0000CCE89 /* seed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = seed.h; sourceTree = "<group>"; };
+		17F691BE255E60C0000CCE89 /* modes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = modes.h; sourceTree = "<group>"; };
+		17F691BF255E60C0000CCE89 /* ssl2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ssl2.h; sourceTree = "<group>"; };
+		17F691C0255E60C0000CCE89 /* rsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rsa.h; sourceTree = "<group>"; };
+		17F691C1255E60C0000CCE89 /* krb5_asn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = krb5_asn.h; sourceTree = "<group>"; };
+		17F691C2255E60C0000CCE89 /* des_old.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = des_old.h; sourceTree = "<group>"; };
+		17F691C3255E60C0000CCE89 /* ripemd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd.h; sourceTree = "<group>"; };
+		17F691C4255E60C0000CCE89 /* whrlpool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = whrlpool.h; sourceTree = "<group>"; };
+		17F691C5255E60C0000CCE89 /* tls1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = tls1.h; sourceTree = "<group>"; };
+		17F691C6255E60C0000CCE89 /* mdc2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mdc2.h; sourceTree = "<group>"; };
+		17F691C7255E60C0000CCE89 /* dsa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = dsa.h; sourceTree = "<group>"; };
+		17F691C8255E60C0000CCE89 /* srtp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = srtp.h; sourceTree = "<group>"; };
+		17F691C9255E60C0000CCE89 /* asn1t.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1t.h; sourceTree = "<group>"; };
+		17F691CA255E60C0000CCE89 /* cmac.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cmac.h; sourceTree = "<group>"; };
+		17F691CB255E60C0000CCE89 /* ebcdic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ebcdic.h; sourceTree = "<group>"; };
+		17F691CC255E60C0000CCE89 /* idea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = idea.h; sourceTree = "<group>"; };
+		17F691CD255E60C0000CCE89 /* lhash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lhash.h; sourceTree = "<group>"; };
+		17F691CF255E60C1000CCE89 /* libcrypto.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libcrypto.a; sourceTree = "<group>"; };
+		17F691D0255E60C1000CCE89 /* librtmp.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = librtmp.a; sourceTree = "<group>"; };
+		17F691D1255E60C1000CCE89 /* libssl.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libssl.a; sourceTree = "<group>"; };
 		17FEC09425369F5F0002168D /* MBSegmentBaseIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentBaseIndicator.swift; sourceTree = "<group>"; };
 		17FEC09D25369F850002168D /* MBSegmentLineIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentLineIndicator.swift; sourceTree = "<group>"; };
 		17FEC0A525369F980002168D /* MBSegmentBackgroundIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSegmentBackgroundIndicator.swift; sourceTree = "<group>"; };
@@ -190,6 +301,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17F691D8255E60E4000CCE89 /* libz.1.2.8.tbd in Frameworks */,
+				17F691D3255E60C1000CCE89 /* librtmp.a in Frameworks */,
+				17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */,
+				17F691D4255E60C1000CCE89 /* libssl.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,6 +332,7 @@
 				1705662C2452B09000A7AF4B /* MultistageBarTests */,
 				170566372452B09000A7AF4B /* MultistageBarUITests */,
 				170566142452B08D00A7AF4B /* Products */,
+				17DDD2AC255D3B8C00B0FBB1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -500,6 +616,7 @@
 		17DB56822558DE0B004537DE /* VideoCodec */ = {
 			isa = PBXGroup;
 			children = (
+				17DDD103255D10A800B0FBB1 /* rtmp */,
 				17DB568D2558E07C004537DE /* Capture */,
 				17DB568C2558E060004537DE /* Stream */,
 				17DB568B2558E05C004537DE /* Codec */,
@@ -523,6 +640,8 @@
 		17DB568C2558E060004537DE /* Stream */ = {
 			isa = PBXGroup;
 			children = (
+				17DDD163255D124D00B0FBB1 /* MBPushStream.swift */,
+				17DDD168255D127C00B0FBB1 /* MBPullStream.swift */,
 			);
 			path = Stream;
 			sourceTree = "<group>";
@@ -535,6 +654,61 @@
 			path = Capture;
 			sourceTree = "<group>";
 		};
+		17DDD103255D10A800B0FBB1 /* rtmp */ = {
+			isa = PBXGroup;
+			children = (
+				17F6917C255E60C0000CCE89 /* include */,
+				17F691CE255E60C1000CCE89 /* lib */,
+				17DDD16D255D174C00B0FBB1 /* Sources */,
+			);
+			path = rtmp;
+			sourceTree = "<group>";
+		};
+		17DDD16D255D174C00B0FBB1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				17DDD16E255D174C00B0FBB1 /* CRTMP */,
+				17DDD171255D174C00B0FBB1 /* RTMP */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		17DDD16E255D174C00B0FBB1 /* CRTMP */ = {
+			isa = PBXGroup;
+			children = (
+				17DDD16F255D174C00B0FBB1 /* umbrella.h */,
+				17DDD170255D174C00B0FBB1 /* module.modulemap */,
+			);
+			path = CRTMP;
+			sourceTree = "<group>";
+		};
+		17DDD171255D174C00B0FBB1 /* RTMP */ = {
+			isa = PBXGroup;
+			children = (
+				17DDD172255D174C00B0FBB1 /* RTMPProtocol.swift */,
+				17DDD173255D174C00B0FBB1 /* String++.swift */,
+				17DDD174255D174C00B0FBB1 /* RTMPChunk.swift */,
+				17DDD175255D174C00B0FBB1 /* AMFDataTypes.swift */,
+				17DDD176255D174C00B0FBB1 /* AMF3DataTypes.swift */,
+				17DDD177255D174C00B0FBB1 /* Rtmp.swift */,
+			);
+			path = RTMP;
+			sourceTree = "<group>";
+		};
+		17DDD2AC255D3B8C00B0FBB1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				17DDD2CD255D3E1600B0FBB1 /* libz.1.2.8.tbd */,
+				17DDD2C2255D3C0B00B0FBB1 /* VideoToolbox.framework */,
+				17DDD2C0255D3C0000B0FBB1 /* CoreMedia.framework */,
+				17DDD2BB255D3BC300B0FBB1 /* libz.1.1.3.tbd */,
+				17DDD2AF255D3BAE00B0FBB1 /* libc++abi.tbd */,
+				17DDD2AE255D3B9700B0FBB1 /* libc++.tbd */,
+				17DDD2AD255D3B8C00B0FBB1 /* libc++.1.tbd */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		17F1D2612530343700721941 /* RoundedRectangle */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,6 +716,118 @@
 				179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */,
 			);
 			path = RoundedRectangle;
+			sourceTree = "<group>";
+		};
+		17F6917C255E60C0000CCE89 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				17F6917D255E60C0000CCE89 /* librtmp */,
+				17F69182255E60C0000CCE89 /* openssl */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		17F6917D255E60C0000CCE89 /* librtmp */ = {
+			isa = PBXGroup;
+			children = (
+				17F6917E255E60C0000CCE89 /* http.h */,
+				17F6917F255E60C0000CCE89 /* amf.h */,
+				17F69180255E60C0000CCE89 /* log.h */,
+				17F69181255E60C0000CCE89 /* rtmp.h */,
+			);
+			path = librtmp;
+			sourceTree = "<group>";
+		};
+		17F69182255E60C0000CCE89 /* openssl */ = {
+			isa = PBXGroup;
+			children = (
+				17F69183255E60C0000CCE89 /* pem2.h */,
+				17F69184255E60C0000CCE89 /* pem.h */,
+				17F69185255E60C0000CCE89 /* ssl3.h */,
+				17F69186255E60C0000CCE89 /* ossl_typ.h */,
+				17F69187255E60C0000CCE89 /* dtls1.h */,
+				17F69188255E60C0000CCE89 /* err.h */,
+				17F69189255E60C0000CCE89 /* bn.h */,
+				17F6918A255E60C0000CCE89 /* blowfish.h */,
+				17F6918B255E60C0000CCE89 /* cms.h */,
+				17F6918C255E60C0000CCE89 /* engine.h */,
+				17F6918D255E60C0000CCE89 /* conf_api.h */,
+				17F6918E255E60C0000CCE89 /* x509.h */,
+				17F6918F255E60C0000CCE89 /* asn1_mac.h */,
+				17F69190255E60C0000CCE89 /* ui.h */,
+				17F69191255E60C0000CCE89 /* kssl.h */,
+				17F69192255E60C0000CCE89 /* sha.h */,
+				17F69193255E60C0000CCE89 /* symhacks.h */,
+				17F69194255E60C0000CCE89 /* asn1.h */,
+				17F69195255E60C0000CCE89 /* opensslconf.h */,
+				17F69196255E60C0000CCE89 /* bio.h */,
+				17F69197255E60C0000CCE89 /* rc2.h */,
+				17F69198255E60C0000CCE89 /* dh.h */,
+				17F69199255E60C0000CCE89 /* ui_compat.h */,
+				17F6919A255E60C0000CCE89 /* x509v3.h */,
+				17F6919B255E60C0000CCE89 /* ssl23.h */,
+				17F6919C255E60C0000CCE89 /* conf.h */,
+				17F6919D255E60C0000CCE89 /* md5.h */,
+				17F6919E255E60C0000CCE89 /* x509_vfy.h */,
+				17F6919F255E60C0000CCE89 /* txt_db.h */,
+				17F691A0255E60C0000CCE89 /* safestack.h */,
+				17F691A1255E60C0000CCE89 /* ecdsa.h */,
+				17F691A2255E60C0000CCE89 /* objects.h */,
+				17F691A3255E60C0000CCE89 /* pkcs12.h */,
+				17F691A4255E60C0000CCE89 /* crypto.h */,
+				17F691A5255E60C0000CCE89 /* opensslv.h */,
+				17F691A6255E60C0000CCE89 /* pkcs7.h */,
+				17F691A7255E60C0000CCE89 /* obj_mac.h */,
+				17F691A8255E60C0000CCE89 /* buffer.h */,
+				17F691A9255E60C0000CCE89 /* ssl.h */,
+				17F691AA255E60C0000CCE89 /* srp.h */,
+				17F691AB255E60C0000CCE89 /* camellia.h */,
+				17F691AC255E60C0000CCE89 /* evp.h */,
+				17F691AD255E60C0000CCE89 /* e_os2.h */,
+				17F691AE255E60C0000CCE89 /* md4.h */,
+				17F691AF255E60C0000CCE89 /* hmac.h */,
+				17F691B0255E60C0000CCE89 /* aes.h */,
+				17F691B1255E60C0000CCE89 /* comp.h */,
+				17F691B2255E60C0000CCE89 /* cast.h */,
+				17F691B3255E60C0000CCE89 /* rc4.h */,
+				17F691B4255E60C0000CCE89 /* stack.h */,
+				17F691B5255E60C0000CCE89 /* des.h */,
+				17F691B6255E60C0000CCE89 /* ocsp.h */,
+				17F691B7255E60C0000CCE89 /* ec.h */,
+				17F691B8255E60C0000CCE89 /* ecdh.h */,
+				17F691B9255E60C0000CCE89 /* rand.h */,
+				17F691BA255E60C0000CCE89 /* ts.h */,
+				17F691BB255E60C0000CCE89 /* pqueue.h */,
+				17F691BC255E60C0000CCE89 /* dso.h */,
+				17F691BD255E60C0000CCE89 /* seed.h */,
+				17F691BE255E60C0000CCE89 /* modes.h */,
+				17F691BF255E60C0000CCE89 /* ssl2.h */,
+				17F691C0255E60C0000CCE89 /* rsa.h */,
+				17F691C1255E60C0000CCE89 /* krb5_asn.h */,
+				17F691C2255E60C0000CCE89 /* des_old.h */,
+				17F691C3255E60C0000CCE89 /* ripemd.h */,
+				17F691C4255E60C0000CCE89 /* whrlpool.h */,
+				17F691C5255E60C0000CCE89 /* tls1.h */,
+				17F691C6255E60C0000CCE89 /* mdc2.h */,
+				17F691C7255E60C0000CCE89 /* dsa.h */,
+				17F691C8255E60C0000CCE89 /* srtp.h */,
+				17F691C9255E60C0000CCE89 /* asn1t.h */,
+				17F691CA255E60C0000CCE89 /* cmac.h */,
+				17F691CB255E60C0000CCE89 /* ebcdic.h */,
+				17F691CC255E60C0000CCE89 /* idea.h */,
+				17F691CD255E60C0000CCE89 /* lhash.h */,
+			);
+			path = openssl;
+			sourceTree = "<group>";
+		};
+		17F691CE255E60C1000CCE89 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				17F691CF255E60C1000CCE89 /* libcrypto.a */,
+				17F691D0255E60C1000CCE89 /* librtmp.a */,
+				17F691D1255E60C1000CCE89 /* libssl.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 		17FEC09125369F0F0002168D /* Indicator */ = {
@@ -717,6 +1003,7 @@
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
+				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,
 				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
@@ -727,6 +1014,7 @@
 				17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
+				17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
@@ -741,11 +1029,15 @@
 				175CC482253449F3006465AC /* LocationManager.swift in Sources */,
 				179F4D4D2549075F0051E69D /* DES.swift in Sources */,
 				172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */,
+				17DDD179255D174C00B0FBB1 /* String++.swift in Sources */,
 				17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */,
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
+				17DDD169255D127D00B0FBB1 /* MBPullStream.swift in Sources */,
+				17DDD178255D174C00B0FBB1 /* RTMPProtocol.swift in Sources */,
+				17DDD164255D124D00B0FBB1 /* MBPushStream.swift in Sources */,
 				17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */,
 				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
@@ -757,12 +1049,14 @@
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
+				17DDD17D255D174C00B0FBB1 /* Rtmp.swift in Sources */,
 				173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */,
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
 				1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
 				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
+				17DDD17A255D174C00B0FBB1 /* RTMPChunk.swift in Sources */,
 				17C35F23254803D400CB6EC4 /* Hash.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
@@ -954,14 +1248,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/MultistageBar/VideoCodec/rtmp/Sources/CRTMP";
 				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -976,14 +1277,21 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
+				ENABLE_BITCODE = NO;
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/lib",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_INCLUDE_PATHS = "${SRCROOT}/MultistageBar/VideoCodec/rtmp/Sources/CRTMP";
 				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

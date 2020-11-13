@@ -47,6 +47,8 @@ class MBCapture: NSObject {
     }
     private func addVideoMetaDataOutput() {
         videoMetaDataOutput = AVCaptureVideoDataOutput.init()
+//        videoMetaDataOutput?.videoSettings = [kCVPixelBufferPixelFormatTypeKey as String: kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]
+//        [kCVPixelBufferPixelFormatTypeKey: kCVPixelFormatType_32BGRA]
         guard let imageOutput = videoMetaDataOutput,
             session.canAddOutput(imageOutput) else {
             return
