@@ -30,7 +30,7 @@ class WrapTableViewController<Model: NSObject & CellHeightProtocol & CellIdentif
     lazy var table: WrapTableView = {
         let tab = WrapTableView.init(frame: view.bounds)
         tab.operations = [.refresh, .noData]
-        tab.separatorStyle = .none
+        tab.tableFooterView = UIView.init()
         tab.dataProvider = provider
         view.addSubview(tab)
         return tab
