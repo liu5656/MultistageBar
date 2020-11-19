@@ -67,6 +67,10 @@
 		17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A248E52558F1290069B5F8 /* MBEncoder.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
+		17B87A17256613EB00100BA4 /* WrapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A16256613EB00100BA4 /* WrapTableViewController.swift */; };
+		17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A1E2566140A00100BA4 /* WrapTableView.swift */; };
+		17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A3125663C4700100BA4 /* DataProviderProtocol.swift */; };
+		17B87A3825663DEF00100BA4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A3725663DEF00100BA4 /* DataProvider.swift */; };
 		17C199D0254BF2DE006BE61A /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199CF254BF2DE006BE61A /* RSA.swift */; };
 		17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199DA254C18DC006BE61A /* MBTableView.swift */; };
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
@@ -182,6 +186,10 @@
 		17A248E52558F1290069B5F8 /* MBEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEncoder.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
+		17B87A16256613EB00100BA4 /* WrapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapTableViewController.swift; sourceTree = "<group>"; };
+		17B87A1E2566140A00100BA4 /* WrapTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapTableView.swift; sourceTree = "<group>"; };
+		17B87A3125663C4700100BA4 /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
+		17B87A3725663DEF00100BA4 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		17C199CF254BF2DE006BE61A /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		17C199DA254C18DC006BE61A /* MBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableView.swift; sourceTree = "<group>"; };
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
@@ -351,6 +359,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17B87A1325660D3F00100BA4 /* WrapTableView */,
 				17DB56822558DE0B004537DE /* VideoCodec */,
 				1778C0602551039B001E14C7 /* DistanceByCoordinate */,
 				17C35F0D2547C6BA00CB6EC4 /* Hash */,
@@ -602,6 +611,49 @@
 				174B89ED251C91C800087E72 /* ProgressViewController.swift */,
 			);
 			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		17B87A1325660D3F00100BA4 /* WrapTableView */ = {
+			isa = PBXGroup;
+			children = (
+				17B87A3625663DCE00100BA4 /* Model */,
+				17B87A232566151B00100BA4 /* Protocol */,
+				17B87A152566138100100BA4 /* Controller */,
+				17B87A1425660D4D00100BA4 /* View */,
+			);
+			path = WrapTableView;
+			sourceTree = "<group>";
+		};
+		17B87A1425660D4D00100BA4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				17B87A1E2566140A00100BA4 /* WrapTableView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		17B87A152566138100100BA4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17B87A16256613EB00100BA4 /* WrapTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		17B87A232566151B00100BA4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				17B87A3125663C4700100BA4 /* DataProviderProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		17B87A3625663DCE00100BA4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17B87A3725663DEF00100BA4 /* DataProvider.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		17C35F0D2547C6BA00CB6EC4 /* Hash */ = {
@@ -1005,9 +1057,11 @@
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
+				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,
+				17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */,
 				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
@@ -1020,6 +1074,7 @@
 				179F4D48254906020051E69D /* AES.swift in Sources */,
 				17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
+				17B87A3825663DEF00100BA4 /* DataProvider.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
@@ -1047,6 +1102,7 @@
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* MBSegmentColotUtils.swift in Sources */,
+				17B87A17256613EB00100BA4 /* WrapTableViewController.swift in Sources */,
 				176A150225231049002EB14F /* SwipeTableView.swift in Sources */,
 				1762E480247FA5A3009B9612 /* MBSegmentCellProtocol.swift in Sources */,
 				1762E483247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift in Sources */,

@@ -58,7 +58,8 @@ class InitialViewController: UIViewController {
         (MBRetryViewController.classForCoder(), "失败重试策略"),
         (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
         (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
-        (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA")
+        (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
+        (WrapTableViewController<TempModel>.classForCoder(), "封装tableView")
     ]
     
     lazy var table: UITableView = {
@@ -101,7 +102,12 @@ extension InitialViewController: UITableViewDataSource {
 extension InitialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = datas[indexPath.row].0 as? UIViewController.Type else {return}
-        let vc = type.init()
+        let vc: UIViewController
+        if WrapTableViewController<TempModel>.self == type {
+            vc = WrapTableViewController<TempModel>.init(request: TempRequest())
+        }else{
+            vc = type.init()
+        }
         self.navigationController?.pushViewController(vc, animated: true)
         
     }

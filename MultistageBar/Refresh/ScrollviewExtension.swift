@@ -48,6 +48,9 @@ extension UIScrollView {
         footer.scrollView = self
     }
     func beginHeaderRefreshing() {
+        guard refreshHeader != nil else {
+            return
+        }
         refreshHeader?.refreshImmediately = true
         MBLog("flat to refresh immediately")
         refreshHeader?.setNeedsLayout()
