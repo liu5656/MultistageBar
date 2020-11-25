@@ -21,7 +21,6 @@
 		172A2EAE251D98980072D325 /* AssetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA7251D98980072D325 /* AssetTools.swift */; };
 		172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA8251D98980072D325 /* AlbumViewController.swift */; };
 		172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAA251D98980072D325 /* AlbumImageCell.swift */; };
-		172A2EB2251D98980072D325 /* AlbumImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172A2EAB251D98980072D325 /* AlbumImageCell.xib */; };
 		172A2EB3251D98980072D325 /* AssetModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAD251D98980072D325 /* AssetModel.swift */; };
 		172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBA251DC4BB0072D325 /* AlbumTestViewController.swift */; };
 		172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBD251DD4870072D325 /* CaptureViewController.swift */; };
@@ -138,7 +137,6 @@
 		172A2EA7251D98980072D325 /* AssetTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTools.swift; sourceTree = "<group>"; };
 		172A2EA8251D98980072D325 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
-		172A2EAB251D98980072D325 /* AlbumImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AlbumImageCell.xib; sourceTree = "<group>"; };
 		172A2EAD251D98980072D325 /* AssetModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetModel.swift; sourceTree = "<group>"; };
 		172A2EBA251DC4BB0072D325 /* AlbumTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumTestViewController.swift; sourceTree = "<group>"; };
 		172A2EBD251DD4870072D325 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
@@ -455,7 +453,6 @@
 				172A2EA6251D98980072D325 /* AlbumTools */,
 				172A2EA8251D98980072D325 /* AlbumViewController.swift */,
 				172A2EAA251D98980072D325 /* AlbumImageCell.swift */,
-				172A2EAB251D98980072D325 /* AlbumImageCell.xib */,
 				172A2EAC251D98980072D325 /* Model */,
 				17A7307E25202A4A001D8170 /* CropViewController.swift */,
 			);
@@ -1027,7 +1024,6 @@
 				170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */,
 				170566202452B09000A7AF4B /* Assets.xcassets in Resources */,
 				1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */,
-				172A2EB2251D98980072D325 /* AlbumImageCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

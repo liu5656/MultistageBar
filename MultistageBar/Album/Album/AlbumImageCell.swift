@@ -14,21 +14,45 @@ protocol AlbumImageCellDelegate: class {
 }
 
 class AlbumImageCell: UICollectionViewCell {
-    @IBOutlet weak var leftTopIV: UIImageView!
-    @IBOutlet weak var imageIV: UIImageView!
-    @IBOutlet weak var timeL: UILabel!
-    @IBOutlet weak var selectedB: UIButton!
+
     var model: AssetModel?
     weak var delegate: AlbumImageCellDelegate?
     let thumbnailSize = CGSize.init(width: 200, height: 200)
-    @IBAction func selectedAction(_ sender: UIButton) {
-        if let model = model {
-            delegate?.selectedAsset(model: model)
+
+    override var isSelected: Bool {
+        didSet{
+            if isSelected {
+                selectedB.isSelected = true
+            }else{
+                selectedB.isSelected = false
+            }
         }
     }
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
+    
+    private lazy var imageIV: UIImageView = {
+        let img = UIImageView.init(frame: bounds)
+        img.contentMode = UIView.ContentMode.scaleAspectFill
+        img.clipsToBounds = true
+        contentView.addSubview(img)
+        return img
+    }()
+    private lazy var selectedB: UIButton = {
+        let but = UIButton.init(type: .custom)
+        but.frame = CGRect.init(x: bounds.width - 30, y: 0, width: 30, height: 30)
+        but.setImage(UIImage.init(named: "checkbox_circle"), for: .normal)
+        but.setImage(UIImage.init(named: "checkbox_right"), for: .selected)
+        but.isUserInteractionEnabled = false
+        contentView.addSubview(but)
+        return but
+    }()
+    private lazy var timeL: UILabel = {
+        let lab = UILabel.init(frame: CGRect.init(x: 10, y: bounds.height - 20, width: bounds.width - 15, height: 16))
+        lab.textColor = UIColor.white
+        lab.font = UIFont.systemFont(ofSize: 12, weight: .semibold)
+        lab.textAlignment = .right
+        contentView.addSubview(lab)
+        return lab
+    }()
 }
 
 extension AlbumImageCell {
@@ -39,32 +63,22 @@ extension AlbumImageCell {
             imageIV.image = UIImage.init(named: "")
             selectedB.isHidden = true
         }else{
+            imageIV.image = nil
             selectedB.isHidden = false
             let asset = photo.asset
             selectedB.isSelected = photo.isSelected
-            imageIV.image = nil
             manager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil) { (image, _) in
                 if photo.localIdentifier == asset.localIdentifier {
                     self.imageIV.image = image
                 }
             }
-            timeL.text = nil
             if asset.mediaType == .video, photo.localIdentifier != "1" {
                 timeL.isHidden = false
                 timeL.text = timeString(asset.duration)
             }else{
                 timeL.isHidden = true
+                timeL.text = nil
             }
-        }
-    }
-    func lobo_canDelete() {
-        selectedB.setImage(UIImage.init(named: "icon_close"), for: .selected)
-        imageIV.layer.cornerRadius = 5
-        imageIV.layer.masksToBounds = true
-        if self.model?.asset.mediaType == .video {
-            leftTopIV.isHidden = false
-        }else{
-            leftTopIV.isHidden = true
         }
     }
     func timeString(_ num: TimeInterval)->String{

@@ -62,7 +62,7 @@ class AlbumViewController: UIViewController {
         for i in 0..<self.fetchResults.count {
             let asset = fetchResults.object(at: i)
             if asset.mediaType == .image {
-                let photo = AssetModel.init(asset: asset, index: i)
+                let photo = AssetModel.init(asset: asset, index: arr.count)
                 photo.localIdentifier = asset.localIdentifier
                 photo.asset = asset
                 if selectedAssets.contains(where: {$0.localIdentifier == asset.localIdentifier}){
@@ -109,32 +109,35 @@ class AlbumViewController: UIViewController {
         layout.minimumLineSpacing = 3
         layout.minimumInteritemSpacing = 3
         layout.itemSize = CGSize.init(width: itemW, height: itemW)
-
-//        if #available(13.0, *) {
-//            UIApplication.shared.connectedScenes
-//            UIWindowScene.init(session: <#T##UISceneSession#>, connectionOptions: <#T##UIScene.ConnectionOptions#>)
-//        }
         
         let navBarHeight =  UIApplication.shared.statusBarFrame.height + 44
         let height = UIScreen.main.bounds.height - navBarHeight
         let cv = UICollectionView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: height), collectionViewLayout: layout)
         cv.backgroundColor = .white
+        cv.delegate = self
         cv.dataSource = self
         cv.showsVerticalScrollIndicator = false
         cv.showsHorizontalScrollIndicator = false
-        cv.register(UINib.init(nibName: "AlbumImageCell", bundle: Bundle.main), forCellWithReuseIdentifier: photoCellIdentify)
+        cv.register(AlbumImageCell.classForCoder(), forCellWithReuseIdentifier: photoCellIdentify)
         return cv
     }()
 }
 
-extension AlbumViewController: UICollectionViewDataSource {
+extension AlbumViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let photo = photos[indexPath.row]
+        if selectedAssets.count < maxNumber || photo.isSelected {
+            selectedAsset(model: photo)
+        }else{
+            collectionView.deselectItem(at: indexPath, animated: false)
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return photos.count
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: photoCellIdentify, for: indexPath) as? AlbumImageCell else {return UICollectionViewCell()}
         cell.delegate = self
-        cell.leftTopIV.isHidden = true
         cell.lobo_config(model: photos[indexPath.row], manager: assetManager)
         return cell
     }
