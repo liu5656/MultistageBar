@@ -8,12 +8,46 @@
 
 import UIKit
 
+
+protocol DefaultValue {
+    associatedtype Value: Codable
+    static var defaultValue: Value { get }
+}
+
+extension String: DefaultValue {
+    static var defaultValue = "liu"
+}
+extension PersonType: DefaultValue {
+    static var defaultValue = PersonType.police
+}
+
+@propertyWrapper
+struct Default<T: DefaultValue> {
+    var wrappedValue: T.Value
+}
+
+extension Default: Codable {
+    init(from decoder: Decoder) throws {
+        let contain = try decoder.singleValueContainer()
+        wrappedValue = (try? contain.decode(T.Value.self)) ?? T.defaultValue
+    }
+}
+
+extension KeyedDecodingContainer {
+    func decode<T>(_ type: Default<T>.Type, forKey key: Key) throws -> Default<T> where T: DefaultValue {
+        try decodeIfPresent(type, forKey: key) ?? Default(wrappedValue: T.defaultValue)
+    }
+}
+
+
+
 /*
     reference
  https://www.jianshu.com/p/febdd25ae525
  https://zhuanlan.zhihu.com/p/83816429
  https://blog.natanrolnik.me/codable-enums-associated-values
  https://www.jianshu.com/p/bdd9c012df15
+ https://blog.csdn.net/sinat_35969632/article/details/109635022 // josn中不含有对应key或key对应的value不在值范围内
  */
 
 // encode
@@ -50,7 +84,13 @@ extension Decodable {
         if let temp = path, let partial = extract(from: data, path: temp) {
             data = partial
         }
-        return try? JSONDecoder().decode(Self.self, from: data)
+        do {
+            let temp = try JSONDecoder().decode(Self.self, from: data)
+            return temp
+        } catch let e {
+            MBLog(e)
+            return nil
+        }
     }
 }
 
