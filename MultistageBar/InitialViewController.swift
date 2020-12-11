@@ -34,18 +34,11 @@ class InitialViewController: UIViewController {
             }
         }
     }
-    @objc func mb_countdown(num: Int) {
-        MBLog(num)
-    }
-    func mb_timerTest() {
-        timer.mb_resume()
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = table
-        mb_timerTest()  // 定时器测试
-//        table.beginHeaderRefreshing()
+        table.beginHeaderRefreshing()
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -67,7 +60,8 @@ class InitialViewController: UIViewController {
         (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
         (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
         (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
-        (WrapTableViewController<TempModel>.classForCoder(), "封装tableView")
+        (WrapTableViewController<TempModel>.classForCoder(), "封装tableView"),
+        (MBTimerViewController.classForCoder(), "倒计时测试")
     ]
     
     lazy var table: UITableView = {
@@ -88,12 +82,6 @@ class InitialViewController: UIViewController {
 //            }
 //        }
         return tab
-    }()
-    lazy var timer: MBTimer = {
-        let temp = MBTimer.timer(timeInterval: .seconds(1), count: 60) { (num) in
-            self.mb_countdown(num: num)
-        }
-        return temp
     }()
     
 }
