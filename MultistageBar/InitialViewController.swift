@@ -34,9 +34,17 @@ class InitialViewController: UIViewController {
             }
         }
     }
+    @objc func mb_countdown(num: Int) {
+        MBLog(num)
+    }
+    func mb_timerTest() {
+        timer.mb_resume()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = table
+        mb_timerTest()  // 定时器测试
 //        table.beginHeaderRefreshing()
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -80,6 +88,12 @@ class InitialViewController: UIViewController {
 //            }
 //        }
         return tab
+    }()
+    lazy var timer: MBTimer = {
+        let temp = MBTimer.timer(timeInterval: .seconds(1), count: 60) { (num) in
+            self.mb_countdown(num: num)
+        }
+        return temp
     }()
     
 }

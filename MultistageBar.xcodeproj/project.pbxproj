@@ -65,6 +65,7 @@
 		179F4D4D2549075F0051E69D /* DES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D4C2549075F0051E69D /* DES.swift */; };
 		17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A248E52558F1290069B5F8 /* MBEncoder.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
+		17ADB476257730EF00D51E82 /* MBTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADB475257730EF00D51E82 /* MBTimer.swift */; };
 		17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */; };
 		17B87A17256613EB00100BA4 /* WrapTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A16256613EB00100BA4 /* WrapTableViewController.swift */; };
 		17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A1E2566140A00100BA4 /* WrapTableView.swift */; };
@@ -183,6 +184,7 @@
 		179F4D4C2549075F0051E69D /* DES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DES.swift; sourceTree = "<group>"; };
 		17A248E52558F1290069B5F8 /* MBEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEncoder.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
+		17ADB475257730EF00D51E82 /* MBTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTimer.swift; sourceTree = "<group>"; };
 		17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerMarkViewController.swift; sourceTree = "<group>"; };
 		17B87A16256613EB00100BA4 /* WrapTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapTableViewController.swift; sourceTree = "<group>"; };
 		17B87A1E2566140A00100BA4 /* WrapTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapTableView.swift; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17ADB474257730DD00D51E82 /* Timer */,
 				17B87A1325660D3F00100BA4 /* WrapTableView */,
 				17DB56822558DE0B004537DE /* VideoCodec */,
 				1778C0602551039B001E14C7 /* DistanceByCoordinate */,
@@ -608,6 +611,14 @@
 				174B89ED251C91C800087E72 /* ProgressViewController.swift */,
 			);
 			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		17ADB474257730DD00D51E82 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				17ADB475257730EF00D51E82 /* MBTimer.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		17B87A1325660D3F00100BA4 /* WrapTableView */ = {
@@ -1096,6 +1107,7 @@
 				17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */,
 				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
+				17ADB476257730EF00D51E82 /* MBTimer.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* MBSegmentColotUtils.swift in Sources */,
 				17B87A17256613EB00100BA4 /* WrapTableViewController.swift in Sources */,
