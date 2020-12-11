@@ -57,6 +57,7 @@
 		1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */; };
 		1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
+		17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FAC258306F900B78DD5 /* MBTimerViewController.swift */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
 		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
@@ -176,6 +177,7 @@
 		1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistanceViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
+		17974FAC258306F900B78DD5 /* MBTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTimerViewController.swift; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
 		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
@@ -617,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				17ADB475257730EF00D51E82 /* MBTimer.swift */,
+				17974FAC258306F900B78DD5 /* MBTimerViewController.swift */,
 			);
 			path = Timer;
 			sourceTree = "<group>";
@@ -1078,6 +1081,7 @@
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */,
+				17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
 				17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
