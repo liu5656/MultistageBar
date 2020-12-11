@@ -58,6 +58,7 @@
 		1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */; };
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
 		17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FAC258306F900B78DD5 /* MBTimerViewController.swift */; };
+		17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FB2258307B600B78DD5 /* IDFAViewController.swift */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
 		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
@@ -178,6 +179,7 @@
 		1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHeaderViewController.swift; sourceTree = "<group>"; };
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
 		17974FAC258306F900B78DD5 /* MBTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTimerViewController.swift; sourceTree = "<group>"; };
+		17974FB2258307B600B78DD5 /* IDFAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAViewController.swift; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
 		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17974FB1258307A800B78DD5 /* IDFA */,
 				17ADB474257730DD00D51E82 /* Timer */,
 				17B87A1325660D3F00100BA4 /* WrapTableView */,
 				17DB56822558DE0B004537DE /* VideoCodec */,
@@ -613,6 +616,14 @@
 				174B89ED251C91C800087E72 /* ProgressViewController.swift */,
 			);
 			path = ProgressView;
+			sourceTree = "<group>";
+		};
+		17974FB1258307A800B78DD5 /* IDFA */ = {
+			isa = PBXGroup;
+			children = (
+				17974FB2258307B600B78DD5 /* IDFAViewController.swift */,
+			);
+			path = IDFA;
 			sourceTree = "<group>";
 		};
 		17ADB474257730DD00D51E82 /* Timer */ = {
@@ -1068,6 +1079,7 @@
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
+				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,

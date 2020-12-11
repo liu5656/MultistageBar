@@ -61,7 +61,8 @@ class InitialViewController: UIViewController {
         (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
         (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
         (WrapTableViewController<TempModel>.classForCoder(), "封装tableView"),
-        (MBTimerViewController.classForCoder(), "倒计时测试")
+        (MBTimerViewController.classForCoder(), "倒计时测试"),
+        (IDFAViewController.classForCoder(), "IDFA授权")
     ]
     
     lazy var table: UITableView = {
