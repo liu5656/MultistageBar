@@ -59,6 +59,7 @@
 		179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */; };
 		17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FAC258306F900B78DD5 /* MBTimerViewController.swift */; };
 		17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FB2258307B600B78DD5 /* IDFAViewController.swift */; };
+		17974FCE2583491100B78DD5 /* MBCustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17974FCD2583491100B78DD5 /* MBCustomObject.m */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
 		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
@@ -180,6 +181,8 @@
 		179702D42531BB4900BCD88F /* MBCornerImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCornerImageViewController.swift; sourceTree = "<group>"; };
 		17974FAC258306F900B78DD5 /* MBTimerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTimerViewController.swift; sourceTree = "<group>"; };
 		17974FB2258307B600B78DD5 /* IDFAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAViewController.swift; sourceTree = "<group>"; };
+		17974FCC2583491100B78DD5 /* MBCustomObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBCustomObject.h; sourceTree = "<group>"; };
+		17974FCD2583491100B78DD5 /* MBCustomObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBCustomObject.m; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
 		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
@@ -363,6 +366,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17974FBF258348E100B78DD5 /* MessageResolve */,
 				17974FB1258307A800B78DD5 /* IDFA */,
 				17ADB474257730DD00D51E82 /* Timer */,
 				17B87A1325660D3F00100BA4 /* WrapTableView */,
@@ -624,6 +628,15 @@
 				17974FB2258307B600B78DD5 /* IDFAViewController.swift */,
 			);
 			path = IDFA;
+			sourceTree = "<group>";
+		};
+		17974FBF258348E100B78DD5 /* MessageResolve */ = {
+			isa = PBXGroup;
+			children = (
+				17974FCC2583491100B78DD5 /* MBCustomObject.h */,
+				17974FCD2583491100B78DD5 /* MBCustomObject.m */,
+			);
+			path = MessageResolve;
 			sourceTree = "<group>";
 		};
 		17ADB474257730DD00D51E82 /* Timer */ = {
@@ -1152,6 +1165,7 @@
 				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
 				179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
+				17974FCE2583491100B78DD5 /* MBCustomObject.m in Sources */,
 				17FEC0C12536A0860002168D /* MBSegmentTitleCell.swift in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
