@@ -8,7 +8,8 @@
 
 import UIKit
 
-class DataProvider<Model: NSObject & CellHeightProtocol & CellIdentifyProtocol>: NSObject, DataProviderProtocol {
+class DataProvider: NSObject, DataProviderProtocol {
+//    class DataProvider<Model: NSObject & CellHeightProtocol & CellIdentifyProtocol>: NSObject, DataProviderProtocol {
     
     init(request: RequestProtocol) {
         self.request = request
@@ -42,15 +43,15 @@ class DataProvider<Model: NSObject & CellHeightProtocol & CellIdentifyProtocol>:
     // refresh data
     func refresh(type: RefreshType, completion: @escaping (Bool) -> Void) {
         #warning("1.0 todo 模拟网络请求")
-//        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [unowned self] in
+        DispatchQueue.global().asyncAfter(deadline: .now() + 5) { [unowned self] in
 //            self.datas.append(contentsOf: [Model.init(), Model.init()])
-//            for item in self.datas {
-//                if self.registeredCells.keys.contains(item.identify) == false {
-//                    consumeCells[item.identify] = item.cellClass
-//                }
-//            }
-//            completion(true)
-//        }
+            for item in self.datas {
+                if self.registeredCells.keys.contains(item.identify) == false {
+                    consumeCells[item.identify] = item.cellClass
+                }
+            }
+            completion(true)
+        }
     }
     
     // datasource delegate

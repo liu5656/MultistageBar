@@ -60,7 +60,7 @@ class InitialViewController: UIViewController {
         (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
         (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
         (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
-        (WrapTableViewController<TempModel>.classForCoder(), "封装tableView"),
+        (WrapTableViewController.classForCoder(), "封装tableView"),
         (MBTimerViewController.classForCoder(), "倒计时测试"),
         (IDFAViewController.classForCoder(), "IDFA授权")
     ]
@@ -106,8 +106,10 @@ extension InitialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let type = datas[indexPath.row].0 as? UIViewController.Type else {return}
         let vc: UIViewController
-        if WrapTableViewController<TempModel>.self == type {
-            vc = WrapTableViewController<TempModel>.init(request: TempRequest())
+//        if WrapTableViewController<TempModel>.self == type {
+            if WrapTableViewController.self == type {
+//                vc = WrapTableViewController<TempModel>.init(request: TempRequest())
+            vc = WrapTableViewController.init(request: TempRequest())
         }else{
             vc = type.init()
         }

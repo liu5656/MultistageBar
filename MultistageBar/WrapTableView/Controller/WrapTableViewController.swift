@@ -8,18 +8,20 @@
 
 import UIKit
 
-class WrapTableViewController<Model: NSObject & CellHeightProtocol & CellIdentifyProtocol>: MBViewController {
+class WrapTableViewController: MBViewController {
+//    class WrapTableViewController<Model: NSObject & CellHeightProtocol & CellIdentifyProtocol>: MBViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        provider.datas = [Model(), Model()]
-        let temp = Model.init()
-        provider.consumeCells = [temp.identify: temp.cellClass]
-        table.registerCellAction()
+//        provider.datas = [Model(), Model()]
+//        let temp = Model.init()
+//        provider.consumeCells = [temp.identify: temp.cellClass]
+//        table.registerCellAction()
     }
     
     init(request: RequestProtocol) {
-        provider = DataProvider<Model>.init(request: request)
+//        provider = DataProvider<Model>.init(request: request)
+        provider = DataProvider.init(request: request)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -35,7 +37,8 @@ class WrapTableViewController<Model: NSObject & CellHeightProtocol & CellIdentif
         view.addSubview(tab)
         return tab
     }()
-    private let provider: DataProvider<Model>
+    private let provider: DataProvider
+//    private let provider: DataProvider<Model>
 }
 
 
