@@ -331,5 +331,5 @@ extension SwipeTableViewDelegate {
     func swipeTableViewDidScroll(_ x: CGFloat, totalX: CGFloat, direction: ScrollDirection){}
     func swipeTableViewDidScroll(_ from: Int, to: Int, scale: CGFloat){}
     func swipeTableViewDidEndDecelerating(_ scrollView: UIScrollView){}
-    func swipeTableView(_ tableView: UITableView, column: Int, heightForHeaderInSection section: Int) -> CGFloat{ return 0.01 }
+    func swipeTableView(_ tableView: UITableView, column: Int, heightForHeaderInSection section: Int) -> CGFloat{ return 0 }
 }
