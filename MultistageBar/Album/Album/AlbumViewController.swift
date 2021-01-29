@@ -11,18 +11,25 @@ import Photos
 
 class AlbumViewController: UIViewController {
     @objc func certainAction() {
-        if allowCrop, let asset = selectedAssets.first?.asset {
-            assetManager.requestImageData(for: asset, options: nil) { (imageData, str, orientation, info) in
-                DispatchQueue.main.async {
-                    if let tempData = imageData, let originalImage = UIImage.init(data: tempData) {
-                        let vc = CropViewController.init(img: originalImage.fixOrientation())
-                        vc.completion = { [unowned self] img in
-                            self.cropResult?(img)
-                            self.dismiss(animated: true, completion: nil)
-                        }
-                        self.navigationController?.pushViewController(vc, animated: true)
-                    }else{
+        if allowCrop, let asset = selectedAssets.first {
+            let size = CGSize.init(width: 960, height: 960)
+            AssetTools.image(asset: asset, size: size) { (img, isOriginal, err) in
+                if isOriginal, let temp = img {
+                    let vc = CropViewController.init(img: temp)
+                    vc.completion = { [unowned self] img in
+                        self.cropResult?(img)
                         self.dismiss(animated: true, completion: nil)
+                    }
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }else if let temp = err {
+                    if temp.code == 81 {
+                        MBLog("请求超时!")
+                    }else if 82 == temp.code {
+                        MBLog("网络错误,请求检查网络")
+                    }else if 1005 == temp.code {
+                        MBLog("磁盘可用空间不足,无法获取此照片的更高质量版本,您可以在设置中管理存储空间")
+                    }else{
+                        MBLog("其他错误: \(temp.description)")
                     }
                 }
             }

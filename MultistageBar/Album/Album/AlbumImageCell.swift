@@ -67,9 +67,10 @@ extension AlbumImageCell {
             selectedB.isHidden = false
             let asset = photo.asset
             selectedB.isSelected = photo.isSelected
-            manager.requestImage(for: asset, targetSize: thumbnailSize, contentMode: .aspectFill, options: nil) { (image, _) in
+            
+            AssetTools.image(asset: photo, size: thumbnailSize) { (img, isOriginal, err) in
                 if photo.localIdentifier == asset.localIdentifier {
-                    self.imageIV.image = image
+                    self.imageIV.image = img
                 }
             }
             if asset.mediaType == .video, photo.localIdentifier != "1" {
