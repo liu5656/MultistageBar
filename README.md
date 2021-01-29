@@ -1,4 +1,4 @@
-此文是平时工作中学习和踩坑记录，有不对的地方，还请各位大佬指点。
+此文是平时工作中学习和踩坑记录，比较杂乱，有不对的地方，还请各位大佬指点。
 
 **我的GitHub地址**：[https://github.com/liu5656/MultistageBar](https://github.com/liu5656/MultistageBar)
 
