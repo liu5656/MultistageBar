@@ -44,6 +44,7 @@ class InitialViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
+        (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
         (MBCodecTestViewController.classForCoder(), "视频编解码"),
         (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),

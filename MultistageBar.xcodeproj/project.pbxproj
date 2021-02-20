@@ -74,6 +74,9 @@
 		17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A1E2566140A00100BA4 /* WrapTableView.swift */; };
 		17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A3125663C4700100BA4 /* DataProviderProtocol.swift */; };
 		17B87A3825663DEF00100BA4 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B87A3725663DEF00100BA4 /* DataProvider.swift */; };
+		17B93B9C25CCE8E100EACD63 /* SwipeToLikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B93B9B25CCE8E100EACD63 /* SwipeToLikeViewController.swift */; };
+		17B93BA425CCEA3700EACD63 /* MBDragingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B93BA325CCEA3700EACD63 /* MBDragingContainer.swift */; };
+		17B93BA925CD20DF00EACD63 /* MBDragingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B93BA825CD20DF00EACD63 /* MBDragingItem.swift */; };
 		17C199D0254BF2DE006BE61A /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199CF254BF2DE006BE61A /* RSA.swift */; };
 		17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199DA254C18DC006BE61A /* MBTableView.swift */; };
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
@@ -197,6 +200,9 @@
 		17B87A1E2566140A00100BA4 /* WrapTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapTableView.swift; sourceTree = "<group>"; };
 		17B87A3125663C4700100BA4 /* DataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProviderProtocol.swift; sourceTree = "<group>"; };
 		17B87A3725663DEF00100BA4 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		17B93B9B25CCE8E100EACD63 /* SwipeToLikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeToLikeViewController.swift; sourceTree = "<group>"; };
+		17B93BA325CCEA3700EACD63 /* MBDragingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDragingContainer.swift; sourceTree = "<group>"; };
+		17B93BA825CD20DF00EACD63 /* MBDragingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDragingItem.swift; sourceTree = "<group>"; };
 		17C199CF254BF2DE006BE61A /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		17C199DA254C18DC006BE61A /* MBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableView.swift; sourceTree = "<group>"; };
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
@@ -366,6 +372,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17B93B9925CCE7DE00EACD63 /* SwipeLeftDislikeSwipeRightLike */,
 				17974FBF258348E100B78DD5 /* MessageResolve */,
 				17974FB1258307A800B78DD5 /* IDFA */,
 				17ADB474257730DD00D51E82 /* Timer */,
@@ -689,6 +696,16 @@
 				17B87A3725663DEF00100BA4 /* DataProvider.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		17B93B9925CCE7DE00EACD63 /* SwipeLeftDislikeSwipeRightLike */ = {
+			isa = PBXGroup;
+			children = (
+				17B93B9B25CCE8E100EACD63 /* SwipeToLikeViewController.swift */,
+				17B93BA325CCEA3700EACD63 /* MBDragingContainer.swift */,
+				17B93BA825CD20DF00EACD63 /* MBDragingItem.swift */,
+			);
+			path = SwipeLeftDislikeSwipeRightLike;
 			sourceTree = "<group>";
 		};
 		17C35F0D2547C6BA00CB6EC4 /* Hash */ = {
@@ -1094,9 +1111,11 @@
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
+				17B93BA925CD20DF00EACD63 /* MBDragingItem.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,
 				17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */,
+				17B93BA425CCEA3700EACD63 /* MBDragingContainer.swift in Sources */,
 				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
@@ -1129,6 +1148,7 @@
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */,
+				17B93B9C25CCE8E100EACD63 /* SwipeToLikeViewController.swift in Sources */,
 				175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */,
 				17DDD169255D127D00B0FBB1 /* MBPullStream.swift in Sources */,
 				17DDD178255D174C00B0FBB1 /* RTMPProtocol.swift in Sources */,
