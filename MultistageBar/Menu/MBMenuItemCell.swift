@@ -16,4 +16,30 @@ class MBMenuItemCell: UICollectionViewCell {
         contentView.addSubview(lab)
         return lab
     }()
+    override func select(_ sender: Any?) {
+        MBLog(sender)
+    }
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        _ = bgV
+        _ = selBGV
+    }
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    lazy var bgV: UIView = {
+        let temp = UIView.init(frame: bounds)
+        temp.backgroundColor = UIColor.green
+        backgroundView = temp
+        return temp
+    }()
+    lazy var selBGV: UIView = {
+        let temp = UIView.init(frame: bounds)
+        temp.backgroundColor = UIColor.red
+        selectedBackgroundView = temp
+        return temp
+    }()
+    
+    
 }

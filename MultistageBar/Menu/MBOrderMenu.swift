@@ -17,7 +17,7 @@ class MBOrderMenu: UIScrollView {
         panGestureRecognizer.delegate = self
 //        bounces = false
         
-        left.selectRow(at: IndexPath.init(row: 0, section: 0), animated: true, scrollPosition: .middle)
+        _ = left
         _ = right
         delegate = self
         contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
@@ -36,20 +36,27 @@ class MBOrderMenu: UIScrollView {
     }()
     lazy var rightDatas: [String] = {
         var res: [String] = []
-        for i in 0..<200 {
+        for i in 0..<10 {
             res.append("\(i)")
         }
         return res
     }()
-    lazy var left: UITableView = {
-        let tab = UITableView.init(frame: CGRect.init(x: 0, y: topY, width: 200, height: bounds.height))
-        tab.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leftIdentify)
-        tab.bounces = false
-        tab.dataSource = self
-        tab.delegate = self
-//        tab.isScrollEnabled = false
-        addSubview(tab)
-        return tab
+    lazy var left: UICollectionView = {
+        let layout = UICollectionViewFlowLayout.init()
+        layout.scrollDirection = UICollectionView.ScrollDirection.vertical
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        layout.sectionInset = UIEdgeInsets.zero
+        layout.itemSize = CGSize.init(width: 200, height: 44)
+        
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: topY, width: 200, height: bounds.height), collectionViewLayout: layout)
+        col.backgroundColor = UIColor.gray
+        col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
+        col.delegate = self
+        col.dataSource = self
+        addSubview(col)
+        return col
+        
     }()
     lazy var right: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
@@ -63,40 +70,41 @@ class MBOrderMenu: UIScrollView {
         col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
         col.delegate = self
         col.dataSource = self
-//        col.isScrollEnabled = false
         addSubview(col)
         return col
     }()
-
-}
-
-extension MBOrderMenu: UITableViewDataSource, UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        MBLog(indexPath)
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return leftDatas.count
-    }
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: leftIdentify, for: indexPath)
-        cell.textLabel?.text = "左边菜单:" + leftDatas[indexPath.row]
-        return cell
-    }
 }
 
 extension MBOrderMenu: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         MBLog(indexPath)
+        if collectionView == left {
+            right.scrollToItem(at: IndexPath.init(row: 0, section: indexPath.row), at: .top, animated: true)
+        }
     }
     
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        if collectionView == left {
+            return 1
+        }else{
+            return leftDatas.count
+        }
+    }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rightDatas.count
+        if collectionView == left {
+            return leftDatas.count
+        }else{
+            return rightDatas.count
+        }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rightIdentify, for: indexPath)
         if let temp = cell as? MBMenuItemCell {
-            temp.titleL.text =  rightDatas[indexPath.row] + "左边菜单"
+            if collectionView == left {
+                temp.titleL.text =  leftDatas[indexPath.row] + "左边菜单"
+            }else{
+                temp.titleL.text = leftDatas[indexPath.section] + "-" + rightDatas[indexPath.row]
+            }
         }
         return cell
     }
@@ -114,15 +122,30 @@ extension MBOrderMenu: UIScrollViewDelegate {
                 upperCanScroll = true
                 self.contentOffset.y = topY
             }
-            MBLog("bottom: \(offsetY)")
-        }else if scrollView == right {
-            MBLog("right: \(offsetY)")
+//            MBLog("bottom: \(offsetY)")
+        }else{
+//            MBLog("left: \(offsetY)")
             if upperCanScroll, 0 < offsetY {
                 self.contentOffset.y = topY
             }
             if 0 >= offsetY {
                 upperCanScroll = false
             }
+        }
+    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        updateIndexFor(scroll: scrollView)
+    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        updateIndexFor(scroll: scrollView)
+    }
+    func updateIndexFor(scroll: UIScrollView) {
+        if scroll == right {
+            let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY + 20), to: right)
+            guard let row = right.indexPathForItem(at: point)?.section else {
+                return
+            }
+            left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
         }
     }
 }
