@@ -15,6 +15,9 @@
 		170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170566212452B09000A7AF4B /* LaunchScreen.storyboard */; };
 		1705662E2452B09000A7AF4B /* MultistageBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705662D2452B09000A7AF4B /* MultistageBarTests.swift */; };
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
+		170BA9F325E48F7E0028DCB2 /* MBOrderMenuTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */; };
+		170BA9FB25E48F9B0028DCB2 /* MBOrderMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9FA25E48F9B0028DCB2 /* MBOrderMenu.swift */; };
+		170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */; };
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
@@ -138,6 +141,9 @@
 		170566342452B09000A7AF4B /* MultistageBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultistageBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566382452B09000A7AF4B /* MultistageBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistageBarUITests.swift; sourceTree = "<group>"; };
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBOrderMenuTestController.swift; sourceTree = "<group>"; };
+		170BA9FA25E48F9B0028DCB2 /* MBOrderMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBOrderMenu.swift; sourceTree = "<group>"; };
+		170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuItemCell.swift; sourceTree = "<group>"; };
 		1714BDB525357AB100105924 /* ImageRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieve.swift; sourceTree = "<group>"; };
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
@@ -372,6 +378,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				170BA9ED25E48D700028DCB2 /* Menu */,
 				17B93B9925CCE7DE00EACD63 /* SwipeLeftDislikeSwipeRightLike */,
 				17974FBF258348E100B78DD5 /* MessageResolve */,
 				17974FB1258307A800B78DD5 /* IDFA */,
@@ -428,6 +435,16 @@
 				1705663A2452B09000A7AF4B /* Info.plist */,
 			);
 			path = MultistageBarUITests;
+			sourceTree = "<group>";
+		};
+		170BA9ED25E48D700028DCB2 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */,
+				170BA9FA25E48F9B0028DCB2 /* MBOrderMenu.swift */,
+				170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */,
+			);
+			path = Menu;
 			sourceTree = "<group>";
 		};
 		1714BDB425357A8400105924 /* RetrieveImageSize */ = {
@@ -1177,12 +1194,15 @@
 				17C35F23254803D400CB6EC4 /* Hash.swift in Sources */,
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
+				170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */,
+				170BA9FB25E48F9B0028DCB2 /* MBOrderMenu.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */,
 				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,
 				17B2332125368C2000C14381 /* MBCornerMarkViewController.swift in Sources */,
+				170BA9F325E48F7E0028DCB2 /* MBOrderMenuTestController.swift in Sources */,
 				179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */,
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
 				17974FCE2583491100B78DD5 /* MBCustomObject.m in Sources */,
