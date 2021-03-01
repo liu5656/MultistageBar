@@ -76,7 +76,7 @@ class MBDragingContainer: UIView {
             }
             addSubview(temp)
             result = temp
-            let pan = UIPanGestureRecognizer.init(target: self, action: #selector(action(pan:)))
+            let pan = UIPanGestureRecognizer.init(target: self, action: #selector(pan(_:)))
             temp.addGestureRecognizer(pan)
             let tap = UITapGestureRecognizer.init(target: self, action: #selector(tap(_:)))
             temp.addGestureRecognizer(tap)
@@ -86,7 +86,7 @@ class MBDragingContainer: UIView {
     @objc func tap(_ tap: UITapGestureRecognizer) {
         delegate?.didSelected(index: vanished)
     }
-    @objc func action(pan: UIPanGestureRecognizer) {
+    @objc func pan(_ pan: UIPanGestureRecognizer) {
         guard let view = pan.view else {
             return
         }
@@ -94,12 +94,12 @@ class MBDragingContainer: UIView {
         let angle = loc.x / halfWidth * CGFloat(Double.pi / 50)
         let ratio = min(CGFloat(abs(Int32(loc.x))) / threshold, 1)
         switch pan.state {
-        case .changed:
+        case .changed:          // 旋转和移动
             let translation = CGAffineTransform.init(translationX: loc.x, y: loc.y)
             let rotate = CGAffineTransform.init(rotationAngle: angle)
             view.transform = translation.concatenating(rotate)
         case .ended, .cancelled:
-            if ratio >= 1 {  // 移除
+            if ratio >= 1 {     // 移除
                 let offScreen = loc.x > 0 ? (loc.x + bounds.width) : (loc.x - bounds.width)
                 UIView.animate(withDuration: 0.3) {
                     view.alpha = 0.2
@@ -107,7 +107,7 @@ class MBDragingContainer: UIView {
                 } completion: { [weak self] (_) in
                     self?.recycle(direction: loc.x > 0 ? .right : .left)
                 }
-            }else{          // 恢复
+            }else{              // 恢复
                 UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6, options: .curveEaseInOut, animations: {
                     view.transform = CGAffineTransform.identity
                 }, completion: nil)
@@ -145,11 +145,11 @@ class MBDragingContainer: UIView {
     }
     
     let visibleMaxNum = 1
-    var vanished: Int = 0                           // 0...
+    var vanished: Int = 0
     let halfWidth = Screen.width * 0.5
     let threshold = Screen.width * 0.25             // 切换阀值
     var dataCount: Int = 0
-    var visiblePool: [MBDragingItem] = []          // 存储逻辑,从上到下存储
+    var visiblePool: [MBDragingItem] = []           // 存储逻辑,最顶层的视图在最前面
     var reusablePool: [MBDragingItem] = []
     weak var delegate: MBDragingCardDelegate?
     lazy var emptyV: UIView = {
