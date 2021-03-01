@@ -14,10 +14,12 @@ class SwipeToLikeViewController: MBViewController {
         super.viewDidLoad()
         _ = swipe
     }
+    var data = ["0","1","2","3","4","5","6","7","8","9"]
     lazy var swipe: MBDragingContainer = {
         let swp = MBDragingContainer.init()
         swp.frame = CGRect.init(x: 0, y: 0, width: Screen.width, height: 400)
         swp.delegate = self
+        swp.backgroundColor = UIColor.blue
         view.addSubview(swp)
         return swp
     }()
@@ -47,20 +49,31 @@ class SwipeToLikeViewController: MBViewController {
 
 extension SwipeToLikeViewController: MBDragingCardDelegate {
     func numberOfCard() -> Int {
-        return 10
+        return data.count
     }
     func cellForCard(index: Int, container: MBDragingContainer) -> MBDragingItem {
         let cell = container.retrieveItemFromReusablePool(index: index)
-//        cell.imgIV.image = UIImage.init(named: "\(index % 3)")
-        cell.titleL.text = "\(index)"
+        cell.titleL.text = data[index]
         return cell
     }
     
     func didSlippedOut(index: Int, direction: MBDragingContainer.SlidingDirection) {
         MBLog("\(index) -- \(direction)")
+        if (data.count - index) <= 1 {
+            DispatchQueue.global().asyncAfter(deadline: DispatchTime.now() + 2) {
+                excuteInMainThread {
+                    let temp = self.data.count
+                    for i in temp..<(temp + 10) {
+                        self.data.append("\(i)")
+                    }
+                    self.swipe.preparePreview()
+                    MBLog("新增10条数据: \(self.data)")
+                }
+            }
+        }
     }
     func didSelected(index: Int) {
-        
+        MBLog(index)
     }
     
     

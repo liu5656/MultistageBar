@@ -35,20 +35,23 @@ class MBDragingContainer: UIView {
         }
     }
     func preparePreview() {
-        guard let num = delegate?.numberOfCard(), num > 0 else {
+        guard let num = delegate?.numberOfCard(), num != dataCount else {
             return
         }
         dataCount = num
+        guard visiblePool.count == 0 else {
+            return
+        }
         for index in 0...visibleMaxNum {
             // 先放底部的内容,再上上面的内推
-            guard let temp = delegate?.cellForCard(index: visibleMaxNum - index, container: self) else {
+            guard let temp = delegate?.cellForCard(index: vanished + (visibleMaxNum - index), container: self) else {
                 return
             }
-            let pan = UIPanGestureRecognizer.init(target: self, action: #selector(action(pan:)))
-            temp.addGestureRecognizer(pan)
-            
-            let tap = UITapGestureRecognizer.init(target: self, action: #selector(tap(_:)))
+            temp.isHidden = false
+            temp.alpha = 1
+            temp.transform = CGAffineTransform.identity
             visiblePool.insert(temp, at: 0)
+            bringSubviewToFront(temp)
         }
     }
     func retrieveItemFromReusablePool(index: Int) -> MBDragingItem {
@@ -56,7 +59,11 @@ class MBDragingContainer: UIView {
         if let item = reusablePool.first {
             reusablePool.removeFirst()
             item.isHidden = false
-            bringSubviewToFront(visiblePool.first!)
+            item.alpha = 1
+            item.transform = CGAffineTransform.identity
+            if let first = visiblePool.first {
+                bringSubviewToFront(first)
+            }
             result = item
         }else{
             let temp = MBDragingItem.init()
@@ -69,6 +76,10 @@ class MBDragingContainer: UIView {
             }
             addSubview(temp)
             result = temp
+            let pan = UIPanGestureRecognizer.init(target: self, action: #selector(action(pan:)))
+            temp.addGestureRecognizer(pan)
+            let tap = UITapGestureRecognizer.init(target: self, action: #selector(tap(_:)))
+            temp.addGestureRecognizer(tap)
         }
         return result
     }
@@ -88,7 +99,7 @@ class MBDragingContainer: UIView {
             let rotate = CGAffineTransform.init(rotationAngle: angle)
             view.transform = translation.concatenating(rotate)
         case .ended, .cancelled:
-            if ratio >= 1, dataCount > vanished {  // 移除
+            if ratio >= 1 {  // 移除
                 let offScreen = loc.x > 0 ? (loc.x + bounds.width) : (loc.x - bounds.width)
                 UIView.animate(withDuration: 0.3) {
                     view.alpha = 0.2
@@ -97,50 +108,66 @@ class MBDragingContainer: UIView {
                     self?.recycle(direction: loc.x > 0 ? .right : .left)
                 }
             }else{          // 恢复
-                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6, options: .curveEaseInOut) {
+                UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.6, initialSpringVelocity: 0.6, options: .curveEaseInOut, animations: {
                     view.transform = CGAffineTransform.identity
-                } completion: { [weak self] (_) in
-//                    self?.adaptLowerView(ratio: ratio)
-                }
+                }, completion: nil)
             }
         default:
             break
         }
     }
     private func recycle(direction: SlidingDirection) {
-        delegate?.didSlippedOut(index: vanished, direction: direction)
-        vanished += 1
-        
+        // 1.从界面上删除
         let item = visiblePool.removeFirst()
         item.isHidden = true
-        selected += 1
         reusablePool.append(item)
-        
-        guard let next = delegate?.cellForCard(index: selected, container: self) else {
+        // 2.通知代理划走的索引
+        delegate?.didSlippedOut(index: vanished, direction: direction)
+        vanished += 1
+        // 3.检查是否还有数据
+        guard (dataCount - 1) > vanished else {
+            emptyV.isHidden = false
+            return
+        }
+        emptyV.isHidden = true
+        // 4.有数据就获取容器,然后展示
+        guard let next = delegate?.cellForCard(index: vanished + 1, container: self) else {
             return
         }
         visiblePool.append(next)
-        next.isHidden = false
-        next.alpha = 1
-        next.transform = CGAffineTransform.identity
     }
     override func didMoveToWindow() {
         super.didMoveToWindow()
-        if visiblePool.count == 0 {
-            preparePreview()
-        }
+        preparePreview()
     }
     deinit {
         print("mbdragingcontainer deinit")
     }
     
     let visibleMaxNum = 1
-    private var selected: Int = 1
-    var vanished: Int = 0
+    var vanished: Int = 0                           // 0...
     let halfWidth = Screen.width * 0.5
-    let threshold = Screen.width * 0.25     // 切换阀值
+    let threshold = Screen.width * 0.25             // 切换阀值
     var dataCount: Int = 0
     var visiblePool: [MBDragingItem] = []          // 存储逻辑,从上到下存储
     var reusablePool: [MBDragingItem] = []
     weak var delegate: MBDragingCardDelegate?
+    lazy var emptyV: UIView = {
+        let temp = UIView.init(frame: bounds)
+        temp.backgroundColor = UIColor.white
+        temp.isHidden = true
+        addSubview(temp)
+        
+        let img = UIImageView.init(frame: CGRect.init(x: (temp.frame.width - 60) * 0.5, y: 30, width: 60, height: 60))
+        img.image = UIImage.init(named: "empty")
+        temp.addSubview(img)
+        
+        let tip = UILabel.init(frame: CGRect.init(x: img.frame.midX - 150, y: img.frame.maxY + 8, width: 300, height: 20))
+        tip.textColor = UIColor.white
+        tip.backgroundColor = UIColor.black
+        tip.text = "已经没有更多数据咯"
+        temp.addSubview(tip)
+        
+        return temp
+    }()
 }

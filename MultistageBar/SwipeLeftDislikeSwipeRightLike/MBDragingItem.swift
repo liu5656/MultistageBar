@@ -24,6 +24,7 @@ class MBDragingItem: UIView {
         lab.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         lab.textAlignment = .center
         lab.textColor = UIColor.black
+        lab.isUserInteractionEnabled = true
         addSubview(lab)
         return lab
     }()
