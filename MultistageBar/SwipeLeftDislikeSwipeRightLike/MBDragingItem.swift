@@ -20,6 +20,7 @@ class MBDragingItem: UIView {
     }()
     lazy var titleL: UILabel = {
         let lab = UILabel.init(frame: bounds)
+        lab.backgroundColor = UIColor.gray
         lab.font = UIFont.systemFont(ofSize: 18, weight: .regular)
         lab.textAlignment = .center
         lab.textColor = UIColor.black
@@ -28,7 +29,7 @@ class MBDragingItem: UIView {
     }()
     override func layoutSubviews() {
         super.layoutSubviews()
-        _ = imgIV
+//        _ = imgIV
 //        _ = titleL
     }
     deinit {
