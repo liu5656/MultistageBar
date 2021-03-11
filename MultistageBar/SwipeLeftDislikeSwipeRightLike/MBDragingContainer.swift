@@ -154,11 +154,11 @@ class MBDragingContainer: UIView {
     weak var delegate: MBDragingCardDelegate?
     lazy var emptyV: UIView = {
         let temp = UIView.init(frame: bounds)
-        temp.backgroundColor = UIColor.white
+        temp.backgroundColor = UIColor.black
         temp.isHidden = true
         addSubview(temp)
         
-        let img = UIImageView.init(frame: CGRect.init(x: (temp.frame.width - 60) * 0.5, y: 30, width: 60, height: 60))
+        let img = UIImageView.init(frame: CGRect.init(x: (temp.frame.width - 60) * 0.5, y: 100, width: 60, height: 60))
         img.image = UIImage.init(named: "empty")
         temp.addSubview(img)
         
@@ -166,6 +166,7 @@ class MBDragingContainer: UIView {
         tip.textColor = UIColor.white
         tip.backgroundColor = UIColor.black
         tip.text = "已经没有更多数据咯"
+        tip.textAlignment = .center
         temp.addSubview(tip)
         
         return temp
