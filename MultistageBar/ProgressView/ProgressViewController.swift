@@ -34,7 +34,7 @@ class ProgressViewController: UIViewController {
         let temp = ProgressView.init(frame: CGRect.init(x: 10, y: 100, width: 310, height: 8), path: path, lineWidth: 8)
         temp.backColor = UIColor.red
         temp.strokeColor = UIColor.blue
-        temp.ss_setup(progress: 0)
+        temp.ss_setup(progress: 0, background: 1)
         view.addSubview(temp)
         return temp
     }()
@@ -45,7 +45,7 @@ class ProgressViewController: UIViewController {
         let temp = ProgressView.init(frame: CGRect.init(x: 60, y: 160, width: 100, height: 100), path: path)
         temp.backColor = UIColor.red
         temp.strokeColor = UIColor.blue
-        temp.ss_setup(progress: 0)
+        temp.ss_setup(progress: 0, background: 1)
         view.addSubview(temp)
         return temp
     }()
@@ -69,7 +69,7 @@ class ProgressViewController: UIViewController {
         temp.strokeColor = UIColor.blue
         
         #warning("1.0 待优化")
-        temp.ss_setup(progress: 0)
+        temp.ss_setup(progress: 0, background: 1)
         
         view.addSubview(temp)
         return temp

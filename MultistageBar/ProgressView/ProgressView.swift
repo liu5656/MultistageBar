@@ -23,10 +23,11 @@ class ProgressView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func ss_setup(progress: CGFloat) {
+    func ss_setup(progress: CGFloat, background: CGFloat) {
         backgroundLayer.path = path.cgPath
         backgroundLayer.lineWidth = lineWidth
         backgroundLayer.strokeColor = backColor.cgColor
+        backgroundLayer.strokeEnd = background
         
         progressLayer.path = path.cgPath
         progressLayer.lineWidth = lineWidth
@@ -75,10 +76,42 @@ class ProgressView: UIView {
     }()
 }
 
+class SliderProgress: ProgressView {
+    
+    override func ss_setup(progress: CGFloat, background: CGFloat) {
+        super.ss_setup(progress: progress, background: background)
+        startCircle.center = CGPoint.init(x: bounds.width * progress, y: startCircle.center.y)
+    }
+    
+    @objc func slider(pan: UIPanGestureRecognizer) {
+        guard let view = pan.view else {return}
+        
+        let centerX = min(max(pan.location(in: self).x, 0), bounds.width)
+        view.center = CGPoint.init(x: centerX, y: view.center.y)
+        
+        if pan.state == .ended || pan.state == .cancelled {
+            let ratio = centerX / bounds.width
+            progressLayer.strokeEnd = ratio
+            sliderCallback?(ratio)
+        }
+    }
+    var sliderCallback: ((CGFloat) -> Void)?
+    private lazy var startCircle: UIView = {
+        let temp = UIView.init(frame: CGRect.init(x: -10, y: (bounds.height - 20) * 0.5, width: 20, height: 20))
+        temp.layer.cornerRadius = 10
+        temp.backgroundColor = UIColor.red
+        addSubview(temp)
+        
+        let pan = UIPanGestureRecognizer.init(target: self, action: #selector(slider(pan:)))
+        temp.addGestureRecognizer(pan)
+        return temp
+    }()
+}
+
 class SpanProgress: ProgressView {
     
-    override func ss_setup(progress: CGFloat) {
-        super.ss_setup(progress: progress)
+    override func ss_setup(progress: CGFloat, background: CGFloat) {
+        super.ss_setup(progress: progress, background: background)
         _ = startCircle
         _ = endCircle
         progressLayer.strokeStart = (floorValue - minValue) / (maxVlue - minValue)

@@ -67,6 +67,9 @@
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
 		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
 		179DA8712537FF0D008CAD53 /* RefreshNormalHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */; };
+		179DCB9025F9C32300AC64C2 /* MBPlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DCB8F25F9C32300AC64C2 /* MBPlayerViewController.swift */; };
+		179DCB9525F9C43B00AC64C2 /* L1Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DCB9425F9C43B00AC64C2 /* L1Player.swift */; };
+		179DCBB125F9FBF600AC64C2 /* L!PlayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DCBB025F9FBF600AC64C2 /* L!PlayerPreview.swift */; };
 		179F4D48254906020051E69D /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D47254906020051E69D /* AES.swift */; };
 		179F4D4D2549075F0051E69D /* DES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D4C2549075F0051E69D /* DES.swift */; };
 		17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A248E52558F1290069B5F8 /* MBEncoder.swift */; };
@@ -196,6 +199,9 @@
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
 		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
 		179DA86D2537FF0D008CAD53 /* RefreshNormalHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalHeader.swift; sourceTree = "<group>"; };
+		179DCB8F25F9C32300AC64C2 /* MBPlayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPlayerViewController.swift; sourceTree = "<group>"; };
+		179DCB9425F9C43B00AC64C2 /* L1Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = L1Player.swift; sourceTree = "<group>"; };
+		179DCBB025F9FBF600AC64C2 /* L!PlayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "L!PlayerPreview.swift"; sourceTree = "<group>"; };
 		179F4D47254906020051E69D /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		179F4D4C2549075F0051E69D /* DES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DES.swift; sourceTree = "<group>"; };
 		17A248E52558F1290069B5F8 /* MBEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEncoder.swift; sourceTree = "<group>"; };
@@ -378,6 +384,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				179DCB7925F9BF6C00AC64C2 /* VideoPlayer */,
 				170BA9ED25E48D700028DCB2 /* Menu */,
 				17B93B9925CCE7DE00EACD63 /* SwipeLeftDislikeSwipeRightLike */,
 				17974FBF258348E100B78DD5 /* MessageResolve */,
@@ -661,6 +668,16 @@
 				17974FCD2583491100B78DD5 /* MBCustomObject.m */,
 			);
 			path = MessageResolve;
+			sourceTree = "<group>";
+		};
+		179DCB7925F9BF6C00AC64C2 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				179DCB8F25F9C32300AC64C2 /* MBPlayerViewController.swift */,
+				179DCB9425F9C43B00AC64C2 /* L1Player.swift */,
+				179DCBB025F9FBF600AC64C2 /* L!PlayerPreview.swift */,
+			);
+			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
 		17ADB474257730DD00D51E82 /* Timer */ = {
@@ -1134,6 +1151,7 @@
 				17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */,
 				17B93BA425CCEA3700EACD63 /* MBDragingContainer.swift in Sources */,
 				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
+				179DCB9025F9C32300AC64C2 /* MBPlayerViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
@@ -1151,6 +1169,7 @@
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
+				179DCBB125F9FBF600AC64C2 /* L!PlayerPreview.swift in Sources */,
 				17FEC0AF2536A00A0002168D /* MBSegmentModelTitleStyle.swift in Sources */,
 				174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */,
 				1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */,
@@ -1163,6 +1182,7 @@
 				17DDD179255D174C00B0FBB1 /* String++.swift in Sources */,
 				17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */,
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
+				179DCB9525F9C43B00AC64C2 /* L1Player.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */,
 				17B93B9C25CCE8E100EACD63 /* SwipeToLikeViewController.swift in Sources */,
