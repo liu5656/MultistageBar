@@ -51,7 +51,7 @@ class ProgressView: UIView {
             self.progressLayer.strokeEnd = progress
         }
     }
-    private var path: UIBezierPath!
+    fileprivate var path: UIBezierPath!
     var lineWidth: CGFloat = 2
     var backColor: UIColor = UIColor.lightGray
     var strokeColor: UIColor = UIColor.gray
@@ -78,7 +78,18 @@ class ProgressView: UIView {
 
 class SliderProgress: ProgressView {
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        MBLog(frame)
+        self.path.removeAllPoints()
+        self.path.move(to: CGPoint.init(x: 0, y: 2))
+        self.path.addLine(to: CGPoint.init(x: bounds.width, y: 2))
+    }
+    
     override func ss_setup(progress: CGFloat, background: CGFloat) {
+        guard dragging == false else {
+            return
+        }
         super.ss_setup(progress: progress, background: background)
         startCircle.center = CGPoint.init(x: bounds.width * progress, y: startCircle.center.y)
     }
@@ -89,13 +100,21 @@ class SliderProgress: ProgressView {
         let centerX = min(max(pan.location(in: self).x, 0), bounds.width)
         view.center = CGPoint.init(x: centerX, y: view.center.y)
         
-        if pan.state == .ended || pan.state == .cancelled {
+        switch pan.state {
+        case .began:
+            dragging = true
+            MBLog("touch begin")
+        case .ended, .cancelled:
             let ratio = centerX / bounds.width
             progressLayer.strokeEnd = ratio
             sliderCallback?(ratio)
+            dragging = false
+        default:
+            break
         }
     }
     var sliderCallback: ((CGFloat) -> Void)?
+    var dragging: Bool = false
     private lazy var startCircle: UIView = {
         let temp = UIView.init(frame: CGRect.init(x: -10, y: (bounds.height - 20) * 0.5, width: 20, height: 20))
         temp.layer.cornerRadius = 10

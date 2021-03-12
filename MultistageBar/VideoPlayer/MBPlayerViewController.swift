@@ -27,10 +27,15 @@ class MBPlayerViewController: MBViewController {
     
     lazy var preview: L1PlayerPreview = {
         let temp = L1PlayerPreview.init(frame: CGRect.init(x: 0, y: 100, width: Screen.width, height: 260))
+//        let temp = L1PlayerPreview.init()
         temp.backgroundColor = UIColor.black
         view.addSubview(temp)
         return temp
     }()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         if UIApplication.shared.statusBarOrientation.isLandscape {

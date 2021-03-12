@@ -22,6 +22,14 @@ enum ManualHandle {
     case pause
 }
 
+enum PlayerStatus {
+    case playing
+    case pausing
+    case cacheing
+    case readToPlay
+    case error
+}
+
 class L1Player: NSObject {
     public func l1_seek(time: CMTime) {
         player.seek(to: time)
@@ -39,6 +47,7 @@ class L1Player: NSObject {
     public func l1_pause() {
         player.pause()
         manual = .pause
+        statusBlock?(.pausing)
     }
     public func l1_stop() {
         l1_pause()
@@ -66,10 +75,14 @@ class L1Player: NSObject {
         }
         switch type {
         case .playbackLikelyToKeepUp:
+            
+//            statusBlock?(.readToPlay)
+
             if manual == .play {
                 player.play()
+                statusBlock?(.playing)
             }
-            MBLog("缓存充足,继续播放......")
+//            MBLog("缓存充足,继续播放......")
         case .loadedTimeRanges:
             guard let time = video.loadedTimeRanges.first?.timeRangeValue else {
                 return
@@ -79,15 +92,17 @@ class L1Player: NSObject {
             cacheTime = start + duration
 //            MBLog("缓存进度: \(start) + \(duration)")
         case .playbackBufferEmpty:
-            if manual != .pause {
-                player.pause()
-            }
-            MBLog("缓存不够,暂停播放......")
+            statusBlock?(.cacheing)
         case .status:
-            MBLog("播放器状态切换: \(video.status)")
-            break
+            guard let newValue = change?[NSKeyValueChangeKey.newKey] as? Int,
+               let status = AVPlayerItem.Status.init(rawValue: newValue) else {
+                return
+            }
+            if status == .readyToPlay {
+                statusBlock?(.readToPlay)
+            }
         case .rate:
-            MBLog("播放器播放速率: \(change?[NSKeyValueChangeKey.newKey])")
+//            MBLog("播放器播放速率: \(change?[NSKeyValueChangeKey.newKey])")
             break
         }
     }
@@ -115,7 +130,7 @@ class L1Player: NSObject {
         l1_addObserver()
         DispatchQueue.global().async { [unowned self] in
             duration = CMTimeGetSeconds(video.asset.duration)
-            MBLog("获的总的时间: \(duration)")
+//            MBLog("获的总的时间: \(duration)")
         }
     }
     deinit {
@@ -128,6 +143,7 @@ class L1Player: NSObject {
     private(set) var duration: Double = 0
     private(set) var manual: ManualHandle = .play
     var playback: ((Double, Double, Double) -> Void)?
+    var statusBlock: ((PlayerStatus) -> Void)?
     private(set) lazy var player: AVPlayer = {
         let temp = AVPlayer.init(playerItem: video)
 //        temp.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: DispatchQueue.main, using: l1_playback(time:))

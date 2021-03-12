@@ -29,6 +29,7 @@ class L1PlayerPreview: UIView {
         didSet{
             preview.player = video?.player
             video?.playback = l1_playback(cache:time:duration:)
+            video?.statusBlock = l1_statusChange(status:)
         }
     }
     
@@ -45,14 +46,42 @@ class L1PlayerPreview: UIView {
         let cacheRatio = cache / duration
         progress.ss_setup(progress: CGFloat(playRatio), background: CGFloat(cacheRatio))
         timeL.text = "\(time.time())|\(duration.time())"
-        MBLog("\(time) - duration: \(duration)")
+//        MBLog("\(time) - duration: \(duration)")
+    }
+    private func l1_statusChange(status: PlayerStatus) {
+        MBLog(status)
+        switch status {
+        case .readToPlay:
+            break
+        case .playing:
+            indicator.stopAnimating()
+            indicator.isHidden = true
+        case .cacheing:
+            indicator.startAnimating()
+            indicator.isHidden = false
+        case .pausing:
+            break
+        case .error:
+            break
+        }
     }
     @objc private func l1_fullScreen(sender: UIButton) {
         let app = UIApplication.shared.delegate as? AppDelegate
+        var tempFrame: CGRect
         if Util.interfaceOrientation() == .portrait {
+            originalFrame = frame
+            tempFrame = CGRect.init(x: 0, y: 0, width: Screen.height, height: Screen.width)
             app?.blockRotation = .landscapeRight
         }else{
             app?.blockRotation = .portrait
+            tempFrame = originalFrame
+        }
+        UIView.animate(withDuration: 0.3) { [unowned self] in
+            frame = tempFrame
+            timeL.frame = CGRect.init(x: 8, y: tempFrame.size.height - 24, width: 80, height: 16)
+            fullB.frame = CGRect.init(x: tempFrame.size.width - 38, y: timeL.frame.midY - 15, width: 30, height: 30)
+            progress.frame = CGRect.init(x: timeL.frame.maxX + 10, y: timeL.frame.midY - 2, width: fullB.frame.minX - timeL.frame.maxX - 16, height: 4)
+            indicator.center = CGPoint.init(x: tempFrame.width * 0.5, y: tempFrame.height * 0.5)
         }
     }
     
@@ -64,7 +93,19 @@ class L1PlayerPreview: UIView {
         }
     }
     
+    private var originalFrame: CGRect = .zero
     private var duration: CGFloat = 0
+    private lazy var indicator: UIActivityIndicatorView = {
+        let acView = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 60, height: 60))
+        acView.center = CGPoint.init(x: bounds.width * 0.5, y: bounds.height * 0.5)
+        if #available(iOS 13.0, *) {
+            acView.style = .large
+        } else {
+            acView.style = .gray
+        }
+        addSubview(acView)
+        return acView
+    }()
     private lazy var tap: UITapGestureRecognizer = {
         let temp = UITapGestureRecognizer.init(target: self, action: #selector(l1_tap))
         addGestureRecognizer(temp)
@@ -107,7 +148,7 @@ class L1PlayerPreview: UIView {
         temp.strokeColor = UIColor.blue
         temp.layer.cornerRadius = 2
         
-//        temp.sliderCallback = l1_slider(ratio:)
+//        temp.sliderCallback = l1_slider(ratio:)       // 写法会造成循环引用
         temp.sliderCallback = { [weak self] ratio in
             self?.l1_slider(ratio: ratio)
         }
