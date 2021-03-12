@@ -21,6 +21,7 @@ class L1PlayerPreview: UIView {
         preview.frame = bounds
         _ = tap
         progress.ss_setup(progress: 0, background: 0)
+        _ = indicator
     }
     deinit {
         MBLog("")
@@ -49,7 +50,6 @@ class L1PlayerPreview: UIView {
 //        MBLog("\(time) - duration: \(duration)")
     }
     private func l1_statusChange(status: PlayerStatus) {
-        MBLog(status)
         switch status {
         case .readToPlay:
             break
@@ -103,6 +103,7 @@ class L1PlayerPreview: UIView {
         } else {
             acView.style = .gray
         }
+        acView.startAnimating()
         addSubview(acView)
         return acView
     }()

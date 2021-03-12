@@ -32,6 +32,9 @@ enum PlayerStatus {
 
 class L1Player: NSObject {
     public func l1_seek(time: CMTime) {
+        guard CMTIME_IS_INVALID(time) == false, CMTIME_IS_INDEFINITE(time) == false else {
+            return
+        }
         player.seek(to: time)
     }
     public func l1_play() {
@@ -41,7 +44,9 @@ class L1Player: NSObject {
         } catch let excp {
             MBLog("配置session失败-- \(excp)")
         }
-        player.play()
+        if player.status == .readyToPlay {
+            player.play()               // 主要用于恢复播放
+        }
         manual = .play
     }
     public func l1_pause() {
@@ -75,12 +80,17 @@ class L1Player: NSObject {
         }
         switch type {
         case .playbackLikelyToKeepUp:
-            
-//            statusBlock?(.readToPlay)
-
             if manual == .play {
+                
+//            if manual == .play, playTime > 2 {
                 player.play()
-                statusBlock?(.playing)
+                if playTime > 0 {
+                    statusBlock?(.playing)
+                    MBLog(PlayerStatus.playing)
+                }else{
+                    playTime += 0.1
+                    MBLog("")
+                }
             }
 //            MBLog("缓存充足,继续播放......")
         case .loadedTimeRanges:
@@ -93,6 +103,7 @@ class L1Player: NSObject {
 //            MBLog("缓存进度: \(start) + \(duration)")
         case .playbackBufferEmpty:
             statusBlock?(.cacheing)
+            MBLog(PlayerStatus.cacheing)
         case .status:
             guard let newValue = change?[NSKeyValueChangeKey.newKey] as? Int,
                let status = AVPlayerItem.Status.init(rawValue: newValue) else {
@@ -100,6 +111,12 @@ class L1Player: NSObject {
             }
             if status == .readyToPlay {
                 statusBlock?(.readToPlay)
+                MBLog(PlayerStatus.readToPlay)
+//                if manual == .play {
+//                    player.play()
+//                    statusBlock?(.playing)
+//                    MBLog(PlayerStatus.playing)
+//                }
             }
         case .rate:
 //            MBLog("播放器播放速率: \(change?[NSKeyValueChangeKey.newKey])")
@@ -130,7 +147,6 @@ class L1Player: NSObject {
         l1_addObserver()
         DispatchQueue.global().async { [unowned self] in
             duration = CMTimeGetSeconds(video.asset.duration)
-//            MBLog("获的总的时间: \(duration)")
         }
     }
     deinit {
