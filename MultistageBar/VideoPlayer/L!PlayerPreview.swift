@@ -49,9 +49,12 @@ class L1PlayerPreview: UIView {
     }
     @objc private func l1_fullScreen(sender: UIButton) {
         let app = UIApplication.shared.delegate as? AppDelegate
-        app?.blockRotation = .landscapeRight
+        if Util.interfaceOrientation() == .portrait {
+            app?.blockRotation = .landscapeRight
+        }else{
+            app?.blockRotation = .portrait
+        }
     }
-    
     
     @objc private func l1_tap() {
         if video?.manual == .play {
@@ -104,7 +107,11 @@ class L1PlayerPreview: UIView {
         temp.strokeColor = UIColor.blue
         temp.layer.cornerRadius = 2
         
-        temp.sliderCallback = l1_slider(ratio:)
+//        temp.sliderCallback = l1_slider(ratio:)
+        temp.sliderCallback = { [weak self] ratio in
+            self?.l1_slider(ratio: ratio)
+        }
+        
         addSubview(temp)
         return temp
     }()

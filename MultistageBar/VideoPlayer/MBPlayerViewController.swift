@@ -18,12 +18,9 @@ class MBPlayerViewController: MBViewController {
         player.l1_play()
 
         preview.video = player
-//        preview.video = nil
     }
     deinit {
-//        player.player.pause()
         preview.l1_stop()
-        MBLog("player view controller deinit")
     }
     
     var player: L1Player!

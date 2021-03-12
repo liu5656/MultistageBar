@@ -119,7 +119,6 @@ class L1Player: NSObject {
         }
     }
     deinit {
-        l1_removeObserver()
         MBLog("")
     }
     
@@ -131,7 +130,10 @@ class L1Player: NSObject {
     var playback: ((Double, Double, Double) -> Void)?
     private(set) lazy var player: AVPlayer = {
         let temp = AVPlayer.init(playerItem: video)
-        temp.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: DispatchQueue.main, using: l1_playback(time:))
+//        temp.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: DispatchQueue.main, using: l1_playback(time:))
+        temp.addPeriodicTimeObserver(forInterval: CMTime.init(value: 1, timescale: 1), queue: DispatchQueue.main) { [weak self] (time) in
+            self?.l1_playback(time: time)
+        }
         return temp
     }()
     private lazy var video: AVPlayerItem = {

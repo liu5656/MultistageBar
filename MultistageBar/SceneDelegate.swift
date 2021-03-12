@@ -49,18 +49,4 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
-func keyWindow() -> UIWindow? {
-    var window: UIWindow?
-    if #available(iOS 13.0, *) {
-        for scene in UIApplication.shared.connectedScenes {
-            if let temp = scene as? UIWindowScene, temp.activationState == UIScene.ActivationState.foregroundActive{
-                window = temp.windows.first
-                break
-            }
-        }
-    }else{
-        window = UIApplication.shared.keyWindow
-    }
-    return window
-}
 

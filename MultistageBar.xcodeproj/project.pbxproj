@@ -29,6 +29,7 @@
 		172A2EBE251DD4870072D325 /* CaptureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBD251DD4870072D325 /* CaptureViewController.swift */; };
 		172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EBF251DDD490072D325 /* CaptureImageEx.swift */; };
 		172A2EC4251DF52D0072D325 /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EC3251DF52D0072D325 /* Screen.swift */; };
+		1735973A25FB190500D05CD2 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1735973925FB190500D05CD2 /* Utils.swift */; };
 		173B7EBF255AC6A200BCB451 /* MBDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173B7EBE255AC6A200BCB451 /* MBDecoder.swift */; };
 		173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */; };
 		17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */; };
@@ -159,6 +160,7 @@
 		172A2EBD251DD4870072D325 /* CaptureViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureViewController.swift; sourceTree = "<group>"; };
 		172A2EBF251DDD490072D325 /* CaptureImageEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageEx.swift; sourceTree = "<group>"; };
 		172A2EC3251DF52D0072D325 /* Screen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		1735973925FB190500D05CD2 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		173B7EBE255AC6A200BCB451 /* MBDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDecoder.swift; sourceTree = "<group>"; };
 		173B7ECC255AEC0700BCB451 /* MultistageBar-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultistageBar-Bridging-Header.h"; sourceTree = "<group>"; };
 		173B7ECD255AEC0800BCB451 /* AAPLEAGLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AAPLEAGLLayer.h; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 				172A2EC3251DF52D0072D325 /* Screen.swift */,
 				17ED904D25FAF8DF003B5283 /* NumberEx.swift */,
 				17FEC0D32536CC5D0002168D /* StringEx.swift */,
+				1735973925FB190500D05CD2 /* Utils.swift */,
 			);
 			path = Util;
 			sourceTree = "<group>";
@@ -1163,6 +1166,7 @@
 				17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */,
 				175CC49A25345A27006465AC /* MBViewController.swift in Sources */,
 				17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */,
+				1735973A25FB190500D05CD2 /* Utils.swift in Sources */,
 				1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */,
 				17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
