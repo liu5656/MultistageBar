@@ -98,6 +98,7 @@
 		17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD175255D174C00B0FBB1 /* AMFDataTypes.swift */; };
 		17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD176255D174C00B0FBB1 /* AMF3DataTypes.swift */; };
 		17DDD17D255D174C00B0FBB1 /* Rtmp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD177255D174C00B0FBB1 /* Rtmp.swift */; };
+		17ED904E25FAF8DF003B5283 /* NumberEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED904D25FAF8DF003B5283 /* NumberEx.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
 		17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691CF255E60C1000CCE89 /* libcrypto.a */; };
 		17F691D3255E60C1000CCE89 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D0255E60C1000CCE89 /* librtmp.a */; };
@@ -239,6 +240,7 @@
 		17DDD2C0255D3C0000B0FBB1 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		17DDD2C2255D3C0B00B0FBB1 /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
 		17DDD2CD255D3E1600B0FBB1 /* libz.1.2.8.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.8.tbd; path = usr/lib/libz.1.2.8.tbd; sourceTree = SDKROOT; };
+		17ED904D25FAF8DF003B5283 /* NumberEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberEx.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
 		17F6917E255E60C0000CCE89 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
 		17F6917F255E60C0000CCE89 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
@@ -515,6 +517,7 @@
 			isa = PBXGroup;
 			children = (
 				172A2EC3251DF52D0072D325 /* Screen.swift */,
+				17ED904D25FAF8DF003B5283 /* NumberEx.swift */,
 				17FEC0D32536CC5D0002168D /* StringEx.swift */,
 			);
 			path = Util;
@@ -1150,6 +1153,7 @@
 				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,
 				17B87A1F2566140A00100BA4 /* WrapTableView.swift in Sources */,
 				17B93BA425CCEA3700EACD63 /* MBDragingContainer.swift in Sources */,
+				17ED904E25FAF8DF003B5283 /* NumberEx.swift in Sources */,
 				17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */,
 				179DCB9025F9C32300AC64C2 /* MBPlayerViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
@@ -1424,7 +1428,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -1452,7 +1456,7 @@
 				SWIFT_INCLUDE_PATHS = "${SRCROOT}/MultistageBar/VideoCodec/rtmp/Sources/CRTMP";
 				SWIFT_OBJC_BRIDGING_HEADER = "MultistageBar/VideoCodec/MultistageBar-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

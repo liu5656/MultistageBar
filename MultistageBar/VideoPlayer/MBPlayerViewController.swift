@@ -16,9 +16,16 @@ class MBPlayerViewController: MBViewController {
         let url = URL.init(string: "http://static.yunzhanxinxi.com/video_shop_0611.mp4")!
         player = L1Player.init(url: url)
         player.l1_play()
-        
+
         preview.video = player
+//        preview.video = nil
     }
+    deinit {
+//        player.player.pause()
+        preview.l1_stop()
+        MBLog("player view controller deinit")
+    }
+    
     var player: L1Player!
     
     lazy var preview: L1PlayerPreview = {
@@ -27,5 +34,12 @@ class MBPlayerViewController: MBViewController {
         view.addSubview(temp)
         return temp
     }()
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if UIApplication.shared.statusBarOrientation.isLandscape {
+            let app = UIApplication.shared.delegate as? AppDelegate
+            app?.blockRotation = .portrait
+        }
+    }
     
 }

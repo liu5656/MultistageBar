@@ -33,14 +33,16 @@ class L1Player: NSObject {
         } catch let excp {
             MBLog("配置session失败-- \(excp)")
         }
-//        if player.status == .readyToPlay {
-//        }
         player.play()
         manual = .play
     }
     public func l1_pause() {
         player.pause()
         manual = .pause
+    }
+    public func l1_stop() {
+        l1_pause()
+        l1_removeObserver()
     }
     private func l1_playback(time: CMTime) {
         playTime = CMTimeGetSeconds(time)
@@ -118,6 +120,7 @@ class L1Player: NSObject {
     }
     deinit {
         l1_removeObserver()
+        MBLog("")
     }
     
     private var url: URL
