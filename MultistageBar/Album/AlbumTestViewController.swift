@@ -46,6 +46,13 @@ class AlbumTestViewController: UIViewController {
         }
         self.navigationController?.pushViewController(vc, animated: true)
     }
+    @objc func savePhoto() {
+        let img1 = UIImage.init(named: "0")!
+        let img2 = UIImage.init(named: "1")!
+        SavePhoto.save(imgs: [img1, img2]) { (res, err) in
+            MBLog("\(res) --- \(err)")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,6 +60,7 @@ class AlbumTestViewController: UIViewController {
         view.backgroundColor = UIColor.white
         _ = albumB
         _ = takePhotoB
+        _ = saveB
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,6 +84,15 @@ class AlbumTestViewController: UIViewController {
         but.setTitle("take a photo", for: .normal)
         view.addSubview(but)
         but.addTarget(self, action: #selector(takeAPhoto), for: .touchUpInside)
+        return but
+    }()
+    lazy var saveB: UIButton = {
+        let but = UIButton.init(type: .custom)
+        but.frame = CGRect.init(x: takePhotoB.frame.minX, y: takePhotoB.frame.maxY + 30, width: 200, height: 50)
+        but.setTitleColor(UIColor.black, for: .normal)
+        but.setTitle("保存图片", for: .normal)
+        but.addTarget(self, action: #selector(savePhoto), for: .touchUpInside)
+        view.addSubview(but)
         return but
     }()
     lazy var previewIV: UIImageView = {

@@ -11,6 +11,7 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    // 设置屏幕旋转的相关设置
     var blockRotation: UIInterfaceOrientationMask = .portrait{
         didSet{
             if blockRotation.contains(.portrait){

@@ -39,6 +39,7 @@
 		174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E0251C83C600087E72 /* JSONViewController.swift */; };
 		174B89E6251C84ED00087E72 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E5251C84ED00087E72 /* ProgressView.swift */; };
 		174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89ED251C91C800087E72 /* ProgressViewController.swift */; };
+		174ED78D25FF3FFF0000B8B7 /* SavePhoto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174ED78C25FF3FFF0000B8B7 /* SavePhoto.swift */; };
 		175CC482253449F3006465AC /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC481253449F3006465AC /* LocationManager.swift */; };
 		175CC48725344C17006465AC /* MBLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48625344C17006465AC /* MBLocationViewController.swift */; };
 		175CC48D25345828006465AC /* RetryStrategy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175CC48C25345828006465AC /* RetryStrategy.swift */; };
@@ -172,6 +173,7 @@
 		174B89E0251C83C600087E72 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
 		174B89E5251C84ED00087E72 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		174B89ED251C91C800087E72 /* ProgressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressViewController.swift; sourceTree = "<group>"; };
+		174ED78C25FF3FFF0000B8B7 /* SavePhoto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavePhoto.swift; sourceTree = "<group>"; };
 		175CC481253449F3006465AC /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		175CC48625344C17006465AC /* MBLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLocationViewController.swift; sourceTree = "<group>"; };
 		175CC48C25345828006465AC /* RetryStrategy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RetryStrategy.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 		172A2EA4251D98980072D325 /* Album */ = {
 			isa = PBXGroup;
 			children = (
+				174ED78B25FF3FF40000B8B7 /* SavePhoto */,
 				172A2EBC251DD33A0072D325 /* TakePhoto */,
 				172A2EB8251DC4910072D325 /* Album */,
 				172A2EBA251DC4BB0072D325 /* AlbumTestViewController.swift */,
@@ -552,6 +555,14 @@
 				174B89D8251C833A00087E72 /* SignInAppleViewController.swift */,
 			);
 			path = SignInApple;
+			sourceTree = "<group>";
+		};
+		174ED78B25FF3FF40000B8B7 /* SavePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				174ED78C25FF3FFF0000B8B7 /* SavePhoto.swift */,
+			);
+			path = SavePhoto;
 			sourceTree = "<group>";
 		};
 		175CC475253449AB006465AC /* Map */ = {
@@ -1201,6 +1212,7 @@
 				17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */,
 				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
+				174ED78D25FF3FFF0000B8B7 /* SavePhoto.swift in Sources */,
 				17ADB476257730EF00D51E82 /* MBTimer.swift in Sources */,
 				170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */,
 				1762E47C247FA5A3009B9612 /* MBSegmentColotUtils.swift in Sources */,
