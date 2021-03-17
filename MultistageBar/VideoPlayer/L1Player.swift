@@ -119,7 +119,7 @@ class L1Player: NSObject {
 //                }
             }
         case .rate:
-//            MBLog("播放器播放速率: \(change?[NSKeyValueChangeKey.newKey])")
+            MBLog("播放器播放速率: \(change?[NSKeyValueChangeKey.newKey])")
             break
         }
     }

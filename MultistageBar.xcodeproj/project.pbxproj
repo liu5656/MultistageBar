@@ -90,6 +90,7 @@
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3604C255E799E00035B08 /* MBCitySelector.swift */; };
+		17DA1F54260195A1000A649F /* CommonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DA1F53260195A1000A649F /* CommonFile.swift */; };
 		17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */; };
 		17DB56902558E0A6004537DE /* MBCapture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB568F2558E0A6004537DE /* MBCapture.swift */; };
 		17DDD164255D124D00B0FBB1 /* MBPushStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DDD163255D124D00B0FBB1 /* MBPushStream.swift */; };
@@ -225,6 +226,7 @@
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17D3604C255E799E00035B08 /* MBCitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCitySelector.swift; sourceTree = "<group>"; };
+		17DA1F53260195A1000A649F /* CommonFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFile.swift; sourceTree = "<group>"; };
 		17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCodecTestViewController.swift; sourceTree = "<group>"; };
 		17DB568F2558E0A6004537DE /* MBCapture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCapture.swift; sourceTree = "<group>"; };
 		17DDD163255D124D00B0FBB1 /* MBPushStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBPushStream.swift; sourceTree = "<group>"; };
@@ -390,6 +392,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17DA1F522601944F000A649F /* 类似于kf的前缀 */,
 				179DCB7925F9BF6C00AC64C2 /* VideoPlayer */,
 				170BA9ED25E48D700028DCB2 /* Menu */,
 				17B93B9925CCE7DE00EACD63 /* SwipeLeftDislikeSwipeRightLike */,
@@ -769,6 +772,14 @@
 				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 			);
 			path = Hash;
+			sourceTree = "<group>";
+		};
+		17DA1F522601944F000A649F /* 类似于kf的前缀 */ = {
+			isa = PBXGroup;
+			children = (
+				17DA1F53260195A1000A649F /* CommonFile.swift */,
+			);
+			path = "类似于kf的前缀";
 			sourceTree = "<group>";
 		};
 		17DB56822558DE0B004537DE /* VideoCodec */ = {
@@ -1184,6 +1195,7 @@
 				17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				17B87A3825663DEF00100BA4 /* DataProvider.swift in Sources */,
+				17DA1F54260195A1000A649F /* CommonFile.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,

@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import MediaPlayer
 
 class MBPlayerViewController: MBViewController {
 
@@ -18,7 +19,80 @@ class MBPlayerViewController: MBViewController {
         player.l1_play()
 
         preview.video = player
+    
+        // 进入后台控制播放
+        NotificationCenter.default.addObserver(self, selector: #selector(enterBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(enterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
+    // 进入后台控制播放
+    @objc func enterBackground() {
+        updateLockScreenInfo()
+        remoteControl()
+        preview.l1_clear()
+    }
+    @objc func enterForeground() {
+        preview.video = player
+    }
+    func updateLockScreenInfo() {
+        var playingInfo: [String: Any] = [:]
+        playingInfo[MPMediaItemPropertyTitle] = "歌曲1.2"
+        playingInfo[MPMediaItemPropertyAlbumTitle] = "专辑:飞牛"
+        playingInfo[MPMediaItemPropertyArtwork] = MPMediaItemArtwork.init(boundsSize: CGSize.init(width: 200, height: 200), requestHandler: { (size) -> UIImage in
+            return UIImage.init(named: "1")!
+        })
+        playingInfo[MPMediaItemPropertyPlaybackDuration] = 60
+        playingInfo[MPNowPlayingInfoPropertyElapsedPlaybackTime] = 15
+        playingInfo[MPNowPlayingInfoPropertyPlaybackRate] = 1
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = playingInfo
+        
+        UIApplication.shared.beginReceivingRemoteControlEvents()
+    }
+    @objc func remotePause() -> MPRemoteCommandHandlerStatus {
+        player.l1_pause()
+        MBLog("")
+        return MPRemoteCommandHandlerStatus.success
+    }
+    @objc func remotePlay() -> MPRemoteCommandHandlerStatus {
+        player.l1_play()
+        MBLog("")
+        return MPRemoteCommandHandlerStatus.success
+    }
+    @objc func remoteNext() -> MPRemoteCommandHandlerStatus {
+        MBLog("")
+        return MPRemoteCommandHandlerStatus.success
+    }
+    @objc func remotePrevious() -> MPRemoteCommandHandlerStatus {
+        MBLog("")
+        return MPRemoteCommandHandlerStatus.success
+    }
+    @objc func remoteSeek(time: CMTime) -> MPRemoteCommandHandlerStatus {
+        MBLog(time)
+        return MPRemoteCommandHandlerStatus.success
+    }
+    func remoteControl() {
+        let center = MPRemoteCommandCenter.shared()
+        
+        let pause = center.pauseCommand
+        pause.isEnabled = true
+        pause.addTarget(self, action: #selector(remotePause))
+        
+        let play = center.playCommand
+        play.isEnabled = true
+        play.addTarget(self, action: #selector(remotePlay))
+        
+        let next = center.nextTrackCommand
+        next.isEnabled = true
+        next.addTarget(self, action: #selector(remoteNext))
+        
+        let previous = center.previousTrackCommand
+        previous.isEnabled = true
+        previous.addTarget(self, action: #selector(remotePrevious))
+        
+        let position = center.changePlaybackPositionCommand
+        position.isEnabled = true
+        position.addTarget(self, action: #selector(remoteSeek(time:)))
+    }
+    
     deinit {
         preview.l1_stop()
     }

@@ -15,6 +15,12 @@ class L1PlayerPreview: UIView {
         video?.l1_stop()
         video = nil
     }
+    public func l1_clear() {
+        video?.playback = nil
+        video?.statusBlock = nil
+        preview.player = nil
+        video = nil
+    }
 
     override func layoutSubviews() {
         super.layoutSubviews()
