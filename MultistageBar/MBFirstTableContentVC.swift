@@ -24,6 +24,8 @@ class MBFirstTableContentVC: UIViewController{
     
     lazy var style: MBSegmentModelStyleProtocol = {
         let temp = MBSegmentModelTitleStyle.init()
+        temp.normalColor = UIColor.blue
+        temp.selectedColor = UIColor.red
         return temp
     }()
     var titles: [String] = []

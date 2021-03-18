@@ -62,7 +62,7 @@ class MBSegmentTitleCell: UICollectionViewCell, MBSegmentCellProtocol {
     }
     
     var model: MBSegmentModelProtocol?
-    lazy var titleL: UILabel = {
+    private lazy var titleL: UILabel = {
         let lab = UILabel.init()
         lab.textAlignment = .center
         contentView.addSubview(lab)
