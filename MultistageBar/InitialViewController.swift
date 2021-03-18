@@ -44,6 +44,7 @@ class InitialViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
+        (MBOpenGLViewController.classForCoder(), "OpenGL ES 测试"),
         (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
         (MBOrderMenuTestController.classForCoder(), "左右菜单联动"),
         (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
