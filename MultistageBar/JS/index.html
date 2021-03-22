@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style type="text/css">
+            button { margin: 0 3px 10px; font-size: 14px; border: 2px solid #000000; }
+        </style>
+        <script>
+            function jscallios() {
+                console.log('button did clicked');
+                window.jj.login(function(res) {
+                    console.log("got callback after js call ios" + JSON.stringify(res))
+                });
+            }
+        function jscallios2() {
+            window.jj.login();
+        }
+        
+        </script>
+    </head>
+    <body>
+        <h1>js call ios and callback</h1>
+        <input type="button" onclick="jscallios()" value="click me">
+        <input type="button" onclick="jscallios2()" value="click me v2">
+    </body>
+</html>

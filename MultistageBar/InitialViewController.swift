@@ -40,14 +40,19 @@ class InitialViewController: UIViewController {
         _ = table
         table.beginHeaderRefreshing()
     }
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
-        (MBOpenGLViewController.classForCoder(), "OpenGL ES 测试"),
+        (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
+        (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
+        (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
         (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
         (MBOrderMenuTestController.classForCoder(), "左右菜单联动"),
         (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
+        (MBSortViewController.classForCoder(), "各种排序算法"),
         (MBCodecTestViewController.classForCoder(), "视频编解码"),
         (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
