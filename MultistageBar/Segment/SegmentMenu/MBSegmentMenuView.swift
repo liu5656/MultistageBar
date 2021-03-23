@@ -100,9 +100,9 @@ class MBSegmentMenuView: UIView {
         guard header != nil else {return}
         let content = item.mb_view()
         guard let temp = (content as? UIScrollView) ?? (content.superview as? UIScrollView),
-            temp.contentOffset.y != -frame.maxY else {return}
+            temp.contentOffset.y < 0 else {return}
+        MBLog("\(temp.contentOffset.y)---- \(-frame.maxY)")
         temp.setContentOffset(CGPoint.init(x: 0, y: -frame.maxY), animated: false)
-        print("\(-frame.maxY)")
     }
         
     //MARK: - lazy

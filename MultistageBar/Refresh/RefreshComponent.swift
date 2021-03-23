@@ -140,9 +140,9 @@ extension RefreshComponent {
             originalContentSize = newV
             contentSizeChanged(to: newV)
         }else if keyPath == contentOffsetKeyPath {
-            if headerRefresh, offsetY < 0 {
+            if headerRefresh, let topy = scrollView?.contentInset.top, offsetY < -topy {
                 let distant = abs(originalInsets.top + offsetY)
-                MBLog("1 -- \(offsetY) - \(distant)")
+//                MBLog("1 -- \(offsetY) - \(distant)")
                 handleDistant(distant)
             }else if headerRefresh == false, state != .noMore, offsetY > 0 {
                 guard let sizeH = self.scrollView?.contentSize.height, let frameH = self.scrollView?.frame.height else {return}

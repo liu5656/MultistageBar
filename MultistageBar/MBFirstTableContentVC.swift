@@ -87,6 +87,18 @@ extension MBFirstTableContentVC: MBSegmentContentDatasource {
 
 
 class MBView: UIView, MBSegmentContentItemProtocol {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        _ = but
+    }
+    
+    lazy var but: UISwitch = {
+        let temp = UISwitch.init(frame: CGRect.init(x: 0, y: 0, width: 100, height: 50))
+        addSubview(temp)
+        return temp
+    }()
+    
     func mb_view() -> UIView {
         return self
     }
