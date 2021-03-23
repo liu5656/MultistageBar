@@ -9,6 +9,10 @@
 import WebKit
 import UIKit
 
+protocol MBWebViewDelegate: class {
+    func mb_handle(command: MBWebView.ScriptName, info: [String: Any]?, callback: (([String: Any]) -> Void)?)
+}
+
 class MBWebView: WKWebView, MBScriptHandlerDelegate {
     
     enum ScriptName: String {
@@ -34,21 +38,22 @@ class MBWebView: WKWebView, MBScriptHandlerDelegate {
         guard let type = ScriptName.init(rawValue: message.name)  else {
             return
         }
-        mb_handlerReceive(type: type) { [weak self] (res) in
+        let params = message.body as? [String: Any]
+        delegate?.mb_handle(command: type, info: params, callback: { [weak self] (res) in
             guard let temp = message.body as? [String: Any],
                   let callbackID = temp["callbackID"] as? String else {
                 return
             }
             let res = ["callbackID": callbackID, "data": res].jsonString() ?? ""
             self?.evaluateJavaScript("jsCallIOSCallback('\(res)')", completionHandler: nil)
-        }
+        })
     }
-    func mb_handlerReceive(type: ScriptName, callback: (([String: Any]) -> Void)? = nil) {
-        switch type {
-        case .login:
-            callback?(["jj": "kk"])
-        }
-    }
+//    func mb_handlerReceive(type: ScriptName, callback: (([String: Any]) -> Void)? = nil) {
+//        switch type {
+//        case .login:
+//            callback?(["jj": "kk"])
+//        }
+//    }
     
     convenience init() {
         self.init(frame: .zero)
@@ -58,7 +63,7 @@ class MBWebView: WKWebView, MBScriptHandlerDelegate {
         navigationDelegate = self
         uiDelegate = self
     }
-    
+    weak var delegate: MBWebViewDelegate?
     lazy var scriptHandler: MBScriptHandler = {
         let temp = MBScriptHandler.init()
         temp.delegate = self

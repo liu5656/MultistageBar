@@ -4,7 +4,7 @@ window["jj"] = jj;
 var responseCallback = {};
 
 jj.login = function(callback) {
-    call("login", null, callback);
+    call("login", {"title": "titlevalue"}, callback);
 }
 
 function call(funcName, args = null, callback = null) {

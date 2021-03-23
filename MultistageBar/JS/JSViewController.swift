@@ -9,7 +9,7 @@
 import UIKit
 
 
-class JSViewController: MBViewController {
+class JSViewController: MBViewController, MBWebViewDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,10 +17,22 @@ class JSViewController: MBViewController {
         web.load(URLRequest(url: URL(fileURLWithPath: path)))
     }
     
+    // MBWebviewDelegate
+    func mb_handle(command: MBWebView.ScriptName, info: [String : Any]?, callback: (([String : Any]) -> Void)?) {
+        switch command {
+        case .login:
+            MBLog("js调用iOS成功: params: \(info)")
+            callback?(["jj": "kk"])
+        }
+    }
+    
+    // lazy
     lazy var web: MBWebView = {
         let temp = MBWebView.init()
+        temp.delegate = self
         temp.frame = view.bounds
         view.addSubview(temp)
         return temp
     }()
+    
 }
