@@ -528,15 +528,11 @@
 				1794035A24C6D814000D2776 /* ProgressView */,
 				173871A024FE42DE0073FB22 /* Refresh */,
 				1762E46C247FA5A3009B9612 /* Segment */,
+				17714663261C0E73004E0141 /* SegmentTest */,
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
-				17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */,
 				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
-				1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */,
-				1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */,
-				172121172455265C00F7695D /* MBFirstTableContentVC.swift */,
-				17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				17C199DA254C18DC006BE61A /* MBTableView.swift */,
@@ -787,6 +783,18 @@
 				176FBA9D2604490E00ACE7BB /* MBSortViewController.xib */,
 			);
 			path = Sort;
+			sourceTree = "<group>";
+		};
+		17714663261C0E73004E0141 /* SegmentTest */ = {
+			isa = PBXGroup;
+			children = (
+				1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */,
+				17B2332025368C2000C14381 /* MBCornerMarkViewController.swift */,
+				1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */,
+				172121172455265C00F7695D /* MBFirstTableContentVC.swift */,
+				17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */,
+			);
+			path = SegmentTest;
 			sourceTree = "<group>";
 		};
 		1778C0602551039B001E14C7 /* DistanceByCoordinate */ = {
