@@ -532,7 +532,6 @@
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
-				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				17C199DA254C18DC006BE61A /* MBTableView.swift */,
@@ -802,6 +801,7 @@
 			children = (
 				1778C061255103C9001E14C7 /* MBCoordination.swift */,
 				1778C06625510509001E14C7 /* MBDistance.swift */,
+				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
 			);
 			path = DistanceByCoordinate;
 			sourceTree = "<group>";
