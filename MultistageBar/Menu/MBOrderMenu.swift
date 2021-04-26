@@ -86,7 +86,11 @@ extension MBOrderMenu: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         MBLog(indexPath)
         if collectionView == left {
-            right.scrollToItem(at: IndexPath.init(row: 0, section: indexPath.row), at: .top, animated: true)
+            let index = IndexPath.init(row: 0, section: indexPath.row)
+            UIView.animate(withDuration: 0.2) {
+                self.contentOffset.y = self.topY
+            }
+            right.scrollToItem(at: index, at: .top, animated: true)
         }
     }
     
@@ -140,22 +144,18 @@ extension MBOrderMenu: UIScrollViewDelegate {
             }
         }
     }
-    // called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
-//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
-//        MBLog(scrollView.tag)
-//    }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == right {
             updateIndexFor(scroll: scrollView)
+            MBLog(scrollView.tag)
         }
-        MBLog(scrollView.tag)
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if scrollView == right {
+        if scrollView == right, decelerate == false {
             updateIndexFor(scroll: scrollView)
+            MBLog("\(scrollView.tag) -- \(decelerate)")
         }
-        MBLog("\(scrollView.tag) -- \(decelerate)")
     }
     func updateIndexFor(scroll: UIScrollView) {
         let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY), to: right)
@@ -164,36 +164,6 @@ extension MBOrderMenu: UIScrollViewDelegate {
         }
         left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
     }
-    
-    
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        if scrollView == right {
-//            left.isScrollEnabled = true
-//            MBLog("resume")
-//            updateIndexFor(scroll: scrollView)
-//            MBLog(scrollView.tag)
-//        }
-//    }
-//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-//        if scrollView == right {
-//            left.isScrollEnabled = false
-//            MBLog("stop")
-//        }
-//    }
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if scrollView == right, decelerate == false {
-//            left.isScrollEnabled = true
-//            updateIndexFor(scroll: scrollView)
-//            MBLog("resume")
-//        }
-//    }
-//    func updateIndexFor(scroll: UIScrollView) {
-//        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY), to: right)
-//        guard let row = right.indexPathForItem(at: point)?.section else {
-//            return
-//        }
-//        left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
-//    }
 }
 
 extension MBOrderMenu: UIGestureRecognizerDelegate {
