@@ -16,8 +16,8 @@ class MBOrderMenuTestController: MBViewController {
     }
     
     var datas: [(String, AnyClass)] = [
-        ("左右菜单联动,联滑", MBMenuTest1Controller.classForCoder()),
-        ("左右菜单联动,点击", MBMenuTest2Controller.classForCoder())
+        ("一次性展示全部分区", MBMenuTest1Controller.classForCoder()),
+        ("一次显示一个分区", MBMenuTest2Controller.classForCoder())
     ]
     
     let identify = "cellIdentify"

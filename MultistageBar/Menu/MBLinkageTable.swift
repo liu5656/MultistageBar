@@ -94,13 +94,13 @@ extension MBLinkageTable: UICollectionViewDataSource, UICollectionViewDelegate {
         MBLog(indexPath)
         if collectionView == left {
             let index = IndexPath.init(row: 0, section: indexPath.row)
-            UIView.animate(withDuration: 0.2) {
-                self.contentOffset.y = self.topY
-            }
             if isPart {
                 selectPart = indexPath.row
                 right.reloadData()
             }else{
+                UIView.animate(withDuration: 0.2) {
+                    self.contentOffset.y = self.topY
+                }
                 right.scrollToItem(at: index, at: .top, animated: true)
             }
         }

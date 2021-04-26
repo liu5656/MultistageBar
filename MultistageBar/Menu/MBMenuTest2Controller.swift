@@ -18,11 +18,11 @@ class MBMenuTest2Controller: MBViewController {
     
     lazy var datas: [MBLinkage] = {
         var res: [MBLinkage] = []
-        for i in 1...12 {
+        for i in 1...20 {
             let part = MBLinkage.init()
             part.title = "left: \(i)"
             
-            for j in (i * 10)...(i * 10 + 10) {
+            for j in (i * 10)..<(i * 10 + 10) {
                 let ele = MBSubLinkage.init()
                 ele.title = "\(j)"
                 part.nest.append(ele)
