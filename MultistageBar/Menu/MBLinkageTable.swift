@@ -1,20 +1,19 @@
 //
-//  MBOrderMenu.swift
+//  MBLinkageTable.swift
 //  MultistageBar
 //
-//  Created by x on 2021/2/23.
+//  Created by x on 2021/4/26.
 //  Copyright © 2021 x. All rights reserved.
 //
 
 import UIKit
 
-// 参考:https://www.tutorialfor.com/blog-276252.htm   https://www.tyrad.cc/2018/ios-ges-conflict/
-// 格式
-//                left:UICollectionView
-// UIScrollView {
-//                right:UICollectionView
+protocol MBLinkageTableDatasource: CellIdentifyProtocol {
+    var nest: [CellIdentifyProtocol] { get set }
+}
 
-class MBOrderMenu: UIScrollView {
+
+class MBLinkageTable: UIScrollView {
     func add(header: UIView) {
         topY = header.frame.maxY
         addSubview(header)
@@ -30,25 +29,28 @@ class MBOrderMenu: UIScrollView {
         delegate = self
         contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
     }
+    
+    
     var topY: CGFloat = 400
     let leftIdentify = "leftIdentify"
     let rightIdentify = "rightIdentify"
+    var isPart = false
+    var selectPart: Int = 0
     var upperCanScroll = false
-    var lowerCanScroll = false
-    lazy var leftDatas: [String] = {
-        var res: [String] = []
-        for i in 0..<20 {
-            res.append("\(i)")
+    var datas: [MBLinkageTableDatasource] = [] {
+        didSet{
+            if let temp = datas.first {
+                left.register(temp.cellClass, forCellWithReuseIdentifier: temp.identify)
+            }
+            if let temp = datas.first?.nest.first {
+                right.register(temp.cellClass, forCellWithReuseIdentifier: temp.identify)
+            }
+            DispatchQueue.main.async { [weak self] in
+                self?.left.reloadData()
+                self?.right.reloadData()
+            }
         }
-        return res
-    }()
-    lazy var rightDatas: [String] = {
-        var res: [String] = []
-        for i in 0..<10 {
-            res.append("\(i)")
-        }
-        return res
-    }()
+    }
     lazy var left: UICollectionView = {
         let layout = UICollectionViewFlowLayout.init()
         layout.scrollDirection = UICollectionView.ScrollDirection.vertical
@@ -87,7 +89,7 @@ class MBOrderMenu: UIScrollView {
     }()
 }
 
-extension MBOrderMenu: UICollectionViewDataSource, UICollectionViewDelegate {
+extension MBLinkageTable: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         MBLog(indexPath)
         if collectionView == left {
@@ -95,38 +97,49 @@ extension MBOrderMenu: UICollectionViewDataSource, UICollectionViewDelegate {
             UIView.animate(withDuration: 0.2) {
                 self.contentOffset.y = self.topY
             }
-            right.scrollToItem(at: index, at: .top, animated: true)
+            if isPart {
+                selectPart = indexPath.row
+                right.reloadData()
+            }else{
+                right.scrollToItem(at: index, at: .top, animated: true)
+            }
         }
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        if collectionView == left {
+        if collectionView == left || isPart {
             return 1
         }else{
-            return leftDatas.count
+            return datas.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == left {
-            return leftDatas.count
+            return datas.count
+        }else if isPart {
+            return datas[selectPart].nest.count
         }else{
-            return rightDatas.count
+            return datas[section].nest.count
         }
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rightIdentify, for: indexPath)
-        if let temp = cell as? MBMenuItemCell {
-            if collectionView == left {
-                temp.titleL.text =  leftDatas[indexPath.row] + "左边菜单"
-            }else{
-                temp.titleL.text = leftDatas[indexPath.section] + "-" + rightDatas[indexPath.row]
-            }
+        let model: CellIdentifyProtocol
+        if collectionView == left {
+            model = datas[indexPath.row]
+        }else if isPart {
+            model = datas[selectPart].nest[indexPath.row]
+        }else{
+            model = datas[indexPath.section].nest[indexPath.row]
+        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: model.identify, for: indexPath)
+        if let temp = cell as? CellContentProtocol {
+            temp.config(model: model)
         }
         return cell
     }
 }
 
-extension MBOrderMenu: UIScrollViewDelegate {
+extension MBLinkageTable: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         if scrollView == self {
@@ -169,7 +182,7 @@ extension MBOrderMenu: UIScrollViewDelegate {
     }
 }
 
-extension MBOrderMenu: UIGestureRecognizerDelegate {
+extension MBLinkageTable: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }

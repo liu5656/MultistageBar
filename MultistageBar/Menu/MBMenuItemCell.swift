@@ -8,7 +8,19 @@
 
 import UIKit
 
-class MBMenuItemCell: UICollectionViewCell {
+class MBMenuItemCell: UICollectionViewCell, CellContentProtocol {
+    
+    weak var processor: ProcessorProtocol?
+    func config(model: Any) {
+        if let temp = model as? MBLinkage {
+            titleL.text = temp.title
+        }else if let temp = model as? MBSubLinkage {
+            titleL.text = temp.title
+        }else{
+            titleL.text = nil
+        }
+    }
+    
     lazy var titleL: UILabel = {
         let lab = UILabel.init(frame: bounds)
         lab.font = UIFont.systemFont(ofSize: 18, weight: .regular)

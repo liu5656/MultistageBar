@@ -99,6 +99,8 @@
 		17B93BA925CD20DF00EACD63 /* MBDragingItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B93BA825CD20DF00EACD63 /* MBDragingItem.swift */; };
 		17C199D0254BF2DE006BE61A /* RSA.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199CF254BF2DE006BE61A /* RSA.swift */; };
 		17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C199DA254C18DC006BE61A /* MBTableView.swift */; };
+		17C2E3782636B2FB000136C1 /* MBLinkageTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2E3772636B2FB000136C1 /* MBLinkageTable.swift */; };
+		17C2E37E2636BA71000136C1 /* MBLinkage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C2E37D2636BA71000136C1 /* MBLinkage.swift */; };
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3604C255E799E00035B08 /* MBCitySelector.swift */; };
@@ -285,6 +287,8 @@
 		17B93BA825CD20DF00EACD63 /* MBDragingItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDragingItem.swift; sourceTree = "<group>"; };
 		17C199CF254BF2DE006BE61A /* RSA.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSA.swift; sourceTree = "<group>"; };
 		17C199DA254C18DC006BE61A /* MBTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTableView.swift; sourceTree = "<group>"; };
+		17C2E3772636B2FB000136C1 /* MBLinkageTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLinkageTable.swift; sourceTree = "<group>"; };
+		17C2E37D2636BA71000136C1 /* MBLinkage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLinkage.swift; sourceTree = "<group>"; };
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17D3604C255E799E00035B08 /* MBCitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCitySelector.swift; sourceTree = "<group>"; };
@@ -548,7 +552,9 @@
 				178739932635664A003E7362 /* MBMenuTest1Controller.swift */,
 				178739B1263569A2003E7362 /* MBMenuTest2Controller.swift */,
 				170BA9FA25E48F9B0028DCB2 /* MBOrderMenu.swift */,
+				17C2E3772636B2FB000136C1 /* MBLinkageTable.swift */,
 				170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */,
+				17C2E37D2636BA71000136C1 /* MBLinkage.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1370,10 +1376,12 @@
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
+				17C2E37E2636BA71000136C1 /* MBLinkage.swift in Sources */,
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
+				17C2E3782636B2FB000136C1 /* MBLinkageTable.swift in Sources */,
 				17B93BA925CD20DF00EACD63 /* MBDragingItem.swift in Sources */,
 				172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */,
 				17DDD17C255D174C00B0FBB1 /* AMF3DataTypes.swift in Sources */,
