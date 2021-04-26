@@ -148,13 +148,11 @@ extension MBOrderMenu: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         if scrollView == right {
             updateIndexFor(scroll: scrollView)
-            MBLog(scrollView.tag)
         }
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if scrollView == right, decelerate == false {
             updateIndexFor(scroll: scrollView)
-            MBLog("\(scrollView.tag) -- \(decelerate)")
         }
     }
     func updateIndexFor(scroll: UIScrollView) {
