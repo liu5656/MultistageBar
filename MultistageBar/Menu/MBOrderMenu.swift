@@ -9,11 +9,14 @@
 import UIKit
 
 // 参考:https://www.tutorialfor.com/blog-276252.htm   https://www.tyrad.cc/2018/ios-ges-conflict/
+// 格式
+//                left:UICollectionView
+// UIScrollView {
+//                right:UICollectionView
 
 class MBOrderMenu: UIScrollView {
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         panGestureRecognizer.delegate = self
 //        bounces = false
         
@@ -50,6 +53,8 @@ class MBOrderMenu: UIScrollView {
         layout.itemSize = CGSize.init(width: 200, height: 44)
         
         let col = UICollectionView.init(frame: CGRect.init(x: 0, y: topY, width: 200, height: bounds.height), collectionViewLayout: layout)
+        col.tag = 1
+        col.bounces = false
         col.backgroundColor = UIColor.gray
         col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
         col.delegate = self
@@ -66,6 +71,8 @@ class MBOrderMenu: UIScrollView {
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 10, right: 10)
         
         let col = UICollectionView.init(frame: CGRect.init(x: left.frame.maxX, y: left.frame.origin.y, width: Screen.width - left.frame.width, height: left.frame.height), collectionViewLayout: layout)
+        col.tag = 2
+        col.bounces = false
         col.backgroundColor = UIColor.gray
         col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
         col.delegate = self
@@ -133,21 +140,60 @@ extension MBOrderMenu: UIScrollViewDelegate {
             }
         }
     }
+    // called when setContentOffset/scrollRectVisible:animated: finishes. not called if not animating
+//    func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {
+//        MBLog(scrollView.tag)
+//    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        updateIndexFor(scroll: scrollView)
+        if scrollView == right {
+            updateIndexFor(scroll: scrollView)
+        }
+        MBLog(scrollView.tag)
     }
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        updateIndexFor(scroll: scrollView)
+        if scrollView == right {
+            updateIndexFor(scroll: scrollView)
+        }
+        MBLog("\(scrollView.tag) -- \(decelerate)")
     }
     func updateIndexFor(scroll: UIScrollView) {
-        if scroll == right {
-            let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY + 20), to: right)
-            guard let row = right.indexPathForItem(at: point)?.section else {
-                return
-            }
-            left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
+        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY), to: right)
+        guard let row = right.indexPathForItem(at: point)?.section else {
+            return
         }
+        left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
     }
+    
+    
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        if scrollView == right {
+//            left.isScrollEnabled = true
+//            MBLog("resume")
+//            updateIndexFor(scroll: scrollView)
+//            MBLog(scrollView.tag)
+//        }
+//    }
+//    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+//        if scrollView == right {
+//            left.isScrollEnabled = false
+//            MBLog("stop")
+//        }
+//    }
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if scrollView == right, decelerate == false {
+//            left.isScrollEnabled = true
+//            updateIndexFor(scroll: scrollView)
+//            MBLog("resume")
+//        }
+//    }
+//    func updateIndexFor(scroll: UIScrollView) {
+//        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY), to: right)
+//        guard let row = right.indexPathForItem(at: point)?.section else {
+//            return
+//        }
+//        left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
+//    }
 }
 
 extension MBOrderMenu: UIGestureRecognizerDelegate {
