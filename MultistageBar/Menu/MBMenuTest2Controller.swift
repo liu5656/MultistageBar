@@ -22,9 +22,9 @@ class MBMenuTest2Controller: MBViewController {
             let part = MBLinkage.init()
             part.title = "left: \(i)"
             
-            for j in (i * 10)..<(i * 10 + 10) {
+            for j in 0..<100 {
                 let ele = MBSubLinkage.init()
-                ele.title = "\(j)"
+                ele.title = "\(i)-\(j)"
                 part.nest.append(ele)
             }
             res.append(part)

@@ -24,9 +24,16 @@ class MBLinkageTable: UIScrollView {
         _ = left
         _ = right
         delegate = self
-        contentSize = CGSize.init(width: bounds.width, height: bounds.height + headerHeight)
+        contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
     }
-    var headerHeight: CGFloat = 400
+        
+    var topOffset: CGFloat = 100
+    private var headerHeight: CGFloat = 400
+    private var topY: CGFloat {
+        get{
+            return headerHeight - topOffset
+        }
+    }
     var isPart = false
     var selectPart: Int = 0
     var upperCanScroll = false
@@ -52,7 +59,7 @@ class MBLinkageTable: UIScrollView {
         layout.sectionInset = UIEdgeInsets.zero
         layout.itemSize = CGSize.init(width: 200, height: 44)
         
-        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: headerHeight, width: 200, height: bounds.height), collectionViewLayout: layout)
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: headerHeight, width: 200, height: bounds.height - topOffset), collectionViewLayout: layout)
         col.tag = 1
         col.bounces = false
         col.backgroundColor = UIColor.gray
@@ -90,7 +97,7 @@ extension MBLinkageTable: UICollectionViewDataSource, UICollectionViewDelegate {
                 right.reloadData()
             }else{
                 UIView.animate(withDuration: 0.2) {
-                    self.contentOffset.y = self.headerHeight
+                    self.contentOffset.y = self.topY
                 }
                 right.scrollToItem(at: index, at: .top, animated: true)
             }
@@ -138,13 +145,13 @@ extension MBLinkageTable: UIScrollViewDelegate {
                 right.contentOffset.y = 0
                 left.contentOffset.y = 0
             }
-            if offsetY >= headerHeight {
+            if offsetY >= topY {
                 upperCanScroll = true
-                self.contentOffset.y = headerHeight
+                self.contentOffset.y = topY
             }
         }else{
             if upperCanScroll, 0 < offsetY {
-                self.contentOffset.y = headerHeight
+                self.contentOffset.y = topY
             }
             if 0 >= offsetY {
                 upperCanScroll = false
@@ -163,11 +170,20 @@ extension MBLinkageTable: UIScrollViewDelegate {
         }
     }
     func updateIndexFor(scroll: UIScrollView) {
-        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: headerHeight), to: right)
-        guard let row = right.indexPathForItem(at: point)?.section else {
+        guard isPart == false else {
             return
         }
-        left.selectItem(at: IndexPath.init(row: row, section: 0), animated: true, scrollPosition: .top)
+        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: headerHeight), to: right)
+        var index: IndexPath?
+        if let row = right.indexPathForItem(at: point)?.section {
+            index = IndexPath.init(row: row, section: 0)
+        }else if let row = right.indexPathForItem(at: CGPoint.init(x: point.x, y: point.y + 10))?.section {
+            index = IndexPath.init(row: row, section: 0)
+        }
+        guard let temp = index else {
+            return
+        }
+        left.selectItem(at: temp, animated: true, scrollPosition: .top)
     }
 }
 
