@@ -12,6 +12,10 @@ protocol MBLinkageTableDatasource: CellIdentifyProtocol {
     var nest: [CellIdentifyProtocol] { get set }
 }
 
+protocol MBLinkageTableDelegate: class {
+    func mb_headerDidScroll(offsetY: CGFloat);
+}
+
 class MBLinkageTable: UIScrollView {
     func add(header: UIView) {
         headerHeight = header.frame.maxY
@@ -26,9 +30,9 @@ class MBLinkageTable: UIScrollView {
         delegate = self
         contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
     }
-        
-    var topOffset: CGFloat = 100
-    private var headerHeight: CGFloat = 400
+    weak var headerDelegate: MBLinkageTableDelegate?
+    var topOffset: CGFloat = 0
+    private var headerHeight: CGFloat = 0
     private var topY: CGFloat {
         get{
             return headerHeight - topOffset
@@ -149,6 +153,7 @@ extension MBLinkageTable: UIScrollViewDelegate {
                 upperCanScroll = true
                 self.contentOffset.y = topY
             }
+            headerDelegate?.mb_headerDidScroll(offsetY: offsetY)
         }else{
             if upperCanScroll, 0 < offsetY {
                 self.contentOffset.y = topY
