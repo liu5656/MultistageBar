@@ -12,28 +12,21 @@ protocol MBLinkageTableDatasource: CellIdentifyProtocol {
     var nest: [CellIdentifyProtocol] { get set }
 }
 
-
 class MBLinkageTable: UIScrollView {
     func add(header: UIView) {
-        topY = header.frame.maxY
+        headerHeight = header.frame.maxY
         addSubview(header)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         panGestureRecognizer.delegate = self
-//        bounces = false
-        
         _ = left
         _ = right
         delegate = self
-        contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
+        contentSize = CGSize.init(width: bounds.width, height: bounds.height + headerHeight)
     }
-    
-    
-    var topY: CGFloat = 400
-    let leftIdentify = "leftIdentify"
-    let rightIdentify = "rightIdentify"
+    var headerHeight: CGFloat = 400
     var isPart = false
     var selectPart: Int = 0
     var upperCanScroll = false
@@ -59,11 +52,10 @@ class MBLinkageTable: UIScrollView {
         layout.sectionInset = UIEdgeInsets.zero
         layout.itemSize = CGSize.init(width: 200, height: 44)
         
-        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: topY, width: 200, height: bounds.height), collectionViewLayout: layout)
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: headerHeight, width: 200, height: bounds.height), collectionViewLayout: layout)
         col.tag = 1
         col.bounces = false
         col.backgroundColor = UIColor.gray
-        col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
         col.delegate = self
         col.dataSource = self
         addSubview(col)
@@ -81,7 +73,6 @@ class MBLinkageTable: UIScrollView {
         col.tag = 2
         col.bounces = false
         col.backgroundColor = UIColor.gray
-        col.register(MBMenuItemCell.classForCoder(), forCellWithReuseIdentifier: rightIdentify)
         col.delegate = self
         col.dataSource = self
         addSubview(col)
@@ -99,7 +90,7 @@ extension MBLinkageTable: UICollectionViewDataSource, UICollectionViewDelegate {
                 right.reloadData()
             }else{
                 UIView.animate(withDuration: 0.2) {
-                    self.contentOffset.y = self.topY
+                    self.contentOffset.y = self.headerHeight
                 }
                 right.scrollToItem(at: index, at: .top, animated: true)
             }
@@ -147,15 +138,13 @@ extension MBLinkageTable: UIScrollViewDelegate {
                 right.contentOffset.y = 0
                 left.contentOffset.y = 0
             }
-            if offsetY >= topY {
+            if offsetY >= headerHeight {
                 upperCanScroll = true
-                self.contentOffset.y = topY
+                self.contentOffset.y = headerHeight
             }
-//            MBLog("bottom: \(offsetY)")
         }else{
-//            MBLog("left: \(offsetY)")
             if upperCanScroll, 0 < offsetY {
-                self.contentOffset.y = topY
+                self.contentOffset.y = headerHeight
             }
             if 0 >= offsetY {
                 upperCanScroll = false
@@ -174,7 +163,7 @@ extension MBLinkageTable: UIScrollViewDelegate {
         }
     }
     func updateIndexFor(scroll: UIScrollView) {
-        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: topY), to: right)
+        let point = convert(CGPoint.init(x: left.frame.maxX + 20, y: headerHeight), to: right)
         guard let row = right.indexPathForItem(at: point)?.section else {
             return
         }
