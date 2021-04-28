@@ -120,6 +120,12 @@
 		17E1DA6D260C1E3400DCD243 /* widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E1DA6C260C1E3400DCD243 /* widget.swift */; };
 		17E1DA6F260C1E3500DCD243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E1DA6E260C1E3500DCD243 /* Assets.xcassets */; };
 		17E1DA73260C1E3500DCD243 /* widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17E1DA66260C1E3400DCD243 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		17EA39262637B72D00FD38B3 /* MBMenuTest3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */; };
+		17EA39322637DAF700FD38B3 /* MBHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */; };
+		17EA39382637DF6B00FD38B3 /* MBCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39372637DF6B00FD38B3 /* MBCardCell.swift */; };
+		17EA39492637E0A500FD38B3 /* MBCardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39472637E0A500FD38B3 /* MBCardHeader.swift */; };
+		17EA394A2637E0A500FD38B3 /* MBCardHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EA39482637E0A500FD38B3 /* MBCardHeader.xib */; };
+		17EA39562638039B00FD38B3 /* MBSpecialHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */; };
 		17ED904E25FAF8DF003B5283 /* NumberEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED904D25FAF8DF003B5283 /* NumberEx.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
 		17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691CF255E60C1000CCE89 /* libcrypto.a */; };
@@ -326,6 +332,12 @@
 		17E1DA6C260C1E3400DCD243 /* widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = widget.swift; sourceTree = "<group>"; };
 		17E1DA6E260C1E3500DCD243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E1DA70260C1E3500DCD243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuTest3ViewController.swift; sourceTree = "<group>"; };
+		17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHorizontalLayout.swift; sourceTree = "<group>"; };
+		17EA39372637DF6B00FD38B3 /* MBCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCardCell.swift; sourceTree = "<group>"; };
+		17EA39472637E0A500FD38B3 /* MBCardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCardHeader.swift; sourceTree = "<group>"; };
+		17EA39482637E0A500FD38B3 /* MBCardHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MBCardHeader.xib; sourceTree = "<group>"; };
+		17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout.swift; sourceTree = "<group>"; };
 		17ED904D25FAF8DF003B5283 /* NumberEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberEx.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
 		17F6917E255E60C0000CCE89 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
@@ -549,9 +561,15 @@
 				170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */,
 				178739932635664A003E7362 /* MBMenuTest1Controller.swift */,
 				178739B1263569A2003E7362 /* MBMenuTest2Controller.swift */,
+				17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */,
 				17C2E3772636B2FB000136C1 /* MBLinkageTable.swift */,
 				170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */,
+				17EA39472637E0A500FD38B3 /* MBCardHeader.swift */,
+				17EA39482637E0A500FD38B3 /* MBCardHeader.xib */,
+				17EA39372637DF6B00FD38B3 /* MBCardCell.swift */,
 				17C2E37D2636BA71000136C1 /* MBLinkage.swift */,
+				17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */,
+				17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1331,6 +1349,7 @@
 			files = (
 				170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */,
 				1783148426033DC400286049 /* glsl.vsh in Resources */,
+				17EA394A2637E0A500FD38B3 /* MBCardHeader.xib in Resources */,
 				170566202452B09000A7AF4B /* Assets.xcassets in Resources */,
 				1783148926033E6000286049 /* glsl.fsh in Resources */,
 				1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */,
@@ -1371,12 +1390,14 @@
 			files = (
 				179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */,
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
+				17EA39562638039B00FD38B3 /* MBSpecialHorizontalLayout.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				17C2E37E2636BA71000136C1 /* MBLinkage.swift in Sources */,
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
+				17EA39262637B72D00FD38B3 /* MBMenuTest3ViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				17C2E3782636B2FB000136C1 /* MBLinkageTable.swift in Sources */,
 				17B93BA925CD20DF00EACD63 /* MBDragingItem.swift in Sources */,
@@ -1390,6 +1411,7 @@
 				179DCB9025F9C32300AC64C2 /* MBPlayerViewController.swift in Sources */,
 				17DB56902558E0A6004537DE /* MBCapture.swift in Sources */,
 				172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */,
+				17EA39382637DF6B00FD38B3 /* MBCardCell.swift in Sources */,
 				175CC49525345889006465AC /* MBRetryViewController.swift in Sources */,
 				1778C06725510509001E14C7 /* MBDistance.swift in Sources */,
 				17FEC09525369F5F0002168D /* MBSegmentBaseIndicator.swift in Sources */,
@@ -1451,6 +1473,7 @@
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
 				1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
+				17EA39492637E0A500FD38B3 /* MBCardHeader.swift in Sources */,
 				179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */,
 				170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */,
 				17DDD17A255D174C00B0FBB1 /* RTMPChunk.swift in Sources */,
@@ -1461,6 +1484,7 @@
 				170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,
+				17EA39322637DAF700FD38B3 /* MBHorizontalLayout.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */,
 				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,
