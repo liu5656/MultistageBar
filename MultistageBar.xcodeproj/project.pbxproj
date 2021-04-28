@@ -128,6 +128,7 @@
 		17EA39562638039B00FD38B3 /* MBSpecialHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */; };
 		17ED904E25FAF8DF003B5283 /* NumberEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED904D25FAF8DF003B5283 /* NumberEx.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
+		17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */; };
 		17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691CF255E60C1000CCE89 /* libcrypto.a */; };
 		17F691D3255E60C1000CCE89 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D0255E60C1000CCE89 /* librtmp.a */; };
 		17F691D4255E60C1000CCE89 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D1255E60C1000CCE89 /* libssl.a */; };
@@ -340,6 +341,7 @@
 		17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout.swift; sourceTree = "<group>"; };
 		17ED904D25FAF8DF003B5283 /* NumberEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberEx.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
+		17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout2.swift; sourceTree = "<group>"; };
 		17F6917E255E60C0000CCE89 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
 		17F6917F255E60C0000CCE89 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
 		17F69180255E60C0000CCE89 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
@@ -570,6 +572,7 @@
 				17C2E37D2636BA71000136C1 /* MBLinkage.swift */,
 				17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */,
 				17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */,
+				17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1481,6 +1484,7 @@
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				176FBA9E2604490E00ACE7BB /* MBSortViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
+				17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout2.swift in Sources */,
 				170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,

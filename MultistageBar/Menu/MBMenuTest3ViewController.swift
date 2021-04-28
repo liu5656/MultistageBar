@@ -23,9 +23,9 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-        for i in 0..<5 {
+        for i in 0..<3 {
             var temp: [String] = []
-            for j in 0..<5 {
+            for j in 0..<1 {
                 temp.append("\(i)-\(j)")
             }
             tes.append(temp)
@@ -33,9 +33,10 @@ class MBMenuTest3ViewController: MBViewController {
         return tes
     }()
     lazy var colCV: UICollectionView = {
-        let layout = MBSpecialHorizontalLayout.init()
+        let layout = MBSpecialHorizontalLayout2.init()
 //        let layout = MBHorizontalLayout.init()
 //        let layout = UICollectionViewFlowLayout.init()
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
