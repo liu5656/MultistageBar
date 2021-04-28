@@ -37,19 +37,17 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
                 let index = IndexPath.init(row: row, section: section)
                 let attribute = UICollectionViewLayoutAttributes.init(forCellWith: index)
                 // 确定在当前分区的哪一屏的哪一行哪一列
-                var scene = row / (maxRows * maxColumn)    // 哪一屏
+                let scene = row / (maxRows * maxColumn)    // 哪一屏,0...
                 let temp = row % (maxRows * maxColumn)
-                let line = temp / maxColumn                // 哪一行
-                let column = temp % maxColumn              // 哪一列
+                let line = temp / maxColumn                // 哪一行,0...
+                let column = temp % maxColumn              // 哪一列,0...
                 let cellX = offsetX + sectionInset.left + CGFloat(scene * maxColumn + column) * (itemSize.width + minimumInteritemSpacing)
                 let cellY = sectionInset.top + CGFloat(line) * (itemSize.height + minimumLineSpacing)
                 attribute.frame = CGRect.init(origin: CGPoint.init(x: cellX, y: cellY), size: itemSize)
                 attributes.append(attribute)
-                // 不足一屏,按照一屏计算
                 if row == (itemNum - 1) {
-                    if column != 0 {
-                        scene += 1
-                    }
+                    // 不足一屏,按照一屏计算
+                    let (scene, _) = (row + 1).divided(maxRows * maxColumn)
                     // 分区宽度: 左边距 + 中间部分 + 右边距
                     let width = sectionInset.left + CGFloat(scene * maxColumn) * (itemSize.width + minimumInteritemSpacing) - minimumInteritemSpacing
                     sectionsSize[section] = CGSize.init(width: width, height: col.bounds.height)
@@ -58,17 +56,15 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             }
         }
     }
+    
     // 这里的尺寸是指的所有内容所占的尺寸
     override var collectionViewContentSize: CGSize {
         get{
             guard let col = collectionView else {
                 return .zero
             }
-            var res: CGFloat = 0
-            sectionsSize.values.forEach { (size) in
-                res += size.width
-            }
-            return CGSize.init(width: res, height: col.bounds.height)
+            let width = sectionsSize.values.reduce(0, {$0 + $1.width})
+            return CGSize.init(width: width, height: col.bounds.height)
         }
     }
 
@@ -94,6 +90,4 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
-    
-    
 }

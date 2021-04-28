@@ -26,3 +26,20 @@ extension Double {
         }
     }
 }
+
+extension Int {
+    // 0 -> 0
+    // 不足一倍, 1倍 -> 1
+    // n倍有余 -> n + 1
+    func divided(_ num: Int) -> (Int, Int) {
+        guard 0 != self else {
+            return (0, 0)
+        }
+        var res = self / num
+        let remainder = self % num
+        if remainder != 0  {
+            res += 1
+        }
+        return (res, remainder)
+    }
+}
