@@ -30,9 +30,13 @@ class MBMenuTest3ViewController: MBViewController {
 //            }
 //            tes.append(temp)
 //        }
-        for i in 1...2 {
+        for i in 1...5 {
             var temp: [String] = []
-            for j in 0..<16 {
+            var num = 5
+//            if 0 == i % 2 {
+//                num = 20
+//            }
+            for j in 0..<20 {
                 temp.append("\(i)-\(j)")
             }
             tes.append(temp)
@@ -125,7 +129,7 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
-        if 1 == section {
+        if 0 == section {
             return CGSize.init(width: 300, height: 60)
         }
         return CGSize.zero

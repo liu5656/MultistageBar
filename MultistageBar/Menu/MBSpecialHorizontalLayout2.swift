@@ -25,14 +25,13 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     
     var maxRows: Int = 0                                // 一屏最多展示多少行
     var maxColumn: Int = 0                              // 一屏最多展示多少列
-    private var sectionsSize: [Int: CGSize] = [:]       // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
+    private var sectionsRect: [Int: CGRect] = [:]       // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
     
     override func prepare() {
         super.prepare()
         guard let col = collectionView else {
             return
         }
-        sectionsSize.removeAll()
         attributes.removeAll()
         maxRows = Int((col.bounds.height + minimumLineSpacing) / (itemSize.height + minimumLineSpacing))
         maxColumn = Int((col.bounds.width + minimumInteritemSpacing) / (itemSize.width + minimumInteritemSpacing))
@@ -48,7 +47,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
                     let (scene, _) = (row + 1).divided(maxRows * maxColumn)
                     // 分区宽度: 左边距 + 中间部分 + 右边距
                     let width = sectionInset.left + CGFloat(scene * maxColumn) * (itemSize.width + minimumInteritemSpacing) - minimumInteritemSpacing
-                    sectionsSize[section] = CGSize.init(width: width, height: col.bounds.height)
+                    sectionsRect[section] = CGRect.init(x: offsetX, y: sectionInset.top, width: width, height: col.bounds.height)
                     offsetX += width
                 }
             }
@@ -61,8 +60,8 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         let kind = UICollectionView.elementKindSectionHeader
         let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind, with: index)
-        attribute.frame = CGRect.init(x: sectionInset.left, y: sectionInset.top, width: 300, height: 60)
-        attribute.zIndex = 999
+        attribute.frame = CGRect.init(x: sectionInset.left + offsetX, y: sectionInset.top, width: 300, height: 60)
+        attribute.zIndex = 9
         attributes.append(attribute)
     }
     private func prepareItemAttribute(at index: IndexPath, offsetX: CGFloat) {
@@ -80,26 +79,22 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     }
     private func prepareSupplement(attribute: UICollectionViewLayoutAttributes) {
         guard let headerSize = delegate?.layout(self, refreenceSizeForHeaderIn: attribute.indexPath.section),
+              let frame = sectionsRect[attribute.indexPath.section],
               let offsetX = collectionView?.contentOffset.x else {
             return
         }
-        
-        let allWidth = (0...attribute.indexPath.section).reduce(0) { (res, par) -> CGFloat in
-            if let temp = sectionsSize[par]?.width {
-                return res + temp
-            }else{
-                return res
-            }
+        let minX = frame.minX + sectionInset.left
+        let maxX = frame.maxX - headerSize.width
+        var supplementX = minX
+        if minX <= offsetX, offsetX < maxX {
+            supplementX = offsetX
+        }else if offsetX >= maxX {
+            supplementX = maxX
         }
-        
-        
-        var supplementX = offsetX 
-        let headerWidth = headerSize.width
-        if offsetX + headerWidth > allWidth {
-             supplementX = allWidth - headerWidth
+        attribute.frame = CGRect.init(origin: CGPoint.init(x: supplementX, y: frame.origin.y), size: headerSize)
+        if 1 == attribute.indexPath.section {
+            MBLog("\(attribute.indexPath.section)-\(attribute.frame.origin.x)-\(offsetX)")
         }
-        attribute.frame = CGRect.init(origin: CGPoint.init(x: supplementX, y: sectionInset.top), size: headerSize)
-        MBLog("\(attribute.indexPath.section)-\(attribute.frame)")
     }
     
     // 这里的尺寸是指的所有内容所占的尺寸
@@ -108,7 +103,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             guard let col = collectionView else {
                 return .zero
             }
-            let width = sectionsSize.values.reduce(0, {$0 + $1.width})
+            let width = sectionsRect.values.reduce(0, {$0 + $1.size.width})
             return CGSize.init(width: width, height: col.bounds.height)
         }
     }
@@ -116,10 +111,15 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         // 相交过滤出要展示在rect范围内的attribute
         let temp = attributes.filter({$0.frame.intersects(rect)})
+        let supplements = temp.filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
+//        supplements.forEach { (item) in
+//            MBLog(item)
+//        }
+//        if supplements.count > 0 {
+//            MBLog("\n\n\n")
+//        }
         
-        temp
-            .filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
-            .forEach(prepareSupplement(attribute:))
+        supplements.forEach(prepareSupplement(attribute:))
         return temp
     }
     
