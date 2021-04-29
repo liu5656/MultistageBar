@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol MBSpecialHorizontalLayoutDelegate: class {
+    // 横向滑动时:宽度无效,高度有效;竖向滑动:宽度有效,高度无效;
+    func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize
+}
+
 class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     
     var attributes: [UICollectionViewLayoutAttributes] = []
@@ -16,6 +21,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     var sectionInset: UIEdgeInsets = .zero
     var minimumLineSpacing: CGFloat = 10
     var minimumInteritemSpacing: CGFloat = 10
+    weak var delegate: MBSpecialHorizontalLayoutDelegate?
     
     var maxRows: Int = 0                                // 一屏最多展示多少行
     var maxColumn: Int = 0                              // 一屏最多展示多少列
@@ -72,6 +78,29 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         attribute.frame = CGRect.init(origin: CGPoint.init(x: cellX, y: cellY), size: itemSize)
         attributes.append(attribute)
     }
+    private func prepareSupplement(attribute: UICollectionViewLayoutAttributes) {
+        guard let headerSize = delegate?.layout(self, refreenceSizeForHeaderIn: attribute.indexPath.section),
+              let offsetX = collectionView?.contentOffset.x else {
+            return
+        }
+        
+        let allWidth = (0...attribute.indexPath.section).reduce(0) { (res, par) -> CGFloat in
+            if let temp = sectionsSize[par]?.width {
+                return res + temp
+            }else{
+                return res
+            }
+        }
+        
+        
+        var supplementX = offsetX 
+        let headerWidth = headerSize.width
+        if offsetX + headerWidth > allWidth {
+             supplementX = allWidth - headerWidth
+        }
+        attribute.frame = CGRect.init(origin: CGPoint.init(x: supplementX, y: sectionInset.top), size: headerSize)
+        MBLog("\(attribute.indexPath.section)-\(attribute.frame)")
+    }
     
     // 这里的尺寸是指的所有内容所占的尺寸
     override var collectionViewContentSize: CGSize {
@@ -87,25 +116,11 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         // 相交过滤出要展示在rect范围内的attribute
         let temp = attributes.filter({$0.frame.intersects(rect)})
-        temp.filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView}).forEach { (attribute) in
-            attribute.frame = CGRect.init(x: sectionInset.left + collectionView!.contentOffset.x, y: sectionInset.top, width: 300, height: 60)
-        }
+        
+        temp
+            .filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
+            .forEach(prepareSupplement(attribute:))
         return temp
-    }
-    override func layoutAttributesForItem(at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        return super.layoutAttributesForItem(at: indexPath)
-    }
-    
-    override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        guard elementKind == UICollectionView.elementKindSectionHeader,
-              let col = collectionView else {
-            return nil
-        }
-        let kind = UICollectionView.elementKindSectionHeader
-        let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind, with: indexPath)
-        attribute.frame = CGRect.init(x: sectionInset.left + col.contentOffset.x, y: sectionInset.top, width: 300, height: 60)
-        attribute.zIndex = 999
-        return attribute
     }
     
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {

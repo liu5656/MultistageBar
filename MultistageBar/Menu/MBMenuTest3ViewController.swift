@@ -41,6 +41,8 @@ class MBMenuTest3ViewController: MBViewController {
     }()
     lazy var colCV: UICollectionView = {
         let layout = MBSpecialHorizontalLayout2.init()
+        layout.delegate = self
+//        layout.headerReferenceSize = CGSize.init(width: 300, height: 60)
 //        let layout = MBHorizontalLayout.init()
 //        let layout2 = UICollectionViewFlowLayout.init()
 //        layout2.headerReferenceSize
@@ -97,22 +99,36 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let temp = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: cardHeaderIdentify, for: indexPath)
-        return temp
+        let supplement = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: cardHeaderIdentify, for: indexPath)
+//        MBLog(indexPath)
+        if let temp = supplement as? MBCardHeader {
+            temp.title.text = "card header \(indexPath.section)"
+        }
+        
+        return supplement
     }
 }
 
-extension MBMenuTest3ViewController: UICollectionViewDelegateFlowLayout {
-    
-    // 返回的size,根据滑动方向,只有一个属性生效
-    // 横向是宽度生效,高度是collectionView的高度
-    // 竖向是高度生效,宽度是collectionView的宽度
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        if 0 == section {
+//extension MBMenuTest3ViewController: UICollectionViewDelegateFlowLayout {
+//
+//    // 返回的size,根据滑动方向,只有一个属性生效
+//    // 横向是宽度生效,高度是collectionView的高度
+//    // 竖向是高度生效,宽度是collectionView的宽度
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+//        if 1 == section {
+//            return CGSize.init(width: 300, height: 60)
+//        }else{
+//            return .zero
+//        }
+//    }
+//}
+
+extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
+    func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
+        if 1 == section {
             return CGSize.init(width: 300, height: 60)
-        }else{
-            return .zero
         }
+        return CGSize.zero
     }
 }
 
