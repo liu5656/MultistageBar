@@ -128,9 +128,15 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 //}
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
+    func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool {
+        if 1 == section {
+            return true
+        }
+        return false
+    }
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
-        if 0 == section {
-            return CGSize.init(width: 300, height: 60)
+        if 1 == section {
+            return CGSize.init(width: 0, height: 60)
         }
         return CGSize.zero
     }
