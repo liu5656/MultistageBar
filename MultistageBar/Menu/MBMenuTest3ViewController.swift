@@ -23,9 +23,16 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-        for i in 1...16 {
+//        for i in 1...16 {
+//            var temp: [String] = []
+//            for j in 0..<i {
+//                temp.append("\(i)-\(j)")
+//            }
+//            tes.append(temp)
+//        }
+        for i in 1...2 {
             var temp: [String] = []
-            for j in 0..<i {
+            for j in 0..<16 {
                 temp.append("\(i)-\(j)")
             }
             tes.append(temp)
@@ -35,13 +42,15 @@ class MBMenuTest3ViewController: MBViewController {
     lazy var colCV: UICollectionView = {
         let layout = MBSpecialHorizontalLayout2.init()
 //        let layout = MBHorizontalLayout.init()
-//        let layout = UICollectionViewFlowLayout.init()
+//        let layout2 = UICollectionViewFlowLayout.init()
+//        layout2.headerReferenceSize
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:0)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
 //        let width = (Screen.width - 40 - 40) / 5
         layout.itemSize = CGSize.init(width: 60, height: 60)
+        
         
 //        layout.sectionHeadersPinToVisibleBounds = true
 //        layout.sectionFootersPinToVisibleBounds = true
@@ -99,11 +108,11 @@ extension MBMenuTest3ViewController: UICollectionViewDelegateFlowLayout {
     // 横向是宽度生效,高度是collectionView的高度
     // 竖向是高度生效,宽度是collectionView的宽度
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-//        if 0 == section {
+        if 0 == section {
             return CGSize.init(width: 300, height: 60)
-//        }else{
-//            return .zero
-//        }
+        }else{
+            return .zero
+        }
     }
 }
 
