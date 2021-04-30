@@ -18,6 +18,8 @@ import UIKit
  https://blog.csdn.net/u013410274/article/details/79925531      UICollectionView 的研究之二 ：自定义 UICollectionViewFlowLayout
  https://www.cnblogs.com/hissia/p/5723629.html                  自定义流水布局（UICollectionViewFlowLayout的基本使用）
  https://www.jianshu.com/p/5ee9333644ed                         UICollectionViewFlowLayout的自定义探究
+ https://www.jianshu.com/p/c87fcabd1153                         横向布局且可左右分页滑动的UICollectionViewLayout
+ https://www.jianshu.com/p/e8e9dcc12b37                         自定义UICollectionViewFlowLayout
  */
 
 /* 调用流程
