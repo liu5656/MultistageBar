@@ -8,35 +8,64 @@
 
 import UIKit
 
+/* 参考文章
+ https://www.cnblogs.com/huanying2000/p/8515272.html            iOS 关于自定义UICollectionViewLayout实现复杂布局
+ https://www.jianshu.com/p/c0d7023df00e/                        分区头悬浮固定
+ https://segmentfault.com/q/1010000002934267                    UICollectionViewLayout中两个方法的疑惑
+ 
+ https://www.jianshu.com/p/b3322f41e84c                         iOS 用UICollectionView实现各种神奇效果
+ https://www.jianshu.com/p/97e930658671                         iOS: 玩转UICollectionViewLayout
+ https://blog.csdn.net/u013410274/article/details/79925531      UICollectionView 的研究之二 ：自定义 UICollectionViewFlowLayout
+ https://www.cnblogs.com/hissia/p/5723629.html                  自定义流水布局（UICollectionViewFlowLayout的基本使用）
+ https://www.jianshu.com/p/5ee9333644ed                         UICollectionViewFlowLayout的自定义探究
+ */
+
+/* 调用流程
+ override func prepare() 初始化操作,可以在此函数里创建所有的UICollectionViewLayoutAttributesd并初始化他们的frame,
+
+ override var collectionViewContentSize: CGSize 通过重载get方法,获取collectionview的contentSize
+
+ override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? 返回当前可视区域内的attributes,可在这实时对attribute处理(如位置/大小等)
+
+ 更新时,通过invalidateLayout()标记,标记后会在下一个loop时顺序调用上面的流程刷新视图
+ */
+
 protocol MBSpecialHorizontalLayoutDelegate: class {
+    
     func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool
+    
     // 横向滑动时:宽度无效,高度有效;竖向滑动:宽度有效,高度无效;
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize
+    
 }
 
 class MBSpecialHorizontalLayout2: UICollectionViewLayout {
-    
-    var attributes: [UICollectionViewLayoutAttributes] = []
     var scrollDirection: UICollectionView.ScrollDirection = .horizontal
     var itemSize: CGSize = .zero
     var sectionInset: UIEdgeInsets = .zero
     var minimumLineSpacing: CGFloat = 10
     var minimumInteritemSpacing: CGFloat = 10
+    
     weak var delegate: MBSpecialHorizontalLayoutDelegate?
+    private var maxColumn: Int = 0                                  // 一屏最多展示多少列
+    private var attributes: [UICollectionViewLayoutAttributes] = [] // 保存所有的attribute(item,cupplement,decornate)
+    private var sectionsRect: [Int: CGRect] = [:]                   // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
     
-    var maxRows: Int = 0                                // 一屏最多展示多少行
-    var maxColumn: Int = 0                              // 一屏最多展示多少列
-    private var sectionsRect: [Int: CGRect] = [:]       // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
-    
+    // 创建并初始化collectionView的所有内容(item,supplement,decornate)
     override func prepare() {
         super.prepare()
         guard let col = collectionView else {
             return
         }
+        
         attributes.removeAll()
+        
         maxColumn = Int((col.bounds.width + minimumInteritemSpacing) / (itemSize.width + minimumInteritemSpacing))
+        
         let sectionNum = col.numberOfSections
-        var sectionBase: CGPoint = .zero   // section区域的左上角
+        
+        var sectionBase: CGPoint = .zero                                                                  // section区域的左上角
+        
         for section in 0..<sectionNum {
             var contentbase = CGPoint.init(x: sectionBase.x + sectionInset.left, y: sectionInset.top)
             
@@ -46,7 +75,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             
             let contentY = contentbase.y
             
-            var width = (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)  // 默认有一屏的宽度
+            var width = (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)                   // 默认有一屏的宽度
             
             for row in 0..<itemNum {
                 
@@ -61,87 +90,90 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             
             sectionBase = CGPoint.init(x: frame.maxX, y: 0)
         }
-        
-        
-        
-//        maxRows = Int((col.bounds.height + minimumLineSpacing) / (itemSize.height + minimumLineSpacing))
-//        maxColumn = Int((col.bounds.width + minimumInteritemSpacing) / (itemSize.width + minimumInteritemSpacing))
-//        var offset: CGPoint = .zero                           // 每个分区偏移值x
-//        for section in 0..<col.numberOfSections {
-//
-//            prepareSupplementAttribute(at: section, offset: &offset)
-//            let itemNum = col.numberOfItems(inSection: section)
-//
-//            for row in 0..<itemNum {
-//                let index = IndexPath.init(row: row, section: section)
-//                var relateX: CGFloat = 0
-//                var relateY: CGFloat = 0
-//                prepareItemAttribute(at: index, base: offset, relateX: &relateX, relateY: &relateY)
-//                if row == (itemNum - 1) {
-//                    // 不足一屏,按照一屏计算
-//                    let (scene, _) = (row + 1).divided(maxRows * maxColumn)
-//                    // 分区宽度: 左边距 + 中间部分 + 右边距
-//                    let width = sectionInset.left + CGFloat(scene * maxColumn) * (itemSize.width + minimumInteritemSpacing) - minimumInteritemSpacing
-//                    sectionsRect[section] = CGRect.init(x: offset.x, y: sectionInset.top, width: width, height: col.bounds.height)
-//                    offset.x += width   // 每个section需要累加
-//                }
-//            }
-//        }
     }
+    
+    // 初始化supplement的frame,预设置的宽度无效,仅高度有效
     private func prepareSupplementAttribute(at section: Int, base: CGPoint) -> CGPoint {
         guard let temp = delegate?.layout(self, headerIn: section),
               temp == true,
               let height = delegate?.layout(self, refreenceSizeForHeaderIn: section).height else {
             return base
         }
-        let width = CGFloat(maxColumn) * (itemSize.width + minimumInteritemSpacing)
+        
+        let width = CGFloat(maxColumn) * (itemSize.width + minimumInteritemSpacing)                       // 设置supplement的宽度为一屏
         
         let kind = UICollectionView.elementKindSectionHeader
-        let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind, with: IndexPath.init(row: 0, section: section))
+        
+        let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind,
+                                                              with: IndexPath.init(row: 0, section: section))
         attribute.frame = CGRect.init(x: base.x, y: base.y, width: width, height: height)
-        attribute.zIndex = 9
+        
+        attribute.zIndex = 9                                                                              // 值越大,视图越靠前
+        
         attributes.append(attribute)
+        
         return CGPoint.init(x: base.x, y: attribute.frame.maxY)
     }
+    
+    // 初始化item的frame,由于item的位置是固定不变的,所以后面就不用再处理了
     private func prepareItemAttribute(at index: IndexPath, base: CGPoint, contentY: CGFloat, contentWidth width: inout CGFloat) -> CGPoint {
         guard let bounds = collectionView?.bounds else {
             return base
         }
+        
         var origin = base
-        if 0 != index.row, 0 == index.row % maxColumn { // 换行,检查是否需要翻页
+        
+        if 0 != index.row, 0 == index.row % maxColumn {                                                  // 换行,检查是否需要翻页
+            
             if origin.y + itemSize.height + minimumLineSpacing > bounds.height - sectionInset.bottom {   // 翻页
+                
                 origin.y = contentY
+                
                 width += (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)
-            }else{
+                
+            }else{                                                                                       // 仅仅换行
+                
                 origin.x -= (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)
+                
                 origin.y += itemSize.height + minimumLineSpacing
+                
             }
         }
         let attribute = UICollectionViewLayoutAttributes.init(forCellWith: index)
+        
         attribute.frame = CGRect.init(origin: origin, size: itemSize)
+        
         attributes.append(attribute)
         
-        origin.x += itemSize.width + minimumLineSpacing // 指向下一个item
+        origin.x += itemSize.width + minimumLineSpacing                                                 // 指向下一个item
+        
         return origin
     }
+    
+    // 动态修改supplement的位置,使它悬浮固定在分区左上角
     private func prepareSupplement(attribute: UICollectionViewLayoutAttributes) {
         guard let frame = sectionsRect[attribute.indexPath.section],
               let offsetX = collectionView?.contentOffset.x else {
             return
         }
         let size = attribute.frame.size
+        
         let minX = frame.minX + sectionInset.left
+        
         let maxX = frame.maxX - size.width
+        
         var x = minX
-        if minX <= offsetX, offsetX < maxX {
+        
+        if minX <= offsetX, offsetX < maxX {                                                            // 相对分区跟着collectionview滑动
+            
             x = offsetX
-        }else if offsetX >= maxX {
+            
+        }else if offsetX >= maxX {                                                                      // 固定在分区上
+            
             x = maxX
         }
+        
         attribute.frame = CGRect.init(origin: CGPoint.init(x: x, y: frame.origin.y), size: size)
-        if 1 == attribute.indexPath.section {
-            MBLog("\(attribute.indexPath.section)-\(attribute.frame.origin.x)-\(offsetX)")
-        }
     }
     
     // 这里的尺寸是指的所有内容所占的尺寸
@@ -155,21 +187,19 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         }
     }
 
+    // 返回和rect相交的attribute,
+    // 由于item的位置不变,所以不用再处理;
+    // supplement由于要悬浮固定在分区左上角,所以需要再处理一次
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        // 相交过滤出要展示在rect范围内的attribute
-        let temp = attributes.filter({$0.frame.intersects(rect)})
-        let supplements = temp.filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
-//        supplements.forEach { (item) in
-//            MBLog(item)
-//        }
-//        if supplements.count > 0 {
-//            MBLog("\n\n\n")
-//        }
-        
-        supplements.forEach(prepareSupplement(attribute:))
+        let temp = attributes
+            .filter({$0.frame.intersects(rect)})                                                            // 相交过滤在rect范围内的attribute
+        temp
+            .filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
+            .forEach(prepareSupplement(attribute:))                                                         // 对所有的supplement视图进行处理
         return temp
     }
     
+    // 当边界发生变化,是否要刷新布局
     override func shouldInvalidateLayout(forBoundsChange newBounds: CGRect) -> Bool {
         return true
     }
