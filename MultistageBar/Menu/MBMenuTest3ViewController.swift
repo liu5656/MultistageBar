@@ -23,9 +23,9 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-        for i in 1...1 {
+        for i in 1...2 {
             var temp: [String] = []
-            for j in 0..<25 {
+            for j in 0..<15 {
                 temp.append("\(i)-\(j)")
             }
             tes.append(temp)
@@ -129,10 +129,10 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
     func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool {
-//        if 1 == section % 2 {
+        if 0 == section {
             return true
-//        }
-//        return false
+        }
+        return false
     }
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
 //        if 1 == section % 2 {

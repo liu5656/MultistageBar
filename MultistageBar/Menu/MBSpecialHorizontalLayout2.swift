@@ -171,18 +171,16 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             return
         }
         let size = attribute.frame.size
-        
         let minX = frame.minX
+        let maxX = frame.maxX - sectionInset.left - size.width - sectionInset.right
         
-        let maxX = frame.maxX - size.width - sectionInset.right
-        
-        var x = minX + sectionInset.left
-        
-        if minX <= offsetX, offsetX < maxX {                                                            // 相对分区跟着collectionview滑动
+        var x: CGFloat = 0
+        if offsetX <= minX {
+            x = frame.minX + sectionInset.left
+        }else if offsetX >= maxX {
+            x = frame.maxX - size.width - sectionInset.right
+        }else{
             x = offsetX + sectionInset.left
-            
-        }else if offsetX >= maxX {                                                                      // 固定在分区上
-            x = maxX
         }
         
         attribute.frame = CGRect.init(origin: CGPoint.init(x: x, y: frame.origin.y), size: size)
