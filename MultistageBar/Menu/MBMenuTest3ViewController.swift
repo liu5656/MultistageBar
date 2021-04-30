@@ -23,24 +23,21 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-//        for i in 1...16 {
+        for i in 1...1 {
+            var temp: [String] = []
+            for j in 0..<25 {
+                temp.append("\(i)-\(j)")
+            }
+            tes.append(temp)
+        }
+//        for i in 1...31 {
 //            var temp: [String] = []
+//            var num = 5
 //            for j in 0..<i {
 //                temp.append("\(i)-\(j)")
 //            }
 //            tes.append(temp)
 //        }
-        for i in 1...30 {
-            var temp: [String] = []
-            var num = 5
-//            if 0 == i % 2 {
-//                num = 20
-//            }
-            for j in 0..<i {
-                temp.append("\(i)-\(j)")
-            }
-            tes.append(temp)
-        }
         return tes
     }()
     lazy var colCV: UICollectionView = {
@@ -50,12 +47,12 @@ class MBMenuTest3ViewController: MBViewController {
 //        let layout = MBHorizontalLayout.init()
 //        let layout2 = UICollectionViewFlowLayout.init()
 //        layout2.headerReferenceSize
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:0)
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
-//        let width = (Screen.width - 40 - 40) / 5
-        layout.itemSize = CGSize.init(width: 60, height: 60)
+        let width = (360 - 10 - 10 * 4 - 10) / 5
+        layout.itemSize = CGSize.init(width: width, height: 60)
         
         
 //        layout.sectionHeadersPinToVisibleBounds = true
@@ -69,11 +66,14 @@ class MBMenuTest3ViewController: MBViewController {
 //        layout.itemSize = CGSize(width: itemW, height: 60)
 //        layout.sectionInset = UIEdgeInsets(top: 5, left: margin, bottom: 0, right: margin)
         
-        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: Screen.width, height: 200), collectionViewLayout: layout)
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: layout)
         col.backgroundColor = UIColor.gray
+//        col.isPagingEnabled = true
 //        col.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         col.register(MBCardCell.classForCoder(), forCellWithReuseIdentifier: cardCellIdentify)
         col.register(UINib.init(nibName: "MBCardHeader", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cardHeaderIdentify)
+        col.showsVerticalScrollIndicator = false
+        col.showsHorizontalScrollIndicator = false
         col.dataSource = self
         col.delegate = self
         view.addSubview(col)
@@ -129,16 +129,16 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
     func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool {
-        if 1 == section % 2 {
+//        if 1 == section % 2 {
             return true
-        }
-        return false
+//        }
+//        return false
     }
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
-        if 1 == section % 2 {
+//        if 1 == section % 2 {
             return CGSize.init(width: 0, height: 60)
-        }
-        return CGSize.zero
+//        }
+//        return CGSize.zero
     }
 }
 

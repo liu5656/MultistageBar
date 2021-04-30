@@ -47,6 +47,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     var minimumInteritemSpacing: CGFloat = 10
     
     weak var delegate: MBSpecialHorizontalLayoutDelegate?
+    private var pageWidth: CGFloat = 0                              // inset.left + contnt + inset.right
     private var maxColumn: Int = 0                                  // 一屏最多展示多少列
     private var attributes: [UICollectionViewLayoutAttributes] = [] // 保存所有的attribute(item,cupplement,decornate)
     private var sectionsRect: [Int: CGRect] = [:]                   // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
@@ -67,6 +68,12 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         var sectionBase: CGPoint = .zero                                                                  // section区域的左上角
         
         for section in 0..<sectionNum {
+            
+            pageWidth = sectionInset.left
+                + itemSize.width * CGFloat(maxColumn)
+                + CGFloat(maxColumn - 1) * minimumInteritemSpacing
+                + sectionInset.right
+            
             var contentbase = CGPoint.init(x: sectionBase.x + sectionInset.left, y: sectionInset.top)
             
             contentbase = prepareSupplementAttribute(at: section, base: contentbase)
@@ -75,16 +82,16 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             
             let contentY = contentbase.y
             
-            var width = (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)                   // 默认有一屏的宽度
+            var page: CGFloat = itemNum > 0 ? 1 : 0                                                     // 初始化页数,
             
             for row in 0..<itemNum {
                 
                 let index = IndexPath.init(row: row, section: section)
                 
-                contentbase = prepareItemAttribute(at: index, base: contentbase, contentY: contentY, contentWidth: &width)
+                contentbase = prepareItemAttribute(at: index, base: contentbase, contentY: contentY, allPage: &page)
             }
             
-            let frame = CGRect.init(x: sectionBase.x, y: 0, width: width, height: col.bounds.height)
+            let frame = CGRect.init(x: sectionBase.x, y: 0, width: page * pageWidth, height: col.bounds.height)
             
             sectionsRect[section] = frame
             
@@ -100,13 +107,14 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             return base
         }
         
-        let width = CGFloat(maxColumn) * (itemSize.width + minimumInteritemSpacing)                       // 设置supplement的宽度为一屏
-        
         let kind = UICollectionView.elementKindSectionHeader
         
         let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind,
                                                               with: IndexPath.init(row: 0, section: section))
-        attribute.frame = CGRect.init(x: base.x, y: base.y, width: width, height: height)
+        attribute.frame = CGRect.init(x: base.x,
+                                      y: base.y,
+                                      width: pageWidth - sectionInset.left - sectionInset.right,
+                                      height: height)
         
         attribute.zIndex = 9                                                                              // 值越大,视图越靠前
         
@@ -116,7 +124,11 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     }
     
     // 初始化item的frame,由于item的位置是固定不变的,所以后面就不用再处理了
-    private func prepareItemAttribute(at index: IndexPath, base: CGPoint, contentY: CGFloat, contentWidth width: inout CGFloat) -> CGPoint {
+    // 如果内容超过一页,就增加page
+    private func prepareItemAttribute(at index: IndexPath,
+                                      base: CGPoint,
+                                      contentY: CGFloat,
+                                      allPage page: inout CGFloat) -> CGPoint {
         guard let bounds = collectionView?.bounds else {
             return base
         }
@@ -125,11 +137,13 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         if 0 != index.row, 0 == index.row % maxColumn {                                                  // 换行,检查是否需要翻页
             
-            if origin.y + itemSize.height + minimumLineSpacing > bounds.height - sectionInset.bottom {   // 翻页
+            if origin.y + itemSize.height + minimumLineSpacing > bounds.height - contentY {   // 翻页
+            
+                origin.x += (sectionInset.left + sectionInset.right - minimumInteritemSpacing)           // 加上分页的间距: left + right
                 
                 origin.y = contentY
                 
-                width += (itemSize.width + minimumInteritemSpacing) * CGFloat(maxColumn)
+                page += 1
                 
             }else{                                                                                       // 仅仅换行
                 
@@ -158,18 +172,16 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         }
         let size = attribute.frame.size
         
-        let minX = frame.minX + sectionInset.left
+        let minX = frame.minX
         
-        let maxX = frame.maxX - size.width
+        let maxX = frame.maxX - size.width - sectionInset.right
         
-        var x = minX
+        var x = minX + sectionInset.left
         
         if minX <= offsetX, offsetX < maxX {                                                            // 相对分区跟着collectionview滑动
-            
-            x = offsetX
+            x = offsetX + sectionInset.left
             
         }else if offsetX >= maxX {                                                                      // 固定在分区上
-            
             x = maxX
         }
         
