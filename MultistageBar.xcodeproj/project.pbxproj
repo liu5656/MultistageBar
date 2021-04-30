@@ -121,14 +121,12 @@
 		17E1DA6F260C1E3500DCD243 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17E1DA6E260C1E3500DCD243 /* Assets.xcassets */; };
 		17E1DA73260C1E3500DCD243 /* widgetExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 17E1DA66260C1E3400DCD243 /* widgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		17EA39262637B72D00FD38B3 /* MBMenuTest3ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */; };
-		17EA39322637DAF700FD38B3 /* MBHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */; };
 		17EA39382637DF6B00FD38B3 /* MBCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39372637DF6B00FD38B3 /* MBCardCell.swift */; };
 		17EA39492637E0A500FD38B3 /* MBCardHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39472637E0A500FD38B3 /* MBCardHeader.swift */; };
 		17EA394A2637E0A500FD38B3 /* MBCardHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17EA39482637E0A500FD38B3 /* MBCardHeader.xib */; };
-		17EA39562638039B00FD38B3 /* MBSpecialHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */; };
 		17ED904E25FAF8DF003B5283 /* NumberEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ED904D25FAF8DF003B5283 /* NumberEx.swift */; };
 		17F1D2662530349D00721941 /* CornerImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F1D2652530349D00721941 /* CornerImage.swift */; };
-		17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */; };
+		17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout.swift */; };
 		17F691D2255E60C1000CCE89 /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691CF255E60C1000CCE89 /* libcrypto.a */; };
 		17F691D3255E60C1000CCE89 /* librtmp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D0255E60C1000CCE89 /* librtmp.a */; };
 		17F691D4255E60C1000CCE89 /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F691D1255E60C1000CCE89 /* libssl.a */; };
@@ -334,14 +332,12 @@
 		17E1DA6E260C1E3500DCD243 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17E1DA70260C1E3500DCD243 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuTest3ViewController.swift; sourceTree = "<group>"; };
-		17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHorizontalLayout.swift; sourceTree = "<group>"; };
 		17EA39372637DF6B00FD38B3 /* MBCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCardCell.swift; sourceTree = "<group>"; };
 		17EA39472637E0A500FD38B3 /* MBCardHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCardHeader.swift; sourceTree = "<group>"; };
 		17EA39482637E0A500FD38B3 /* MBCardHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MBCardHeader.xib; sourceTree = "<group>"; };
-		17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout.swift; sourceTree = "<group>"; };
 		17ED904D25FAF8DF003B5283 /* NumberEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberEx.swift; sourceTree = "<group>"; };
 		17F1D2652530349D00721941 /* CornerImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornerImage.swift; sourceTree = "<group>"; };
-		17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout2.swift; sourceTree = "<group>"; };
+		17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSpecialHorizontalLayout.swift; sourceTree = "<group>"; };
 		17F6917E255E60C0000CCE89 /* http.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = http.h; sourceTree = "<group>"; };
 		17F6917F255E60C0000CCE89 /* amf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amf.h; sourceTree = "<group>"; };
 		17F69180255E60C0000CCE89 /* log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = log.h; sourceTree = "<group>"; };
@@ -570,9 +566,7 @@
 				17EA39482637E0A500FD38B3 /* MBCardHeader.xib */,
 				17EA39372637DF6B00FD38B3 /* MBCardCell.swift */,
 				17C2E37D2636BA71000136C1 /* MBLinkage.swift */,
-				17EA39312637DAF700FD38B3 /* MBHorizontalLayout.swift */,
-				17EA39552638039B00FD38B3 /* MBSpecialHorizontalLayout.swift */,
-				17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout2.swift */,
+				17F2B4E42639323300CAC432 /* MBSpecialHorizontalLayout.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -1393,7 +1387,6 @@
 			files = (
 				179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */,
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
-				17EA39562638039B00FD38B3 /* MBSpecialHorizontalLayout.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
 				17C2E37E2636BA71000136C1 /* MBLinkage.swift in Sources */,
@@ -1484,11 +1477,10 @@
 				178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */,
 				176FBA9E2604490E00ACE7BB /* MBSortViewController.swift in Sources */,
 				174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */,
-				17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout2.swift in Sources */,
+				17F2B4E52639323300CAC432 /* MBSpecialHorizontalLayout.swift in Sources */,
 				170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */,
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,
-				17EA39322637DAF700FD38B3 /* MBHorizontalLayout.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */,
 				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,

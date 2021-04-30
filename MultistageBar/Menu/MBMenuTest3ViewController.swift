@@ -41,7 +41,7 @@ class MBMenuTest3ViewController: MBViewController {
         return tes
     }()
     lazy var colCV: UICollectionView = {
-        let layout = MBSpecialHorizontalLayout2.init()
+        let layout = MBSpecialHorizontalLayout.init()
         layout.delegate = self
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
         layout.scrollDirection = .horizontal
@@ -112,13 +112,13 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 //}
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
-    func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool {
+    func layout(_: MBSpecialHorizontalLayout, headerIn section: Int) -> Bool {
         if 1 == section % 2 {
             return true
         }
         return false
     }
-    func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
+    func layout(_: MBSpecialHorizontalLayout, refreenceSizeForHeaderIn section: Int) -> CGSize {
         return CGSize.init(width: 0, height: 60)
     }
 }
