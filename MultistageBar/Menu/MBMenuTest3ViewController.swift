@@ -23,21 +23,21 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-        for i in 1...2 {
-            var temp: [String] = []
-            for j in 0..<25 {
-                temp.append("\(i)-\(j)")
-            }
-            tes.append(temp)
-        }
-//        for i in 1...31 {
+//        for i in 1...2 {
 //            var temp: [String] = []
-//            var num = 5
-//            for j in 0..<i {
+//            for j in 0..<25 {
 //                temp.append("\(i)-\(j)")
 //            }
 //            tes.append(temp)
 //        }
+        for i in 1...31 {
+            var temp: [String] = []
+            var num = 5
+            for j in 0..<i {
+                temp.append("\(i)-\(j)")
+            }
+            tes.append(temp)
+        }
         return tes
     }()
     lazy var colCV: UICollectionView = {
@@ -68,7 +68,7 @@ class MBMenuTest3ViewController: MBViewController {
         
         let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: layout)
         col.backgroundColor = UIColor.gray
-//        col.isPagingEnabled = true
+        col.isPagingEnabled = true
 //        col.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         col.register(MBCardCell.classForCoder(), forCellWithReuseIdentifier: cardCellIdentify)
         col.register(UINib.init(nibName: "MBCardHeader", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cardHeaderIdentify)
@@ -129,7 +129,7 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
 
 extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
     func layout(_: MBSpecialHorizontalLayout2, headerIn section: Int) -> Bool {
-        if 0 == section {
+        if 1 == section % 2 {
             return true
         }
         return false

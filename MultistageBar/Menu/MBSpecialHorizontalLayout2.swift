@@ -49,10 +49,11 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     var minimumInteritemSpacing: CGFloat = 10
     
     weak var delegate: MBSpecialHorizontalLayoutDelegate?
-    private var pageWidth: CGFloat = 0                              // inset.left + contnt + inset.right
-    private var maxColumn: Int = 0                                  // 一屏最多展示多少列
-    private var attributes: [UICollectionViewLayoutAttributes] = [] // 保存所有的attribute(item,cupplement,decornate)
-    private var sectionsRect: [Int: CGRect] = [:]                   // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
+    private var pageWidth: CGFloat = 0                                                      // inset.left + contnt + inset.right
+    private var maxColumn: Int = 0                                                          // 一屏最多展示多少列
+    private var itemAttributes: [IndexPath: UICollectionViewLayoutAttributes] = [:]         // 保存所有的item的attribute
+    private var supplementAttributes: [Int: UICollectionViewLayoutAttributes] = [:]         // 保存所有的supplement的attribute
+    private var sectionsRect: [Int: CGRect] = [:]                                           // 保存每个分区的size,宽度:左边距 + 中间部分 + 右边距,高度:上边距 + 中间部分 + 下边距
     
     // 创建并初始化collectionView的所有内容(item,supplement,decornate)
     override func prepare() {
@@ -60,8 +61,6 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         guard let col = collectionView else {
             return
         }
-        
-        attributes.removeAll()
         
         maxColumn = Int((col.bounds.width + minimumInteritemSpacing) / (itemSize.width + minimumInteritemSpacing))
         
@@ -111,8 +110,13 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         let kind = UICollectionView.elementKindSectionHeader
         
-        let attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind,
+        let attribute: UICollectionViewLayoutAttributes
+        if let temp = supplementAttributes[section] {
+            attribute = temp
+        }else{
+            attribute = UICollectionViewLayoutAttributes.init(forSupplementaryViewOfKind: kind,
                                                               with: IndexPath.init(row: 0, section: section))
+        }
         attribute.frame = CGRect.init(x: base.x,
                                       y: base.y,
                                       width: pageWidth - sectionInset.left - sectionInset.right,
@@ -120,7 +124,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         attribute.zIndex = 9                                                                              // 值越大,视图越靠前
         
-        attributes.append(attribute)
+        supplementAttributes[section] = attribute
         
         return CGPoint.init(x: base.x, y: attribute.frame.maxY)
     }
@@ -159,7 +163,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         attribute.frame = CGRect.init(origin: origin, size: itemSize)
         
-        attributes.append(attribute)
+        itemAttributes[index] = attribute
         
         origin.x += itemSize.width + minimumLineSpacing                                                 // 指向下一个item
         
@@ -184,7 +188,6 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         }else{
             x = offsetX + sectionInset.left
         }
-        
         attribute.frame = CGRect.init(origin: CGPoint.init(x: x, y: frame.origin.y), size: size)
     }
     
@@ -203,14 +206,15 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     // 由于item的位置不变,所以不用再处理;
     // supplement由于要悬浮固定在分区左上角,所以需要再处理一次
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        var temp = attributes
-            .filter({$0.frame.intersects(rect)})                                                            // 相交过滤在rect范围内的attribute
-        if let first = attributes.first, temp.contains(where: {$0 == first}) == false {
-            temp.append(first)
-        }
-        temp
-            .filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
-            .forEach(prepareSupplement(attribute:))                                                         // 对所有的supplement视图进行处理
+
+        // 相交过滤在rect范围内的attribute
+        var temp = itemAttributes.values.filter({$0.frame.intersects(rect)})
+        
+        supplementAttributes.values.forEach(prepareSupplement(attribute:))                  // 对所有的supplement视图进行处理
+        
+        let supplement = supplementAttributes.values.filter({$0.frame.intersects(rect)})
+        temp.append(contentsOf: supplement)
+ 
         return temp
     }
     
