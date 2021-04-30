@@ -25,7 +25,7 @@ class MBMenuTest3ViewController: MBViewController {
         var tes: [[String]] = []
         for i in 1...2 {
             var temp: [String] = []
-            for j in 0..<15 {
+            for j in 0..<25 {
                 temp.append("\(i)-\(j)")
             }
             tes.append(temp)

@@ -201,8 +201,11 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     // 由于item的位置不变,所以不用再处理;
     // supplement由于要悬浮固定在分区左上角,所以需要再处理一次
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
-        let temp = attributes
+        var temp = attributes
             .filter({$0.frame.intersects(rect)})                                                            // 相交过滤在rect范围内的attribute
+        if let first = attributes.first, temp.contains(where: {$0 == first}) == false {
+            temp.append(first)
+        }
         temp
             .filter({$0.representedElementCategory == UICollectionView.ElementCategory.supplementaryView})
             .forEach(prepareSupplement(attribute:))                                                         // 对所有的supplement视图进行处理
