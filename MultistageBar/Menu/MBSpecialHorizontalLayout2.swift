@@ -58,9 +58,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     // 创建并初始化collectionView的所有内容(item,supplement,decornate)
     override func prepare() {
         super.prepare()
-        guard let col = collectionView else {
-            return
-        }
+        guard let col = collectionView else {return}
         
         maxColumn = Int((col.bounds.width + minimumInteritemSpacing) / (itemSize.width + minimumInteritemSpacing))
         
@@ -77,7 +75,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
             
             var contentbase = CGPoint.init(x: sectionBase.x + sectionInset.left, y: sectionInset.top)
             
-            contentbase = prepareSupplementAttribute(at: section, base: contentbase)
+            contentbase = prepareSupplementAttribute(at: section, base: contentbase)                    // 先添加supplement
             
             let itemNum = col.numberOfItems(inSection: section)
             
@@ -89,14 +87,17 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
                 
                 let index = IndexPath.init(row: row, section: section)
                 
-                contentbase = prepareItemAttribute(at: index, base: contentbase, contentY: contentY, allPage: &page)
+                contentbase = prepareItemAttribute(at: index,                                           // 添加item
+                                                   base: contentbase,
+                                                   contentY: contentY,
+                                                   allPage: &page)
             }
             
             let frame = CGRect.init(x: sectionBase.x, y: 0, width: page * pageWidth, height: col.bounds.height)
             
             sectionsRect[section] = frame
             
-            sectionBase = CGPoint.init(x: frame.maxX, y: 0)
+            sectionBase = CGPoint.init(x: frame.maxX, y: 0)                                             // base到下一个分区的左上角
         }
     }
     
@@ -135,15 +136,13 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
                                       base: CGPoint,
                                       contentY: CGFloat,
                                       allPage page: inout CGFloat) -> CGPoint {
-        guard let bounds = collectionView?.bounds else {
-            return base
-        }
+        guard let bounds = collectionView?.bounds else {return base}
         
         var origin = base
         
         if 0 != index.row, 0 == index.row % maxColumn {                                                  // 换行,检查是否需要翻页
             
-            if origin.y + itemSize.height + minimumLineSpacing > bounds.height - contentY {   // 翻页
+            if origin.y + itemSize.height + minimumLineSpacing > bounds.height - contentY {              // 翻页
             
                 origin.x += (sectionInset.left + sectionInset.right - minimumInteritemSpacing)           // 加上分页的间距: left + right
                 
@@ -165,7 +164,7 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
         
         itemAttributes[index] = attribute
         
-        origin.x += itemSize.width + minimumLineSpacing                                                 // 指向下一个item
+        origin.x += itemSize.width + minimumLineSpacing                                                  // 指向下一个item
         
         return origin
     }
@@ -207,12 +206,12 @@ class MBSpecialHorizontalLayout2: UICollectionViewLayout {
     // supplement由于要悬浮固定在分区左上角,所以需要再处理一次
     override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
 
-        // 相交过滤在rect范围内的attribute
-        var temp = itemAttributes.values.filter({$0.frame.intersects(rect)})
+        var temp = itemAttributes.values.filter({$0.frame.intersects(rect)})                // 过滤item
         
         supplementAttributes.values.forEach(prepareSupplement(attribute:))                  // 对所有的supplement视图进行处理
         
-        let supplement = supplementAttributes.values.filter({$0.frame.intersects(rect)})
+        let supplement = supplementAttributes.values.filter({$0.frame.intersects(rect)})    // 过滤supplment
+        
         temp.append(contentsOf: supplement)
  
         return temp

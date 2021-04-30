@@ -43,28 +43,12 @@ class MBMenuTest3ViewController: MBViewController {
     lazy var colCV: UICollectionView = {
         let layout = MBSpecialHorizontalLayout2.init()
         layout.delegate = self
-//        layout.headerReferenceSize = CGSize.init(width: 300, height: 60)
-//        let layout = MBHorizontalLayout.init()
-//        let layout2 = UICollectionViewFlowLayout.init()
-//        layout2.headerReferenceSize
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
         layout.scrollDirection = .horizontal
         layout.minimumLineSpacing = 10
         layout.minimumInteritemSpacing = 10
         let width = (360 - 10 - 10 * 4 - 10) / 5
         layout.itemSize = CGSize.init(width: width, height: 60)
-        
-        
-//        layout.sectionHeadersPinToVisibleBounds = true
-//        layout.sectionFootersPinToVisibleBounds = true
-        
-//        layout.scrollDirection = .horizontal
-//        let margin: CGFloat = 20
-//        let itemW: CGFloat = (Screen.width - margin * 6) / 5
-//        layout.minimumLineSpacing = margin
-//        layout.minimumInteritemSpacing = 14
-//        layout.itemSize = CGSize(width: itemW, height: 60)
-//        layout.sectionInset = UIEdgeInsets(top: 5, left: margin, bottom: 0, right: margin)
         
         let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: layout)
         col.backgroundColor = UIColor.gray
@@ -135,10 +119,7 @@ extension MBMenuTest3ViewController: MBSpecialHorizontalLayoutDelegate {
         return false
     }
     func layout(_: MBSpecialHorizontalLayout2, refreenceSizeForHeaderIn section: Int) -> CGSize {
-//        if 1 == section % 2 {
-            return CGSize.init(width: 0, height: 60)
-//        }
-//        return CGSize.zero
+        return CGSize.init(width: 0, height: 60)
     }
 }
 
