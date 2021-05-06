@@ -35,13 +35,13 @@ class MBMenuTest3ViewController: MBViewController {
     
     lazy var datas: [[String]] = {
         var tes: [[String]] = []
-//        for i in 1...2 {
-//            var temp: [String] = []
-//            for j in 0..<25 {
-//                temp.append("\(i)-\(j)")
-//            }
-//            tes.append(temp)
-//        }
+//                for i in 1...2 {
+//                    var temp: [String] = []
+//                    for j in 0..<25 {
+//                        temp.append("\(i)-\(j)")
+//                    }
+//                    tes.append(temp)
+//                }
         for i in 1...31 {
             var temp: [String] = []
             var num = 5
@@ -72,22 +72,32 @@ class MBMenuTest3ViewController: MBViewController {
         return layout
     }()
     lazy var horizontal: MBSpecialHorizontalLayout = {
+        //        let layout = MBSpecialHorizontalLayout.init()
+        //        layout.delegate = self
+        //        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
+        //        layout.scrollDirection = .horizontal
+        //        layout.minimumLineSpacing = 10
+        //        layout.minimumInteritemSpacing = 10
+        //        let width = (360 - 10 - 10 * 4 - 10) / 5
+        //        layout.itemSize = CGSize.init(width: width, height: 60)
+        
         let layout = MBSpecialHorizontalLayout.init()
         layout.delegate = self
-        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
-        layout.scrollDirection = .horizontal
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 10
-        let width = (360 - 10 - 10 * 4 - 10) / 5
-        layout.itemSize = CGSize.init(width: width, height: 60)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 26, bottom: 0, right: 26)
+//        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 6
+        layout.minimumInteritemSpacing = 30
+        let itemW = (Screen.width - 26 - 4 * 30 - 26) / 5
+        layout.itemSize = CGSize(width: itemW, height: 54)
         return layout
     }()
     
     lazy var colCV: UICollectionView = {
-        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: horizontal)
+        //        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: horizontal)
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: Screen.width, height: 174), collectionViewLayout: horizontal)
         col.backgroundColor = UIColor.gray
         col.isPagingEnabled = true
-//        col.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
+        //        col.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
         col.register(MBCardCell.classForCoder(), forCellWithReuseIdentifier: cardCellIdentify)
         col.register(UINib.init(nibName: "MBCardHeader", bundle: Bundle.main), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cardHeaderIdentify)
         col.showsVerticalScrollIndicator = false
@@ -122,7 +132,7 @@ extension MBMenuTest3ViewController: UICollectionViewDelegate, UICollectionViewD
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let supplement = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: cardHeaderIdentify, for: indexPath)
-//        MBLog(indexPath)
+        //        MBLog(indexPath)
         if let temp = supplement as? MBCardHeader {
             temp.title.text = "card header \(indexPath.section)"
         }

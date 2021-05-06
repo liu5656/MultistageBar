@@ -45,7 +45,7 @@ class MBSpecialHorizontalLayout: UICollectionViewLayout {
     var scrollDirection: UICollectionView.ScrollDirection = .horizontal
     var itemSize: CGSize = .zero
     var sectionInset: UIEdgeInsets = .zero
-    var minimumLineSpacing: CGFloat = 10
+    var minimumLineSpacing: CGFloat = 10        // 行间距
     var minimumInteritemSpacing: CGFloat = 10
     
     weak var delegate: MBSpecialHorizontalLayoutDelegate?
@@ -142,7 +142,7 @@ class MBSpecialHorizontalLayout: UICollectionViewLayout {
         
         if 0 != index.row, 0 == index.row % maxColumn {                                                  // 换行,检查是否需要翻页
             
-            if origin.y + itemSize.height + minimumLineSpacing > bounds.height - contentY {              // 翻页
+            if origin.y + itemSize.height + minimumLineSpacing > bounds.height {              // 翻页
             
                 origin.x += (sectionInset.left + sectionInset.right - minimumInteritemSpacing)           // 加上分页的间距: left + right
                 
@@ -164,7 +164,7 @@ class MBSpecialHorizontalLayout: UICollectionViewLayout {
         
         itemAttributes[index] = attribute
         
-        origin.x += itemSize.width + minimumLineSpacing                                                  // 指向下一个item
+        origin.x += itemSize.width + minimumInteritemSpacing                                                  // 指向下一个item
         
         return origin
     }
