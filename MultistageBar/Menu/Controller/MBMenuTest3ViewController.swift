@@ -10,11 +10,23 @@ import UIKit
 
 class MBMenuTest3ViewController: MBViewController {
     
+    @objc func mb_rightAction(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        if sender.isSelected {
+            colCV.collectionViewLayout = common
+        }else{
+            colCV.collectionViewLayout = horizontal
+        }
+        colCV.reloadData()
+    }
+    
     // life circle
     override func viewDidLoad() {
         super.viewDidLoad()
         _ = colCV
+        _ = rightB
     }
+    
     
     // porperties
     let cardCellIdentify: String = "specialOneIdentify"
@@ -40,7 +52,26 @@ class MBMenuTest3ViewController: MBViewController {
         }
         return tes
     }()
-    lazy var colCV: UICollectionView = {
+    lazy var rightB: UIButton = {
+        let but = UIButton.init(type: .custom)
+        but.setTitleColor(UIColor.black, for: .normal)
+        but.frame = CGRect.init(x: 0, y: 0, width: 30, height: 40)
+        but.setTitle("切换layout", for: .normal)
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(customView: but)
+        but.addTarget(self, action: #selector(mb_rightAction(sender:)), for: .touchUpInside)
+        return but
+    }()
+    lazy var common: UICollectionViewFlowLayout = {
+        let layout = UICollectionViewFlowLayout.init()
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 10
+        layout.minimumInteritemSpacing = 10
+        let width = (360 - 10 - 10 * 4 - 10) / 5
+        layout.itemSize = CGSize.init(width: width, height: 60)
+        return layout
+    }()
+    lazy var horizontal: MBSpecialHorizontalLayout = {
         let layout = MBSpecialHorizontalLayout.init()
         layout.delegate = self
         layout.sectionInset = UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right:10)
@@ -49,8 +80,11 @@ class MBMenuTest3ViewController: MBViewController {
         layout.minimumInteritemSpacing = 10
         let width = (360 - 10 - 10 * 4 - 10) / 5
         layout.itemSize = CGSize.init(width: width, height: 60)
-        
-        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: layout)
+        return layout
+    }()
+    
+    lazy var colCV: UICollectionView = {
+        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: horizontal)
         col.backgroundColor = UIColor.gray
         col.isPagingEnabled = true
 //        col.contentInset = UIEdgeInsets.init(top: 0, left: 20, bottom: 0, right: 20)
