@@ -19,7 +19,7 @@ class MBOrderMenuTestController: MBViewController {
         ("一次性展示全部分区", MBMenuTest1Controller.classForCoder()),
         ("一次显示一个分区", MBMenuTest2Controller.classForCoder()),
         ("分类菜单", MBMenuTest3ViewController.classForCoder()),
-        ("分类菜单2", MBMenuTest4ViewController.classForCoder())
+        ("仿美团点餐分类菜单", MBMenuTest4ViewController.classForCoder())
     ]
     
     let identify = "cellIdentify"
