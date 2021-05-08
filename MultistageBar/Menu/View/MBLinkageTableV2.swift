@@ -26,19 +26,29 @@ class MBLinkageTableV2: UIView {
     lazy var left: UITableView = {
         let tab = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: bounds.height))
         tab.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leftIdentify)
-        tab.isScrollEnabled = false
+//        tab.isScrollEnabled = false
         tab.dataSource = self
+        tab.delegate = self
         addSubview(tab)
         return tab
     }()
     let rightIdentify = "rightIdentify"
     lazy var right: UITableView = {
-        let tab = UITableView.init(frame: CGRect.init(x: left.frame.maxX + 10, y: 0, width: Screen.width - left.frame.maxX - 20, height: bounds.height))
+        let temp = CGRect.init(x: left.frame.maxX + 10, y: 0, width: Screen.width - left.frame.maxX - 20, height: bounds.height)
+        let tab = UITableView.init(frame: temp, style: .plain)
         tab.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: rightIdentify)
         tab.isScrollEnabled = false
         tab.dataSource = self
+        tab.delegate = self
         addSubview(tab)
         return tab
+    }()
+    lazy var sectionHeader: UILabel = {
+        let lab = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 44))
+        lab.textColor = UIColor.red
+        lab.font = UIFont.systemFont(ofSize: 15, weight: .regular)
+        lab.text = "热门精选"
+        return lab
     }()
 
 }
@@ -48,7 +58,7 @@ extension MBLinkageTableV2: UITableViewDataSource {
         if left == tableView {
             return 20
         }else{
-            return 100
+            return 30
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -61,5 +71,32 @@ extension MBLinkageTableV2: UITableViewDataSource {
             cell.textLabel?.text = "right:\(indexPath.row)"
         }
         return cell
+    }
+}
+extension MBLinkageTableV2: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if tableView == left {
+            // 切换数据,刷新界面
+            sectionHeader.text = "热门精选\(indexPath.row)"
+            right.contentOffset = CGPoint.zero
+            right.reloadData()
+        }else{
+            // 业务逻辑
+        }
+        MBLog(indexPath)
+    }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if tableView == right {
+            return sectionHeader
+        }else{
+            return nil
+        }
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if tableView == right {
+            return 44
+        }else{
+            return 0
+        }
     }
 }

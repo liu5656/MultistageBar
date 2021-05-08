@@ -26,23 +26,15 @@ class MBMenuTest4ViewController: MBViewController {
         super.viewDidLoad()
         _ = table
         _ = pan
-        animator = UIDynamicAnimator.init(referenceView: table)
+        _ = animator
     }
     
     var currentScorllY: CGFloat = 0
-    
-    var animator: UIDynamicAnimator!
     var dynamicItem = LJDynamicItem.init()
     var decelerationBehavior: UIDynamicItemBehavior?
-    private func rubberBandDistance(offset: CGFloat, dimension: CGFloat) -> CGFloat {
-        let constant: CGFloat = 0.55
-        let result = (constant * fabs(offset) * dimension) / (dimension + constant * fabs(offset));
-        // The algorithm expects a positive offset, so we have to negate the result if the offset was negative.
-        return offset < 0 ? -result : result
-    }
+    
     @objc func gesture(pan: UIPanGestureRecognizer) {
         let point = pan.translation(in: table)
-        MBLog(" ---- \(point)")
         switch pan.state {
         case .began:
             currentScorllY = table.contentOffset.y
@@ -63,97 +55,38 @@ class MBMenuTest4ViewController: MBViewController {
             }
             animator.addBehavior(behavior)
             decelerationBehavior = behavior
+        break
         default:
             break
         }
         pan.setTranslation(CGPoint.zero, in: view)
     }
     
-    
-    
+    // detal > 0 向下滑动; detal < 0 向上滑动
     func verticalHandler(detal: CGFloat, state: UIGestureRecognizer.State) {
-        //判断是主ScrollView滚动还是子ScrollView滚动,detal为手指移动的距离
-        if table.contentOffset.y >= maxY {
-            var offsetY = footer.right.contentOffset.y - detal
-            if offsetY < 0 {
-                offsetY = 0
-                table.contentOffset = CGPoint.init(x: table.frame.origin.x, y: table.contentOffset.y - detal)
-            }else if offsetY > (footer.right.contentSize.height - footer.right.bounds.height) {
-                offsetY = footer.right.contentOffset.y - rubberBandDistance(offset: detal, dimension: table.bounds.height)
-            }
-            table.contentOffset = CGPoint.init(x: 0, y: offsetY)
+        // 未超出最大值,仅改变父容器的offset
+        if table.contentOffset.y < maxY {
+            table.contentOffset = CGPoint.init(x: 0, y: max(table.contentOffset.y - detal, 0))
         }else{
-            if footer.right.contentOffset.y != 0 && detal >= 0 {
-                var offsetY = footer.right.contentOffset.y - detal
-                if offsetY < 0 {
-                    offsetY = 0
-                    table.contentOffset = CGPoint.init(x: table.frame.origin.x, y: table.contentOffset.y - detal)
-                }else if offsetY > (footer.right.contentSize.height - footer.right.bounds.height) {
-                    offsetY = footer.right.contentOffset.y - rubberBandDistance(offset: detal, dimension: table.bounds.height)
-                }
-                footer.right.contentOffset = CGPoint.init(x: 0, y: offsetY)
+            // 超出最大值,固定父容器最大值为maxY,同时修改子视图的offset
+            // 子视图的offset.y加上偏移量detal,由于detal向上滑为负,向下滑为正,所以这边不用判断,直接减去detal,
+            // 达到向上增加detal的绝对值,向下减少detal的绝对值效果
+            // 防止right超出上边界
+            var sety = max(0, footer.right.contentOffset.y - detal)
+            if sety + footer.right.bounds.height > footer.right.contentSize.height {
+                // 防止right超出下边界
+                sety = max(footer.right.contentSize.height - footer.right.bounds.height, 0)
+            }
+            let offset = CGPoint.init(x: footer.right.contentOffset.x, y: sety)
+            footer.right.contentOffset = offset
+            // 向下拉至right.contentoffset.y == 0时,修改table的y值
+            if sety == 0, detal > 0 {
+                table.contentOffset = CGPoint.init(x: 0, y: maxY - detal)
             }else{
-                var mainOffsetY = table.contentOffset.y - detal;
-                if (mainOffsetY < 0) {
-                    //滚到顶部之后继续往上滚动需要乘以一个小于1的系数
-                    mainOffsetY = table.contentOffset.y - rubberBandDistance(offset: detal, dimension: table.bounds.height);
-                    
-                } else if (mainOffsetY > maxY) {
-                    mainOffsetY = maxY;
-                }
-                table.contentOffset = CGPoint.init(x: table.frame.origin.x, y: mainOffsetY)
-                if (mainOffsetY == 0) {
-                    footer.right.contentOffset = CGPoint.zero
-                }
+                table.contentOffset = CGPoint.init(x: 0, y: maxY)
             }
         }
-        
-        
-//        BOOL outsideFrame = self.contentOffset.y < 0 || self.subTableView.contentOffset.y > (self.subTableView.contentSize.height - self.subTableView.frame.size.height);
-//        BOOL isMore = self.subTableView.contentSize.height >= self.subTableView.frame.size.height || self.contentOffset.y >= _maxOffset_Y||self.contentOffset.y < 0 ;
-//        if (isMore && outsideFrame && (self.decelerationBehavior && !self.springBehavior)) {
-//            CGPoint target = CGPointZero;
-//            BOOL isMian = NO;
-//            if (self.contentOffset.y < 0) {
-//                self.dynamicItem.center = self.contentOffset;
-//                target = CGPointZero;
-//                isMian = YES;
-//            } else if (self.subTableView.contentOffset.y > (self.subTableView.contentSize.height - self.subTableView.frame.size.height)) {
-//                self.dynamicItem.center = self.subTableView.contentOffset;
-//
-//                target = CGPointMake(self.subTableView.contentOffset.x, (self.subTableView.contentSize.height - self.subTableView.frame.size.height));
-//                //********判断tableview的contentsize.height是否大于自身高度，从而控制滚动/
-//                if (self.subTableView.contentSize.height <= self.subTableView.frame.size.height) {
-//                    target = CGPointMake(self.subTableView.contentOffset.x,0);
-//                }
-//                isMian = NO;
-//            }
-//            [self.animator removeBehavior:self.decelerationBehavior];
-//            __weak typeof(self) weakSelf = self;
-//            UIAttachmentBehavior *springBehavior = [[UIAttachmentBehavior alloc] initWithItem:self.dynamicItem attachedToAnchor:target];
-//            springBehavior.length = 0;
-//            springBehavior.damping = 1;
-//            springBehavior.frequency = 2;
-//            springBehavior.action = ^{
-//                if (isMian) {
-//                    weakSelf.contentOffset = weakSelf.dynamicItem.center;
-//                    if (weakSelf.contentOffset.y == 0) {
-//                        self.subTableView.contentOffset = CGPointMake(0, 0);
-//                    }
-//                } else {
-//
-//                    weakSelf.subTableView.contentOffset = self.dynamicItem.center;
-//                }
-//            };
-//            [self.animator addBehavior:springBehavior];
-//            self.springBehavior = springBehavior;
-//        }
     }
-    
-    
-    
-    
-    
     
     let maxY: CGFloat = 220
     let identify = "cell"
@@ -167,16 +100,18 @@ class MBMenuTest4ViewController: MBViewController {
         return tab
     }()
     lazy var footer: MBLinkageTableV2 = {
-        let foo = MBLinkageTableV2.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: 880 ))
+        let foo = MBLinkageTableV2.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: 660 ))
         return foo
     }()
-    
     lazy var pan: UIPanGestureRecognizer = {
         let ges = UIPanGestureRecognizer.init(target: self, action: #selector(gesture(pan:)))
         view.addGestureRecognizer(ges)
         return ges
     }()
-
+    lazy var animator: UIDynamicAnimator = {
+        let temp = UIDynamicAnimator.init(referenceView: table)
+        return temp
+    }()
 }
 
 extension MBMenuTest4ViewController: UITableViewDataSource {
