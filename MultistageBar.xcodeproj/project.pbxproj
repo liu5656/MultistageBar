@@ -63,8 +63,6 @@
 		176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176FBA9D2604490E00ACE7BB /* MBSortViewController.xib */; };
 		1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C061255103C9001E14C7 /* MBCoordination.swift */; };
 		1778C06725510509001E14C7 /* MBDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C06625510509001E14C7 /* MBDistance.swift */; };
-		177A1453264541230012F1DC /* MBMenuTest4ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A1452264541230012F1DC /* MBMenuTest4ViewController.swift */; };
-		177A14592645418A0012F1DC /* MBLinkageTableV2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177A14582645418A0012F1DC /* MBLinkageTableV2.swift */; };
 		1783147F26033D1900286049 /* MBGLSLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1783147E26033D1900286049 /* MBGLSLViewController.m */; };
 		1783148426033DC400286049 /* glsl.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 1783148326033DC400286049 /* glsl.vsh */; };
 		1783148926033E6000286049 /* glsl.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 1783148826033E6000286049 /* glsl.fsh */; };
@@ -255,8 +253,6 @@
 		176FBA9D2604490E00ACE7BB /* MBSortViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MBSortViewController.xib; sourceTree = "<group>"; };
 		1778C061255103C9001E14C7 /* MBCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCoordination.swift; sourceTree = "<group>"; };
 		1778C06625510509001E14C7 /* MBDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistance.swift; sourceTree = "<group>"; };
-		177A1452264541230012F1DC /* MBMenuTest4ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuTest4ViewController.swift; sourceTree = "<group>"; };
-		177A14582645418A0012F1DC /* MBLinkageTableV2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBLinkageTableV2.swift; sourceTree = "<group>"; };
 		1783147D26033D1900286049 /* MBGLSLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBGLSLViewController.h; sourceTree = "<group>"; };
 		1783147E26033D1900286049 /* MBGLSLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBGLSLViewController.m; sourceTree = "<group>"; };
 		1783148326033DC400286049 /* glsl.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = glsl.vsh; sourceTree = "<group>"; };
@@ -589,7 +585,6 @@
 			isa = PBXGroup;
 			children = (
 				17C2E3772636B2FB000136C1 /* MBLinkageTable.swift */,
-				177A14582645418A0012F1DC /* MBLinkageTableV2.swift */,
 				170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */,
 				17EA39372637DF6B00FD38B3 /* MBCardCell.swift */,
 				17EA39472637E0A500FD38B3 /* MBCardHeader.swift */,
@@ -605,7 +600,6 @@
 				178739932635664A003E7362 /* MBMenuTest1Controller.swift */,
 				178739B1263569A2003E7362 /* MBMenuTest2Controller.swift */,
 				17EA39252637B72D00FD38B3 /* MBMenuTest3ViewController.swift */,
-				177A1452264541230012F1DC /* MBMenuTest4ViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1448,14 +1442,12 @@
 				17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */,
 				179F4D48254906020051E69D /* AES.swift in Sources */,
 				17DDD17B255D174C00B0FBB1 /* AMFDataTypes.swift in Sources */,
-				177A1453264541230012F1DC /* MBMenuTest4ViewController.swift in Sources */,
 				17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */,
 				17B87A3825663DEF00100BA4 /* DataProvider.swift in Sources */,
 				17DA1F54260195A1000A649F /* CommonFile.swift in Sources */,
 				179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */,
 				17C199D0254BF2DE006BE61A /* RSA.swift in Sources */,
 				173844C0260826E300F5E3C0 /* MBWebView.swift in Sources */,
-				177A14592645418A0012F1DC /* MBLinkageTableV2.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
 				179DCBB125F9FBF600AC64C2 /* L!PlayerPreview.swift in Sources */,

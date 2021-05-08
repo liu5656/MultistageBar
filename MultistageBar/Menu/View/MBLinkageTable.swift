@@ -30,8 +30,6 @@ class MBLinkageTable: UIScrollView {
         delegate = self
         contentSize = CGSize.init(width: bounds.width, height: bounds.height + topY)
     }
-    
-    
     weak var headerDelegate: MBLinkageTableDelegate?
     var topOffset: CGFloat = 0
     private var headerHeight: CGFloat = 0
