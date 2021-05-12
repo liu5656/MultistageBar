@@ -67,8 +67,9 @@ class ProgressViewController: UIViewController {
         // 遮罩路径
         let maskPath = UIBezierPath.init(arcCenter: CGPoint.init(x: 50, y: 50), radius: 50, startAngle: 0, endAngle: CGFloat(Double.pi / 4), clockwise: true)
 
-        // 遮罩mask就是layer上的一层layer，于普通的layer层不同的是，mask是不会显示在界面上的，通过自身的路径来确定遮罩部分.
+        // 遮罩mask就是layer上的一层layer，于普通的layer层不同的是，mask是不会显示在界面上的，通过自身的透明度来确定遮罩部分.
         let mask = CAShapeLayer.init()
+        mask.opacity = 0
 //        mask.fillColor = UIColor.yellow.cgColor
         mask.strokeColor = UIColor.green.cgColor
         mask.lineCap = .round
