@@ -71,7 +71,7 @@ class ProgressViewController: UIViewController {
         let mask = CAShapeLayer.init()
         mask.opacity = 0
 //        mask.fillColor = UIColor.yellow.cgColor
-        mask.strokeColor = UIColor.green.cgColor
+        mask.strokeColor = UIColor.green.cgColor        // 需要设置,否则弧形不完整
         mask.lineCap = .round
         mask.lineWidth = temp.lineWidth
         mask.path = maskPath.cgPath
