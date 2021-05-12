@@ -107,6 +107,7 @@ class SliderProgress: ProgressView {
         case .ended, .cancelled:
             let ratio = centerX / bounds.width
             progressLayer.strokeEnd = ratio
+            MBLog("touch change: ratio:\(ratio)")
             sliderCallback?(ratio)
             dragging = false
         default:

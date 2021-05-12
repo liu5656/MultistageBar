@@ -65,7 +65,7 @@ class MBSpecialHorizontalLayout: UICollectionViewLayout {
         let sectionNum = col.numberOfSections
         
         var sectionBase: CGPoint = .zero                                                                  // section区域的左上角
-        
+        itemAttributes.removeAll()
         for section in 0..<sectionNum {
             
             pageWidth = sectionInset.left
