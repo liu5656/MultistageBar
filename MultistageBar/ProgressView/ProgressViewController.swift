@@ -58,7 +58,7 @@ class ProgressViewController: UIViewController {
     lazy var annulus: ProgressView = {
         let path = UIBezierPath.init(arcCenter: CGPoint.init(x: 50, y: 50), radius: 50, startAngle: 0, endAngle: CGFloat(Double.pi * 2), clockwise: true)
         
-        let temp = ProgressView.init(frame: CGRect.init(x: circleProgress.frame.maxX + 30, y: circleProgress.frame.minY, width: 100, height: 100), path: path)
+        let temp = ProgressView.init(frame: CGRect.init(x: circleProgress.frame.maxX + 30, y: circleProgress.frame.minY, width: 100, height: 100), path: path, lineWidth: 8)
         temp.backColor = UIColor.red
         temp.strokeColor = UIColor.blue
         temp.ss_setup(progress: 1, background: 1)
@@ -69,8 +69,9 @@ class ProgressViewController: UIViewController {
 
         // 遮罩mask就是layer上的一层layer，于普通的layer层不同的是，mask是不会显示在界面上的，通过自身的路径来确定遮罩部分.
         let mask = CAShapeLayer.init()
-        mask.fillColor = UIColor.yellow.cgColor
+//        mask.fillColor = UIColor.yellow.cgColor
         mask.strokeColor = UIColor.green.cgColor
+        mask.lineCap = .round
         mask.lineWidth = temp.lineWidth
         mask.path = maskPath.cgPath
         temp.progressLayer.mask = mask
