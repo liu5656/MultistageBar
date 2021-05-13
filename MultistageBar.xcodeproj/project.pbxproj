@@ -17,6 +17,7 @@
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
 		170BA9F325E48F7E0028DCB2 /* MBOrderMenuTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */; };
 		170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */; };
+		170CB87F264BDD220006E950 /* MBEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CB87E264BDD220006E950 /* MBEyeViewController.swift */; };
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
@@ -207,6 +208,7 @@
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBOrderMenuTestController.swift; sourceTree = "<group>"; };
 		170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuItemCell.swift; sourceTree = "<group>"; };
+		170CB87E264BDD220006E950 /* MBEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEyeViewController.swift; sourceTree = "<group>"; };
 		1714BDB525357AB100105924 /* ImageRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieve.swift; sourceTree = "<group>"; };
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 				170566162452B08D00A7AF4B /* AppDelegate.swift */,
 				170566182452B08D00A7AF4B /* SceneDelegate.swift */,
 				1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */,
+				170CB87E264BDD220006E950 /* MBEyeViewController.swift */,
 				178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */,
 				175CC49925345A27006465AC /* MBViewController.swift */,
 				17C199DA254C18DC006BE61A /* MBTableView.swift */,
@@ -1464,6 +1467,7 @@
 				1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */,
 				173844D52608935F00F5E3C0 /* DictionaryEx.swift in Sources */,
 				173B7EBF255AC6A200BCB451 /* MBDecoder.swift in Sources */,
+				170CB87F264BDD220006E950 /* MBEyeViewController.swift in Sources */,
 				179702D52531BB4900BCD88F /* MBCornerImageViewController.swift in Sources */,
 				1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */,
 				175CC482253449F3006465AC /* LocationManager.swift in Sources */,

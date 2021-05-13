@@ -60,6 +60,7 @@ class InitialViewController: UIViewController {
         (MBMultistageViewController.classForCoder(), "多级菜单"),
         (SignInAppleViewController.classForCoder(), "苹果登录"),
         (JSONViewController.classForCoder(), "json<->模型"),
+        (MBEyeViewController.classForCoder(), "CAShapeLayer画眼睛"),
         (ProgressViewController.classForCoder(), "进度条"),
         (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
         (SwipeTestViewController.classForCoder(), "swipe"),
@@ -93,6 +94,7 @@ class InitialViewController: UIViewController {
 //        }
         return tab
     }()
+    
     
 }
 
