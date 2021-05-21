@@ -46,12 +46,12 @@ class InitialViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     var datas: [(AnyClass, String)] = [
-        (MBDynamicViewController.classForCoder(), "UIDynamic物理仿真器使用"),
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
         (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
         (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
         (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
-        (MBOrderMenuTestController.classForCoder(), "左右菜单联动"),
+        (MBDynamicViewController.classForCoder(), "UIDynamic物理仿真器使用"),
+        (MBOrderMenuTestController.classForCoder(), "左右菜单联动,仿UIScrollView效果"),
         (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
         (MBSortViewController.classForCoder(), "各种排序算法"),
         (MBCodecTestViewController.classForCoder(), "视频编解码"),

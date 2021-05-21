@@ -18,8 +18,6 @@ class LJDynamicItem: NSObject, UIDynamicItem {
     var transform: CGAffineTransform = CGAffineTransform.init()
 }
 
-
-
 class MBMenuTest4ViewController: MBViewController {
 
     override func viewDidLoad() {
@@ -29,7 +27,6 @@ class MBMenuTest4ViewController: MBViewController {
         _ = animator
     }
     
-    var currentScorllY: CGFloat = 0
     var dynamicItem = LJDynamicItem.init()
     var decelerationBehavior: UIDynamicItemBehavior?
     
@@ -37,7 +34,6 @@ class MBMenuTest4ViewController: MBViewController {
         let point = pan.translation(in: table)
         switch pan.state {
         case .began:
-            currentScorllY = table.contentOffset.y
             animator.removeAllBehaviors()
         case .changed:
             verticalHandler(detal: point.y, state: pan.state)
@@ -46,7 +42,6 @@ class MBMenuTest4ViewController: MBViewController {
             let velocity = pan.velocity(in: table)
             let behavior = UIDynamicItemBehavior.init(items: [dynamicItem])
             behavior.addLinearVelocity(CGPoint.init(x: 0, y: velocity.y), for: dynamicItem)
-            MBLog("velocity.y: \(velocity.y)")
             behavior.resistance = 5
             var lastCenY: CGFloat = 0
             behavior.action = { [unowned self] in
@@ -63,11 +58,7 @@ class MBMenuTest4ViewController: MBViewController {
         }
         pan.setTranslation(CGPoint.zero, in: view)
     }
-    func rubberBandDistance(offset: CGFloat, dimension: CGFloat) -> CGFloat {
-        let constant: CGFloat = 0.1
-        let result = (constant * abs(offset) * dimension) / (dimension + constant * abs(offset));
-        return offset < 0.0 ? -result : result;
-    }
+    
     // detal > 0 向下滑动; detal < 0 向上滑动
     func verticalHandler(detal: CGFloat, state: UIGestureRecognizer.State) {
         if table.contentOffset.y < maxY {                                       // 未超出最大值,仅改变父容器的offset
@@ -75,31 +66,28 @@ class MBMenuTest4ViewController: MBViewController {
             if offset < 0 {
                 offset = table.contentOffset.y - detal * 0.5                    // 超过顶部范围,增加减速因子
                 if state == .ended {
-                    swithcSpringBehavior(from: offset, to: 0)                   // 松手时,仿真切换
+                    switchSpringBehavior(on: table, from: offset, to: 0)        // 松手时,切换仿真
                 }
             }
             table.contentOffset = CGPoint.init(x: 0, y: offset)
         }else{
-            // 超出最大值,固定父容器最大值为maxY,同时修改子视图的offset
-            // 子视图的offset.y加上偏移量detal,由于detal向上滑为负,向下滑为正,所以这边不用判断,直接减去detal,
-            // 达到向上增加detal的绝对值,向下减少detal的绝对值效果
-            // 防止right超出上边界
-            var sety = max(0, footer.right.contentOffset.y - detal)
-            if sety + footer.right.bounds.height > footer.right.contentSize.height {
-                // 防止right超出下边界
-                sety = max(footer.right.contentSize.height - footer.right.bounds.height, 0)
+            var offset = max(0, footer.right.contentOffset.y - detal)                               // 子列表offset.y总是大于等于0
+            if offset + footer.right.bounds.height > footer.right.contentSize.height {
+                offset = max(0, footer.right.contentOffset.y - detal * 0.5)                         // 超出底部范围,增加减速因子
+                if state == .ended {                                                                // 松手时切换仿真
+                    let to = max(0, footer.right.contentSize.height - footer.right.bounds.height)   // 防止contentSize.height < 实际内容
+                    switchSpringBehavior(on: footer.right, from: offset, to: to)
+                }
             }
-            let offset = CGPoint.init(x: footer.right.contentOffset.x, y: sety)
-            footer.right.contentOffset = offset
-            // 向下拉至right.contentoffset.y == 0时,修改table的y值
-            if sety == 0, detal > 0 {
-                table.contentOffset = CGPoint.init(x: 0, y: maxY - detal)
+            footer.right.contentOffset = CGPoint.init(x: footer.right.contentOffset.x, y: offset)
+            if offset == 0, detal > 0 {
+                table.contentOffset = CGPoint.init(x: 0, y: maxY - detal)                           // 当向下拉至0时,触发父视图设置
             }else{
                 table.contentOffset = CGPoint.init(x: 0, y: maxY)
             }
         }
     }
-    func swithcSpringBehavior(from: CGFloat, to: CGFloat) {
+    func switchSpringBehavior(on table: UITableView, from: CGFloat, to: CGFloat) {
         guard let temp = decelerationBehavior else {
             return
         }
@@ -112,12 +100,7 @@ class MBMenuTest4ViewController: MBViewController {
         spring.damping = 1
         spring.frequency = 2
         spring.action = {
-            if abs(self.dynamicItem.center.y) < 0.5 {
-                self.table.contentOffset = CGPoint.zero
-                self.animator.removeBehavior(spring)
-            }else{
-                self.table.contentOffset = self.dynamicItem.center
-            }
+            table.contentOffset = self.dynamicItem.center
         }
         self.animator.addBehavior(spring)
     }
@@ -126,8 +109,11 @@ class MBMenuTest4ViewController: MBViewController {
         footer.frame.minY
     }
     let identify = "cell"
+    let evenColo = UIColor.gray
+    let oddColo = UIColor.lightGray
     lazy var table: UITableView = {
         let tab = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: Screen.height - Screen.fakeNavBarHeight))
+        tab.backgroundColor = UIColor.red
         tab.tableFooterView = footer
         tab.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: identify)
         tab.isScrollEnabled = false
@@ -136,7 +122,7 @@ class MBMenuTest4ViewController: MBViewController {
         return tab
     }()
     lazy var footer: MBLinkageTableV2 = {
-        let foo = MBLinkageTableV2.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: 660 ))
+        let foo = MBLinkageTableV2.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: Screen.height - Screen.fakeNavBarHeight ))
         return foo
     }()
     lazy var pan: UIPanGestureRecognizer = {
@@ -157,6 +143,7 @@ extension MBMenuTest4ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath)
         cell.textLabel?.text = "\(indexPath.row)"
+        cell.backgroundColor = (indexPath.row % 2 == 0) ? evenColo : oddColo
         return cell
     }
 }

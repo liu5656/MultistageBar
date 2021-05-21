@@ -26,7 +26,6 @@ class MBLinkageTableV2: UIView {
     lazy var left: UITableView = {
         let tab = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: 80, height: bounds.height))
         tab.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: leftIdentify)
-//        tab.isScrollEnabled = false
         tab.dataSource = self
         tab.delegate = self
         addSubview(tab)
@@ -46,11 +45,13 @@ class MBLinkageTableV2: UIView {
     lazy var sectionHeader: UILabel = {
         let lab = UILabel.init(frame: CGRect.init(x: 0, y: 0, width: 300, height: 44))
         lab.textColor = UIColor.red
+        lab.backgroundColor = UIColor.green
         lab.font = UIFont.systemFont(ofSize: 15, weight: .regular)
         lab.text = "热门精选"
         return lab
     }()
-
+    let evenColo = UIColor.gray
+    let oddColo = UIColor.lightGray
 }
 
 extension MBLinkageTableV2: UITableViewDataSource {
@@ -70,6 +71,7 @@ extension MBLinkageTableV2: UITableViewDataSource {
             cell = tableView.dequeueReusableCell(withIdentifier: rightIdentify, for: indexPath)
             cell.textLabel?.text = "right:\(indexPath.row)"
         }
+        cell.backgroundColor = (indexPath.row % 2 == 0) ? evenColo : oddColo
         return cell
     }
 }
