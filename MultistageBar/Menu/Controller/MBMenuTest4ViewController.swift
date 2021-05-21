@@ -46,12 +46,14 @@ class MBMenuTest4ViewController: MBViewController {
             let velocity = pan.velocity(in: table)
             let behavior = UIDynamicItemBehavior.init(items: [dynamicItem])
             behavior.addLinearVelocity(CGPoint.init(x: 0, y: velocity.y), for: dynamicItem)
+            MBLog("velocity.y: \(velocity.y)")
             behavior.resistance = 5
-            var lastCenter = CGPoint.zero
+            var lastCenY: CGFloat = 0
             behavior.action = { [unowned self] in
-                let detal = dynamicItem.center.y - lastCenter.y
+                let cenY = CGFloat(Int(dynamicItem.center.y))   // 避免后面出现很多小数的值
+                let detal = cenY - lastCenY
                 verticalHandler(detal: detal, state: .ended)
-                lastCenter = dynamicItem.center
+                lastCenY = cenY
             }
             animator.addBehavior(behavior)
             decelerationBehavior = behavior
@@ -61,12 +63,22 @@ class MBMenuTest4ViewController: MBViewController {
         }
         pan.setTranslation(CGPoint.zero, in: view)
     }
-    
+    func rubberBandDistance(offset: CGFloat, dimension: CGFloat) -> CGFloat {
+        let constant: CGFloat = 0.1
+        let result = (constant * abs(offset) * dimension) / (dimension + constant * abs(offset));
+        return offset < 0.0 ? -result : result;
+    }
     // detal > 0 向下滑动; detal < 0 向上滑动
     func verticalHandler(detal: CGFloat, state: UIGestureRecognizer.State) {
-        // 未超出最大值,仅改变父容器的offset
-        if table.contentOffset.y < maxY {
-            table.contentOffset = CGPoint.init(x: 0, y: max(table.contentOffset.y - detal, 0))
+        if table.contentOffset.y < maxY {                                       // 未超出最大值,仅改变父容器的offset
+            var offset = table.contentOffset.y - detal
+            if offset < 0 {
+                offset = table.contentOffset.y - detal * 0.5                    // 超过顶部范围,增加减速因子
+                if state == .ended {
+                    swithcSpringBehavior(from: offset, to: 0)                   // 松手时,仿真切换
+                }
+            }
+            table.contentOffset = CGPoint.init(x: 0, y: offset)
         }else{
             // 超出最大值,固定父容器最大值为maxY,同时修改子视图的offset
             // 子视图的offset.y加上偏移量detal,由于detal向上滑为负,向下滑为正,所以这边不用判断,直接减去detal,
@@ -87,8 +99,32 @@ class MBMenuTest4ViewController: MBViewController {
             }
         }
     }
+    func swithcSpringBehavior(from: CGFloat, to: CGFloat) {
+        guard let temp = decelerationBehavior else {
+            return
+        }
+        self.animator.removeBehavior(temp)
+        decelerationBehavior = nil
+        dynamicItem.center = CGPoint.init(x: 0, y: from)                        // 设置仿真起点
+        
+        let spring = UIAttachmentBehavior.init(item: dynamicItem, attachedToAnchor: CGPoint.init(x: 0, y: to))
+        spring.length = 0
+        spring.damping = 1
+        spring.frequency = 2
+        spring.action = {
+            if abs(self.dynamicItem.center.y) < 0.5 {
+                self.table.contentOffset = CGPoint.zero
+                self.animator.removeBehavior(spring)
+            }else{
+                self.table.contentOffset = self.dynamicItem.center
+            }
+        }
+        self.animator.addBehavior(spring)
+    }
     
-    let maxY: CGFloat = 220
+    var maxY: CGFloat {
+        footer.frame.minY
+    }
     let identify = "cell"
     lazy var table: UITableView = {
         let tab = UITableView.init(frame: CGRect.init(x: 0, y: 0, width: Screen.width, height: Screen.height - Screen.fakeNavBarHeight))
@@ -116,7 +152,7 @@ class MBMenuTest4ViewController: MBViewController {
 
 extension MBMenuTest4ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return 10
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: identify, for: indexPath)
