@@ -70,7 +70,9 @@ class MBMenuTest4ViewController: MBViewController {
                 }
             }
             table.contentOffset = CGPoint.init(x: 0, y: offset)
+//            table.isScrollEnabled = true
         }else{
+//            table.isScrollEnabled = false
             var offset = max(0, footer.right.contentOffset.y - detal)                               // 子列表offset.y总是大于等于0
             if offset + footer.right.bounds.height > footer.right.contentSize.height {
                 offset = max(0, footer.right.contentOffset.y - detal * 0.5)                         // 超出底部范围,增加减速因子
@@ -127,6 +129,8 @@ class MBMenuTest4ViewController: MBViewController {
     }()
     lazy var pan: UIPanGestureRecognizer = {
         let ges = UIPanGestureRecognizer.init(target: self, action: #selector(gesture(pan:)))
+//        ges.delegate = self
+        MBLog(ges)
         view.addGestureRecognizer(ges)
         return ges
     }()
@@ -147,3 +151,13 @@ extension MBMenuTest4ViewController: UITableViewDataSource {
         return cell
     }
 }
+
+//extension MBMenuTest4ViewController: UIGestureRecognizerDelegate {
+//    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+//        if gestureRecognizer == pan {
+//            return false
+//        }else{
+//            return true
+//        }
+//    }
+//}
