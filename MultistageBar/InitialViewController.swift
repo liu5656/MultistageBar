@@ -47,6 +47,7 @@ class InitialViewController: UIViewController {
     }
     var datas: [(AnyClass, String)] = [
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
+        (HttpsViewController.classForCoder(), "HTTPS双向测试"),
         (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
         (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
         (MBPlayerViewController.classForCoder(), "AVPlayer播放"),

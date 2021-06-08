@@ -15,6 +15,8 @@
 		170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 170566212452B09000A7AF4B /* LaunchScreen.storyboard */; };
 		1705662E2452B09000A7AF4B /* MultistageBarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705662D2452B09000A7AF4B /* MultistageBarTests.swift */; };
 		170566392452B09000A7AF4B /* MultistageBarUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566382452B09000A7AF4B /* MultistageBarUITests.swift */; };
+		17076D71266EFD8000D1C708 /* HttpsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17076D70266EFD8000D1C708 /* HttpsViewController.swift */; };
+		17076D86266EFE0F00D1C708 /* MBNet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17076D85266EFE0F00D1C708 /* MBNet.swift */; };
 		170BA9F325E48F7E0028DCB2 /* MBOrderMenuTestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */; };
 		170BAA0025E497060028DCB2 /* MBMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */; };
 		170CB87F264BDD220006E950 /* MBEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CB87E264BDD220006E950 /* MBEyeViewController.swift */; };
@@ -207,6 +209,8 @@
 		170566342452B09000A7AF4B /* MultistageBarUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultistageBarUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566382452B09000A7AF4B /* MultistageBarUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultistageBarUITests.swift; sourceTree = "<group>"; };
 		1705663A2452B09000A7AF4B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17076D70266EFD8000D1C708 /* HttpsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpsViewController.swift; sourceTree = "<group>"; };
+		17076D85266EFE0F00D1C708 /* MBNet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBNet.swift; sourceTree = "<group>"; };
 		170BA9F225E48F7E0028DCB2 /* MBOrderMenuTestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBOrderMenuTestController.swift; sourceTree = "<group>"; };
 		170BA9FF25E497060028DCB2 /* MBMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuItemCell.swift; sourceTree = "<group>"; };
 		170CB87E264BDD220006E950 /* MBEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEyeViewController.swift; sourceTree = "<group>"; };
@@ -502,6 +506,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17076D6E266EFD5800D1C708 /* Https */,
 				17BF56DA264CBFD80021820D /* 物理仿真器 */,
 				173844B6260826C100F5E3C0 /* JS */,
 				176FBA8F2604488700ACE7BB /* Sort */,
@@ -561,6 +566,31 @@
 				1705663A2452B09000A7AF4B /* Info.plist */,
 			);
 			path = MultistageBarUITests;
+			sourceTree = "<group>";
+		};
+		17076D6E266EFD5800D1C708 /* Https */ = {
+			isa = PBXGroup;
+			children = (
+				17076D76266EFD9B00D1C708 /* Model */,
+				17076D6F266EFD5C00D1C708 /* Controller */,
+			);
+			path = Https;
+			sourceTree = "<group>";
+		};
+		17076D6F266EFD5C00D1C708 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				17076D70266EFD8000D1C708 /* HttpsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		17076D76266EFD9B00D1C708 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				17076D85266EFE0F00D1C708 /* MBNet.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		170BA9ED25E48D700028DCB2 /* Menu */ = {
@@ -1511,10 +1541,12 @@
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */,
 				173844B8260826CF00F5E3C0 /* JSViewController.swift in Sources */,
+				17076D86266EFE0F00D1C708 /* MBNet.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
 				17DDD17D255D174C00B0FBB1 /* Rtmp.swift in Sources */,
 				173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */,
 				17F1D2662530349D00721941 /* CornerImage.swift in Sources */,
+				17076D71266EFD8000D1C708 /* HttpsViewController.swift in Sources */,
 				1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */,
 				1762E47F247FA5A3009B9612 /* MBSegmentModelStyleProtocol.swift in Sources */,
 				17EA39492637E0A500FD38B3 /* MBCardHeader.swift in Sources */,
