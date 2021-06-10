@@ -54,7 +54,7 @@ class MBNet: NSObject {
     func verifyRemoteWithCer(challenge: URLAuthenticationChallenge) -> (URLSession.AuthChallengeDisposition, URLCredential?) {
         guard let remotePackage = challenge.protectionSpace.serverTrust,
               let remoteCerti = SecTrustGetCertificateAtIndex(remotePackage, 0),
-              let localPath = Bundle.main.path(forResource: "", ofType: "") else {
+              let localPath = Bundle.main.path(forResource: "server", ofType: "cer") else {
             return (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
         }
         let remoteCertiData = SecCertificateCopyData(remoteCerti) as Data
@@ -72,7 +72,9 @@ class MBNet: NSObject {
     }
     // 获取本地p12文件以供远端校验
     func retrieveLocalCredential() -> URLCredential? {
-        guard let localPath = Bundle.main.path(forResource: "", ofType: "p12") else {
+        let certificationName = "client.p12"
+        let certificationPassword = "123456"
+        guard let localPath = Bundle.main.path(forResource: certificationName, ofType: nil) else {
             return nil
         }
         
@@ -82,7 +84,7 @@ class MBNet: NSObject {
             return nil
         }
         
-        let options = [kSecImportExportPassphrase: "p12证书密码"] as CFDictionary
+        let options = [kSecImportExportPassphrase: certificationPassword] as CFDictionary
         var items: CFArray?
         let result = SecPKCS12Import(pkcs12, options, &items)
         
@@ -91,7 +93,7 @@ class MBNet: NSObject {
             return nil
         }
         
-        let identify = info["identify"] as! SecIdentity
+        let identify = info["identity"] as! SecIdentity
         let certificates = info["chain"] as? [Any]
         let type = URLCredential.Persistence.forSession
         
@@ -105,9 +107,9 @@ extension MBNet: URLSessionDelegate {
         let method = challenge.protectionSpace.authenticationMethod
         switch method {
         case NSURLAuthenticationMethodServerTrust:
-            result = verifyRemoteWithCer(challenge: challenge)    // 本地校验远端证书
+            result = verifyRemoteWithCer(challenge: challenge)      // 本地校验远端证书
 //        result = trustRemoteAlways(challenge: challenge)          // 本地无条件信任远端
-        case NSURLAuthenticationMethodClientCertificate:
+        case NSURLAuthenticationMethodClientCertificate:            // 返回本地证书给远端校验
             result = (URLSession.AuthChallengeDisposition.useCredential, retrieveLocalCredential())
         default:
             result = (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)

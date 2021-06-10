@@ -109,6 +109,9 @@
 		17C35F23254803D400CB6EC4 /* Hash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F22254803D400CB6EC4 /* Hash.swift */; };
 		17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */; };
 		17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17D3604C255E799E00035B08 /* MBCitySelector.swift */; };
+		17D6D2D32671C14D00B45E93 /* server.cer in Resources */ = {isa = PBXBuildFile; fileRef = 17D6D2D22671C14D00B45E93 /* server.cer */; };
+		17D6D2D92671EB9300B45E93 /* client.cer in Resources */ = {isa = PBXBuildFile; fileRef = 17D6D2D82671EB9300B45E93 /* client.cer */; };
+		17D6D2DF2671F71900B45E93 /* client.p12 in Resources */ = {isa = PBXBuildFile; fileRef = 17D6D2DE2671F71900B45E93 /* client.p12 */; };
 		17DA1F54260195A1000A649F /* CommonFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DA1F53260195A1000A649F /* CommonFile.swift */; };
 		17DA1F772601FF80000A649F /* MBOpenGLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DA1F762601FF80000A649F /* MBOpenGLViewController.m */; };
 		17DB56842558DE7B004537DE /* MBCodecTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17DB56832558DE7B004537DE /* MBCodecTestViewController.swift */; };
@@ -307,6 +310,9 @@
 		17C35F22254803D400CB6EC4 /* Hash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hash.swift; sourceTree = "<group>"; };
 		17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHashTestViewController.swift; sourceTree = "<group>"; };
 		17D3604C255E799E00035B08 /* MBCitySelector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCitySelector.swift; sourceTree = "<group>"; };
+		17D6D2D22671C14D00B45E93 /* server.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = server.cer; sourceTree = "<group>"; };
+		17D6D2D82671EB9300B45E93 /* client.cer */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.cer; sourceTree = "<group>"; };
+		17D6D2DE2671F71900B45E93 /* client.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = client.p12; sourceTree = "<group>"; };
 		17DA05152616BAA500D18BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17DA05172616BAA500D18BA4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		17DA05192616BAA500D18BA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -571,6 +577,7 @@
 		17076D6E266EFD5800D1C708 /* Https */ = {
 			isa = PBXGroup;
 			children = (
+				17D6D2D12671C13400B45E93 /* SSL */,
 				17076D76266EFD9B00D1C708 /* Model */,
 				17076D6F266EFD5C00D1C708 /* Controller */,
 			);
@@ -988,6 +995,16 @@
 				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 			);
 			path = Hash;
+			sourceTree = "<group>";
+		};
+		17D6D2D12671C13400B45E93 /* SSL */ = {
+			isa = PBXGroup;
+			children = (
+				17D6D2D22671C14D00B45E93 /* server.cer */,
+				17D6D2D82671EB9300B45E93 /* client.cer */,
+				17D6D2DE2671F71900B45E93 /* client.p12 */,
+			);
+			path = SSL;
 			sourceTree = "<group>";
 		};
 		17DA05142616BAA500D18BA4 /* Applet */ = {
@@ -1419,12 +1436,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				170566232452B09000A7AF4B /* LaunchScreen.storyboard in Resources */,
+				17D6D2D92671EB9300B45E93 /* client.cer in Resources */,
 				1783148426033DC400286049 /* glsl.vsh in Resources */,
 				17EA394A2637E0A500FD38B3 /* MBCardHeader.xib in Resources */,
 				170566202452B09000A7AF4B /* Assets.xcassets in Resources */,
 				1783148926033E6000286049 /* glsl.fsh in Resources */,
 				1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */,
 				173844D0260885D400F5E3C0 /* index.html in Resources */,
+				17D6D2D32671C14D00B45E93 /* server.cer in Resources */,
+				17D6D2DF2671F71900B45E93 /* client.p12 in Resources */,
 				173844CB26083F5400F5E3C0 /* bridge.js in Resources */,
 				176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */,
 			);

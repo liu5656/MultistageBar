@@ -13,7 +13,7 @@ class HttpsViewController: MBViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 //        https://localhost:8080/product
-        let url = "https://192.168.0.69:8080/product"
+        let url = "https://192.168.0.69:8443/product"
         net.request(url: url, method: "GET")
     }
     let net = MBNet.init()
