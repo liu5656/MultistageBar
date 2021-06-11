@@ -532,6 +532,178 @@ handle_msg://⚙️⚙️⚙️⚙️***⑨***⚙️⚙️⚙️⚙️处理唤�
 
 __CFRunLoopServiceMachPort是一种真正意义上的休眠，让线程真正停下来，不再消耗CPU做停留，内部调用mach_msg()函数，内部可能会通过中断的方式来唤醒。
 
+# 6、状态栏、导航栏、标签栏
+
+info.plist文件添加View controller-based status bar appearance字段：
+
+- 值为true，则各个控制器之间不影响；ViewController对状态栏的设置优先级高于application的设置。
+- 值为false，则控制器之间相互影响；以application设置为准，ViewController的preferredStatusBarStyle不会主动调用。
+
+## 1、修改状态栏颜色
+
+参考：https://blog.csdn.net/todovista/article/details/108689202
+
+1. 未使用导航控制器的情况，只需要在ViewController中重写preferredStatusBarStyle只读属性，返回当前控制器需要的状态就可以
+
+2. 使用系统的导航控制器的情况，即使在控制器中重写preferredStatusBarStyle的只读属性，并且主动调用setNeedsStatusBarAppearanceUpdate()方法，preferredStatusBarStyle属性也不会被调用，因为此时的状态栏是根据导航栏来自动变换的；要改变状态栏的颜色只需要主动修改导航栏的样式就可以了
+
+   ```swift
+   	navigationController?.navigationBar.barStyle = .black		// 状态栏将变白色
+   ```
+
+3. 使用自定义的导航控制器的情况，首先需要在自定义的导航控制器中重写childForStatusBarStyle的只读属性，
+
+   ```swift
+   // 告诉系统,调用topViewControll的preferredStatusBarStyle属性值来更新状态栏
+   override var childForStatusBarStyle: UIViewController? {
+           return topViewController
+       }
+   ```
+
+   然后在需要改变颜色的ViewController中重写preferredStatusBarStyle的只读属性即可。
+
+   ```swift
+   override var preferredStatusBarStyle: UIStatusBarStyle {
+           return .lightContent
+       }
+   ```
+
+## 2、导航栏
+
+一个导航控制器只有一个导航栏，也就是说同一个导航控制器中的ViewController修改导航栏后会影响其他的控制器。
+
+1. 修改导航栏的背景图
+
+   ```swift
+   let backgroundImage = UIImage.drawImage(withColor: .FFFFFF, size: CGSize(width: Screen.width, height: Screen.fakeNavBarHeight))
+           navigationController?.navigationBar.setBackgroundImage(backgroundImage, for: .default)
+   ```
+
+2. 修改导航栏底部黑线
+
+   ```swift
+   let shadowImage = UIImage.drawImage(withColor: .F1F1F1, size: CGSize(width: Screen.width, height: 0.5.flatScale))
+           navigationController?.navigationBar.shadowImage = shadowImage
+   ```
+
+3. 修改导航栏标题样式
+
+   ```swift
+   navigationController?.navigationBar.titleTextAttributes = [.foregroundColor:UIColor._282828, .font:UIFont.fontBold16()]
+   ```
+
+# 7、物理仿真
+
+**UIDynamic方正流程：**
+
+1. 创建物理仿真器（UIDynamicAnimator）实例，并设置仿真范围。
+2. 创建物理仿真行为，添加物理仿真元素。
+3. 将物理仿真行为添加到仿真器中，开始仿真。
+
+**仿真元素**
+
+任何遵守UIDynamicItem协议的对象才能作为仿真元素，UIView、UICollectionViewLayoutAttributes类已经遵守了UIDynamicItem协议。
+
+**物理仿真行为**
+
+- 重力：UIGravityBehavior
+- 碰撞：UICollisionBehavior
+- 推动：UIPushBehavior
+- 动力元素：UIDynamicItemBehavior
+- 附着：UIAttachmentBehavior
+- 捕捉：UISnapBehavior
+
+# 8、HTTPS
+
+**参考文章：**
+
+[iOS Https证书验证问题全解](https://www.jianshu.com/p/3ff885ec989e)
+
+[Java Keytool生成数字证书/.cer/.p12文件](https://blog.csdn.net/devil_bye/article/details/82759140)
+
+[SecCertificate,SecKey,SecTrust详解](https://www.jianshu.com/p/af7ad3105ed2)
+
+[IOS Swift Https单向认证](https://blog.csdn.net/ZZB_Bin/article/details/73135506)
+
+[Swift、WKWebView 适配HTTPS（单向验证）](https://www.jianshu.com/p/6dbe8bd7782c)
+
+## 客户端校验服务端
+
+### 完全信任
+
+```swift
+// 不验证服务端,直接全部信任
+    func trustRemoteAlways(challenge: URLAuthenticationChallenge) -> (URLSession.AuthChallengeDisposition, URLCredential?) {
+        let disposition = URLSession.AuthChallengeDisposition.useCredential
+        var cre: URLCredential?
+        if let trust = challenge.protectionSpace.serverTrust {
+            cre = URLCredential.init(trust: trust)
+        }
+        return (disposition, cre)
+    }
+```
+
+### 对远端服务进行证书校验
+
+```swift
+// 对服务器发过来的证书进行验证
+    func verifyRemoteWithCer(challenge: URLAuthenticationChallenge) -> (URLSession.AuthChallengeDisposition, URLCredential?) {
+        guard let remotePackage = challenge.protectionSpace.serverTrust,
+              let remoteCerti = SecTrustGetCertificateAtIndex(remotePackage, 0),
+              let localPath = Bundle.main.path(forResource: "server", ofType: "cer") else {
+            return (URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge, nil)
+        }
+        let remoteCertiData = SecCertificateCopyData(remoteCerti) as Data
+        let localUrl = URL.init(fileURLWithPath: localPath)
+        let localCertiData = try? Data.init(contentsOf: localUrl)
+        let disposition: URLSession.AuthChallengeDisposition
+        var credential: URLCredential? = nil
+        if remoteCertiData == localCertiData {
+            disposition = URLSession.AuthChallengeDisposition.useCredential
+            credential = URLCredential.init(trust: remotePackage)
+        }else{
+            disposition = URLSession.AuthChallengeDisposition.cancelAuthenticationChallenge
+        }
+        return (disposition, credential)
+    }
+```
+
+## 提供证书以便服务端验证客户端
+
+**注意：**此处的证书格式需要为p12，否则获取证书会失败（-26275错误码）
+
+```swift
+// 获取本地p12文件以供远端校验
+    func retrieveLocalCredential() -> URLCredential? {
+        let certificationName = "client.p12"
+        let certificationPassword = "123456"
+        guard let localPath = Bundle.main.path(forResource: certificationName, ofType: nil) else {
+            return nil
+        }
+        
+        let localUrl = URL.init(fileURLWithPath: localPath)
+        
+        guard let pkcs12 = try? Data.init(contentsOf: localUrl) as CFData else {
+            return nil
+        }
+        
+        let options = [kSecImportExportPassphrase: certificationPassword] as CFDictionary
+        var items: CFArray?
+        let result = SecPKCS12Import(pkcs12, options, &items)
+        
+        guard result == errSecSuccess,
+              let info = (items! as Array).first as? [String: Any] else {
+            return nil
+        }
+        
+        let identify = info["identity"] as! SecIdentity
+        let certificates = info["chain"] as? [Any]
+        let type = URLCredential.Persistence.forSession
+        
+        return URLCredential.init(identity: identify, certificates: certificates, persistence: type)
+    }
+```
+
 
 
 
