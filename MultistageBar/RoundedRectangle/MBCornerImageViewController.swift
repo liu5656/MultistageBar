@@ -13,8 +13,11 @@ class MBCornerImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
+        let img = UIImage.init(named: "lena")
         _ = originalIV
-        print(UIImage.init(named: "lena")?.corner(radius: 50).size)
+        print("before: \(img?.size)")
+        cornerIV.image = img?.corner(radius: 50)
+        print("after croped: \(cornerIV.image?.size)")
     }
     
     lazy var originalIV: UIImageView = {

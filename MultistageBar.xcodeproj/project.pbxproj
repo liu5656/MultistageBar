@@ -81,6 +81,7 @@
 		17974FAD258306F900B78DD5 /* MBTimerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FAC258306F900B78DD5 /* MBTimerViewController.swift */; };
 		17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17974FB2258307B600B78DD5 /* IDFAViewController.swift */; };
 		17974FCE2583491100B78DD5 /* MBCustomObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 17974FCD2583491100B78DD5 /* MBCustomObject.m */; };
+		179AA62B269296EB000389EA /* waypoint.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 179AA62A269296EB000389EA /* waypoint.gpx */; };
 		179DA86E2537FF0D008CAD53 /* RefreshNormalFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */; };
 		179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */; };
 		179DA8702537FF0D008CAD53 /* RefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */; };
@@ -282,6 +283,8 @@
 		17974FB2258307B600B78DD5 /* IDFAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDFAViewController.swift; sourceTree = "<group>"; };
 		17974FCC2583491100B78DD5 /* MBCustomObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBCustomObject.h; sourceTree = "<group>"; };
 		17974FCD2583491100B78DD5 /* MBCustomObject.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBCustomObject.m; sourceTree = "<group>"; };
+		179AA62A269296EB000389EA /* waypoint.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = waypoint.gpx; sourceTree = "<group>"; };
+		179AA63026929719000389EA /* waypoint.gpx */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = waypoint.gpx; path = MultistageBar/waypoint.gpx; sourceTree = "<group>"; };
 		179DA86A2537FF0D008CAD53 /* RefreshNormalFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshNormalFooter.swift; sourceTree = "<group>"; };
 		179DA86B2537FF0D008CAD53 /* ScrollviewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScrollviewExtension.swift; sourceTree = "<group>"; };
 		179DA86C2537FF0D008CAD53 /* RefreshComponent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshComponent.swift; sourceTree = "<group>"; };
@@ -488,6 +491,7 @@
 		1705660A2452B08D00A7AF4B = {
 			isa = PBXGroup;
 			children = (
+				179AA63026929719000389EA /* waypoint.gpx */,
 				170566152452B08D00A7AF4B /* MultistageBar */,
 				1705662C2452B09000A7AF4B /* MultistageBarTests */,
 				170566372452B09000A7AF4B /* MultistageBarUITests */,
@@ -512,6 +516,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				179AA62A269296EB000389EA /* waypoint.gpx */,
 				17076D6E266EFD5800D1C708 /* Https */,
 				17BF56DA264CBFD80021820D /* 物理仿真器 */,
 				173844B6260826C100F5E3C0 /* JS */,
@@ -1444,6 +1449,7 @@
 				1705661E2452B08D00A7AF4B /* Main.storyboard in Resources */,
 				173844D0260885D400F5E3C0 /* index.html in Resources */,
 				17D6D2D32671C14D00B45E93 /* server.cer in Resources */,
+				179AA62B269296EB000389EA /* waypoint.gpx in Resources */,
 				17D6D2DF2671F71900B45E93 /* client.p12 in Resources */,
 				173844CB26083F5400F5E3C0 /* bridge.js in Resources */,
 				176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */,

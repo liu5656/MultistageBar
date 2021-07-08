@@ -93,7 +93,7 @@ class MBMenuTest3ViewController: MBViewController {
     }()
     
     lazy var colCV: UICollectionView = {
-        //        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: horizontal)
+//        let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: 360, height: 200), collectionViewLayout: horizontal)
         let col = UICollectionView.init(frame: CGRect.init(x: 0, y: 100, width: Screen.width, height: 174), collectionViewLayout: horizontal)
         col.backgroundColor = UIColor.gray
         col.isPagingEnabled = true
