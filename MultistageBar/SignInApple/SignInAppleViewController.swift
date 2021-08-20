@@ -9,6 +9,7 @@
 import UIKit
 import AuthenticationServices
 
+@available(iOS 13.0, *)
 class SignInAppleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class SignInAppleViewController: UIViewController {
     }()
 }
 
+@available(iOS 13.0, *)
 extension SignInAppleViewController: ASAuthorizationControllerDelegate {
     func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
         if let content = authorization.credential as? ASAuthorizationAppleIDCredential {
@@ -53,6 +55,7 @@ email: \(content.email)
     }
 }
 
+@available(iOS 13.0, *)
 extension SignInAppleViewController: ASAuthorizationControllerPresentationContextProviding {
     func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
         return self.view.window!

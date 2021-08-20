@@ -39,17 +39,21 @@ class InitialViewController: UIViewController {
         super.viewDidLoad()
         _ = table
         table.beginHeaderRefreshing()
+        if #available(iOS 13, *) {
+            datas.append((SignInAppleViewController.classForCoder(), "苹果登录"))
+        }
     }
     
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
-    var datas: [(AnyClass, String)] = [
+    var datas: [(Any, String)] = [
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
         (HttpsViewController.classForCoder(), "HTTPS双向测试"),
-        (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
-        (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
+        ("opengles", "OpenGL ES测试"),
+//        (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
+//        (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
         (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
         (MBDynamicViewController.classForCoder(), "UIDynamic物理仿真器使用"),
         (MBOrderMenuTestController.classForCoder(), "左右菜单联动,仿UIScrollView效果"),
@@ -60,7 +64,6 @@ class InitialViewController: UIViewController {
         (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
         (MBHeaderViewController.classForCoder(), "带顶部的一级菜单"),
         (MBMultistageViewController.classForCoder(), "多级菜单"),
-        (SignInAppleViewController.classForCoder(), "苹果登录"),
         (JSONViewController.classForCoder(), "json<->模型"),
         (MBEyeViewController.classForCoder(), "CAShapeLayer画眼睛"),
         (ProgressViewController.classForCoder(), "进度条"),
@@ -117,16 +120,35 @@ extension InitialViewController: UITableViewDataSource {
 
 extension InitialViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let type = datas[indexPath.row].0 as? UIViewController.Type else {return}
-        let vc: UIViewController
-//        if WrapTableViewController<TempModel>.self == type {
+        if let type = datas[indexPath.row].0 as? UIViewController.Type {
+            let vc: UIViewController
             if WrapTableViewController.self == type {
-//                vc = WrapTableViewController<TempModel>.init(request: TempRequest())
-            vc = WrapTableViewController.init(request: TempRequest())
-        }else{
-            vc = type.init()
+                vc = WrapTableViewController.init(request: TempRequest())
+            }else{
+                vc = type.init()
+            }
+            self.navigationController?.pushViewController(vc, animated: true)
+        }else if let name = datas[indexPath.row].0 as? String { // storyboard加载
+            let sb = UIStoryboard.init(name: name, bundle: Bundle.main)
+            if let vc = sb.instantiateInitialViewController() {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
         }
-        self.navigationController?.pushViewController(vc, animated: true)
+        
+        
+
+        
+        
+//        guard let type = datas[indexPath.row].0 as? UIViewController.Type else {return}
+//        let vc: UIViewController
+////        if WrapTableViewController<TempModel>.self == type {
+//            if WrapTableViewController.self == type {
+////                vc = WrapTableViewController<TempModel>.init(request: TempRequest())
+//            vc = WrapTableViewController.init(request: TempRequest())
+//        }else{
+//            vc = type.init()
+//        }
+//        self.navigationController?.pushViewController(vc, animated: true)
         
     }
 }

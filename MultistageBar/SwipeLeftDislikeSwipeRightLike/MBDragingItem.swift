@@ -12,7 +12,11 @@ class MBDragingItem: UIView {
     
     lazy var imgIV: UIImageView = {
         let img = UIImageView.init()
-        img.backgroundColor = UIColor.systemGray6
+        if #available(iOS 13.0, *) {
+            img.backgroundColor = UIColor.systemGray6
+        } else {
+            // Fallback on earlier versions
+        }
         img.frame = bounds
         img.isUserInteractionEnabled = true
         addSubview(img)
