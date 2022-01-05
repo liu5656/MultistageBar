@@ -25,6 +25,8 @@
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
 		1725D9FF2785310300BBE68B /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */; };
 		1725DA0127853A1100BBE68B /* SwizzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA0027853A1100BBE68B /* SwizzleViewController.swift */; };
+		1725DA032785471200BBE68B /* KVOViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA022785471200BBE68B /* KVOViewController.swift */; };
+		1725DA0527856C2D00BBE68B /* SwiftSwizzle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA0427856C2D00BBE68B /* SwiftSwizzle.swift */; };
 		172A2EAE251D98980072D325 /* AssetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA7251D98980072D325 /* AssetTools.swift */; };
 		172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA8251D98980072D325 /* AlbumViewController.swift */; };
 		172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAA251D98980072D325 /* AlbumImageCell.swift */; };
@@ -234,6 +236,8 @@
 		1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
 		1725DA0027853A1100BBE68B /* SwizzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwizzleViewController.swift; sourceTree = "<group>"; };
+		1725DA022785471200BBE68B /* KVOViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KVOViewController.swift; sourceTree = "<group>"; };
+		1725DA0427856C2D00BBE68B /* SwiftSwizzle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftSwizzle.swift; sourceTree = "<group>"; };
 		172A2EA7251D98980072D325 /* AssetTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTools.swift; sourceTree = "<group>"; };
 		172A2EA8251D98980072D325 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
@@ -543,7 +547,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
-				1725D9FC278530E800BBE68B /* Swizzle */,
+				1725D9FC278530E800BBE68B /* Runtime */,
 				179AA62A269296EB000389EA /* waypoint.gpx */,
 				17076D6E266EFD5800D1C708 /* Https */,
 				17BF56DA264CBFD80021820D /* 物理仿真器 */,
@@ -686,14 +690,16 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		1725D9FC278530E800BBE68B /* Swizzle */ = {
+		1725D9FC278530E800BBE68B /* Runtime */ = {
 			isa = PBXGroup;
 			children = (
 				1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */,
 				1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */,
 				1725DA0027853A1100BBE68B /* SwizzleViewController.swift */,
+				1725DA022785471200BBE68B /* KVOViewController.swift */,
+				1725DA0427856C2D00BBE68B /* SwiftSwizzle.swift */,
 			);
-			path = Swizzle;
+			path = Runtime;
 			sourceTree = "<group>";
 		};
 		172A2EA4251D98980072D325 /* Album */ = {
@@ -1548,6 +1554,7 @@
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
+				1725DA0527856C2D00BBE68B /* SwiftSwizzle.swift in Sources */,
 				17EA39262637B72D00FD38B3 /* MBMenuTest3ViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				17C2E3782636B2FB000136C1 /* MBLinkageTable.swift in Sources */,
@@ -1648,6 +1655,7 @@
 				172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */,
 				1762E47E247FA5A3009B9612 /* MBSegmentCollectionView.swift in Sources */,
 				1779C38C26CF5E50004C9A53 /* MoveCubeViewController.m in Sources */,
+				1725DA032785471200BBE68B /* KVOViewController.swift in Sources */,
 				172A2EBB251DC4BB0072D325 /* AlbumTestViewController.swift in Sources */,
 				17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */,
 				17C199DB254C18DC006BE61A /* MBTableView.swift in Sources */,

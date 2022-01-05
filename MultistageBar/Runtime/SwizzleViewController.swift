@@ -15,11 +15,19 @@ class SwizzleViewController: UIViewController {
         
         view.backgroundColor = UIColor.white
         
-        var res = SwizzleViewController.swizzleMethod(#selector(ddl_viewWillAppear(_:)), withMethod: #selector(viewWillAppear(_:)))
+        // OC
+//        var res = SwizzleViewController.swizzleMethod(#selector(ddl_viewWillAppear(_:)), withMethod: #selector(viewWillAppear(_:)))
+//        debugPrint("swizzle result is \(res)")
+//
+//        res = SwizzleViewController.swizzleMethod(#selector(ddl_methodOne), withMethod: #selector(ddl_methodTwo))
+//
+//        debugPrint("swizzle result is \(res)")
+        
+        // Swift
+        var res = SwizzleViewController.swizzle(originalSel: #selector(ddl_viewWillAppear(_:)), targetSel: #selector(viewWillAppear(_:)))
         debugPrint("swizzle result is \(res)")
-        
-        res = SwizzleViewController.swizzleMethod(#selector(ddl_methodOne), withMethod: #selector(ddl_methodTwo))
-        
+
+        res = SwizzleViewController.swizzle(originalSel: #selector(ddl_methodOne), targetSel: #selector(ddl_methodTwo))
         debugPrint("swizzle result is \(res)")
         
         //        ddl_methodTwo()           // 立马调用会没有效果
@@ -44,3 +52,5 @@ class SwizzleViewController: UIViewController {
     }
 
 }
+
+

@@ -26,8 +26,8 @@
         return NO;
     }
 
-    class_addMethod(self, originalSel, originImp, method_getTypeEncoding(originMethod));
-    class_addMethod(self, targetSel, targetImp, method_getTypeEncoding(targetMethod));
+    BOOL res = class_addMethod(self, originalSel, originImp, method_getTypeEncoding(originMethod));
+    res = class_addMethod(self, targetSel, targetImp, method_getTypeEncoding(targetMethod));
 
     method_exchangeImplementations(originMethod, targetMethod);
 
