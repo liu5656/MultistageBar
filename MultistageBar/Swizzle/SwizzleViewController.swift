@@ -13,6 +13,8 @@ class SwizzleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        view.backgroundColor = UIColor.white
+        
         var res = SwizzleViewController.swizzleMethod(#selector(ddl_viewWillAppear(_:)), withMethod: #selector(viewWillAppear(_:)))
         debugPrint("swizzle result is \(res)")
         
