@@ -49,6 +49,7 @@ class InitialViewController: UIViewController {
         super.viewDidAppear(animated)
     }
     var datas: [(Any, String)] = [
+        (SwizzleViewController.classForCoder(), "Swizzle测试"),
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
         (HttpsViewController.classForCoder(), "HTTPS双向测试"),
         ("opengles", "OpenGL ES测试"),

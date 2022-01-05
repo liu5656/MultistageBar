@@ -6,3 +6,5 @@
 
 #import "MBOpenGLViewController.h"
 #import "MBGLSLViewController.h"
+
+#import "NSObject+Swizzle.h"

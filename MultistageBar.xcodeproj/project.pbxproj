@@ -23,6 +23,8 @@
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
+		1725D9FF2785310300BBE68B /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */; };
+		1725DA0127853A1100BBE68B /* SwizzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA0027853A1100BBE68B /* SwizzleViewController.swift */; };
 		172A2EAE251D98980072D325 /* AssetTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA7251D98980072D325 /* AssetTools.swift */; };
 		172A2EAF251D98980072D325 /* AlbumViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EA8251D98980072D325 /* AlbumViewController.swift */; };
 		172A2EB1251D98980072D325 /* AlbumImageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172A2EAA251D98980072D325 /* AlbumImageCell.swift */; };
@@ -229,6 +231,9 @@
 		1714BDB525357AB100105924 /* ImageRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieve.swift; sourceTree = "<group>"; };
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
+		1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
+		1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
+		1725DA0027853A1100BBE68B /* SwizzleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwizzleViewController.swift; sourceTree = "<group>"; };
 		172A2EA7251D98980072D325 /* AssetTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetTools.swift; sourceTree = "<group>"; };
 		172A2EA8251D98980072D325 /* AlbumViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumViewController.swift; sourceTree = "<group>"; };
 		172A2EAA251D98980072D325 /* AlbumImageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlbumImageCell.swift; sourceTree = "<group>"; };
@@ -538,6 +543,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				1725D9FC278530E800BBE68B /* Swizzle */,
 				179AA62A269296EB000389EA /* waypoint.gpx */,
 				17076D6E266EFD5800D1C708 /* Https */,
 				17BF56DA264CBFD80021820D /* 物理仿真器 */,
@@ -678,6 +684,16 @@
 				177A1452264541230012F1DC /* MBMenuTest4ViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		1725D9FC278530E800BBE68B /* Swizzle */ = {
+			isa = PBXGroup;
+			children = (
+				1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */,
+				1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */,
+				1725DA0027853A1100BBE68B /* SwizzleViewController.swift */,
+			);
+			path = Swizzle;
 			sourceTree = "<group>";
 		};
 		172A2EA4251D98980072D325 /* Album */ = {
@@ -1566,6 +1582,7 @@
 				173844C0260826E300F5E3C0 /* MBWebView.swift in Sources */,
 				177A14592645418A0012F1DC /* MBLinkageTableV2.swift in Sources */,
 				17FEC0B82536A04A0002168D /* MBSegmentModelTitle.swift in Sources */,
+				1725D9FF2785310300BBE68B /* NSObject+Swizzle.m in Sources */,
 				1779C38D26CF5E50004C9A53 /* ColorfulTriangleViewController.m in Sources */,
 				1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */,
 				179DCBB125F9FBF600AC64C2 /* L!PlayerPreview.swift in Sources */,
@@ -1644,6 +1661,7 @@
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				1783147F26033D1900286049 /* MBGLSLViewController.m in Sources */,
+				1725DA0127853A1100BBE68B /* SwizzleViewController.swift in Sources */,
 				174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */,
 				175CC48D25345828006465AC /* RetryStrategy.swift in Sources */,
 			);
