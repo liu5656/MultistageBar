@@ -23,6 +23,7 @@
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
 		17182B86278BD70400C0DAC5 /* APMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17182B85278BD70400C0DAC5 /* APMViewController.m */; };
+		17182B88278BEE7800C0DAC5 /* FPSMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17182B87278BEE7800C0DAC5 /* FPSMonitor.swift */; };
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
 		1725D9FF2785310300BBE68B /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */; };
 		1725DA0127853A1100BBE68B /* SwizzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA0027853A1100BBE68B /* SwizzleViewController.swift */; };
@@ -234,6 +235,7 @@
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
 		17182B84278BD70400C0DAC5 /* APMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APMViewController.h; sourceTree = "<group>"; };
 		17182B85278BD70400C0DAC5 /* APMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APMViewController.m; sourceTree = "<group>"; };
+		17182B87278BEE7800C0DAC5 /* FPSMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FPSMonitor.swift; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
 		1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
@@ -664,6 +666,7 @@
 			children = (
 				17182B84278BD70400C0DAC5 /* APMViewController.h */,
 				17182B85278BD70400C0DAC5 /* APMViewController.m */,
+				17182B87278BEE7800C0DAC5 /* FPSMonitor.swift */,
 			);
 			path = APM;
 			sourceTree = "<group>";
@@ -1676,6 +1679,7 @@
 				174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */,
 				17974FCE2583491100B78DD5 /* MBCustomObject.m in Sources */,
 				17FEC0C12536A0860002168D /* MBSegmentTitleCell.swift in Sources */,
+				17182B88278BEE7800C0DAC5 /* FPSMonitor.swift in Sources */,
 				172A2EC4251DF52D0072D325 /* Screen.swift in Sources */,
 				172A2EB3251D98980072D325 /* AssetModel.swift in Sources */,
 				1783147F26033D1900286049 /* MBGLSLViewController.m in Sources */,

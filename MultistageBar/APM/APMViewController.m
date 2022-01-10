@@ -12,11 +12,12 @@
 #import <mach/task.h>
 #import <mach/thread_act.h>
 #import <mach/vm_map.h>
+#import "MultistageBar-Swift.h"
 
-//#include <mach/task.h>
-//#include <mach/mach_init.h>
 
 @interface APMViewController ()
+
+@property (nonatomic, strong) FPSMonitor *fps;
 
 @end
 
@@ -26,6 +27,9 @@
     [super viewDidLoad];
     NSLog(@"cpu usage: %f", [APMViewController cpuUsage]);
     NSLog(@"memory usage : %d", [APMViewController memoryUsage]);
+    self.fps = [[FPSMonitor alloc] init];
+    [self.fps enableMonitor];
+//    [self.fps enableMonitor];
     
 }
 
