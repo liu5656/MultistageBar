@@ -33,6 +33,10 @@
     
 }
 
+- (void)dealloc {
+    [self.fps destoryMonitor];
+}
+
 + (CGFloat)cpuUsage {
     kern_return_t           status;
     thread_array_t          threads;

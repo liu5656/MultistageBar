@@ -32,7 +32,7 @@ public class FPSMonitor: NSObject {
         }
     }
     
-    public func destoryMonitor() {
+    @objc public func destoryMonitor() {
         disableMonitor()
         link?.invalidate()
         link = nil
@@ -54,3 +54,4 @@ public class FPSMonitor: NSObject {
     }
 
 }
+ 
