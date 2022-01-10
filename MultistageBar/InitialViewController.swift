@@ -47,8 +47,16 @@ class InitialViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+//        let temp: Any = MBGLSLViewController.classForCoder()
+//        if let vc = temp as? UIViewController.Type {
+//            let mb = vc.init()
+//            debugPrint(mb)
+//        }
+        
     }
     var datas: [(Any, String)] = [
+        (APMViewController.classForCoder(), "APM"),
         (SwizzleViewController.classForCoder(), "Swizzle测试"),
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
         (HttpsViewController.classForCoder(), "HTTPS双向测试"),

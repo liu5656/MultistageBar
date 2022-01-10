@@ -22,6 +22,7 @@
 		170CB87F264BDD220006E950 /* MBEyeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170CB87E264BDD220006E950 /* MBEyeViewController.swift */; };
 		1714BDB625357AB100105924 /* ImageRetrieve.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDB525357AB100105924 /* ImageRetrieve.swift */; };
 		1714BDBE25357B8900105924 /* MBRetrieveImageSizeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */; };
+		17182B86278BD70400C0DAC5 /* APMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17182B85278BD70400C0DAC5 /* APMViewController.m */; };
 		172121182455265C00F7695D /* MBFirstTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 172121172455265C00F7695D /* MBFirstTableContentVC.swift */; };
 		1725D9FF2785310300BBE68B /* NSObject+Swizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */; };
 		1725DA0127853A1100BBE68B /* SwizzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1725DA0027853A1100BBE68B /* SwizzleViewController.swift */; };
@@ -231,6 +232,8 @@
 		170CB87E264BDD220006E950 /* MBEyeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEyeViewController.swift; sourceTree = "<group>"; };
 		1714BDB525357AB100105924 /* ImageRetrieve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRetrieve.swift; sourceTree = "<group>"; };
 		1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRetrieveImageSizeViewController.swift; sourceTree = "<group>"; };
+		17182B84278BD70400C0DAC5 /* APMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APMViewController.h; sourceTree = "<group>"; };
+		17182B85278BD70400C0DAC5 /* APMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APMViewController.m; sourceTree = "<group>"; };
 		172121172455265C00F7695D /* MBFirstTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFirstTableContentVC.swift; sourceTree = "<group>"; };
 		1725D9FD2785310300BBE68B /* NSObject+Swizzle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSObject+Swizzle.h"; sourceTree = "<group>"; };
 		1725D9FE2785310300BBE68B /* NSObject+Swizzle.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Swizzle.m"; sourceTree = "<group>"; };
@@ -545,6 +548,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17182B83278BD6EE00C0DAC5 /* APM */,
 				1725D9FC278530E800BBE68B /* Runtime */,
 				179AA62A269296EB000389EA /* waypoint.gpx */,
 				17076D6E266EFD5800D1C708 /* Https */,
@@ -653,6 +657,15 @@
 				1714BDBD25357B8900105924 /* MBRetrieveImageSizeViewController.swift */,
 			);
 			path = RetrieveImageSize;
+			sourceTree = "<group>";
+		};
+		17182B83278BD6EE00C0DAC5 /* APM */ = {
+			isa = PBXGroup;
+			children = (
+				17182B84278BD70400C0DAC5 /* APMViewController.h */,
+				17182B85278BD70400C0DAC5 /* APMViewController.m */,
+			);
+			path = APM;
 			sourceTree = "<group>";
 		};
 		1723BFFC263C07590006EFC5 /* Model */ = {
@@ -1552,6 +1565,7 @@
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
 				17974FB3258307B600B78DD5 /* IDFAViewController.swift in Sources */,
 				1725DA0527856C2D00BBE68B /* SwiftSwizzle.swift in Sources */,
+				17182B86278BD70400C0DAC5 /* APMViewController.m in Sources */,
 				17EA39262637B72D00FD38B3 /* MBMenuTest3ViewController.swift in Sources */,
 				1762E481247FA5A3009B9612 /* MBSegmentModelProtocol.swift in Sources */,
 				17C2E3782636B2FB000136C1 /* MBLinkageTable.swift in Sources */,
@@ -1874,6 +1888,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -1904,6 +1919,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = KTB22P584Z;
 				ENABLE_BITCODE = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
