@@ -18,7 +18,6 @@ public class FPSMonitor: NSObject {
         if link == nil {
             link = CADisplayLink.init(target: self, selector: #selector(fpsCalculate(link:)))
             link?.add(to: RunLoop.main, forMode: RunLoop.Mode.common)
-//            link?.isPaused = false
         }else{
             link?.isPaused = false
         }
