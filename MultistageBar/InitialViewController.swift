@@ -56,6 +56,7 @@ class InitialViewController: UIViewController {
         
     }
     var datas: [(Any, String)] = [
+        (ThreadTestViewController.classForCoder(), "队列理解"),
         (APMViewController.classForCoder(), "APM"),
         (SwizzleViewController.classForCoder(), "Swizzle测试"),
         (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),

@@ -70,6 +70,8 @@
 		176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176A1503252310E6002EB14F /* SwipeTestViewController.swift */; };
 		176FBA9E2604490E00ACE7BB /* MBSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176FBA9C2604490E00ACE7BB /* MBSortViewController.swift */; };
 		176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 176FBA9D2604490E00ACE7BB /* MBSortViewController.xib */; };
+		17745D09278EAAAF00505D73 /* ThreadTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17745D07278EAAAF00505D73 /* ThreadTestViewController.swift */; };
+		17745D0A278EAAAF00505D73 /* ThreadTestViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17745D08278EAAAF00505D73 /* ThreadTestViewController.xib */; };
 		1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C061255103C9001E14C7 /* MBCoordination.swift */; };
 		1778C06725510509001E14C7 /* MBDistance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1778C06625510509001E14C7 /* MBDistance.swift */; };
 		1779C37426CF5B67004C9A53 /* opengles.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1779C37326CF5B67004C9A53 /* opengles.storyboard */; };
@@ -287,6 +289,8 @@
 		176A1503252310E6002EB14F /* SwipeTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwipeTestViewController.swift; sourceTree = "<group>"; };
 		176FBA9C2604490E00ACE7BB /* MBSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSortViewController.swift; sourceTree = "<group>"; };
 		176FBA9D2604490E00ACE7BB /* MBSortViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MBSortViewController.xib; sourceTree = "<group>"; };
+		17745D07278EAAAF00505D73 /* ThreadTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreadTestViewController.swift; sourceTree = "<group>"; };
+		17745D08278EAAAF00505D73 /* ThreadTestViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ThreadTestViewController.xib; sourceTree = "<group>"; };
 		1778C061255103C9001E14C7 /* MBCoordination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBCoordination.swift; sourceTree = "<group>"; };
 		1778C06625510509001E14C7 /* MBDistance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistance.swift; sourceTree = "<group>"; };
 		1779C37326CF5B67004C9A53 /* opengles.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = opengles.storyboard; sourceTree = "<group>"; };
@@ -553,6 +557,8 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17745D04278EA44C00505D73 /* ThreadsTest */,
+				17745CC1278E676400505D73 /* SwiftIntermediateLanguage */,
 				17182B83278BD6EE00C0DAC5 /* APM */,
 				1725D9FC278530E800BBE68B /* Runtime */,
 				179AA62A269296EB000389EA /* waypoint.gpx */,
@@ -934,6 +940,22 @@
 				17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */,
 			);
 			path = SegmentTest;
+			sourceTree = "<group>";
+		};
+		17745CC1278E676400505D73 /* SwiftIntermediateLanguage */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SwiftIntermediateLanguage;
+			sourceTree = "<group>";
+		};
+		17745D04278EA44C00505D73 /* ThreadsTest */ = {
+			isa = PBXGroup;
+			children = (
+				17745D07278EAAAF00505D73 /* ThreadTestViewController.swift */,
+				17745D08278EAAAF00505D73 /* ThreadTestViewController.xib */,
+			);
+			path = ThreadsTest;
 			sourceTree = "<group>";
 		};
 		1778C0602551039B001E14C7 /* DistanceByCoordinate */ = {
@@ -1528,6 +1550,7 @@
 				17D6D2D32671C14D00B45E93 /* server.cer in Resources */,
 				1779C39D26CF7EC8004C9A53 /* Shader.fsh in Resources */,
 				179AA62B269296EB000389EA /* waypoint.gpx in Resources */,
+				17745D0A278EAAAF00505D73 /* ThreadTestViewController.xib in Resources */,
 				17D6D2DF2671F71900B45E93 /* client.p12 in Resources */,
 				173844CB26083F5400F5E3C0 /* bridge.js in Resources */,
 				176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */,
@@ -1568,6 +1591,7 @@
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
 				1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */,
+				17745D09278EAAAF00505D73 /* ThreadTestViewController.swift in Sources */,
 				17C2E37E2636BA71000136C1 /* MBLinkage.swift in Sources */,
 				17D3604D255E799E00035B08 /* MBCitySelector.swift in Sources */,
 				17B87A3225663C4700100BA4 /* DataProviderProtocol.swift in Sources */,
