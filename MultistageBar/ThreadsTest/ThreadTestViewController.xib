@@ -84,7 +84,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="XdD-Id-WIp" secondAttribute="trailing" constant="20" id="8Ln-af-RwR"/>
                 <constraint firstItem="XdD-Id-WIp" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="36" id="gxV-aG-aYh"/>
             </constraints>
-            <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
+            <point key="canvasLocation" x="22" y="78"/>
         </view>
     </objects>
     <resources>

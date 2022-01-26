@@ -56,6 +56,8 @@ class InitialViewController: UIViewController {
         
     }
     var datas: [(Any, String)] = [
+        (ShakeFeedbackViewController.classForCoder(), "震动反馈"),
+        (AsyncViewController.classForCoder(), "swift5.5异步编程"),
         (ThreadTestViewController.classForCoder(), "队列理解"),
         (APMViewController.classForCoder(), "APM"),
         (SwizzleViewController.classForCoder(), "Swizzle测试"),

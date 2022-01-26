@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1701F6512796508C00E395AE /* AsyncViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1701F6502796508C00E395AE /* AsyncViewController.xib */; };
 		170566172452B08D00A7AF4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566162452B08D00A7AF4B /* AppDelegate.swift */; };
 		170566192452B08D00A7AF4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170566182452B08D00A7AF4B /* SceneDelegate.swift */; };
 		1705661B2452B08D00A7AF4B /* MBMultistageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1705661A2452B08D00A7AF4B /* MBMultistageViewController.swift */; };
@@ -47,6 +48,7 @@
 		173B7ECF255AEC0800BCB451 /* AAPLEAGLLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */; };
 		17412EDB245687F4003C239D /* MBSecondTableContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */; };
 		174371FC2519A40500C0E9A7 /* CodableEx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174371FB2519A40500C0E9A7 /* CodableEx.swift */; };
+		1743A03B27955CCE001CAFE4 /* AsyncViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1743A03A27955CCE001CAFE4 /* AsyncViewController.swift */; };
 		1746C3E0245A9DE9003DBB67 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */; };
 		174B89D9251C833A00087E72 /* SignInAppleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89D8251C833A00087E72 /* SignInAppleViewController.swift */; };
 		174B89E1251C83C600087E72 /* JSONViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174B89E0251C83C600087E72 /* JSONViewController.swift */; };
@@ -90,6 +92,9 @@
 		178487B4253700E800AEB2E4 /* MBRefreshTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */; };
 		178739942635664A003E7362 /* MBMenuTest1Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178739932635664A003E7362 /* MBMenuTest1Controller.swift */; };
 		178739B2263569A2003E7362 /* MBMenuTest2Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178739B1263569A2003E7362 /* MBMenuTest2Controller.swift */; };
+		17880CD927965E38000017BE /* MBFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17880CD827965E38000017BE /* MBFeedback.swift */; };
+		17880CDC279666F1000017BE /* ShakeFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17880CDA279666F1000017BE /* ShakeFeedbackViewController.swift */; };
+		17880CDD279666F1000017BE /* ShakeFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17880CDB279666F1000017BE /* ShakeFeedbackViewController.xib */; };
 		178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 178FB02E2521774500A17272 /* AuthorizationTools.swift */; };
 		1794035724C6D2C8000D2776 /* MBDistanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */; };
 		1794035924C6D2F3000D2776 /* MBHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */; };
@@ -215,6 +220,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1701F6502796508C00E395AE /* AsyncViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AsyncViewController.xib; sourceTree = "<group>"; };
 		170566132452B08D00A7AF4B /* MultistageBar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MultistageBar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		170566162452B08D00A7AF4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		170566182452B08D00A7AF4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -266,6 +272,7 @@
 		173B7ECE255AEC0800BCB451 /* AAPLEAGLLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AAPLEAGLLayer.m; sourceTree = "<group>"; };
 		17412EDA245687F4003C239D /* MBSecondTableContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSecondTableContentVC.swift; sourceTree = "<group>"; };
 		174371FB2519A40500C0E9A7 /* CodableEx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableEx.swift; sourceTree = "<group>"; };
+		1743A03A27955CCE001CAFE4 /* AsyncViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsyncViewController.swift; sourceTree = "<group>"; };
 		1746C3DF245A9DE9003DBB67 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		174B89D8251C833A00087E72 /* SignInAppleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAppleViewController.swift; sourceTree = "<group>"; };
 		174B89E0251C83C600087E72 /* JSONViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONViewController.swift; sourceTree = "<group>"; };
@@ -316,6 +323,9 @@
 		178487B3253700E800AEB2E4 /* MBRefreshTestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBRefreshTestViewController.swift; sourceTree = "<group>"; };
 		178739932635664A003E7362 /* MBMenuTest1Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuTest1Controller.swift; sourceTree = "<group>"; };
 		178739B1263569A2003E7362 /* MBMenuTest2Controller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBMenuTest2Controller.swift; sourceTree = "<group>"; };
+		17880CD827965E38000017BE /* MBFeedback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBFeedback.swift; sourceTree = "<group>"; };
+		17880CDA279666F1000017BE /* ShakeFeedbackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShakeFeedbackViewController.swift; sourceTree = "<group>"; };
+		17880CDB279666F1000017BE /* ShakeFeedbackViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShakeFeedbackViewController.xib; sourceTree = "<group>"; };
 		178FB02E2521774500A17272 /* AuthorizationTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationTools.swift; sourceTree = "<group>"; };
 		1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBDistanceViewController.swift; sourceTree = "<group>"; };
 		1794035824C6D2F3000D2776 /* MBHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBHeaderViewController.swift; sourceTree = "<group>"; };
@@ -557,6 +567,8 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				17880CD727965DE1000017BE /* 震动反馈 */,
+				1743A03927955CB7001CAFE4 /* AsyncAwait */,
 				17745D04278EA44C00505D73 /* ThreadsTest */,
 				17745CC1278E676400505D73 /* SwiftIntermediateLanguage */,
 				17182B83278BD6EE00C0DAC5 /* APM */,
@@ -818,6 +830,15 @@
 			path = JSONMap;
 			sourceTree = "<group>";
 		};
+		1743A03927955CB7001CAFE4 /* AsyncAwait */ = {
+			isa = PBXGroup;
+			children = (
+				1743A03A27955CCE001CAFE4 /* AsyncViewController.swift */,
+				1701F6502796508C00E395AE /* AsyncViewController.xib */,
+			);
+			path = AsyncAwait;
+			sourceTree = "<group>";
+		};
 		174B89D4251C82D800087E72 /* SignInApple */ = {
 			isa = PBXGroup;
 			children = (
@@ -966,6 +987,16 @@
 				1794035624C6D2C8000D2776 /* MBDistanceViewController.swift */,
 			);
 			path = DistanceByCoordinate;
+			sourceTree = "<group>";
+		};
+		17880CD727965DE1000017BE /* 震动反馈 */ = {
+			isa = PBXGroup;
+			children = (
+				17880CD827965E38000017BE /* MBFeedback.swift */,
+				17880CDA279666F1000017BE /* ShakeFeedbackViewController.swift */,
+				17880CDB279666F1000017BE /* ShakeFeedbackViewController.xib */,
+			);
+			path = "震动反馈";
 			sourceTree = "<group>";
 		};
 		1794035A24C6D814000D2776 /* ProgressView */ = {
@@ -1553,8 +1584,10 @@
 				17745D0A278EAAAF00505D73 /* ThreadTestViewController.xib in Resources */,
 				17D6D2DF2671F71900B45E93 /* client.p12 in Resources */,
 				173844CB26083F5400F5E3C0 /* bridge.js in Resources */,
+				1701F6512796508C00E395AE /* AsyncViewController.xib in Resources */,
 				176FBA9F2604490E00ACE7BB /* MBSortViewController.xib in Resources */,
 				1779C37426CF5B67004C9A53 /* opengles.storyboard in Resources */,
+				17880CDD279666F1000017BE /* ShakeFeedbackViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1587,6 +1620,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17880CDC279666F1000017BE /* ShakeFeedbackViewController.swift in Sources */,
 				179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */,
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
 				174B89EE251C91C800087E72 /* ProgressViewController.swift in Sources */,
@@ -1653,6 +1687,7 @@
 				17C35F282548055A00CB6EC4 /* MBHashTestViewController.swift in Sources */,
 				17FEC0D42536CC5D0002168D /* StringEx.swift in Sources */,
 				17182B8B278C1CD200C0DAC5 /* APMDetector.m in Sources */,
+				17880CD927965E38000017BE /* MBFeedback.swift in Sources */,
 				179DCB9525F9C43B00AC64C2 /* L1Player.swift in Sources */,
 				1762E47B247FA5A3009B9612 /* MBSegmentContentDatasource.swift in Sources */,
 				1762E47D247FA5A3009B9612 /* MBSegmentMenuView.swift in Sources */,
@@ -1676,6 +1711,7 @@
 				1762E483247FA5A3009B9612 /* MBSegmentIndicatorProtocol.swift in Sources */,
 				178FB02F2521774500A17272 /* AuthorizationTools.swift in Sources */,
 				17FEC09E25369F850002168D /* MBSegmentLineIndicator.swift in Sources */,
+				1743A03B27955CCE001CAFE4 /* AsyncViewController.swift in Sources */,
 				173844B8260826CF00F5E3C0 /* JSViewController.swift in Sources */,
 				17076D86266EFE0F00D1C708 /* MBNet.swift in Sources */,
 				172A2EC0251DDD490072D325 /* CaptureImageEx.swift in Sources */,
@@ -1925,7 +1961,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1956,7 +1992,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/include";
 				INFOPLIST_FILE = MultistageBar/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
