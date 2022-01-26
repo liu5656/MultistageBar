@@ -112,6 +112,8 @@
 		179DCBB125F9FBF600AC64C2 /* L!PlayerPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179DCBB025F9FBF600AC64C2 /* L!PlayerPreview.swift */; };
 		179F4D48254906020051E69D /* AES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D47254906020051E69D /* AES.swift */; };
 		179F4D4D2549075F0051E69D /* DES.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F4D4C2549075F0051E69D /* DES.swift */; };
+		179F7FC927A0FB2200AE2341 /* SnapshotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F7FC827A0FB2200AE2341 /* SnapshotViewController.swift */; };
+		179F7FCC27A1161200AE2341 /* MBSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 179F7FCB27A1161200AE2341 /* MBSnapshot.swift */; };
 		17A248E62558F1290069B5F8 /* MBEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A248E52558F1290069B5F8 /* MBEncoder.swift */; };
 		17A7307F25202A4A001D8170 /* CropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A7307E25202A4A001D8170 /* CropViewController.swift */; };
 		17ADB476257730EF00D51E82 /* MBTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17ADB475257730EF00D51E82 /* MBTimer.swift */; };
@@ -345,6 +347,9 @@
 		179DCBB025F9FBF600AC64C2 /* L!PlayerPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "L!PlayerPreview.swift"; sourceTree = "<group>"; };
 		179F4D47254906020051E69D /* AES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AES.swift; sourceTree = "<group>"; };
 		179F4D4C2549075F0051E69D /* DES.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DES.swift; sourceTree = "<group>"; };
+		179F7FC827A0FB2200AE2341 /* SnapshotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnapshotViewController.swift; sourceTree = "<group>"; };
+		179F7FCB27A1161200AE2341 /* MBSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBSnapshot.swift; sourceTree = "<group>"; };
+		179F7FCD27A1434D00AE2341 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		17A248E52558F1290069B5F8 /* MBEncoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBEncoder.swift; sourceTree = "<group>"; };
 		17A7307E25202A4A001D8170 /* CropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CropViewController.swift; sourceTree = "<group>"; };
 		17ADB475257730EF00D51E82 /* MBTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MBTimer.swift; sourceTree = "<group>"; };
@@ -567,6 +572,7 @@
 		170566152452B08D00A7AF4B /* MultistageBar */ = {
 			isa = PBXGroup;
 			children = (
+				179F7FC727A0FB0000AE2341 /* 截图 */,
 				17880CD727965DE1000017BE /* 震动反馈 */,
 				1743A03927955CB7001CAFE4 /* AsyncAwait */,
 				17745D04278EA44C00505D73 /* ThreadsTest */,
@@ -1035,6 +1041,15 @@
 			path = VideoPlayer;
 			sourceTree = "<group>";
 		};
+		179F7FC727A0FB0000AE2341 /* 截图 */ = {
+			isa = PBXGroup;
+			children = (
+				179F7FC827A0FB2200AE2341 /* SnapshotViewController.swift */,
+				179F7FCB27A1161200AE2341 /* MBSnapshot.swift */,
+			);
+			path = "截图";
+			sourceTree = "<group>";
+		};
 		17ADB474257730DD00D51E82 /* Timer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1262,6 +1277,7 @@
 		17DDD2AC255D3B8C00B0FBB1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				179F7FCD27A1434D00AE2341 /* libswift_Concurrency.tbd */,
 				17DDD2CD255D3E1600B0FBB1 /* libz.1.2.8.tbd */,
 				17DDD2C2255D3C0B00B0FBB1 /* VideoToolbox.framework */,
 				17DDD2C0255D3C0000B0FBB1 /* CoreMedia.framework */,
@@ -1620,6 +1636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				179F7FC927A0FB2200AE2341 /* SnapshotViewController.swift in Sources */,
 				17880CDC279666F1000017BE /* ShakeFeedbackViewController.swift in Sources */,
 				179DA86F2537FF0D008CAD53 /* ScrollviewExtension.swift in Sources */,
 				176A1504252310E6002EB14F /* SwipeTestViewController.swift in Sources */,
@@ -1699,6 +1716,7 @@
 				17DDD178255D174C00B0FBB1 /* RTMPProtocol.swift in Sources */,
 				17DDD164255D124D00B0FBB1 /* MBPushStream.swift in Sources */,
 				17FEC0A625369F980002168D /* MBSegmentBackgroundIndicator.swift in Sources */,
+				179F7FCC27A1161200AE2341 /* MBSnapshot.swift in Sources */,
 				1778C062255103C9001E14C7 /* MBCoordination.swift in Sources */,
 				172A2EAE251D98980072D325 /* AssetTools.swift in Sources */,
 				174ED78D25FF3FFF0000B8B7 /* SavePhoto.swift in Sources */,
@@ -1885,7 +1903,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1939,7 +1957,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1969,6 +1987,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/lib",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2000,6 +2019,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MultistageBar/VideoCodec/rtmp/lib",
+					"$(SDKROOT)/usr/lib/swift",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yz.MultistageBar;
 				PRODUCT_NAME = "$(TARGET_NAME)";

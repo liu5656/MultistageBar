@@ -55,42 +55,54 @@ class InitialViewController: UIViewController {
 //        }
         
     }
-    var datas: [(Any, String)] = [
-        (ShakeFeedbackViewController.classForCoder(), "震动反馈"),
-        (AsyncViewController.classForCoder(), "swift5.5异步编程"),
-        (ThreadTestViewController.classForCoder(), "队列理解"),
-        (APMViewController.classForCoder(), "APM"),
-        (SwizzleViewController.classForCoder(), "Swizzle测试"),
-        (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
-        (HttpsViewController.classForCoder(), "HTTPS双向测试"),
-        ("opengles", "OpenGL ES测试"),
-//        (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
-//        (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
-        (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
-        (MBDynamicViewController.classForCoder(), "UIDynamic物理仿真器使用"),
-        (MBOrderMenuTestController.classForCoder(), "左右菜单联动,仿UIScrollView效果"),
-        (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
-        (MBSortViewController.classForCoder(), "各种排序算法"),
-        (MBCodecTestViewController.classForCoder(), "视频编解码"),
-        (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
-        (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
-        (MBHeaderViewController.classForCoder(), "带顶部的一级菜单"),
-        (MBMultistageViewController.classForCoder(), "多级菜单"),
-        (JSONViewController.classForCoder(), "json<->模型"),
-        (MBEyeViewController.classForCoder(), "CAShapeLayer画眼睛"),
-        (ProgressViewController.classForCoder(), "进度条"),
-        (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
-        (SwipeTestViewController.classForCoder(), "swipe"),
-        (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪"),
-        (MBLocationViewController.classForCoder(), "获取定位信息"),
-        (MBRetryViewController.classForCoder(), "失败重试策略"),
-        (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
-        (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
-        (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
-        (WrapTableViewController.classForCoder(), "封装tableView"),
-        (MBTimerViewController.classForCoder(), "倒计时测试"),
-        (IDFAViewController.classForCoder(), "IDFA授权")
-    ]
+    lazy var datas: [(Any, String)] = {
+        var datas: [(Any, String)] = [
+            (SnapshotViewController.classForCoder(), "截图"),
+            (ThreadTestViewController.classForCoder(), "队列理解"),
+            (SwizzleViewController.classForCoder(), "Swizzle测试"),
+            (JSViewController.classForCoder(), "JS调用iOS异步返回,JS注入"),
+            (HttpsViewController.classForCoder(), "HTTPS双向测试"),
+            ("opengles", "OpenGL ES测试"),
+            //        (MBGLSLViewController.classForCoder(), "OpenGL ES GLSL渲染"),
+            //        (MBOpenGLViewController.classForCoder(), "OpenGL ES GLKit"),
+            (MBPlayerViewController.classForCoder(), "AVPlayer播放"),
+            (MBDynamicViewController.classForCoder(), "UIDynamic物理仿真器使用"),
+            (MBOrderMenuTestController.classForCoder(), "左右菜单联动,仿UIScrollView效果"),
+            (SwipeToLikeViewController.classForCoder(), "左滑不喜欢,右滑喜欢"),
+            (MBSortViewController.classForCoder(), "各种排序算法"),
+            (MBCodecTestViewController.classForCoder(), "视频编解码"),
+            (MBDistanceViewController.classForCoder(), "经纬度距离计算"),
+            (MBCornerMarkViewController.classForCoder(), "带角标的菜单"),
+            (MBHeaderViewController.classForCoder(), "带顶部的一级菜单"),
+            (MBMultistageViewController.classForCoder(), "多级菜单"),
+            (JSONViewController.classForCoder(), "json<->模型"),
+            (MBEyeViewController.classForCoder(), "CAShapeLayer画眼睛"),
+            (ProgressViewController.classForCoder(), "进度条"),
+            (AlbumTestViewController.classForCoder(), "获取相册图片/裁剪"),
+            (SwipeTestViewController.classForCoder(), "swipe"),
+            (MBCornerImageViewController.classForCoder(), "图片通过像素裁剪"),
+            (MBLocationViewController.classForCoder(), "获取定位信息"),
+            (MBRetryViewController.classForCoder(), "失败重试策略"),
+            (MBRetrieveImageSizeViewController.classForCoder(), "只获取网上图片尺寸"),
+            (MBRefreshTestViewController.classForCoder(), "刷新控件和uicollectionview.isPagingEnabled的测试"),
+            (MBHashTestViewController.classForCoder(), "SHA1/SHA256/SHA512/DES/AES/RSA"),
+            (WrapTableViewController.classForCoder(), "封装tableView"),
+            (MBTimerViewController.classForCoder(), "倒计时测试"),
+            (IDFAViewController.classForCoder(), "IDFA授权")
+        ]
+        
+        if #available(iOS 13, *) {
+            datas.append((ShakeFeedbackViewController.classForCoder(), "震动反馈"))
+            datas.append((AsyncViewController.classForCoder(), "swift5.5异步编程"))
+            datas.append((APMViewController.classForCoder(), "APM"))
+        } else {
+            // Fallback on earlier versions
+        }
+        
+        
+        return datas
+        
+    }()
     
     lazy var table: UITableView = {
         let tab = UITableView.init(frame: CGRect.init(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64))
