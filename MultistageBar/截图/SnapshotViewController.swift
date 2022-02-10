@@ -22,7 +22,16 @@ class SnapshotViewController: MBViewController {
     }
     
     @objc func snapshot() {
-        let img = table.capture(targetSize: view.bounds.size)
+        // 截取uitableview全部内容
+//        let img = table.capture(targetSize: view.bounds.size)
+        
+        // 截取uiview部分内容
+//        let img = view.capture(rect: CGRect.init(x: 30, y: 0, width: 415, height: 44))
+        
+        // 截取uitableview部分内容
+        let img = table.capture(rect: CGRect.init(x: 20, y: 44, width: 60, height: 44))
+        
+        
         print(img?.size)
     }
     

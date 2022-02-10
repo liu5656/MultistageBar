@@ -11,12 +11,42 @@ import Foundation
 
 // 截图
 public protocol SnapshotDelegate {
-    func capture(targetSize: CGSize) -> UIImage?
+    // 截取整个视图
+    func capture() -> UIImage?
+    // 截取可视视图的部分
+    func capture(rect: CGRect) -> UIImage?
 }
 
 extension UIView: SnapshotDelegate {
-    @objc public func capture(targetSize: CGSize) -> UIImage? {
-        UIGraphicsBeginImageContextWithOptions(targetSize, true, UIScreen.main.scale)
+    @objc public func capture(rect: CGRect) -> UIImage? {
+        let scale = UIScreen.main.scale
+        
+        UIGraphicsBeginImageContextWithOptions(frame.size, true, scale)
+        
+        self.drawHierarchy(in: bounds, afterScreenUpdates: true)
+//        self.snapshotView(afterScreenUpdates: true)
+//        guard let context = UIGraphicsGetCurrentContext() else {
+//            return nil
+//        }
+//        self.layer.render(in: context)
+        
+        let fullImg = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        guard rect != bounds else { return fullImg }
+        
+        let scope = rect.applying(CGAffineTransform.init(scaleX: scale, y: scale))
+        
+        guard let cropData = fullImg?.cgImage?.cropping(to: scope) else { return nil }
+        
+        let result = UIImage.init(cgImage: cropData, scale: scale, orientation: UIImage.Orientation.up)
+        
+        return result
+    }
+    
+    @objc public func capture() -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, UIScreen.main.scale)
         guard let context = UIGraphicsGetCurrentContext() else {
             return nil
         }
@@ -29,7 +59,7 @@ extension UIView: SnapshotDelegate {
 
 // 截取UIScrollView系列的长图
 extension UIScrollView {
-    public override func capture(targetSize: CGSize) -> UIImage? {
+    public override func capture() -> UIImage? {
          
         let savedContentOffset = contentOffset
         
@@ -47,6 +77,7 @@ extension UIScrollView {
             contentOffset = CGPoint.init(x: 0, y: CGFloat(index) * frame.height)
             layer.render(in: context)
         }
+
                 
         let img = UIGraphicsGetImageFromCurrentImageContext()
         
