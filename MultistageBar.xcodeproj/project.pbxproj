@@ -595,7 +595,7 @@
 				17B87A1325660D3F00100BA4 /* WrapTableView */,
 				17DB56822558DE0B004537DE /* VideoCodec */,
 				1778C0602551039B001E14C7 /* DistanceByCoordinate */,
-				17C35F0D2547C6BA00CB6EC4 /* Hash */,
+				17C35F0D2547C6BA00CB6EC4 /* Hash_AES_RSA */,
 				1714BDB425357A8400105924 /* RetrieveImageSize */,
 				175CC48B25345810006465AC /* RetryStrategy */,
 				175CC475253449AB006465AC /* Map */,
@@ -1120,7 +1120,7 @@
 			path = "物理仿真器";
 			sourceTree = "<group>";
 		};
-		17C35F0D2547C6BA00CB6EC4 /* Hash */ = {
+		17C35F0D2547C6BA00CB6EC4 /* Hash_AES_RSA */ = {
 			isa = PBXGroup;
 			children = (
 				17C35F22254803D400CB6EC4 /* Hash.swift */,
@@ -1129,7 +1129,7 @@
 				17C199CF254BF2DE006BE61A /* RSA.swift */,
 				17C35F272548055A00CB6EC4 /* MBHashTestViewController.swift */,
 			);
-			path = Hash;
+			path = Hash_AES_RSA;
 			sourceTree = "<group>";
 		};
 		17D6D2D12671C13400B45E93 /* SSL */ = {
